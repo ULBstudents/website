@@ -1,3 +1,5 @@
+<body class="ulb">
+
 <h2>Examen</h2>
 Les réponses proviennent (ou par l'intermédiaire de résumé) de Denis Steckelmacher, Pierre Dagnely, Christophe Dumeunter, Julien Vanbergen, David Fishel et Rodrigue Van Brande. Merci à eux.
 <h3>Théorie</h3>
@@ -975,3 +977,6 @@ Sachant que les stations commencent à émettre leur première trame en même te
 
 
 <h4 class="question">Deux entités A et B ont établi une connexion <b>TCP</b> passant par deux routeurs $R$ et $S$. Les liaisons $A \leftrightarrow R$, $R \leftrightarrow S$ et $S \leftrightarrow B$ ont un débit de respectivement 10 Mbps, 1 Mbps, et 1 Mbps. Chacune de ces liaisons a un temps de propagation de 10 ms. $A$ souhaite envoyer des données à $B$ le plus rapidement possible. La fenêtre de réception de $B$ est de 18 MSS, le MSS ayant été négocié à 10 Kb, en-tête compris. Le seuil de l'algorithme de <i>slow-start</i> est initialement fixé à 12 MSS. A chaque réception d'un segment, $B$ répond par un acquit de 24 octets, en-tête compis. Un timer de retransmission de 1 s est enclenché à chaque début d'envoi d'une rafale. Combien de temps faut-il à $A$ pour arrive à un fenetre de congestion de taille maximale, sachant que la troisième rafale sera entièrement perdue et qu'il n'y aura pas d'autres pertes ?</h4>
+
+
+</body>
