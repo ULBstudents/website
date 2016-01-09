@@ -393,7 +393,7 @@ Si aucun ou peu de phénomène de mise en attente ne se produit à l'entrée, ma
 	</ul>
 </li>
 <li>
-	Le scénario est :
+	Le scénario de la métthode itérative est :
 	<ul>
 		<li>Le client émet une requête <b>www.company.com in A</b> à son serveur <b>DNS</b> local. </li>
 		<li>Le serveur local, n'ayant pas l'adresse requise en cache, contacte un des root servers (défini dans sa configuration), avec la même requête.</li>
@@ -402,7 +402,12 @@ Si aucun ou peu de phénomène de mise en attente ne se produit à l'entrée, ma
 		<li>Le serveur local contacte alors le serveur authoritaire, qui lui renvoie la zone pour le domaine <b>company.com</b>, qui contient un champ <b>CNAME</b> pour <b>www.company.com</b>. Si cet champ pointe vers le domaine contenu dans l'enregistrement <b>A</b> de la zone, la recherche s'arrête, le client a obtenu l'ip désirée.</li>
 		<li>Sinon, tant qu'un enregistrement <b>A</b> n'a pas été trouvé, le serveur recommence les mêmes étapes à partir du domaine obtenu dans le champ <b>CNAME</b>.</li>
 	</ul>
-</li></ol></div>
+	<figure>
+		<img src="images/dns-name-resolution.svg" alt="computer network schema" />
+		<figcaption>Computer Network Schema</figcaption>
+	</figure>
+</li>
+</ol></div>
 
 
 
@@ -504,10 +509,11 @@ Le protocole gère 3 classes de trafic :
 <div class="answer"><ol class="alphabet">
 <li>Il faut créer les sous-domaines sur le serveur <b>DNS</b> local. Il faut faire un enregistrement de type A avec l'adresse <b>IP</b> aurprès du serveur <b>DNS</b> avec les 2 adresses web ainsi qu'unCNAME pour l'alias?</li>
 <li>
-<figure>
-	<img src="images/call.svg" alt="computer network schema" />
-	<figcaption>Computer Network Schema</figcaption>
-</figure></li>
+	<figure>
+		<img src="images/dns-name-resolution.svg" alt="computer network schema" />
+		<figcaption>Computer Network Schema</figcaption>
+	</figure>
+</li>
 </ol></div>
 
 
