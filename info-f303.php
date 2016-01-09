@@ -393,7 +393,7 @@ Si aucun ou peu de phénomène de mise en attente ne se produit à l'entrée, ma
 	</ul>
 </li>
 <li>
-	Le scénario de la métthode itérative est :
+	Le scénario de la méthode itérative est :
 	<ul>
 		<li>Le client émet une requête <b>www.company.com in A</b> à son serveur <b>DNS</b> local. </li>
 		<li>Le serveur local, n'ayant pas l'adresse requise en cache, contacte un des root servers (défini dans sa configuration), avec la même requête.</li>
@@ -403,8 +403,8 @@ Si aucun ou peu de phénomène de mise en attente ne se produit à l'entrée, ma
 		<li>Sinon, tant qu'un enregistrement <b>A</b> n'a pas été trouvé, le serveur recommence les mêmes étapes à partir du domaine obtenu dans le champ <b>CNAME</b>.</li>
 	</ul>
 	<figure>
-		<img src="images/dns-name-resolution.svg" alt="computer network schema" />
-		<figcaption>Computer Network Schema</figcaption>
+		<img src="images/dns-name-resolution.svg" alt="DNS name resolution ( recursive and iterated method )" />
+		<figcaption>DNS name resolution ( recursive and iterated method )</figcaption>
 	</figure>
 </li>
 </ol></div>
@@ -510,8 +510,8 @@ Le protocole gère 3 classes de trafic :
 <li>Il faut créer les sous-domaines sur le serveur <b>DNS</b> local. Il faut faire un enregistrement de type A avec l'adresse <b>IP</b> aurprès du serveur <b>DNS</b> avec les 2 adresses web ainsi qu'unCNAME pour l'alias?</li>
 <li>
 	<figure>
-		<img src="images/dns-name-resolution.svg" alt="computer network schema" />
-		<figcaption>Computer Network Schema</figcaption>
+		<img src="images/dns-name-resolution.svg" alt="DNS name resolution ( recursive and iterated method )" />
+		<figcaption>DNS name resolution ( recursive and iterated method )</figcaption>
 	</figure>
 </li>
 </ol></div>
@@ -624,8 +624,8 @@ $$Timeout = estimation + 4 marge$$
 <li>Une version simplifiée du <b>DNS</b> consisterait en un serveur de noms unique contenant toutes les correspondances existantes. Ce système a l’air simple, mais impossible à mettre en oeuvre, pour causes : fragilité d’un site central unique, volume de trafic trop important, base de données centralisée trop éloignée de certains utilisateurs, problèmes de maintenance dus au volume énorme des données à stocker. <b>DNS</b> se doit donc d’être un système distribué.</li>
 <li><b>DNS</b> utilise un grand nombre de serveurs de noms, organisé de manière hiérarchique et distribué dans le monde entier. Il existe trois types de serveurs de noms : les <b>serveurs de noms locaux</b>, les <b>serveurs de nom racine</b> et les <b>serveurs de nom de source autorisée</b>. Chaque fournisseur d’accès possède un <b>serveur de noms local</b>, vers lequel vont toutes les recherches <b>DNS</b> formulées au sein de ce réseau local. Un <b>serveur de noms local</b> est forcément proche du client. Lorsqu’un serveur local de noms n’est pas en mesure de répondre à une demande il se transforme en client <b>DNS</b> et interroge un <b>serveur de nom racine</b>, si celui-ci a une réponse il l’envoie au serveur de noms <b>DNS</b>, qui la transmet alors à l’auteur de la demande ; si le <b>serveur de nom racine</b> ne peut lui non plus satisfaire la demande directement, il répond en donnant l’adresse <b>IP</b> d’un <b>serveur de nom de source autorisée</b> qui connaîtra certainement la correspondance recherchée. Tout serveur est enregistré auprès d’au moins deux <b>serveurs de noms de source autorisée</b>, en général il s’agit tout simplement du fournisseur d’accès. Un <b>serveur de nom est qualifié</b> de source autorisée pour un serveur donné, s’il dispose en permanence d’archives <b>DNS</b> permettant d’établir la conversion pour ce serveur. 
 <figure>
-	<img src="images/dns.svg" alt="Système <b>DNS</b>" />
-	<figcaption>Système <b>DNS</b></figcaption>
+	<img src="images/dns-name-resolution.svg" alt="DNS name resolution ( recursive and iterated method )" />
+	<figcaption>DNS name resolution ( recursive and iterated method )</figcaption>
 </figure>
 Toutes ces recherches que nous venons de voir étaient du type récursives, mais <b>DNS</b> autorise également des recherches itératives à n’importe quel moment du processus de recherche : si un serveur n’est pas en mesure de répondre favorablement à la demande, il renvoie directement l’adresse <b>IP</b> du prochain serveur de nom de la chaîne. En général, toutes les demandes d’une même recherche <b>DNS</b> sont récursives, mis à part celle émanant du serveur local de nom adressée au serveur racine qui est de nature itérative. Cette démarche est préférable, les serveurs racines traitant généralement de grands volumes de
 demandes.</li>
