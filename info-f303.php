@@ -74,6 +74,10 @@ Les réponses proviennent (ou par l'intermédiaire de résumé) de Denis Steckel
 		<li><b>FDM</b> (<b>La division en fréquences</b>) : C’est utilisé en radio et en télévision. On attribue un sous-canal de fréquences à chaque personne qui veut recevoir des informations. Par exemple, le premier usager à la bande de fréquence de 0 à 1KHz, le 2 à la bande de 1 à 2KHz,... Tout le monde peut donc communiquer de manière continue à l’aide de son sous-canal.</li>
 		<li><b>WDM</b></li>
 	</ul>
+	<figure>
+		<img src="images/fdm-tdm-wdm.svg" alt="FDM TDM WDM" />
+		<figcaption>FDM TDM WDM</figcaption>
+	</figure>
 </li>
 </ol></div>
 
@@ -536,14 +540,24 @@ Si aucun ou peu de phénomène de mise en attente ne se produit à l'entrée, ma
 
 
 <h4 class="question"><ol class="alphabet"><li>Expliquez le principe du multiplexage en longueur d’onde (WDM). Quel est son intérêt ?</li><li>Comparez WDM aux techniques classiques de multiplexage TDM et FDM.</li></ol></h4>
-<div class="answer"><ol class="alphabet"><li>Dans WMD, chaque station reçoit deux canaux. Un canal de faible bande passante pour la signalisation de la station et un canal d'une bande passante plus large pour envoyer et recevoir des trames. Chaque canal est divisé en groupes de slots. Appelons m le nombre de slots du canal de signalisation. L'expression n+1 indique le nombre de slots du canal de données : n slots de données utiles et un slot supplémentaire pour que la station renseigne sur son état, principalement pour indiquer les slots libres sur chacun de ses deux canaux. Sur ces deux canaux, la séquence de slots se répète continuellement, avec un marquage particulier pour le slot 0, afin que les stations arrivant plus tard puissent le repérer. Toutes les stations sont synchronisées au moyen d'une seule horloge pilote.
-Le protocole gère 3 classes de trafic :
-<ul>
-	<li>Un trafic à débit constant en mode connecté, tel celui d'une vidéo compressée.</li>
-	<li>Un trafic à débit variable en mode connecté, tel celui d'un transfert de fichier.</li>
-	<li>Un trafic constitué de datagrammes en mode non connecté, tels des paquets <b>UDP</b>.</li>
-</ul></li>
-<li>Pour les deux protocoles orientés connexion, l'idée de base est qu'une station A souhaitant communiquer avec une station B doit au préalable insérer une trame de demande de connexion dans un slot libre sur le canal de signalisation de B. Si B accepte, la communication peut avoir lieu par l'intermédiaire du canal de données de A.</li></ol></div>
+<div class="answer"><ol class="alphabet">
+<li>
+	Dans WMD, chaque station reçoit deux canaux. Un canal de faible bande passante pour la signalisation de la station et un canal d'une bande passante plus large pour envoyer et recevoir des trames. Chaque canal est divisé en groupes de slots. Appelons m le nombre de slots du canal de signalisation. L'expression n+1 indique le nombre de slots du canal de données : n slots de données utiles et un slot supplémentaire pour que la station renseigne sur son état, principalement pour indiquer les slots libres sur chacun de ses deux canaux. Sur ces deux canaux, la séquence de slots se répète continuellement, avec un marquage particulier pour le slot 0, afin que les stations arrivant plus tard puissent le repérer. Toutes les stations sont synchronisées au moyen d'une seule horloge pilote.
+	Le protocole gère 3 classes de trafic :
+	<ul>
+		<li>Un trafic à débit constant en mode connecté, tel celui d'une vidéo compressée.</li>
+		<li>Un trafic à débit variable en mode connecté, tel celui d'un transfert de fichier.</li>
+		<li>Un trafic constitué de datagrammes en mode non connecté, tels des paquets <b>UDP</b>.</li>
+	</ul>
+</li>
+<li>
+	Pour les deux protocoles orientés connexion, l'idée de base est qu'une station A souhaitant communiquer avec une station B doit au préalable insérer une trame de demande de connexion dans un slot libre sur le canal de signalisation de B. Si B accepte, la communication peut avoir lieu par l'intermédiaire du canal de données de A.
+</li>
+	<figure>
+		<img src="images/fdm-tdm-wdm.svg" alt="FDM TDM WDM" />
+		<figcaption>FDM TDM WDM</figcaption>
+	</figure>
+</ol></div>
 
 
 
