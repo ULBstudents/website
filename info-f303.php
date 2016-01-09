@@ -91,66 +91,78 @@ Les réponses proviennent (ou par l'intermédiaire de résumé) de Denis Steckel
 
 
 <h4 class="question">Expliquez l'utilité du <b>ACK</b> et <b>NAK</b>.</h4>
-<div class="answer">Le service de transfert fiable des données doit détecter les erreurs via checksum et utiliser des accusés de réceptions : le récepteur doit dire explicitement à l'envoyeur s'il a reçu avec ou sans erreur le paquet. Un accusé de réception peut être un <b>ACK</b> (packet reçu) ou un <b>NAK</b> (packet reçu mais corrompu). Les accusés de réception pouvant aussi être corrompu, on leur ajoute aussi un checksum. On indique dans le <b>ACK</b> ou le <b>NAK</b> de quel paquet il est l'accusé de réception sinon on peut déstabiliser le système.
-<figure>
-	<img src="images/ack-not-nominative.svg" alt="Erreur possible lors d'un <b>ACK</b> non nominatif" />
-	<figcaption>Erreur possible lors d'un <b>ACK</b> non nominatif</figcaption>
-</figure>
+<div class="answer">
+	Le service de transfert fiable des données doit détecter les erreurs via checksum et utiliser des accusés de réceptions : le récepteur doit dire explicitement à l'envoyeur s'il a reçu avec ou sans erreur le paquet. Un accusé de réception peut être un <b>ACK</b> (packet reçu) ou un <b>NAK</b> (packet reçu mais corrompu). Les accusés de réception pouvant aussi être corrompu, on leur ajoute aussi un checksum. On indique dans le <b>ACK</b> ou le <b>NAK</b> de quel paquet il est l'accusé de réception sinon on peut déstabiliser le système.
+	<figure>
+		<img src="images/ack-not-nominative.svg" alt="Erreur possible lors d'un <b>ACK</b> non nominatif" />
+		<figcaption>Erreur possible lors d'un <b>ACK</b> non nominatif</figcaption>
+	</figure>
 </div>
 
 
 
 <h4 class="question"><ol class="alphabet"><li>Expliquez le principe du protocole <b>stop & wait</b>.</li><li>Est-il toujours performant ?</li></h4>
 <div class="answer"><ol class="alphabet">
-<li>On utilise une boucle simple : send &rarr; wait positive response &rarr; send &rarr; ... . Le <b>NAK</b> n'est pas utilisé car recevoir un packet corrompu est similaire à ne rien recevoir ; on ne renvoie donc rien et on attend le renvoie automatique à la fin du timer. Le problème est de choisir un bon timer car un timer trop petit peut déclencher la retransmission d'un message alors que le <b>ACK</b> est en chemin et peut donc surcharger le système. À l'inverse un timer trop grand et le système réagit trop lentement.</li>
-<li>Ce protocole a été mis au point dans les années 70 pour des réseau peu étendu et peu performant, aujourd'hui il n'est plus performant car les <b>RTT</b> (temps de propagation) sont devenus important, et avec ce protocole ils sont du temps mort.
-<figure>
-	<img src="images/stopandwait-too-old.svg" alt="Le protocole <b>stop & wait</b> donne du temps mort" />
-	<figcaption>Le protocole <b>stop & wait</b> donne du temps mort</figcaption>
-</figure></li>
+<li>
+	On utilise une boucle simple : send &rarr; wait positive response &rarr; send &rarr; ... . Le <b>NAK</b> n'est pas utilisé car recevoir un packet corrompu est similaire à ne rien recevoir ; on ne renvoie donc rien et on attend le renvoie automatique à la fin du timer. Le problème est de choisir un bon timer car un timer trop petit peut déclencher la retransmission d'un message alors que le <b>ACK</b> est en chemin et peut donc surcharger le système. À l'inverse un timer trop grand et le système réagit trop lentement.
+</li>
+<li>
+	Ce protocole a été mis au point dans les années 70 pour des réseau peu étendu et peu performant, aujourd'hui il n'est plus performant car les <b>RTT</b> (temps de propagation) sont devenus important, et avec ce protocole ils sont du temps mort.
+	<figure>
+		<img src="images/stopandwait-too-old.svg" alt="Le protocole <b>stop & wait</b> donne du temps mort" />
+		<figcaption>Le protocole <b>stop & wait</b> donne du temps mort</figcaption>
+	</figure>
+</li>
 </ol></div>
 
 
 
 <h4 class="question">Expliquez le principe du parallélisme (pipelining).</h4>
-<div class="answer">Au lieu d'envoyer les packets un à un comme le protocole <b>stop & wait</b>, on envoie une rafale de packet avec les différents accusés de réceptions séparés. Ici on reste donc actif pendant une partie du <b>RTT</b>. Il existe deux stratégies possible : le protocole à fenêtre glissante <b>GBN</b> (<b>Go-Back N</b>) et protocole à fenêtre glissante <b>SR</b> (<b>Selective Repeat</b>).
-<figure>
-	<img src="images/pipelining.svg" alt="Le principe du parallélisme" />
-	<figcaption>Le principe du parallélisme</figcaption>
-</figure>
+<div class="answer">
+	Au lieu d'envoyer les packets un à un comme le protocole <b>stop & wait</b>, on envoie une rafale de packet avec les différents accusés de réceptions séparés. Ici on reste donc actif pendant une partie du <b>RTT</b>. Il existe deux stratégies possible : le protocole à fenêtre glissante <b>GBN</b> (<b>Go-Back N</b>) et protocole à fenêtre glissante <b>SR</b> (<b>Selective Repeat</b>).
+	<figure>
+		<img src="images/pipelining.svg" alt="Le principe du parallélisme" />
+		<figcaption>Le principe du parallélisme</figcaption>
+	</figure>
 </div>
 
 
 
 <h4 class="question">Expliquez le principe d’un protocole à fenêtre glissante <b>GBN</b> (<b>Go-Back N</b>).</h4>
-<div class="answer">Le sender est autorisé à transmettre de multiples packets (si disponible) sans attendre d'<b>ACK</b>s, mais est contraint de ne pas avoir plus de N packets sans <b>ACK</b> dans le pipeline. En résumé l'émetteur envoie N paquets d'un coup et le récepteur envoie N accusés de reception. De plus un <b>ACK</b> correspond aussi à la réception de tous les paquets précédents. Si on reçoit <b>ACK</b>(6), c'est que les 5 autres paquets ont été reçu. En effet le système est plus robuste car si <b>ACK</b>(5) se perd, on ne renverra quand même pas ce paquet. Mais en contre-partie on n'accepte les paquets que dans l'ordre ; si on recoit 6 avant 5, on détruit 6 (car à l'époque la mémoire était chère) et il faudra le renvoyer. Ce qui est problématique car le réseau est utilisé inutilement.
+<div class="answer">
+	Le sender est autorisé à transmettre de multiples packets (si disponible) sans attendre d'<b>ACK</b>s, mais est contraint de ne pas avoir plus de N packets sans <b>ACK</b> dans le pipeline. En résumé l'émetteur envoie N paquets d'un coup et le récepteur envoie N accusés de reception. De plus un <b>ACK</b> correspond aussi à la réception de tous les paquets précédents. Si on reçoit <b>ACK</b>(6), c'est que les 5 autres paquets ont été reçu. En effet le système est plus robuste car si <b>ACK</b>(5) se perd, on ne renverra quand même pas ce paquet. Mais en contre-partie on n'accepte les paquets que dans l'ordre ; si on recoit 6 avant 5, on détruit 6 (car à l'époque la mémoire était chère) et il faudra le renvoyer. Ce qui est problématique car le réseau est utilisé inutilement.
 </div>
 
 
 
 <h4 class="question">Quelle est la taille maximale de la fenêtre glissante <b>GBN</b> (<b>Go-Back N</b>), si les trames sont numérotées modulo k ? Pourquoi ?</h4>
-<div class="answer">On voit que le récepteur considère que le deuxième paquet qu’il reçoit la deuxième fois est le même que le premier qu’il a déjà reçu et non le troisième packet. Ainsi il le supprime et envoie un <b>ACK</b> pensant que le premier <b>ACK</b> s’est perdu, on perd donc le paquet et perturbe toute la chaîne.
-<figure>
-	<img src="images/size-window-gbn.svg" alt="Taille maximale de la fenêtre glissante <b>GBN</b> (<b>Go-Back N</b>)" />
-	<figcaption>Taille maximale de la fenêtre glissante <b>GBN</b> (<b>Go-Back N</b>)</figcaption>
-</figure>
-La taille maximale de la fenêtre est donc le nombre de numéro de séquence-1.
+<div class="answer">
+	On voit que le récepteur considère que le deuxième paquet qu’il reçoit la deuxième fois est le même que le premier qu’il a déjà reçu et non le troisième packet. Ainsi il le supprime et envoie un <b>ACK</b> pensant que le premier <b>ACK</b> s’est perdu, on perd donc le paquet et perturbe toute la chaîne.
+	<figure>
+		<img src="images/size-window-gbn.svg" alt="Taille maximale de la fenêtre glissante <b>GBN</b> (<b>Go-Back N</b>)" />
+		<figcaption>Taille maximale de la fenêtre glissante <b>GBN</b> (<b>Go-Back N</b>)</figcaption>
+	</figure>
+	La taille maximale de la fenêtre est donc le nombre de numéro de séquence-1.
 </div>
 
 
 
 <h4 class="question">Expliquez le principe d’un protocole à fenêtre glissante <b>SR</b> (<b>Selective Repeat</b>).</h4>
-<div class="answer"><b>GBN</b> (<b>Go-Back N</b>) souffre malgré ses améliorations encore quelques problèmes de performances. En effet, la moindre erreur dans un paquet peut entraîner la retransmission superflue d'une grande quantité de paquets pourtant déjà arrivés intègres. Le protocole à fenêtre glissante <b>SR</b> (<b>Selective Repeat</b>) évite les retransmissions inutiles et demandent à l'expéditeur de ne retransmettre que les paquets susceptibles d'avoir été perdus ou corrompus lors de la transmission. Cela implique que le destinataire envoie un <b>ACK</b> pour chaque paquet correctement reçu. Comme dans <b>GBN</b> (<b>Go-Back N</b>), une fenêtre permet de limiter le nombre de paquets en attente de confirmation. En revanche certains paquets de cette fenêtre auront déjà fait l’objet d’un accusé de réception. Le destinataire renvoie un accusé pour chaque paquet valide qu’il reçoit, qu’il soit dans l’ordre ou non, et stocke dans un tampon ceux qui sont encore temporairement hors séquence (notons que ce tampon ne dépassera jamais la taille de la fenêtre d’envoi de l’expéditeur). Afin d’éviter les problèmes de confusions avec les numéros de séquence, la quantité de numéros disponible doit être au moins deux fois plus grande que la taille de la fenêtre.</div>
+<div class="answer">
+	<b>GBN</b> (<b>Go-Back N</b>) souffre malgré ses améliorations encore quelques problèmes de performances. En effet, la moindre erreur dans un paquet peut entraîner la retransmission superflue d'une grande quantité de paquets pourtant déjà arrivés intègres. Le protocole à fenêtre glissante <b>SR</b> (<b>Selective Repeat</b>) évite les retransmissions inutiles et demandent à l'expéditeur de ne retransmettre que les paquets susceptibles d'avoir été perdus ou corrompus lors de la transmission. Cela implique que le destinataire envoie un <b>ACK</b> pour chaque paquet correctement reçu. Comme dans <b>GBN</b> (<b>Go-Back N</b>), une fenêtre permet de limiter le nombre de paquets en attente de confirmation. En revanche certains paquets de cette fenêtre auront déjà fait l’objet d’un accusé de réception. Le destinataire renvoie un accusé pour chaque paquet valide qu’il reçoit, qu’il soit dans l’ordre ou non, et stocke dans un tampon ceux qui sont encore temporairement hors séquence (notons que ce tampon ne dépassera jamais la taille de la fenêtre d’envoi de l’expéditeur). Afin d’éviter les problèmes de confusions avec les numéros de séquence, la quantité de numéros disponible doit être au moins deux fois plus grande que la taille de la fenêtre.
+</div>
 
 
 
 <h4 class="question">Quelle est la taille maximale de la fenêtre glissante <b>SR</b> (<b>Selective Repeat</b>), si les trames sont numérotées modulo k ? Pourquoi ?</h4>
-<div class="answer">On ne peut pas utiliser une fenêtre aussi grande que pour le <b>GBN</b> (<b>Go-Back N</b>). 
-<p>$\text{taille}_{\text{max}} = \dfrac{\text{nombre de numéro de paquets}}{2}$</p>
-Car il ne faut pas qu'un nombre de la fenêtre de l'émetteur corresponde à un nombre de la fenêtre du récepteur, mais d'un autre rang. Exemple:
-<p>émetteur |0 1 2| 3 0 1 2 &rarr; récepteur 0 1 2 |3 0 1| 2</p>
-Le récepteur a reçu les paquets (0 1 2) et attend donc les paquets (3 0 1), mais l'émetteur n'a pas reçu les <b>ACK</b>, il considère donc que les paquets (0 1 2) n'ont pas été reçu, et lors du time-out, il les renverra. Mais le récepteur prendra le paquet 0 qu'il va recevoir pour celui qu'il attend, et non pour celui qu'il a déjà reçu.
-<p>Remarque : le débit était lié à la taille de la fenêtre, il faut alors choisir un grand nombre de numéro de paquets.</p></div>
+<div class="answer">
+	On ne peut pas utiliser une fenêtre aussi grande que pour le <b>GBN</b> (<b>Go-Back N</b>). 
+	<p>$\text{taille}_{\text{max}} = \dfrac{\text{nombre de numéro de paquets}}{2}$</p>
+	Car il ne faut pas qu'un nombre de la fenêtre de l'émetteur corresponde à un nombre de la fenêtre du récepteur, mais d'un autre rang. Exemple:
+	<p>émetteur |0 1 2| 3 0 1 2 &rarr; récepteur 0 1 2 |3 0 1| 2</p>
+	Le récepteur a reçu les paquets (0 1 2) et attend donc les paquets (3 0 1), mais l'émetteur n'a pas reçu les <b>ACK</b>, il considère donc que les paquets (0 1 2) n'ont pas été reçu, et lors du time-out, il les renverra. Mais le récepteur prendra le paquet 0 qu'il va recevoir pour celui qu'il attend, et non pour celui qu'il a déjà reçu.
+	<p>Remarque : le débit était lié à la taille de la fenêtre, il faut alors choisir un grand nombre de numéro de paquets.</p>
+</div>
 
 
 
@@ -208,12 +220,13 @@ Le récepteur a reçu les paquets (0 1 2) et attend donc les paquets (3 0 1), ma
 	</table>
 </li>
 <li>
-La technique de fiabilité de <b>TCP</b> est un mixte entre la technique <b>GBN</b> (<b>Go-Back N</b>)  et la technique <b>SR</b> (<b>Selective Repeat</b>). Dans la première technique, on reprends la méthode d'un seul timer (associé au dernier paquet) ainsi que les <b>ACK</b> cumulatif (<b>ACK</b>(6) signifie qu'on aussi <b>ACK</b>(5) et les autres précédents). Cependant dans le <b>GBN</b> (<b>Go-Back N</b>) on renvoyait toute la fenêtre après le <b>ACK</b> de retour, mais ici on reprend, dans la deuximème technique, le revoie seulement du dernier segment manquant et on verra avec les <b>ACK</b> futurs si il en manquait d'autres. Ainsi l'optimisation " Fast retransmit " peut être mis en place, elle permet à <b>TCP</b> de détecter avant le timer qu'un segment est perdu. En effet, si on envoie les paquets par rafale, et qu'on recoit en retour plusieurs fois un même <b>ACK</b>, cela veut dire que plusieurs segments postérieurs sont arrivé avant le segment lié à cet <b>ACK</b>. Ce segment est donc soit perdu, corrompu ou en retard.
-Par conventation, on considère que le segment est perdu après qu'on ai reçu trois <b>ACK</b> identiques.
+	La technique de fiabilité de <b>TCP</b> est un mixte entre la technique <b>GBN</b> (<b>Go-Back N</b>)  et la technique <b>SR</b> (<b>Selective Repeat</b>). Dans la première technique, on reprends la méthode d'un seul timer (associé au dernier paquet) ainsi que les <b>ACK</b> cumulatif (<b>ACK</b>(6) signifie qu'on aussi <b>ACK</b>(5) et les autres précédents). Cependant dans le <b>GBN</b> (<b>Go-Back N</b>) on renvoyait toute la fenêtre après le <b>ACK</b> de retour, mais ici on reprend, dans la deuximème technique, le revoie seulement du dernier segment manquant et on verra avec les <b>ACK</b> futurs si il en manquait d'autres. Ainsi l'optimisation " Fast retransmit " peut être mis en place, elle permet à <b>TCP</b> de détecter avant le timer qu'un segment est perdu. En effet, si on envoie les paquets par rafale, et qu'on recoit en retour plusieurs fois un même <b>ACK</b>, cela veut dire que plusieurs segments postérieurs sont arrivé avant le segment lié à cet <b>ACK</b>. Ce segment est donc soit perdu, corrompu ou en retard.
+	Par conventation, on considère que le segment est perdu après qu'on ai reçu trois <b>ACK</b> identiques.
 </li>
-<li>Voir (b)</li>
-</ol>
-</div>
+<li>
+	Voir (b)
+</li>
+</ol></div>
 
 
 
@@ -228,15 +241,21 @@ Par conventation, on considère que le segment est perdu après qu'on ai reçu t
 	</ul>
 	Car la formule de l'efficacité est $\sqrt{\frac{3}{2}}\frac{MSS}{RTT}$ et donc est meilleure avec des MSS plus gros et des petits RTT. Des packets plus gros dont "l'aller-retour" est rapide.
 </li>
-<li>Quand <b>TCP</b> est en concurrence avec <b>UDP</b>, <b>TCP</b> va ralentir mais <b>UDP</b> ne va pas réduire son trafic. <b>TCP</b> va donc être désavantagé par rapport à <b>UDP</b>. On remarque également avec <b>TCP</b> que aux goulets d’étranglement, si on a 2 connections <b>TCP</b> concurrentes avec les même <b>RTT</b> et qu’une a commencé avant l’autre, elles vont se partager la bande passante de manière de plus en plus équitable au fur et à mesure que le temps avance. Si par contre elles n’ont pas le même <b>RTT</b>, celle qui aura le plus petit <b>RTT</b> sera avantagée. C’est à la fois une bonne chose et une mauvaise chose. En effet, si on regarde au niveau locale, les ressources ne sont pas réparties équitablement (mauvaise chose) mais au niveau globale, la connexion avec un <b>RTT</b> plus grand sera passée par plus de noeuds puisqu’elle vient de plus loin et donc aura consommé plus de ressources sur d’autres noeuds que la connexion avec un petit <b>RTT</b>.</li>
-</div>
+<li>
+	Quand <b>TCP</b> est en concurrence avec <b>UDP</b>, <b>TCP</b> va ralentir mais <b>UDP</b> ne va pas réduire son trafic. <b>TCP</b> va donc être désavantagé par rapport à <b>UDP</b>. On remarque également avec <b>TCP</b> que aux goulets d’étranglement, si on a 2 connections <b>TCP</b> concurrentes avec les même <b>RTT</b> et qu’une a commencé avant l’autre, elles vont se partager la bande passante de manière de plus en plus équitable au fur et à mesure que le temps avance. Si par contre elles n’ont pas le même <b>RTT</b>, celle qui aura le plus petit <b>RTT</b> sera avantagée. C’est à la fois une bonne chose et une mauvaise chose. En effet, si on regarde au niveau locale, les ressources ne sont pas réparties équitablement (mauvaise chose) mais au niveau globale, la connexion avec un <b>RTT</b> plus grand sera passée par plus de noeuds puisqu’elle vient de plus loin et donc aura consommé plus de ressources sur d’autres noeuds que la connexion avec un petit <b>RTT</b>.
+</li>
+</ol></div>
 
 
 
 <h4 class="question">10 processus clients communiquent simultanément avec un processus serveur attaché au <b>port</b> 8000.<ol class="alphabet"><li>Combien de sockets vont être ouverts par le serveur si les processus communiquent par <b>UDP</b> ? Pourquoi ?</li><li>Même question s’ils communiquent par <b>TCP</b>.</li></ol></h4>
 <div class="answer"><ol class="alphabet">
-<li><b>UDP</b> ne crée pas de connexion persistante. L'emetteur ne fait que créer un packet en y attachant l'<b>IP</b> ciblé, le <b>port</b> ciblé ainsi que ses propres coordonnées puis l'envoie. Il ne se soucie pas si il atteint le recepteur ou non. Ainsi le processus serveur attaché au <b>port</b> 8000 recevra (si il n'y a aucune perte) les 10 messages envoyé par les processus clients. Du coup 1 seul socket sera ouvert.</li>
-<li><b>TCP</b> crée une connexion persistante, du coup il faut ouvrir et réserver un socket pour chaque processus client. Du coup 10 sockets seront ouverts. Mais il ne faut pas oublier le socket qui sert à écouter et à accepter les nouvelles connexions. Donc c'est un total de 11 sockets qui seront ouverts.</li>
+<li>
+	<b>UDP</b> ne crée pas de connexion persistante. L'emetteur ne fait que créer un packet en y attachant l'<b>IP</b> ciblé, le <b>port</b> ciblé ainsi que ses propres coordonnées puis l'envoie. Il ne se soucie pas si il atteint le recepteur ou non. Ainsi le processus serveur attaché au <b>port</b> 8000 recevra (si il n'y a aucune perte) les 10 messages envoyé par les processus clients. Du coup 1 seul socket sera ouvert.
+</li>
+<li>
+	<b>TCP</b> crée une connexion persistante, du coup il faut ouvrir et réserver un socket pour chaque processus client. Du coup 10 sockets seront ouverts. Mais il ne faut pas oublier le socket qui sert à écouter et à accepter les nouvelles connexions. Donc c'est un total de 11 sockets qui seront ouverts.
+</li>
 </ol></div>
 
 <h4 class="question"><ol class="alphabet"><li>Comment l’émetteur <b>TCP</b> détecte-t-il une congestion ?</li><li>Décrivez le mécanisme de contrôle de congestion de <b>TCP</b>.</li><li>Quelle distinction <b>TCP</b> fait-il entre congestion légère et congestion sévère ? Comment réagit-il dans chaque cas ?</li><li>Si on néglige les effets du contrôle de flux, ce contrôle de congestion détermine largement le débit moyen d’une connexion <b>TCP</b>. Quand plusieurs connexions <b>TCP</b> sont en compétition, se partagent-elles la bande passante disponible de façon équitable ? Expliquez.</li></ol></h4>
@@ -245,8 +264,7 @@ Par conventation, on considère que le segment est perdu après qu'on ai reçu t
 	<li>Au démarage de la transmission, <b>TCP</b> envoie les données avec une fenêtre de taille 1 <b>MSS</b> (<b>Maximum Segment Size</b>), correspondant au nombre de paquets qui peuvent être en parcourt simultanément. La taille de la fenêtre est doublée à chaque itération (en incrémentant la taille à chaque <b>ACK</b> reçu), de sorte qu'elle a une <b>croissance exponentielle</b>. S'il détecte une <b>faible congestion</b>, il divise la taille de la fenêtre par deux et change de mode pour incrémenter la taille de la fenêtre à chaque itération (+1 pour chaque fenêtre totalement envoyée) pour adopter une <b>croissance linéaire</b>. Il approche ainsi <b>dichotomiquement</b> la taille moyenne de fenêtre optimale (càd le nombre de paquets en parcourt, et donc la vitesse d'envoi). S'il détecte une <b>congestion sévère</b>, il réduit la taille de fenêtre à 1 et recommence en mode de <b>croissance exponentiel</b>. Il peut éventuellement repasser en mode de <b>croissance linéaire</b> lorsqu'il a atteint la moitié de la taille de fenêtre qui a provoqué un timeout (puisque doubler sa taille provoquera probablement de nouveau un timeout).</li>
 	<li>Voir (a) et (b).</li>
 	<li>Sachant que le timeout est calculé à partir du <b>RTT</b>, deux sessions <b>TCP</b> en compétition pour la même connexion approcheront toujours la vitesse optimale pour leurs <b>RTT</b>. <b>TCP</b> répartira la connexion de façon équitable en ce sens que chaque session utilisera une bande passante inversément proportionelle à son <b>RTT</b>, évitant la retransmission en bloc de paquets inutiles sur des connexions trop lentes.</li>
-</ol>
-</div>
+</ol></div>
 
 
 
@@ -256,16 +274,15 @@ Par conventation, on considère que le segment est perdu après qu'on ai reçu t
 	Comme son nom l'indique, le <b>3-way handshake</b> se déroule en trois étapes:
 	<ul>
 		<li><b>SYN</b> (<b>synchronized</b>) : Le client qui désire établir une connexion avec un serveur va envoyer un premier paquet <b>SYN</b> au serveur. Le numéro de séquence de ce paquet est un nombre aléatoire A.</li>
-		<li><b>SYN-<b>ACK</b></b> (<b>synchronize-acknowledge</b>) : Le serveur va répondre au client à l'aide d'un paquet <b>SYN-<b>ACK</b></b>. Le numéro du <b>ACK</b> est égal au numéro de séquence du paquet précédent (<b>SYN</b>) incrémenté de un (A + 1) tandis que le numéro de séquence du paquet <b>SYN-<b>ACK</b></b> est un nombre aléatoire B.</li>
-		<li><b>ACK</b> (<b>acknowledge</b>): Pour terminer, le client va envoyer un paquet <b>ACK</b> au serveur qui va servir d'accusé de réception. Le numéro de séquence de ce paquet est défini selon la valeur de l'acquittement reçu précédemment p.e. A + 1 et le numéro du <b>ACK</b> est égal au numéro de séquence du paquet précédent (<b>SYN-<b>ACK</b></b>) incrémenté de un (B + 1).</li>
+		<li><b>SYN-ACK</b> (<b>synchronize-acknowledge</b>) : Le serveur va répondre au client à l'aide d'un paquet <b>SYN-ACK</b>. Le numéro du <b>ACK</b> est égal au numéro de séquence du paquet précédent (<b>SYN</b>) incrémenté de un (A + 1) tandis que le numéro de séquence du paquet <b>SYN-ACK</b> est un nombre aléatoire B.</li>
+		<li><b>ACK</b> (<b>acknowledge</b>): Pour terminer, le client va envoyer un paquet <b>ACK</b> au serveur qui va servir d'accusé de réception. Le numéro de séquence de ce paquet est défini selon la valeur de l'acquittement reçu précédemment p.e. A + 1 et le numéro du <b>ACK</b> est égal au numéro de séquence du paquet précédent (<b>SYN-ACK</b>) incrémenté de un (B + 1).</li>
 	</ul>
-Une fois le <b>3-way handshake</b> effectué, le client et le serveur ont reçu un acquittement de la connexion. Les étapes 1 et 2 définissent le numéro de séquence pour la communication du client au serveur et les étapes 2 et 3 définissent le numéro de séquence pour la communication dans l'autre sens. Une communication full-duplex est maintenant établie entre le client et le serveur.
+	Une fois le <b>3-way handshake</b> effectué, le client et le serveur ont reçu un acquittement de la connexion. Les étapes 1 et 2 définissent le numéro de séquence pour la communication du client au serveur et les étapes 2 et 3 définissent le numéro de séquence pour la communication dans l'autre sens. Une communication full-duplex est maintenant établie entre le client et le serveur.
 </li>
 <li>
-Le <b>2-way handshake</b> n'est pas suffisant car on saute l'etape 2 du <b>3-way handshake</b>. Si par exemple, un Client A veut parler avec un serveur B, il faut que B sache que A peut entendre ce qu'il dit. Car dans le <b>2-way handshake</b>, A envoi à B et B répond à A. Mais B ne sait pas si son message est reçu par A.
+	Le <b>2-way handshake</b> n'est pas suffisant car on saute l'etape 2 du <b>3-way handshake</b>. Si par exemple, un Client A veut parler avec un serveur B, il faut que B sache que A peut entendre ce qu'il dit. Car dans le <b>2-way handshake</b>, A envoi à B et B répond à A. Mais B ne sait pas si son message est reçu par A.
 </li>
-</ol>
-</div>
+</ol></div>
 
 
 <h4 class="question"><ol class="alphabet"><li>Décrivez l’architecture générique d’un routeur et le rôle de chaque composant.</li><li>Comment peut-on perdre des paquets dans les <b>ports</b> d’entrée ?</li><li>Comment peut-on perdre des paquets dans les <b>ports</b> de sortie ?</li><li>Qu’est-ce que le blocage HOL ?</li></ol></h4>
@@ -279,13 +296,13 @@ Le <b>2-way handshake</b> n'est pas suffisant car on saute l'etape 2 du <b>3-way
 </ul>
 </li>
 <li>
-Le point le plus problématique est le fait que les routeurs doivent opérer à des vitesses élevées, impliquant des millions de consultations par seconde ; on souhaite en effet que l'opération de consultation soit plus rapide que le temps qu'il faut au routeur pour recevoir un nouveau paquet. Dès que le <b>port</b> de sortie a été identifié, le paquet peut entrer dans la matrice de commutation. Cependant un paquet peut se voir refuser temporairement l'accès si elle est occupée à traiter des paquets qui ont été reçus sur d'autres liaisons d'entrée. Il est alors placé en file d'attente sur son <b>port</b>. Si la matrice de commutation n'est pas assez rapide, et du coup à mesure de l'augmentation de ces files, le risque de perte de paquets augmente.
+	Le point le plus problématique est le fait que les routeurs doivent opérer à des vitesses élevées, impliquant des millions de consultations par seconde ; on souhaite en effet que l'opération de consultation soit plus rapide que le temps qu'il faut au routeur pour recevoir un nouveau paquet. Dès que le <b>port</b> de sortie a été identifié, le paquet peut entrer dans la matrice de commutation. Cependant un paquet peut se voir refuser temporairement l'accès si elle est occupée à traiter des paquets qui ont été reçus sur d'autres liaisons d'entrée. Il est alors placé en file d'attente sur son <b>port</b>. Si la matrice de commutation n'est pas assez rapide, et du coup à mesure de l'augmentation de ces files, le risque de perte de paquets augmente.
 </li>
 <li>
-Si aucun ou peu de phénomène de mise en attente ne se produit à l'entrée, mais que tous les paquets venaient à être dirigés vers le même <b>port</b> de sortie, il serait très rapidement saturé. Un gestionnaire de paquets doit déterminer quel paquet de la file doit être transmis. Cette règle est généralement la règle <b>FIFO</b> (<b>First In First Out</b>).
+	Si aucun ou peu de phénomène de mise en attente ne se produit à l'entrée, mais que tous les paquets venaient à être dirigés vers le même <b>port</b> de sortie, il serait très rapidement saturé. Un gestionnaire de paquets doit déterminer quel paquet de la file doit être transmis. Cette règle est généralement la règle <b>FIFO</b> (<b>First In First Out</b>).
 </li>
 <li>
-<b>HOL</b> (<b>Head Of the Line blocking</b>) : Le routeur n’a pas de vue globale des buffer input, il ne prend donc en compte que le premier paquet du buffer. Si deux paquets doivent doivent aller au même <b>port</b> de sortie, un des paquets se retrouve en attente avec tous ceux qui le suivent, même si ceux ci doivent aller à un <b>port</b> actuellement libre.
+	<b>HOL</b> (<b>Head Of the Line blocking</b>) : Le routeur n’a pas de vue globale des buffer input, il ne prend donc en compte que le premier paquet du buffer. Si deux paquets doivent doivent aller au même <b>port</b> de sortie, un des paquets se retrouve en attente avec tous ceux qui le suivent, même si ceux ci doivent aller à un <b>port</b> actuellement libre.
 </li>
 </ol></div>
 
@@ -379,43 +396,48 @@ Si aucun ou peu de phénomène de mise en attente ne se produit à l'entrée, ma
 
 
 <h4 class="question">On ne peut pas dire que les commutateurs <b>Ethernet</b> exécutent un protocole de routage (au sens de la couche 3), mais ils construisent toutefois des tables d’acheminement comme si un protocole de routage était à l’oeuvre. Expliquez comment ces tables sont construites, y compris quand plusieurs commutateurs sont inter-connectés.</h4>
-<div class="answer">Le commutateur construit donc dynamiquement une table qui associe des adresses <b>MAC</b> avec les ports correspondant. Lorsqu'il reçoit une trame destinée à une adresse dans cette table, le commutateur renvoie la trame sur le port correspondant. Si port destination = port émetteur, la trame n'est pas transmise. Si l'adresse du destination est inconnue dans la table, alors la trame est traitée comme un broadcast, c'est-à-dire qu'elle est transmise à tous les ports du commutateur sauf celui de réception.</div>
+<div class="answer">
+	Le commutateur construit donc dynamiquement une table qui associe des adresses <b>MAC</b> avec les ports correspondant. Lorsqu'il reçoit une trame destinée à une adresse dans cette table, le commutateur renvoie la trame sur le port correspondant. Si port destination = port émetteur, la trame n'est pas transmise. Si l'adresse du destination est inconnue dans la table, alors la trame est traitée comme un broadcast, c'est-à-dire qu'elle est transmise à tous les ports du commutateur sauf celui de réception.
+</div>
 
 
 
 <h4 class="question">Un chercheur connecte son ordinateur portable à un commutateur <b>Ethernet</b> de son département. Il démarre son browser pour afficher la page web de www.google.com.<ol class="alphabet"><li>Identifiez les protocoles mis en oeuvre, et dans l’ordre chronologique, entre le moment où l’ordinateur se connecte et le moment où la page d’accueil de Google s’affiche.</li><li>Précisez au passage le rôle de chaque protocole et décrivez-les succinctement.</li></ol></h4>
-<div class="answer">
-<ol class="alphabet">
-<li>Une topologie d'exemple compreant des switches et des routeurs est utilisée. On suppose que le routeur dispose d'un serveur <b>DHCP</b>
-<ol>
-	<li>On connecte le laptop, avec un navigateur web ouvert ;</li>
-	<li>Il forge une demande <b>DHCP</b>, à destination de ff:ff:ff:ff:ff ;</li>
-	<li>Le switch recoit la trame et la broadcast partout ;</li>
-	<li>La trame arrive au routeur, qui reconnait la demande <b>DHCP</b> et répond ;</li>
-	<li>Le laptop apprend son adresse <b>IP</b>, l'<b>IP</b> du routeur, son serveur <b>DNS</b>, etc ;</li>
-	<li>Le laptop forge une requête <b>DNS</b> ;</li>
-	<li>Le laptop envoie un <b>WHO IS</b> <b>ARP</b> pour trouver l'adresse <b>MAC</b> du routeur ;</li>
-	<li>Le laptop recoit cette adresse <b>MAC</b> et le switch retient quelle est l'adresse <b>MAC</b> du laptop ;</li>
-	<li>La requête <b>DNS</b> est envoyée sur le réseau et arrive au routeur ;</li>
-	<li>Le routeur décapsule la trame, reconnait le paquet <b>IP</b> qu'elle contient, et voit que l'<b>IP</b> de destination est hors du subnet. Il envoie donc ce paquet sur Internet ;</li>
-	<li>Le serveur <b>DNS</b> de Google finit par recevoir le paquet, et répond ;</li>
-	<li>Le laptop obtient l'<b>IP</b> du serveur de Google ;</li>
-	<li>Un message <b>TCP</b> SYN est envoyé à cette <b>IP</b> ;</li>
-	<li>Le serveur ouvre un socket et renvoie un ACK ;</li>
-	<li>Le laptop envoie alors sa requête HTTP ;</li>
-	<li>Le serveur renvoie les réponses ;</li>
-	<li>La page web apparait dans le navigateur web.</li>
-</ol><b>DHCP</b> (aves tous les protocoles des couches inférieurs) pour récupérer une adresse <b>IP</b> pour se connecter. Ensuite une requète <b>DNS</b> pour savoir quelle est l'adresse <b>IP</b> de Google. Mais on a besoins d'une requète <b>ARP</b> pour connaitre la bonne adresse <b>MAC</b> du serveur <b>DNS</b>. Des protocoles de routages (<b>RIP</b>,<b>OSPF</b>,..). On établi une connexion <b>TCP</b> avec le serveur de Google. On peut finalement faire notre requête <b>HTTP</b>. On se rend compte qu'au démarrage, tout un tas de protocoles sont utilisés. Les paquets sont emboités les uns dans les autres, il y a plein de couches et plein d'acteurs qui intéragissent. On a également vu qu'un lien est compliqué et qu'il cache plein de choses. Un lien est en fait un assemblage d'élément qui se présente à <b>IP</b> comme si c'était un lien physique, ne touchant pas à la couche 3 du réseau.
+<div class="answer"><ol class="alphabet">
+<li>
+	Une topologie d'exemple compreant des switches et des routeurs est utilisée. On suppose que le routeur dispose d'un serveur <b>DHCP</b>
+	<ol>
+		<li>On connecte le laptop, avec un navigateur web ouvert ;</li>
+		<li>Il forge une demande <b>DHCP</b>, à destination de ff:ff:ff:ff:ff ;</li>
+		<li>Le switch recoit la trame et la broadcast partout ;</li>
+		<li>La trame arrive au routeur, qui reconnait la demande <b>DHCP</b> et répond ;</li>
+		<li>Le laptop apprend son adresse <b>IP</b>, l'<b>IP</b> du routeur, son serveur <b>DNS</b>, etc ;</li>
+		<li>Le laptop forge une requête <b>DNS</b> ;</li>
+		<li>Le laptop envoie un <b>WHO IS</b> <b>ARP</b> pour trouver l'adresse <b>MAC</b> du routeur ;</li>
+		<li>Le laptop recoit cette adresse <b>MAC</b> et le switch retient quelle est l'adresse <b>MAC</b> du laptop ;</li>
+		<li>La requête <b>DNS</b> est envoyée sur le réseau et arrive au routeur ;</li>
+		<li>Le routeur décapsule la trame, reconnait le paquet <b>IP</b> qu'elle contient, et voit que l'<b>IP</b> de destination est hors du subnet. Il envoie donc ce paquet sur Internet ;</li>
+		<li>Le serveur <b>DNS</b> de Google finit par recevoir le paquet, et répond ;</li>
+		<li>Le laptop obtient l'<b>IP</b> du serveur de Google ;</li>
+		<li>Un message <b>TCP</b> SYN est envoyé à cette <b>IP</b> ;</li>
+		<li>Le serveur ouvre un socket et renvoie un ACK ;</li>
+		<li>Le laptop envoie alors sa requête HTTP ;</li>
+		<li>Le serveur renvoie les réponses ;</li>
+		<li>La page web apparait dans le navigateur web.</li>
+	</ol>
+	<b>DHCP</b> (aves tous les protocoles des couches inférieurs) pour récupérer une adresse <b>IP</b> pour se connecter. Ensuite une requète <b>DNS</b> pour savoir quelle est l'adresse <b>IP</b> de Google. Mais on a besoins d'une requète <b>ARP</b> pour connaitre la bonne adresse <b>MAC</b> du serveur <b>DNS</b>. Des protocoles de routages (<b>RIP</b>,<b>OSPF</b>,..). On établi une connexion <b>TCP</b> avec le serveur de Google. On peut finalement faire notre requête <b>HTTP</b>. On se rend compte qu'au démarrage, tout un tas de protocoles sont utilisés. Les paquets sont emboités les uns dans les autres, il y a plein de couches et plein d'acteurs qui intéragissent. On a également vu qu'un lien est compliqué et qu'il cache plein de choses. Un lien est en fait un assemblage d'élément qui se présente à <b>IP</b> comme si c'était un lien physique, ne touchant pas à la couche 3 du réseau.
 </li>
-<li><ul>
-<li><b>DHCP</b> (<b>Dynamic Host Configuration Protocol</b>) : utilisé pour l'attribution dynamique d'adresse <b>IP</b>.</li>
-<li><b>DNS</b> (<b>Domain Name System</b>) : faire la correspondance entre les noms de domaines et les adresses <b>IP</b>.</li>
-<li><b>ARP</b> (<b>Adress Resolution Protocol</b>) : pour connaitre l'adresse <b>MAC</b></li>
-<li><b>Routage</b> permet de trouver le chemin adéquat à partir de notre machine vers celle avec laquelle on veut communiquer.</li>
-<li><b>TCP</b> (<b>Transmission Control Protocol</b>) : Protocole de transfert des données fiables orienté connexion</li>
-<li><b>HTTP</b> (<b>Hypertext Transfer Protocol</b>) : pour récupérer des pages web, protocole de la couche d'application.</li>
-</ul></li></ol>
-</div>
+<li>
+	<ul>
+		<li><b>DHCP</b> (<b>Dynamic Host Configuration Protocol</b>) : utilisé pour l'attribution dynamique d'adresse <b>IP</b>.</li>
+		<li><b>DNS</b> (<b>Domain Name System</b>) : faire la correspondance entre les noms de domaines et les adresses <b>IP</b>.</li>
+		<li><b>ARP</b> (<b>Adress Resolution Protocol</b>) : pour connaitre l'adresse <b>MAC</b></li>
+		<li><b>Routage</b> permet de trouver le chemin adéquat à partir de notre machine vers celle avec laquelle on veut communiquer.</li>
+		<li><b>TCP</b> (<b>Transmission Control Protocol</b>) : Protocole de transfert des données fiables orienté connexion</li>
+		<li><b>HTTP</b> (<b>Hypertext Transfer Protocol</b>) : pour récupérer des pages web, protocole de la couche d'application.</li>
+	</ul>
+</li>
+</ol></div>
 
 
 
@@ -459,70 +481,105 @@ Si aucun ou peu de phénomène de mise en attente ne se produit à l'entrée, ma
 
 <h4 class="question">Le protocole de routage inter-domaine BGP est plus apparenté à la famille des protocoles de routage intra-domaine à vecteur de distances (DV) qu’à celle des protocoles à état de lien (LS).<ol class="alphabet"><li>Expliquez deux ressemblances importantes entre BGP et un protocole DV.</li><li>Expliquez deux différences importantes entre BGP et un protocole DV, et leur raison d’être.</li></ol></h4>
 <div class="answer"><ol class="alphabet">
-<li><ol><li>Obtention de la connaissance des voisins</li>
-<li>Propage les informations dans tout le réseau.</li></ol>
-<li><ol><li>BGP mémorise toutes les routes vers toutes les destination : récupération rapide lorsqu'une destination devient inaccessible via la route initialement choisie.</li>
-<li>BGP construit des routes sans boucles : - Le chemin suivi est décrit explicitement à l'aide des AS traversés.</li>
-<li>détection facile des boucles</li></ol></div>
+<li>
+	<ol>
+		<li>
+			Obtention de la connaissance des voisins
+		</li>
+		<li>
+			Propage les informations dans tout le réseau.
+		</li>
+	</ol>
+</li>
+<li>
+	<ol>
+		<li>
+			BGP mémorise toutes les routes vers toutes les destination : récupération rapide lorsqu'une destination devient inaccessible via la route initialement choisie.
+		</li>
+		<li>
+			BGP construit des routes sans boucles : - Le chemin suivi est décrit explicitement à l'aide des AS traversés.
+		</li>
+		<li>
+			Détection facile des boucles
+		</li>
+	</ol>
+</li>
+</ol></div>
 
 
 
 <h4 class="question"><ol class="alphabet"><li>Nommez et expliquez succinctement les 2 grandes familles de protocoles de routage intra-domaine (IGP) en insistant sur leurs différences.</li><li>Expliquez en quoi et pourquoi le protocole de routage inter-domaine de l’Internet (BGP) est différent des protocoles de routage intra-domaine (IGP) déployés dans les divers systèmes autonomes (AS) qui composent l’Internet.</li></ol></h4>
 <div class="answer"><ol class="alphabet">
-<li><ul>
-<li><b><b>RIP</b></b> (<b>Routing Information Protocol</b>) : utilise un algorithme de vecteurs de distance qui se limite à 25 noeuds par paquet. Au-delà, il faudra plusieurs paquets. 0 représente l'infini. Les vecteurs de distance sont envoyés toutes les 30 secondes à ses voisins. <b>RIP</b> possède un mécanisme pour détecter les pannes, si un router n'a pas reçu de message d'un voisin depuis 180 secondes, il le déclare mort. <b>RIP</b> est un protocole de la couche d'application (PAS de la couche réseau), les messages sont envoyés dans des paquets <b>UDP</b>.</li>
-<li><b><b>OSPF</b></b> (<b>Open Shortest Path First</b>) : utilise un algorithme d'état des lien. Chaque message est envoyé seulement à ses voisins qui le renvoient à leurs voisins,.. jusqu'à ce que l'entièreté du système autonome ai reçu le message. Les messages sont directement envoyés depuis la couche de transport (PAS partie de la couche d'application).</li>
-</ul></li>
-<li>IGP sert au routage interne alors que BGP sert au routage externe. De plus, BGP ne communique qu'avec leurs voisins directs.</li>
+<li>
+	<ul>
+		<li>
+			<b>RIP</b> ( <b>Routing Information Protocol</b> ) : utilise un algorithme de vecteurs de distance qui se limite à 25 noeuds par paquet. Au-delà, il faudra plusieurs paquets. 0 représente l'infini. Les vecteurs de distance sont envoyés toutes les 30 secondes à ses voisins. <b>RIP</b> possède un mécanisme pour détecter les pannes, si un router n'a pas reçu de message d'un voisin depuis 180 secondes, il le déclare mort. <b>RIP</b> est un protocole de la couche d'application (PAS de la couche réseau), les messages sont envoyés dans des paquets <b>UDP</b>.
+		</li>
+		<li>
+			<b>OSPF</b> ( <b>Open Shortest Path First</b> ) : utilise un algorithme d'état des lien. Chaque message est envoyé seulement à ses voisins qui le renvoient à leurs voisins,.. jusqu'à ce que l'entièreté du système autonome ai reçu le message. Les messages sont directement envoyés depuis la couche de transport (PAS partie de la couche d'application).
+		</li>
+	</ul>
+</li>
+<li>
+	IGP sert au routage interne alors que BGP sert au routage externe. De plus, BGP ne communique qu'avec leurs voisins directs.
+</li>
 </div>
 
 
 <h4 class="question"><ol class="alphabet"><li>Décrivez les principes du protocole de routage inter-domaine BGP.</li><li>Expliquez comment BGP permet à un réseau périphérique (« stub ») multi-connecté (« multihomed ») de ne pas accepter du trafic de transit.</li></ol></h4>
 <div class="answer"><ol class="alphabet">
-<li>Permet à chaque AS d'obtenir:
+<li>
+	Permet à chaque AS d'obtenir:
 	<ul>
 		<li>Des informations sur la manière d'attendre un autre AS.</li>
 		<li>De propager ces informations aux routeurs internes.</li>
 		<li>De trouver des bons chemins basés sur non-seulement les informations obtenues dans les points précédents mais en plus sur des polices.</li>
 	</ul>
-2 protocoles BGP: l'interne (iBGP) et l'externe (eBGP). eBGP crée un connexion <b>TCP</b> permanente entre les autres AS qu'il peut atteindre, afin de se mettre à jour et d'envoyer des "promesses" (dire qu'il peut atteindre). Quand un routeur de la frontière utilisant eBGP reçoit ces mises à jour, il utilise iBGP pour communiquer ce qu'il a reçu aux routeur internes.</li>
-<li>Les noeuds peuvent retenir de l'information, tel qu'un chemin qu'il connait qui ne lui rapporte rien.</li>
+	2 protocoles BGP: l'interne (iBGP) et l'externe (eBGP). eBGP crée un connexion <b>TCP</b> permanente entre les autres AS qu'il peut atteindre, afin de se mettre à jour et d'envoyer des "promesses" (dire qu'il peut atteindre). Quand un routeur de la frontière utilisant eBGP reçoit ces mises à jour, il utilise iBGP pour communiquer ce qu'il a reçu aux routeur internes.</li>
+<li>
+	Les noeuds peuvent retenir de l'information, tel qu'un chemin qu'il connait qui ne lui rapporte rien.
+</li>
 </ol></div>
 
 
 
 <h4 class="question"><ol class="alphabet"><li>Enoncez les différents types de matrice de commutation (« switch fabric ») rencontrées dans les routeurs, ainsi que leurs avantages/inconvénients respectifs.</li><li>Expliquez la raison d’être et l’inconvénient potentiel d’une bufferisation au niveau des <b>ports</b> d’entrées.</li><li>Expliquez la raison d’être d’une bufferisation au niveau des <b>ports</b> de sortie.</li></ol></h4>
-<div class="answer">
-<ol class="alphabet">
-<li>
-	<ul>
-		<li><b>Commutation par action sur la mémoire</b> : Les plus simples, les premiers routeurs étaient de simples ordinateurs. Le switch entre les <b>ports</b> d'entrée et sortie étaient fait via le CPU. Lorsqu'un paquet arrive au <b>port</b> d'entrée, le processus de routing l'identifiera via une interruption.Il copiera ensuite les paquets arrivant du buffer d'entrée sur le processeur mémoire. Le processeur extrait ensuite l'adresse de destination, recherche la table appropriée et copie le paquet sur le buffer du <b>port</b> de sortie. Dans les routeurs modernes, la recherche de l'adresse de destination et le stockage du paquet dans la mémoire appropriée est exécuté par les cartes de ligne d'entrée des processeurs.<br>
-		<b>Avantages</b> : L'architecture logicielle est la manière la plus simple d'orienter les paquets ; on prend un paquet, on lit son port de sortie, et on l'écrit dessus.<br>
-		<b>Inconvénients</b> : Traite un seul paquet à la fois, lent. Les architectures matérielles sont plus efficaces, comme un bus ou un crossbar.</li>
-		<li><b>Commutation par bus</b> : Le <b>port</b> d'entrée transfert les paquets directement sur le <b>port</b> de sortie via un bus partagé sans l'intervention d'un processus de routage. Comme le bus est partagé, seul un paquet est transféré à la fois via le bus. Si le bus est occupé, le paquet arrivant doit attendre dans une file. La bande passante du routeur est limitée par le bus comme chaque paquet doit traverser le bus seul. Exemple :  Bus switching CISCO-1900, 3-COM’s care builder5.<br>
-		<b>Avantages</b> : C'est le délit du bus qui détermine la vitesse de commutation du routeur.<br>
-		<b>Inconvénients</b> : C'est qu'un seul paquet est transféré à la fois, du coup il y a un risque d'attente.</li>
-		<li><b>Commutation par réseau d'interconnexions</b> : Pour surmonter le problème de la bande passante d'un bus partagé, les commutateurs réseaux en croix sont utilisés. Les <b>port</b> entrées et sorties sont connectés par des bus horizontaux et verticaux. Si nous avons $N$ <b>ports</b> d'entrés et $N$ <b>ports</b> de sorties, on a besoin de $2N$ bus pour les connecter. Pour transférer un paquet du <b>port</b> d'entrée au <b>port</b> de sortie correspondant, le paquet traverse le bus horizontal jusqu'à une intersection avec un bus vertical qui le conduit à son <b>port</b> de destination. Si le vertical est libre, le paquet est transféré. Mais si le bus vertical est occupé à cause d'une autre entrée, la ligne doit transférer des paquets au même <b>port</b> de destination. Les paquets sont bloqués et font la file sur le même <b>port</b> d'entrée.<br>
-		<b>Avantages</b> : Ce système peut s'implémenter en hardware, et c'est super rapide (60 Gbps). Améliore la limite de débit associé à un bus commun. <br>
-		<b>Inconvénients</b> : Le seul problème est que les paquets ont des tailles différentes. Si les paquets avaient tous la même durée, tout aurait été synchrone, on change la matrice de routage à chaque paquet, toutes les connexions en même temps. Quand les paquets ont des tailles variables, le chef d'orchestre doit être plus compliqué. On peut également découper les paquets en petits blocs de taille fixe (complétés par des zéros par exemple). Comme ça, on retrouve le comportement synchrone. Vu de l'extérieur, cette fragmentation est invisible.</li>
-	</ul>
-	<figure>
-		<img src="images/commutation.svg" alt="Matrice de commutation" />
-		<figcaption>Matrice de commutation</figcaption>
-	</figure>
-</li>
-<li>Le point le plus problématique est le fait que les routeurs doivent opérer à des vitesses élevées, impliquant des millions de consultations par seconde; on souhaite en effet que l'opération de consultation soit plus rapide que le temps qu'il faut au routeur pour recevoir un nouveau paquet. Dès que le <b>port</b> de sortie a été identifié, le paquet peut entrer dans la matrice de commutation. Cependant un paquet peut se voir refuser temporairement l'accès si elle est occupée à traiter des paquets qui ont été reçus sur d'autres liaisons d'entrée. Il est alors placé en file d'attente sur son <b>port</b>. Si la matrice de commutation n'est pas assez rapide, et du coup à mesure de l'augmentation de ces files, le risque de perte de paquets augmente.
-</li>
-<li>Si aucun ou peu de phénomène de mise en attente ne se produit à l'entrée, mais que tous les paquets venaient à être dirigés vers le même <b>port</b> de sortie, il serait très rapidement saturé. Un gestionnaire de paquets doit déterminer quel paquet de la file doit être transmis. Cette règle est généralement la règle <b>FIFO</b> ( <b>First In First Out</b> ).
-</li>
-</ol>
-</div>
+<div class="answer"><ol class="alphabet">
+	<li>
+		<ul>
+			<li><b>Commutation par action sur la mémoire</b> : Les plus simples, les premiers routeurs étaient de simples ordinateurs. Le switch entre les <b>ports</b> d'entrée et sortie étaient fait via le CPU. Lorsqu'un paquet arrive au <b>port</b> d'entrée, le processus de routing l'identifiera via une interruption.Il copiera ensuite les paquets arrivant du buffer d'entrée sur le processeur mémoire. Le processeur extrait ensuite l'adresse de destination, recherche la table appropriée et copie le paquet sur le buffer du <b>port</b> de sortie. Dans les routeurs modernes, la recherche de l'adresse de destination et le stockage du paquet dans la mémoire appropriée est exécuté par les cartes de ligne d'entrée des processeurs.<br>
+			<b>Avantages</b> : L'architecture logicielle est la manière la plus simple d'orienter les paquets ; on prend un paquet, on lit son port de sortie, et on l'écrit dessus.<br>
+			<b>Inconvénients</b> : Traite un seul paquet à la fois, lent. Les architectures matérielles sont plus efficaces, comme un bus ou un crossbar.</li>
+			<li><b>Commutation par bus</b> : Le <b>port</b> d'entrée transfert les paquets directement sur le <b>port</b> de sortie via un bus partagé sans l'intervention d'un processus de routage. Comme le bus est partagé, seul un paquet est transféré à la fois via le bus. Si le bus est occupé, le paquet arrivant doit attendre dans une file. La bande passante du routeur est limitée par le bus comme chaque paquet doit traverser le bus seul. Exemple :  Bus switching CISCO-1900, 3-COM’s care builder5.<br>
+			<b>Avantages</b> : C'est le délit du bus qui détermine la vitesse de commutation du routeur.<br>
+			<b>Inconvénients</b> : C'est qu'un seul paquet est transféré à la fois, du coup il y a un risque d'attente.</li>
+			<li><b>Commutation par réseau d'interconnexions</b> : Pour surmonter le problème de la bande passante d'un bus partagé, les commutateurs réseaux en croix sont utilisés. Les <b>port</b> entrées et sorties sont connectés par des bus horizontaux et verticaux. Si nous avons $N$ <b>ports</b> d'entrés et $N$ <b>ports</b> de sorties, on a besoin de $2N$ bus pour les connecter. Pour transférer un paquet du <b>port</b> d'entrée au <b>port</b> de sortie correspondant, le paquet traverse le bus horizontal jusqu'à une intersection avec un bus vertical qui le conduit à son <b>port</b> de destination. Si le vertical est libre, le paquet est transféré. Mais si le bus vertical est occupé à cause d'une autre entrée, la ligne doit transférer des paquets au même <b>port</b> de destination. Les paquets sont bloqués et font la file sur le même <b>port</b> d'entrée.<br>
+			<b>Avantages</b> : Ce système peut s'implémenter en hardware, et c'est super rapide (60 Gbps). Améliore la limite de débit associé à un bus commun. <br>
+			<b>Inconvénients</b> : Le seul problème est que les paquets ont des tailles différentes. Si les paquets avaient tous la même durée, tout aurait été synchrone, on change la matrice de routage à chaque paquet, toutes les connexions en même temps. Quand les paquets ont des tailles variables, le chef d'orchestre doit être plus compliqué. On peut également découper les paquets en petits blocs de taille fixe (complétés par des zéros par exemple). Comme ça, on retrouve le comportement synchrone. Vu de l'extérieur, cette fragmentation est invisible.</li>
+		</ul>
+		<figure>
+			<img src="images/commutation.svg" alt="Matrice de commutation" />
+			<figcaption>Matrice de commutation</figcaption>
+		</figure>
+	</li>
+	<li>
+		Le point le plus problématique est le fait que les routeurs doivent opérer à des vitesses élevées, impliquant des millions de consultations par seconde; on souhaite en effet que l'opération de consultation soit plus rapide que le temps qu'il faut au routeur pour recevoir un nouveau paquet. Dès que le <b>port</b> de sortie a été identifié, le paquet peut entrer dans la matrice de commutation. Cependant un paquet peut se voir refuser temporairement l'accès si elle est occupée à traiter des paquets qui ont été reçus sur d'autres liaisons d'entrée. Il est alors placé en file d'attente sur son <b>port</b>. Si la matrice de commutation n'est pas assez rapide, et du coup à mesure de l'augmentation de ces files, le risque de perte de paquets augmente.
+	</li>
+	<li>
+		Si aucun ou peu de phénomène de mise en attente ne se produit à l'entrée, mais que tous les paquets venaient à être dirigés vers le même <b>port</b> de sortie, il serait très rapidement saturé. Un gestionnaire de paquets doit déterminer quel paquet de la file doit être transmis. Cette règle est généralement la règle <b>FIFO</b> ( <b>First In First Out</b> ).
+	</li>
+</ol></div>
 
 
 <h4 class="question"><ol class="alphabet"><li>Expliquez le principe du « Longest Prefix Match » lors de l’acheminement de paquets <b>IP</b>.</li><li>Quel est son intérêt ?</li></ol></h4>
-<div class="answer">
-<ol class="alphabet"><li>Quand on cherche à envoyer une table d'entrée pour une adresse de destination donnéee, on utilise le préfixe de la plus longue adresse qui correspond à l'adresse de destination.</li>
-<li>Ca sert à détecter le cas où une table donne un sous-réseau.</li></ol></div>
+<div class="answer"><ol class="alphabet">
+	<li>
+		Quand on cherche à envoyer une table d'entrée pour une adresse de destination donnéee, on utilise le préfixe de la plus longue adresse qui correspond à l'adresse de destination.
+	</li>
+	<li>
+		Ca sert à détecter le cas où une table donne un sous-réseau.
+	</li>
+</ol></div>
 
 
 
@@ -531,10 +588,22 @@ Si aucun ou peu de phénomène de mise en attente ne se produit à l'entrée, ma
 
 <h4 class="question"><ol class="alphabet"><li>Expliquez le rôle et le principe général des codes détecteurs d’erreur.</li><li>Pourquoi ne peuvent-ils être efficaces à 100% ?</li><li>Donnez un exemple de code détecteur d’erreur plus élaboré que le bit de parité, et expliquez son principe.</li></ol></h4>
 <div class="answer"><ol class="alphabet">
-<li>Il s'agit de détecter si il y a une erreur dans le paquet transmis. Pour cela, on introduit un ou plusieurs bits de contrôle dans le paquet afin de savoir si le code a été changé ou pas.</li>
-<li>Car si il y a un seul bit de parité, on ne peut détecter que des erreurs impaires. Il faut mettre plusieurs bits de parités mais cela limite quand même toutefois le nombre d'erreurs détectables. De plus, rien ne dit qu'une erreur ne peut pas se produire sur un de ces bits.</li>
-<li><ul><li><b>Bit de parité</b> : Soit D des informations à transmettre de d bits. L’expéditeur ajoute aux données un unique bit tel que la somme des d + 1 bits soit paire (ou impaire selon ce qui est convenu par le modèle). Cette méthode est un peu faible, car si un nombre pair d’erreurs s’est glissé dans les données, elles ne seront pas détectées ; elle ne peut donc être appliquée que sur des systèmes pour lesquels les erreurs n’arrivent pas en rafale et dont la probabilité est extrêmement faible.</li>
-<li><b>Checksum</b> : les codes <b>CRC</b> (<b>Code de Redondance cyclique</b>) sont une technique de détection d'erreur très fréquente et opère de la manière suivante : Lors de l’envoi, l’émetteur ajoute un nombre sur 16 bits à la fin des données (D), de manière à ce que ces données D et ce nombre CRC forment un nombre exactement divisible par G (modulo 2). En pratique l’émetteur divise D par G et met dans CRC le reste de cette division. Le destinataire, connaissant G, n’a qu’a diviser le paquet par G, s’il n’obtient pas zéro c’est qu’il y a eu des erreurs. Le point cruciale est le choix de G(x), puisqu’il ne faut pas que les données entachées d’erreur soient divisible par lui. Plus le polynôme est grand, plus on détece d'erreurs, il faut donc choisir entre la taille et la performance.</li></ul></li>
+<li>
+	Il s'agit de détecter si il y a une erreur dans le paquet transmis. Pour cela, on introduit un ou plusieurs bits de contrôle dans le paquet afin de savoir si le code a été changé ou pas.
+</li>
+<li>
+	Car si il y a un seul bit de parité, on ne peut détecter que des erreurs impaires. Il faut mettre plusieurs bits de parités mais cela limite quand même toutefois le nombre d'erreurs détectables. De plus, rien ne dit qu'une erreur ne peut pas se produire sur un de ces bits.
+</li>
+<li>
+	<ul>
+		<li>
+			<b>Bit de parité</b> : Soit D des informations à transmettre de d bits. L’expéditeur ajoute aux données un unique bit tel que la somme des d + 1 bits soit paire (ou impaire selon ce qui est convenu par le modèle). Cette méthode est un peu faible, car si un nombre pair d’erreurs s’est glissé dans les données, elles ne seront pas détectées ; elle ne peut donc être appliquée que sur des systèmes pour lesquels les erreurs n’arrivent pas en rafale et dont la probabilité est extrêmement faible.
+		</li>
+		<li>
+			<b>Checksum</b> : les codes <b>CRC</b> (<b>Code de Redondance cyclique</b>) sont une technique de détection d'erreur très fréquente et opère de la manière suivante : Lors de l’envoi, l’émetteur ajoute un nombre sur 16 bits à la fin des données (D), de manière à ce que ces données D et ce nombre CRC forment un nombre exactement divisible par G (modulo 2). En pratique l’émetteur divise D par G et met dans CRC le reste de cette division. Le destinataire, connaissant G, n’a qu’a diviser le paquet par G, s’il n’obtient pas zéro c’est qu’il y a eu des erreurs. Le point cruciale est le choix de G(x), puisqu’il ne faut pas que les données entachées d’erreur soient divisible par lui. Plus le polynôme est grand, plus on détece d'erreurs, il faut donc choisir entre la taille et la performance.
+		</li>
+	</ul>
+</li>
 </ol></div>
 
 
@@ -788,8 +857,8 @@ Chaque noeud reçoit les mêmes infos. Tous les noeuds envoient toutes les infos
 <li><b>TCP</b> utilise le <b>3-way handshake</b> et comme son nom l'indique, il se déroule en trois étapes:
 	<ul>
 		<li><b>SYN</b> (<b>synchronized</b>) : Le client qui désire établir une connexion avec un serveur va envoyer un premier paquet <b>SYN</b> au serveur. Le numéro de segment de ce paquet est un nombre aléatoire A.</li>
-		<li><b>SYN-<b>ACK</b></b> (<b>synchronize-acknowledge</b>) : Le serveur va répondre au client à l'aide d'un paquet <b>SYN-<b>ACK</b></b>. Le numéro du <b>ACK</b> est égal au numéro de segment du paquet précédent (<b>SYN</b>) incrémenté de un (A + 1) tandis que le numéro de segment du paquet <b>SYN-<b>ACK</b></b> est un nombre aléatoire B.</li>
-		<li><b>ACK</b> (<b>acknowledge</b>): Pour terminer, le client va envoyer un paquet <b>ACK</b> au serveur qui va servir d'accusé de réception. Le numéro de segment de ce paquet est défini selon la valeur de l'acquittement reçu précédemment p.e. A + 1 et le numéro du <b>ACK</b> est égal au numéro de segment du paquet précédent (<b>SYN-<b>ACK</b></b>) incrémenté de un (B + 1).</li>
+		<li><b>SYN-ACK</b> (<b>synchronize-acknowledge</b>) : Le serveur va répondre au client à l'aide d'un paquet <b>SYN-ACK</b>. Le numéro du <b>ACK</b> est égal au numéro de segment du paquet précédent (<b>SYN</b>) incrémenté de un (A + 1) tandis que le numéro de segment du paquet <b>SYN-ACK</b> est un nombre aléatoire B.</li>
+		<li><b>ACK</b> (<b>acknowledge</b>): Pour terminer, le client va envoyer un paquet <b>ACK</b> au serveur qui va servir d'accusé de réception. Le numéro de segment de ce paquet est défini selon la valeur de l'acquittement reçu précédemment p.e. A + 1 et le numéro du <b>ACK</b> est égal au numéro de segment du paquet précédent (<b>SYN-ACK</b>) incrémenté de un (B + 1).</li>
 	</ul>
 Une fois le <b>3-way handshake</b> effectué, le client et le serveur ont reçu un acquittement de la connexion. Les étapes 1 et 2 définissent le numéro de segment pour la communication du client au serveur et les étapes 2 et 3 définissent le numéro de segment pour la communication dans l'autre sens. Une communication full-duplex est maintenant établie entre le client et le serveur.
 </li>
