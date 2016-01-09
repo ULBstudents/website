@@ -376,12 +376,20 @@ Si aucun ou peu de phénomène de mise en attente ne se produit à l'entrée, ma
 <h4 class="question"><ol class="alphabet"><li>Définissez les différents types de « Resource Records (RR)» utilisés par le protocole <b>DNS</b> et expliquez leur rôle.</li><li>Donnez le scénario d’échange de messages <b>DNS</b>, par la méthode itérative, permettant à un client de trouver l’adresse <b>IP</b> d’un serveur web dont l’URL est <b>www.company.com</b>, <i>en indiquant les RR présents dans ces messages</i>. On supposera que les caches <b>DNS</b> sont vides.</li></ol></h4>
 <div class="answer"><ol class="alphabet">
 <li>
-	Les enregistrements sur <b>DNS</b> sont sous le format : (name, value, type, tt1). On a plusieurs types possibles, entre autre :
+	Les enregistrements sur <b>DNS</b> sont sous le format : (<i>name</i>, <i>value</i>, <i>type</i>, <i>tt1</i>). On a plusieurs types possibles, entre autre :
 	<ul>
-		<li><b>A</b> : <i>name</i> est hostname et <i>value</i> est l'<b>IP</b> de l'hostname. A fournit le mapping standard hostname-to-<b>IP</b> ;</li>
-		<li><b>NS</b> : <i>name</i> est un domaine et <i>value</i> est le hostname d'un serveur <b>DNS</b> autoritaire qui connait l'adresse <b>IP</b> du domaine. Il permet à un client de connaître le serveur à contacter pour ce domaine ;</li>
-		<li><b>CNAME</b> : <i>name</i> est un alias pour le hostname présent dans <i>value</i> ;</li>
-		<li><b>MX</b> : nom du serveur mail associé à <i>name</i>.</li>
+		<li>
+			<b>A</b> : <i>name</i> est hostname et <i>value</i> est l'<b>IP</b> de l'hostname. <b>A</b> fournit le mapping standard <b>hostname-to-IP</b> ( <b>A</b> <b>IPv4</b>, <b>AAAA</b> <b>IPv6</b> ) ;
+		</li>
+		<li>
+			<b>NS</b> : <i>name</i> est un domaine name is domain (exemple: google.be) et <i>value</i> est le hostname d'un serveur <b>DNS</b> autoritaire qui connait l'adresse <b>IP</b> du domaine. Il permet à un client de connaître le serveur à contacter pour ce domaine ;
+		</li>
+		<li>
+			<b>CNAME</b> : <i>name</i> est un alias pour le hostname présent dans <i>value</i> ;
+		</li>
+		<li>
+			<b>MX</b> : nom du serveur mail associé à <i>name</i>.
+		</li>
 	</ul>
 </li>
 <li>
@@ -605,7 +613,7 @@ $$Timeout = estimation + 4 marge$$
 
 
 <h4 class="question"><ol class="alphabet"><li>Décrivez sommairement le fonctionnement du système <b>DNS</b>.</li><li>Comparez les deux modes de fonctionnement du protocole (avantages et inconvénients).</li></ol></h4>
-<div class="answer"><ol class="alphabet"><li>Le système <b>DNS</b> (<b>Domain Name System</b>) est le service d'annuaire d'Internet. Lorsqu'on recherche une adresse <b>URL</b> tel que http://google.com ou http://facebook.com, le système d'<b>DNS</b> traduit l'adresse <b>URL</b> en une adresse <b>IP</b> ( entre $0.0.0.0$ et $255.255.255.255$ pour <b>IP</b>v4 ). Ce système est fréquemment utilisé par d'autres protocoles tels que <b>HTTP</b>, <b>SMTP</b> et <b>FTP</b> pour délivrer les adresses <b>IP</b> correspondant aux noms de serveurs demandés. Par exemple pour http://ulb.be, le système <b>DNS</b> formule une requête auprès d'un serveur de nom, à laquelle il reçoit une réponse concernant l'adresse <b>IP</b> correspondante et ensuite le navigateur établit une connexion <b>TCP</b> avec le processus serveur répondant à cette adresse.</li>
+<div class="answer"><ol class="alphabet"><li>Le système <b>DNS</b> (<b>Domain Name System</b>) est le service d'annuaire d'Internet. Lorsqu'on recherche une adresse <b>URL</b> tel que http://google.com ou http://facebook.com, le système d'<b>DNS</b> traduit l'adresse <b>URL</b> en une adresse <b>IP</b> ( entre $0.0.0.0$ et $255.255.255.255$ pour <b>IPv4</b> ). Ce système est fréquemment utilisé par d'autres protocoles tels que <b>HTTP</b>, <b>SMTP</b> et <b>FTP</b> pour délivrer les adresses <b>IP</b> correspondant aux noms de serveurs demandés. Par exemple pour http://ulb.be, le système <b>DNS</b> formule une requête auprès d'un serveur de nom, à laquelle il reçoit une réponse concernant l'adresse <b>IP</b> correspondante et ensuite le navigateur établit une connexion <b>TCP</b> avec le processus serveur répondant à cette adresse.</li>
 <li><ol>
 <li>Une version simplifiée du <b>DNS</b> consisterait en un serveur de noms unique contenant toutes les correspondances existantes. Ce système a l’air simple, mais impossible à mettre en oeuvre, pour causes : fragilité d’un site central unique, volume de trafic trop important, base de données centralisée trop éloignée de certains utilisateurs, problèmes de maintenance dus au volume énorme des données à stocker. <b>DNS</b> se doit donc d’être un système distribué.</li>
 <li><b>DNS</b> utilise un grand nombre de serveurs de noms, organisé de manière hiérarchique et distribué dans le monde entier. Il existe trois types de serveurs de noms : les <b>serveurs de noms locaux</b>, les <b>serveurs de nom racine</b> et les <b>serveurs de nom de source autorisée</b>. Chaque fournisseur d’accès possède un <b>serveur de noms local</b>, vers lequel vont toutes les recherches <b>DNS</b> formulées au sein de ce réseau local. Un <b>serveur de noms local</b> est forcément proche du client. Lorsqu’un serveur local de noms n’est pas en mesure de répondre à une demande il se transforme en client <b>DNS</b> et interroge un <b>serveur de nom racine</b>, si celui-ci a une réponse il l’envoie au serveur de noms <b>DNS</b>, qui la transmet alors à l’auteur de la demande ; si le <b>serveur de nom racine</b> ne peut lui non plus satisfaire la demande directement, il répond en donnant l’adresse <b>IP</b> d’un <b>serveur de nom de source autorisée</b> qui connaîtra certainement la correspondance recherchée. Tout serveur est enregistré auprès d’au moins deux <b>serveurs de noms de source autorisée</b>, en général il s’agit tout simplement du fournisseur d’accès. Un <b>serveur de nom est qualifié</b> de source autorisée pour un serveur donné, s’il dispose en permanence d’archives <b>DNS</b> permettant d’établir la conversion pour ce serveur. 
