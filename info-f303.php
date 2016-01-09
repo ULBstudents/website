@@ -696,7 +696,7 @@ Chaque noeud reçoit les mêmes infos. Tous les noeuds envoient toutes les infos
 
 
 
-<h4 class="question"><ol class="alphabet"><li>Expliquez la différence entre une fibre optique multimode et une fibre monomode.</li><li>Laquelle permet un débit plus élevé ? Pourquoi ?</li><li>Expliquez le multiplexage en longueur d’onde (WDM). Quel est son intérêt ?</li><li>Comparez TDM, FDM et WDM.<</li></ol></h4>
+<h4 class="question"><ol class="alphabet"><li>Expliquez la différence entre une fibre optique multimode et une fibre monomode.</li><li>Laquelle permet un débit plus élevé ? Pourquoi ?</li><li>Expliquez le multiplexage en longueur d’onde (WDM). Quel est son intérêt ?</li><li>Comparez TDM, FDM et WDM.</li></ol></h4>
 <div class="answer"><ol class="alphabet">
 <li>Ce sont tous les deux des câbles composés de 2 couches de verre et d'une couche protrectrice en plastique. La première couche de verre transporte les photons et la 2eme sert à les obliger à rester dans la première couche en les réfléchissant. Dans les fibres multimodes on laisse passer plusieur photons à la fois, ceux-ci n'auront pas nécessairement le même chemin, dû à l'épaisseur de la couche centrale (64$\mu$) qui permet plus de "collisions"/refractions. Dans les fibres monomodes, la couche centrale est tellement plus petite (2,4$\mu$) qu'on ne peut laisser qu'un seule photon à la fois.</li>
 <li>La fibre optique monomode permet un débit plus élevé. La couche centrale de taille plus petite ne peut laisser passer qu'un seul photon à la fois. Ceux-ci partent en ligne droite, donc moins de "collisions" à l'intérieur, c'est plus efficace et on ne doit pas attendre que le symbole aie été entièrement reçu par le récepteur.</li>
@@ -704,6 +704,7 @@ Chaque noeud reçoit les mêmes infos. Tous les noeuds envoient toutes les infos
 <li><ul>
 	<li><b>TDM</b> (<b>La division par le temps</b>) : Tout le monde peut utiliser le même canal de communication mais seulement pour un temps donné. Par exemple, toutes les secondes, on change d’utilisateur et chacun à son tour peut utiliser le canal comme il le veut. On doit donc savoir qui peut utiliser le canal quand et il faut avoir une bonne synchronisation.</li>
 	<li><b>FDM</b> (<b>La division en fréquences</b>) : C’est utilisé en radio et en télévision. On attribue un sous-canal de fréquences à chaque personne qui veut recevoir des informations. Par exemple, le premier usager à la bande de fréquence de 0 à 1KHz, le 2 à la bande de 1 à 2KHz,... Tout le monde peut donc communiquer de manière continue à l’aide de son sous-canal.</li>
+	<li><b>WDM</b></li>
 </ul></li>
 </ol></div>
 
@@ -729,8 +730,12 @@ Chaque noeud reçoit les mêmes infos. Tous les noeuds envoient toutes les infos
 
 <h4 class="question"><ol class="alphabet"><li>Dans un protocole de transport, si l’on numérote les segments modulo 2, montrez par un contre exemple qu’il est également nécessaire de numéroter les acquits pour assurer la fiabilité du transfert.</li><li>Dans quelle(s) situation(s) le protocole à bit alterné est-il quasiment aussi efficace qu’un protocole à grande fenêtre glissante ? Expliquez.</li></ol></h4>
 <div class="answer"><ol class="alphabet">
-<li>Un paquet sur 2 contiendra donc la valeur 0 et l'autre, la valeur 1. Grâce à ça, si l'<b>ACK</b> est corrompu, le receveur va s'apercevoir que le nouveau paquet reçu est celui qu'il avait déjà reçu et va donc le jeter. Il va ensuite envoyer un <b>ACK</b> à nouveau pour passer au paquet suivant.</li>
-<li>Lorsqu'il y a qu'un seul paquet à envoyer. Sinon le stop & wait fait perdre beaucoup de temps et empêche la ligne d'avoir un débit correct.</li>
+<li>
+	Un paquet sur 2 contiendra donc la valeur 0 et l'autre, la valeur 1. Grâce à ça, si l'<b>ACK</b> est corrompu, le receveur va s'apercevoir que le nouveau paquet reçu est celui qu'il avait déjà reçu et va donc le jeter. Il va ensuite envoyer un <b>ACK</b> à nouveau pour passer au paquet suivant.
+</li>
+<li>
+	Lorsqu'il y a qu'un seul paquet à envoyer. Sinon le stop & wait fait perdre beaucoup de temps et empêche la ligne d'avoir un débit correct.
+</li>
 </ol></div>
 
 
