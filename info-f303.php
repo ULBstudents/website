@@ -53,7 +53,7 @@ Les réponses proviennent (ou par l'intermédiaire de résumé) de Denis Steckel
 
 
 
-<h4 class="question"><ol class="alphabet"><li>Expliquez la différence entre une fibre optique multimode et une fibre monomode.</li><li>Laquelle permet un débit plus élevé ? Pourquoi ?</li><li>Expliquez le multiplexage en longueur d’onde (WDM). Quel est son intérêt ?</li><li>Comparez TDM, FDM et WDM.</li></ol></h4>
+<h4 class="question"><ol class="alphabet"><li>Expliquez la différence entre une fibre optique multimode et une fibre monomode.</li><li>Laquelle permet un débit plus élevé ? Pourquoi ?</li></ol></h4>
 <div class="answer"><ol class="alphabet">
 <li>
 	Ce sont tous les deux des câbles composés de 2 couches de verre et d'une couche protrectrice en plastique. La première couche de verre transporte les photons et la 2eme sert à les obliger à rester dans la première couche en les réfléchissant. Dans les fibres multimodes on laisse passer plusieur photons à la fois, ceux-ci n'auront pas nécessairement le même chemin, dû à l'épaisseur de la couche centrale (64$\mu$) qui permet plus de "collisions"/refractions. Dans les fibres monomodes, la couche centrale est tellement plus petite (2,4$\mu$) qu'on ne peut laisser qu'un seule photon à la fois.
@@ -64,20 +64,6 @@ Les réponses proviennent (ou par l'intermédiaire de résumé) de Denis Steckel
 </li>
 <li>
 	La fibre optique monomode permet un débit plus élevé. La couche centrale de taille plus petite ne peut laisser passer qu'un seul photon à la fois. Ceux-ci partent en ligne droite, donc moins de "collisions" à l'intérieur, c'est plus efficace et on ne doit pas attendre que le symbole aie été entièrement reçu par le récepteur.
-</li>
-<li>
-	Cette technique est donc utilisée pour la fibre optique. On peut remarquer que la longueur d’onde étant l’inverse de la fréquence, cette technique utilise donc le même principe que la FDM. En fait, on envoie des photons avec des longueurs d’onde différentes selon l’utilisateur dans la fibre. Ces photons passent dans un prisme pour combiner toutes les lumières à l’entrée de la fibre puis sont à nouveau séparés à la sortie de la fibre à l’aide d’un autre prisme.
-</li>
-<li>
-	<ul>
-		<li><b>TDM</b> (<b>La division par le temps</b>) : Tout le monde peut utiliser le même canal de communication mais seulement pour un temps donné. Par exemple, toutes les secondes, on change d’utilisateur et chacun à son tour peut utiliser le canal comme il le veut. On doit donc savoir qui peut utiliser le canal quand et il faut avoir une bonne synchronisation.</li>
-		<li><b>FDM</b> (<b>La division en fréquences</b>) : C’est utilisé en radio et en télévision. On attribue un sous-canal de fréquences à chaque personne qui veut recevoir des informations. Par exemple, le premier usager à la bande de fréquence de 0 à 1KHz, le 2 à la bande de 1 à 2KHz,... Tout le monde peut donc communiquer de manière continue à l’aide de son sous-canal.</li>
-		<li><b>WDM</b></li>
-	</ul>
-	<figure>
-		<img src="images/fdm-tdm-wdm.svg" alt="FDM TDM WDM" />
-		<figcaption>FDM TDM WDM</figcaption>
-	</figure>
 </li>
 </ol></div>
 
@@ -94,14 +80,20 @@ Les réponses proviennent (ou par l'intermédiaire de résumé) de Denis Steckel
 		<li>Un trafic à débit variable en mode connecté, tel celui d'un transfert de fichier.</li>
 		<li>Un trafic constitué de datagrammes en mode non connecté, tels des paquets <b>UDP</b>.</li>
 	</ul>
+	Cette technique est donc utilisée pour la fibre optique. On peut remarquer que la longueur d’onde étant l’inverse de la fréquence, cette technique utilise donc le même principe que la FDM. En fait, on envoie des photons avec des longueurs d’onde différentes selon l’utilisateur dans la fibre. Ces photons passent dans un prisme pour combiner toutes les lumières à l’entrée de la fibre puis sont à nouveau séparés à la sortie de la fibre à l’aide d’un autre prisme.
 </li>
 <li>
 	Pour les deux protocoles orientés connexion, l'idée de base est qu'une station A souhaitant communiquer avec une station B doit au préalable insérer une trame de demande de connexion dans un slot libre sur le canal de signalisation de B. Si B accepte, la communication peut avoir lieu par l'intermédiaire du canal de données de A.
-</li>
+	<ul>
+		<li><b>TDM</b> (<b>La division par le temps</b>) : Tout le monde peut utiliser le même canal de communication mais seulement pour un temps donné. Par exemple, toutes les secondes, on change d’utilisateur et chacun à son tour peut utiliser le canal comme il le veut. On doit donc savoir qui peut utiliser le canal quand et il faut avoir une bonne synchronisation.</li>
+		<li><b>FDM</b> (<b>La division en fréquences</b>) : C’est utilisé en radio et en télévision. On attribue un sous-canal de fréquences à chaque personne qui veut recevoir des informations. Par exemple, le premier usager à la bande de fréquence de 0 à 1KHz, le 2 à la bande de 1 à 2KHz,... Tout le monde peut donc communiquer de manière continue à l’aide de son sous-canal.</li>
+		<li><b>WDM</b></li>
+	</ul>
 	<figure>
 		<img src="images/fdm-tdm-wdm.svg" alt="FDM TDM WDM" />
 		<figcaption>FDM TDM WDM</figcaption>
 	</figure>
+</li>
 </ol></div>
 
 
