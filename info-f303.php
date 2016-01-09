@@ -711,8 +711,18 @@ Chaque noeud reçoit les mêmes infos. Tous les noeuds envoient toutes les infos
 
 <h4 class="question"><ol class="alphabet"><li>Quel mécanisme est utilisé par un serveur Web pour conserver de l’état relatif aux usagers ? Expliquez le principe en l’illustrant sur un scénario.</li><li>Expliquer le fonctionnement de HTTP avec <b>proxy</b>-cache à partir d’un scénario impliquant le client, le serveur et le <b>proxy</b>. Expliquez le gain d’efficacité lorsque l’objet est en cache.</li></ol></h4>
 <div class="answer"><ol class="alphabet">
-<li>Les Cookies sont des informations qui se trouvent tout aussi bien du côté client que du côté serveur et qui représentent des états. Les utilisateurs préfèreraient avoir des facilitées (ne pas devoir rentrer à chaque fois son mot de passe quand on va sur un site par exemple).</li>
-<li>Quand on utilise un <b>proxy</b>, c’est avec le <b>proxy</b> qu’on établit la connexion <b>TCP</b>, pas avec le vrai serveur. Après, le <b>proxy</b> se sert de l’info dans le header de la requête http pour rediriger la requête. Le <b>proxy</b> permet aussi de retenir des infos en cache. Si le serveur est down et que l’info est en cache sur le <b>proxy</b>, on peut encore obtenir l’info. Les <b>proxy</b>s permettent également de réduire les délais de réponse et le trafic vers le site, car s’il a déjà l’info, on ne doit pas la demander au serveur. Il permet aussi de filtrer les connexions et de répartir les charges s’il y a plusieurs serveurs derrière.</li>
+<li>
+	Les <b>cookies</b> sont définis par le <b>protocole de communication HTTP</b> comme étant une suite d'informations envoyée par un <b>serveur HTTP</b> à un <b>client HTTP</b>, que ce dernier renvoie à ce même <b>serveur HTTP</b> lorsqu'il lui pose la question. 
+
+	Le <b>cookie</b> est l'équivalent d'un petit fichier texte stocké sur le terminal de l'internaute. Existants depuis plus de 20 ans, ils permettent aux développeurs de sites internet de conserver des données utilisateur afin de faciliter leur navigation et de permettre certaines fonctionnalités. Les cookies ont toujours été plus ou moins controversés car contenant des informations personnelles résiduelles pouvant potentiellement être exploitées par des tiers.
+
+	Il est envoyé en tant qu'en-tête <b>HTTP</b> par le serveur web au navigateur web qui le renvoie inchangé à chaque fois qu'il accède au serveur. Un <b>cookie</b> peut être utilisé pour une authentification, une session (maintenance d'état), et pour stocker une information spécifique sur l'utilisateur, comme les préférences d'un site ou le contenu d'un panier d'achat électronique.
+
+	Par exemple de scénario, lorsqu'on se connecte sur un site, un <b>cookie</b> peut être créé pour se connecter directement sur le compte sans devoir retaper le login/password. Ou encore garder en mémoire le panier d'achat sur un site e-commerce pour un achat ultérieur. Ce n'est donc principalement qu'une question de facilité pour l'utilisateur.
+</li>
+<li>
+	Quand on utilise un <b>proxy</b>, c’est avec le <b>proxy</b> qu’on établit la connexion <b>TCP</b>, pas avec le vrai serveur. Après, le <b>proxy</b> se sert de l’info dans le header de la requête http pour rediriger la requête. Le <b>proxy</b> permet aussi de retenir des infos en cache. Si le serveur est down et que l’inforomation est en cache sur le <b>proxy</b>, on peut encore obtenir l’inforomation. Les <b>proxy</b>s permettent également de réduire les délais de réponse et le trafic vers le site, car s’il a déjà l’inforomation, on ne doit pas la demander au serveur. Il permet aussi de filtrer les connexions et de répartir les charges. On gagne donc en efficacité quand l'objet est en cache.
+</li>
 </ol></div>
 
 
