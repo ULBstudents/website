@@ -152,10 +152,10 @@ Le récepteur a reçu les paquets (0 1 2) et attend donc les paquets (3 0 1), ma
 			</tr>
 			<tr>
 				<td>
-					??? On renvoie que les packets sans <b>ACK</b> ???
+					On renvoie tout les paquets à partir de celui sans <b>ACK</b>
 				</td>
 				<td>
-					??? On renvoie tout les paquets à partir de celui sans <b>ACK</b> ???
+					On renvoie que les packets sans <b>ACK</b>
 				</td>
 			</tr>
 		</tbody>
