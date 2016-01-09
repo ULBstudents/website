@@ -33,14 +33,53 @@ Les réponses proviennent (ou par l'intermédiaire de résumé) de Denis Steckel
 
 <h4 class="question"><ol class="alphabet"><li>Expliquez la dispersion de délai dans une fibre optique.</li><li>Quelle en est la conséquence ?</li><li>Dans quel type de fibre la rencontre-t-on ?</li></ol></h4>
 <div class="answer"><ol class="alphabet">
-<li>La dispersion du délai se produit lorsque les rayons lumineux sont réfractés ou réfléchis par la couche périphérique de l'âme de la fibre, et que ces rayons ont des trajectoires différentes. Ces trajectoires ayant des longueur différentes, le temps que mettra la lumière à les parcourir différera, et une impulsion lumineuse très courte pourrait être reçue en plusieurs fragments de l'autre côté.</li>
-<li>La détection des bits formés par ces impulsions lumineuses devient plus difficile, voire impossible, à moins d'espacer les impulsions lumineuses par un délai d'attente. Cependant, ce délai pénalise énormément le débit de la fibre puisque c'est du temps qui pourrait être utilisé pour transférer des données.</li>
-<li>On rencontre ce phénomène dans les fibres multimodes.</li>
+<li>
+	La dispersion du délai se produit lorsque les rayons lumineux sont réfractés ou réfléchis par la couche périphérique de l'âme de la fibre, et que ces rayons ont des trajectoires différentes. Ces trajectoires ayant des longueur différentes, le temps que mettra la lumière à les parcourir différera, et une impulsion lumineuse très courte pourrait être reçue en plusieurs fragments de l'autre côté.
+	<figure>
+		<img src="images/multimode-monomode.svg" alt="Fibres monomode et multimode" />
+		<figcaption>Fibres monomode et multimode</figcaption>
+	</figure>
+</li>
+<li>
+	La détection des bits formés par ces impulsions lumineuses devient plus difficile, voire impossible, à moins d'espacer les impulsions lumineuses par un délai d'attente. Cependant, ce délai pénalise énormément le débit de la fibre puisque c'est du temps qui pourrait être utilisé pour transférer des données.
+</li>
+<li>
+	On rencontre ce phénomène dans les fibres multimodes.
+</li>
 </ol></div>
 
 
+
+<h4 class="question"><ol class="alphabet"><li>Expliquez la différence entre une fibre optique multimode et une fibre monomode.</li><li>Laquelle permet un débit plus élevé ? Pourquoi ?</li><li>Expliquez le multiplexage en longueur d’onde (WDM). Quel est son intérêt ?</li><li>Comparez TDM, FDM et WDM.</li></ol></h4>
+<div class="answer"><ol class="alphabet">
+<li>
+	Ce sont tous les deux des câbles composés de 2 couches de verre et d'une couche protrectrice en plastique. La première couche de verre transporte les photons et la 2eme sert à les obliger à rester dans la première couche en les réfléchissant. Dans les fibres multimodes on laisse passer plusieur photons à la fois, ceux-ci n'auront pas nécessairement le même chemin, dû à l'épaisseur de la couche centrale (64$\mu$) qui permet plus de "collisions"/refractions. Dans les fibres monomodes, la couche centrale est tellement plus petite (2,4$\mu$) qu'on ne peut laisser qu'un seule photon à la fois.
+	<figure>
+		<img src="images/multimode-monomode.svg" alt="Fibres monomode et multimode" />
+		<figcaption>Fibres monomode et multimode</figcaption>
+	</figure>
+</li>
+<li>
+	La fibre optique monomode permet un débit plus élevé. La couche centrale de taille plus petite ne peut laisser passer qu'un seul photon à la fois. Ceux-ci partent en ligne droite, donc moins de "collisions" à l'intérieur, c'est plus efficace et on ne doit pas attendre que le symbole aie été entièrement reçu par le récepteur.
+</li>
+<li>
+	Cette technique est donc utilisée pour la fibre optique. On peut remarquer que la longueur d’onde étant l’inverse de la fréquence, cette technique utilise donc le même principe que la FDM. En fait, on envoie des photons avec des longueurs d’onde différentes selon l’utilisateur dans la fibre. Ces photons passent dans un prisme pour combiner toutes les lumières à l’entrée de la fibre puis sont à nouveau séparés à la sortie de la fibre à l’aide d’un autre prisme.
+</li>
+<li>
+	<ul>
+		<li><b>TDM</b> (<b>La division par le temps</b>) : Tout le monde peut utiliser le même canal de communication mais seulement pour un temps donné. Par exemple, toutes les secondes, on change d’utilisateur et chacun à son tour peut utiliser le canal comme il le veut. On doit donc savoir qui peut utiliser le canal quand et il faut avoir une bonne synchronisation.</li>
+		<li><b>FDM</b> (<b>La division en fréquences</b>) : C’est utilisé en radio et en télévision. On attribue un sous-canal de fréquences à chaque personne qui veut recevoir des informations. Par exemple, le premier usager à la bande de fréquence de 0 à 1KHz, le 2 à la bande de 1 à 2KHz,... Tout le monde peut donc communiquer de manière continue à l’aide de son sous-canal.</li>
+		<li><b>WDM</b></li>
+	</ul>
+</li>
+</ol></div>
+
+
+
 <h4 class="question">Pourquoi utilise-t-on un modem pour transmettre de l'information numérique sur une ligne téléphonique ? Comment module-t-on le signal dans les modems « dial-up » les plus courants ?</h4>
-<div class="answer">C'est une forme d'accès à internet qui utilise le réseau téléphonique pour établir une connexion à un ISP. La vitesse maximale est de 56 Kbps et on ne peut téléphoner en même temps. Modulateur/DéModulateur. Le But d'un modem est de transformer des informations binaires (numériques) en un signal analogique (et vice-versa). Le plus souvent on modifie à la fois l'amplitude du signal et sa phase. On ne passe donc pas 1 bit à la fois, mais au moins 2 (1 grâce à l'amplitude et 1 à la phase).</div>
+<div class="answer">
+	C'est une forme d'accès à internet qui utilise le réseau téléphonique pour établir une connexion à un ISP. La vitesse maximale est de 56 Kbps et on ne peut téléphoner en même temps. Modulateur/DéModulateur. Le But d'un modem est de transformer des informations binaires (numériques) en un signal analogique (et vice-versa). Le plus souvent on modifie à la fois l'amplitude du signal et sa phase. On ne passe donc pas 1 bit à la fois, mais au moins 2 (1 grâce à l'amplitude et 1 à la phase).
+</div>
 
 
 
@@ -692,20 +731,6 @@ Chaque noeud reçoit les mêmes infos. Tous les noeuds envoient toutes les infos
 <li>Oui car ils sont identifiés par leurs adresses <b>MAC</b>, l'adresse <b>IP</b> n'est pas très importante.</li>
 <li>Non, car ici, le protocole <b>DHCP</b> attribuera une nouvelle adresse à l'ordinateur.</li>
 <li>Car on ne peut mettre que maximum 4 hubs interconnectés par des cables de 100m maximum alors que les commutateurs n'ont pas de limites.</li>
-</ol></div>
-
-
-
-<h4 class="question"><ol class="alphabet"><li>Expliquez la différence entre une fibre optique multimode et une fibre monomode.</li><li>Laquelle permet un débit plus élevé ? Pourquoi ?</li><li>Expliquez le multiplexage en longueur d’onde (WDM). Quel est son intérêt ?</li><li>Comparez TDM, FDM et WDM.</li></ol></h4>
-<div class="answer"><ol class="alphabet">
-<li>Ce sont tous les deux des câbles composés de 2 couches de verre et d'une couche protrectrice en plastique. La première couche de verre transporte les photons et la 2eme sert à les obliger à rester dans la première couche en les réfléchissant. Dans les fibres multimodes on laisse passer plusieur photons à la fois, ceux-ci n'auront pas nécessairement le même chemin, dû à l'épaisseur de la couche centrale (64$\mu$) qui permet plus de "collisions"/refractions. Dans les fibres monomodes, la couche centrale est tellement plus petite (2,4$\mu$) qu'on ne peut laisser qu'un seule photon à la fois.</li>
-<li>La fibre optique monomode permet un débit plus élevé. La couche centrale de taille plus petite ne peut laisser passer qu'un seul photon à la fois. Ceux-ci partent en ligne droite, donc moins de "collisions" à l'intérieur, c'est plus efficace et on ne doit pas attendre que le symbole aie été entièrement reçu par le récepteur.</li>
-<li>Cette technique est donc utilisée pour la fibre optique. On peut remarquer que la longueur d’onde étant l’inverse de la fréquence, cette technique utilise donc le même principe que la FDM. En fait, on envoie des photons avec des longueurs d’onde différentes selon l’utilisateur dans la fibre. Ces photons passent dans un prisme pour combiner toutes les lumières à l’entrée de la fibre puis sont à nouveau séparés à la sortie de la fibre à l’aide d’un autre prisme.</li>
-<li><ul>
-	<li><b>TDM</b> (<b>La division par le temps</b>) : Tout le monde peut utiliser le même canal de communication mais seulement pour un temps donné. Par exemple, toutes les secondes, on change d’utilisateur et chacun à son tour peut utiliser le canal comme il le veut. On doit donc savoir qui peut utiliser le canal quand et il faut avoir une bonne synchronisation.</li>
-	<li><b>FDM</b> (<b>La division en fréquences</b>) : C’est utilisé en radio et en télévision. On attribue un sous-canal de fréquences à chaque personne qui veut recevoir des informations. Par exemple, le premier usager à la bande de fréquence de 0 à 1KHz, le 2 à la bande de 1 à 2KHz,... Tout le monde peut donc communiquer de manière continue à l’aide de son sous-canal.</li>
-	<li><b>WDM</b></li>
-</ul></li>
 </ol></div>
 
 
