@@ -17,17 +17,20 @@ Les réponses proviennent (ou par l'intermédiaire de résumé) de Denis Steckel
 
 <h4 class="question"><ol class="alphabet"><li>Expliquez la différence entre une fibre optique monomode et une fibre multimode.</li><li>Laquelle permet un débit plus élevé et pourquoi ?</li></ol></h4>
 <div class="answer"><ol class="alphabet">
-<li>La fibre optique est une émission d'un nuage de photon dans un câble en verre. Composé d’un câble en fibre optique inclus dans un autre, les deux ayant des indices de réfractions différents. Ceci permettant de piéger les signaux par réfraction. les photons ne peuvent plus quitter le câble et se retrouve bloqué dans le câble du centre. On utilise deux types de fibre : Le monomode et multimode.
-<figure>
-	<img src="images/multimode-monomode.svg" alt="Fibres monomode et multimode" />
-	<figcaption>Fibres monomode et multimode</figcaption>
-</figure>
-<ul>
-	<li><b>Multimode</b> : Le problème de la fibre optique est que les photons émis dans un même nuage prennent des trajectoires différentes (en fonctions des angles de réflexions au sein du câble), les photons du signal n’arrivent donc pas en même temps au bout du câble (ni dans la même partie). Or plus la distance est longues plus cet effet grandit et plus l’écart entre les photons de tête et de queue s’agrandit, on a donc un étalement puis un chevauchement des flux. Pour éviter les chevauchement on est donc obligé d’espacer les émissions en fonction des distances et capacités de réceptions.</li>
-	<li><b>Monomode</b> : Ici on utilise un verre plus étroit ( 2.4 µ ) avec un seul mode de propagation, les photons vont donc en ligne droite, sans étalement. C’est efficace pour les grandes distances, mais plus chère.</li>
-</ul>
+<li>
+	La fibre optique est une émission d'un nuage de photon dans un câble en verre. Composé d’un câble en fibre optique inclus dans un autre, les deux ayant des indices de réfractions différents. Ceci permettant de piéger les signaux par réfraction. les photons ne peuvent plus quitter le câble et se retrouve bloqué dans le câble du centre. On utilise deux types de fibre : Le monomode et multimode.
+	<figure>
+		<img src="images/multimode-monomode.svg" alt="Deux modes de fibres optique" />
+		<figcaption>Deux modes de fibres optique</figcaption>
+	</figure>
+	<ul>
+		<li><b>Multimode</b> : Le problème de la fibre optique est que les photons émis dans un même nuage prennent des trajectoires différentes (en fonctions des angles de réflexions au sein du câble), les photons du signal n’arrivent donc pas en même temps au bout du câble (ni dans la même partie). Or plus la distance est longues plus cet effet grandit et plus l’écart entre les photons de tête et de queue s’agrandit, on a donc un étalement puis un chevauchement des flux. Pour éviter les chevauchement on est donc obligé d’espacer les émissions en fonction des distances et capacités de réceptions.</li>
+		<li><b>Monomode</b> : Ici on utilise un verre plus étroit ( 2.4 µ ) avec un seul mode de propagation, les photons vont donc en ligne droite, sans étalement. C’est efficace pour les grandes distances, mais plus chère.</li>
+	</ul>
 </li>
-<li>La fible multimode possède donc un débit plus élevé car il est moins étroit que la fibre monomode.Cependant elle est moins optimale à cause des chevauchement possible et n'est du coup utilisé que pour de courte distances</li>
+<li>
+	La fible multimode possède donc un débit plus élevé car il est moins étroit que la fibre monomode.Cependant elle est moins optimale à cause des chevauchement possible et n'est du coup utilisé que pour de courte distances
+</li>
 </ol></div>
 
 
@@ -36,8 +39,8 @@ Les réponses proviennent (ou par l'intermédiaire de résumé) de Denis Steckel
 <li>
 	La dispersion du délai se produit lorsque les rayons lumineux sont réfractés ou réfléchis par la couche périphérique de l'âme de la fibre, et que ces rayons ont des trajectoires différentes. Ces trajectoires ayant des longueur différentes, le temps que mettra la lumière à les parcourir différera, et une impulsion lumineuse très courte pourrait être reçue en plusieurs fragments de l'autre côté.
 	<figure>
-		<img src="images/multimode-monomode.svg" alt="Fibres monomode et multimode" />
-		<figcaption>Fibres monomode et multimode</figcaption>
+		<img src="images/multimode-monomode.svg" alt="Deux modes de fibres optique" />
+		<figcaption>Deux modes de fibres optique</figcaption>
 	</figure>
 </li>
 <li>
@@ -55,8 +58,8 @@ Les réponses proviennent (ou par l'intermédiaire de résumé) de Denis Steckel
 <li>
 	Ce sont tous les deux des câbles composés de 2 couches de verre et d'une couche protrectrice en plastique. La première couche de verre transporte les photons et la 2eme sert à les obliger à rester dans la première couche en les réfléchissant. Dans les fibres multimodes on laisse passer plusieur photons à la fois, ceux-ci n'auront pas nécessairement le même chemin, dû à l'épaisseur de la couche centrale (64$\mu$) qui permet plus de "collisions"/refractions. Dans les fibres monomodes, la couche centrale est tellement plus petite (2,4$\mu$) qu'on ne peut laisser qu'un seule photon à la fois.
 	<figure>
-		<img src="images/multimode-monomode.svg" alt="Fibres monomode et multimode" />
-		<figcaption>Fibres monomode et multimode</figcaption>
+		<img src="images/multimode-monomode.svg" alt="Deux modes de fibres optique" />
+		<figcaption>Deux modes de fibres optique</figcaption>
 	</figure>
 </li>
 <li>
