@@ -34,41 +34,6 @@ Les réponses proviennent (ou par l'intermédiaire de résumé) de Denis Steckel
 </ol></div>
 
 
-<h4 class="question"><ol class="alphabet"><li>Expliquez la dispersion de délai dans une fibre optique.</li><li>Quelle en est la conséquence ?</li><li>Dans quel type de fibre la rencontre-t-on ?</li></ol></h4>
-<div class="answer"><ol class="alphabet">
-<li>
-	La dispersion du délai se produit lorsque les rayons lumineux sont réfractés ou réfléchis par la couche périphérique de l'âme de la fibre, et que ces rayons ont des trajectoires différentes. Ces trajectoires ayant des longueur différentes, le temps que mettra la lumière à les parcourir différera, et une impulsion lumineuse très courte pourrait être reçue en plusieurs fragments de l'autre côté.
-	<figure>
-		<img src="images/multimode-monomode.svg" alt="Deux modes de fibres optique" />
-		<figcaption>Deux modes de fibres optique</figcaption>
-	</figure>
-</li>
-<li>
-	La détection des bits formés par ces impulsions lumineuses devient plus difficile, voire impossible, à moins d'espacer les impulsions lumineuses par un délai d'attente. Cependant, ce délai pénalise énormément le débit de la fibre puisque c'est du temps qui pourrait être utilisé pour transférer des données.
-</li>
-<li>
-	On rencontre ce phénomène dans les fibres multimodes.
-</li>
-</ol></div>
-
-
-
-<h4 class="question"><ol class="alphabet"><li>Expliquez la différence entre une fibre optique multimode et une fibre monomode.</li><li>Laquelle permet un débit plus élevé ? Pourquoi ?</li></ol></h4>
-<div class="answer"><ol class="alphabet">
-<li>
-	Ce sont tous les deux des câbles composés de 2 couches de verre et d'une couche protrectrice en plastique. La première couche de verre transporte les photons et la 2eme sert à les obliger à rester dans la première couche en les réfléchissant. Dans les fibres multimodes on laisse passer plusieur photons à la fois, ceux-ci n'auront pas nécessairement le même chemin, dû à l'épaisseur de la couche centrale (64$\mu$) qui permet plus de "collisions"/refractions. Dans les fibres monomodes, la couche centrale est tellement plus petite (2,4$\mu$) qu'on ne peut laisser qu'un seule photon à la fois.
-	<figure>
-		<img src="images/multimode-monomode.svg" alt="Deux modes de fibres optique" />
-		<figcaption>Deux modes de fibres optique</figcaption>
-	</figure>
-</li>
-<li>
-	La fibre optique monomode permet un débit plus élevé. La couche centrale de taille plus petite ne peut laisser passer qu'un seul photon à la fois. Ceux-ci partent en ligne droite, donc moins de "collisions" à l'intérieur, c'est plus efficace et on ne doit pas attendre que le symbole aie été entièrement reçu par le récepteur.
-</li>
-</ol></div>
-
-
-
 
 <h4 class="question"><ol class="alphabet"><li>Expliquez le principe du multiplexage en longueur d’onde (WDM). Quel est son intérêt ?</li><li>Comparez WDM aux techniques classiques de multiplexage TDM et FDM.</li></ol></h4>
 <div class="answer"><ol class="alphabet">
