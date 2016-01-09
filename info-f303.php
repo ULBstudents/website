@@ -176,9 +176,9 @@ Par conventation, on considère que le segment est perdu après qu'on ai reçu t
 <li>
 	Il y a 3 paramètres qui peuvent entraîner des pertes et ainsi une baisse momentané du débit :
 	<ul>
-		<li>p ( Taux d'erreur ) ;</li>
-		<li>MSS ( Max Segment Size ) ;</li>
-		<li>RTT ( Round-Trip Time ).</li>
+		<li><b>p</b> ( <b>Taux d'erreur</b> ) ;</li>
+		<li><b>W</b> ( <b>Fenêtre de congestion</b> ) mesuré en <b>MSS</b> ( <b>Max Segment Size</b> ) ;</li>
+		<li><b>RTT</b> ( <b>Round-Trip Time</b> ).</li>
 	</ul>
 	Car la formule de l'efficacité est $\sqrt{\frac{3}{2}}\frac{MSS}{RTT}$ et donc est meilleure avec des MSS plus gros et des petits RTT. Des packets plus gros dont "l'aller-retour" est rapide.
 </li>
