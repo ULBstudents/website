@@ -1333,13 +1333,13 @@ Une fois le <b>3-way handshake</b> effectué, le client et le serveur ont reçu 
 		<tfoot>
 		</tfoot>
 	</table>
-	Le comportement du routeur pour les entrées 160.160.160.0 et 150.150.150.0 est le même mais regrouper ces entrées est impossible. Le plus petit groupe contenant toutes les adresses de ces sous-réseaux est 128.0.0.0/2 et la table de A ne peut pas contenir l’entrée
-	128.0.0.0 140.140.0.2 192.0.0.0 UG eth0
+	Le comportement du routeur pour les entrées 160.160.160.0 et 150.150.150.0 est le même mais regrouper ces entrées est impossible. Le plus petit groupe contenant toutes les adresses de ces sous-réseaux est 128.0.0.0/2 et la table de A ne peut pas contenir l’entrée :
 	<table>
 		<thead>
-			<tr><th>128.0.0.0</th><th>140.140.0.2</th><th>192.0.0.0</th><th>UG</th><th>eth0</th></tr>
+			<tr><th>Destination</th><th>Gateway</th><th>Genmask</th><th>Flags</th><th>Iface</th></tr>
 		</thead>
 		<tbody>
+			<tr><td>128.0.0.0</td><td>140.140.0.2</td><td>192.0.0.0</td><td>UG</td><td>eth0</td></tr>
 		</tbody>
 		<tfoot>
 		</tfoot>
