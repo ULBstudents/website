@@ -1269,7 +1269,7 @@ Une fois le <b>3-way handshake</b> effectué, le client et le serveur ont reçu 
 	513. L’encodage de $513 = 512 + 1 = 29 + 20$ sur 16 bits est
 	0000001000000001. L’adresse du terminal D est donc :
 	$$\begin{array}{rcl}
-	IPD &=& 10001100.10001100.00000010.00000001\\
+	IP_{D} &=& 10001100.10001100.00000010.00000001\\
 	&=& 140.140.2.1
 	\end{array}$$
 </li>
