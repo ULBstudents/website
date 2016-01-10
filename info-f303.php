@@ -1240,24 +1240,31 @@ Une fois le <b>3-way handshake</b> effectué, le client et le serveur ont reçu 
 <ol class="alphabet">
 	<li>Donnez l’adresse IP de D sachant que son host ID est 513.</li>
 	<li>2 Donnez les tables d’acheminement de R, V, A et B.</li>
-	<li>3 Consid´erons un transfert unidirectionnel de données entre A et B. Donnez les adresses IP qui sont utilis´ees dans les datagrammes qui circulent sur le réseau.</li>
+	<li>3 Considérons un transfert unidirectionnel de données entre A et B. Donnez les adresses IP qui sont utilisées dans les datagrammes qui circulent sur le réseau.</li>
 </ol></h4>
 <div class="answer"><ol class="alphabet">
 <li>
-	Pour d´eterminer l’adresse IP de D, il nous manque son netmask et
-son network ID. Ces valeurs sont identiques pour toutes les adresses IP se
-trouvant sur le mˆeme sous-r´eseau que D. Nous pourrions donc utiliser
-IPReth0 , IPTeth0 ou IPA. Nous avons :
+	Pour déterminer l’adresse IP de D, il nous manque son netmask et son network ID. Ces valeurs sont identiques pour toutes les adresses IP se trouvant sur le mˆeme sous-réseau que D. Nous pourrions donc utiliser
+$IP_{Reth0}$ , $IP_{Teth0}$ ou $IP_A$. Nous avons :
 IPA = 10001100.10001100.10001100.00000001
 Netmask = 11111111.11111111.00000000.00000000
 IPA AND Netmask = 10001100.10001100.00000000.00000000
 L’adresse IP de D est de la forme
 10001100.10001100.xxxxxxxx.xxxxxxxx
-o`u la partie non d´efinie est compl´et´ee avec le hostID. Le hostID de D est
+o`u la partie non définie est complétée avec le hostID. Le hostID de D est
 513. L’encodage de 513 = 512 + 1 = 29 + 20 sur 16 bits est
 0000001000000001. L’adresse du terminal D est donc :
 IPD = 10001100.10001100.00000010.00000001
 = 140.140.2.1
+</li>
+<li>
+	La table d’acheminement la plus probable pour R est :
+Destination Gateway Genmask Flags Iface
+localhost * 255.255.255.255 UH lo0
+140.140.0.0 * 255.255.0.0 U eth0
+150.150.150.0 160.160.160.4 255.255.255.0 UG eth1
+160.160.160.0 * 255.255.255.0 U eth1
+default 140.140.0.3 0.0.0.0 UG eth0
 </li>
 </ol></div>
 
