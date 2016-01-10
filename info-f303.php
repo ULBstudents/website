@@ -1159,8 +1159,8 @@ Une fois le <b>3-way handshake</b> effectué, le client et le serveur ont reçu 
 			<tr><th>Etape</th><th>1</th><th>2</th><th>3</th><th>4</th></tr>
 		</thead>
 		<tbody>
-			<tr><td>Mac source</td><td>A</td><td>U(eth1)</td><td>S(eth1)</td><td>T (eth1)</td></tr>
-			<tr><td>Mac Destination</td><td>U(eth0)</td><td>S(eth0)</td><td>T (eth0)</td><td>B</td></tr>
+			<tr><th>Mac source</th><td>A</td><td>U(eth1)</td><td>S(eth1)</td><td>T (eth1)</td></tr>
+			<tr><th>Mac Destination</th><td>U(eth0)</td><td>S(eth0)</td><td>T (eth0)</td><td>B</td></tr>
 		</tbody>
 		<tfoot>
 		</tfoot>
