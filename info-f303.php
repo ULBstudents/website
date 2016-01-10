@@ -50,9 +50,9 @@ Les réponses proviennent (ou par l'intermédiaire de résumé) de Denis Steckel
 <li>
 	Pour les deux protocoles orientés connexion, l'idée de base est qu'une station A souhaitant communiquer avec une station B doit au préalable insérer une trame de demande de connexion dans un slot libre sur le canal de signalisation de B. Si B accepte, la communication peut avoir lieu par l'intermédiaire du canal de données de A.
 	<ul>
-		<li><b>TDM</b> (<b>La division par le temps</b>) : Tout le monde peut utiliser le même canal de communication mais seulement pour un temps donné. Par exemple, toutes les secondes, on change d’utilisateur et chacun à son tour peut utiliser le canal comme il le veut. On doit donc savoir qui peut utiliser le canal quand et il faut avoir une bonne synchronisation.</li>
-		<li><b>FDM</b> (<b>La division en fréquences</b>) : C’est utilisé en radio et en télévision. On attribue un sous-canal de fréquences à chaque personne qui veut recevoir des informations. Par exemple, le premier usager à la bande de fréquence de 0 à 1KHz, le 2 à la bande de 1 à 2KHz,... Tout le monde peut donc communiquer de manière continue à l’aide de son sous-canal.</li>
-		<li><b>WDM</b></li>
+		<li><b>FDM</b> ( <b>Frequency Division Multiplexing</b> ) : utilisé en radio et en télévision. On attribue un sous-canal de fréquences à chaque personne qui veut recevoir des informations. Par exemple, le premier usager à la bande de fréquence de 0 à 1KHz, le 2 à la bande de 1 à 2KHz,... Tout le monde peut donc communiquer de manière continue à l’aide de son sous-canal.</li>
+		<li><b>TDM</b> ( <b>Time Division Multiplexing</b> ) : tout le monde peut utiliser le même canal de communication mais seulement pour un temps donné. Par exemple, toutes les secondes, on change d’utilisateur et chacun à son tour peut utiliser le canal comme il le veut. On doit donc savoir qui peut utiliser le canal quand et il faut avoir une bonne synchronisation.</li>
+		<li><b>WDM</b> ( <b>Wavelength Division Multiplexing</b> ) : principe similaire à <b>FDM</b>, chaque utilisateur possède sa propre longueur d'ondes.</li>
 	</ul>
 	<figure>
 		<img src="images/fdm-tdm-wdm.svg" alt="FDM TDM WDM" />
