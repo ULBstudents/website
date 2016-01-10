@@ -1221,7 +1221,6 @@ Une fois le <b>3-way handshake</b> effectué, le client et le serveur ont reçu 
 			<tr><th>Routeur</th><th>Interface</th><th>Host ID</th></tr>
 		</thead>
 		<tbody>
-			<tr><td>1</td><td>255.255.255.0</td></tr>
 			<tr><td>R</td><td>eth0</td><td>2</td></tr>
 			<tr><td></td><td>eth1</td><td>2</td></tr>
 			<tr><td>T</td><td>eth0</td><td>3</td></tr>
