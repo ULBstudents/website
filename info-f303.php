@@ -1256,7 +1256,7 @@ Une fois le <b>3-way handshake</b> effectué, le client et le serveur ont reçu 
 </ol></h4>
 <div class="answer"><ol class="alphabet">
 <li>
-	Pour déterminer l’adresse IP de D, il nous manque son netmask et son network ID. Ces valeurs sont identiques pour toutes les adresses IP se trouvant sur le mˆeme sous-réseau que D. Nous pourrions donc utiliser
+	Pour déterminer l’adresse IP de D, il nous manque son netmask et son network ID. Ces valeurs sont identiques pour toutes les adresses IP se trouvant sur le même sous-réseau que D. Nous pourrions donc utiliser
 	$IP_{R_{eth0}}$ , $IP_{T_{eth0}}$ ou $IP_A$. Nous avons :
 	$$\begin{array}{rcl}
 	IP_A &=& 10001100.10001100.10001100.00000001\\
@@ -1304,7 +1304,7 @@ Une fois le <b>3-way handshake</b> effectué, le client et le serveur ont reçu 
 		<tfoot>
 		</tfoot>
 	</table>
-	Le comportement du routeur pour les entrées $140.140.0.0$ et default est le mˆeme (envoi du paquet `a Reth1) et on peut regrouper ces entrées. La table d’acheminement la plus probable pour V est :
+	Le comportement du routeur pour les entrées $140.140.0.0$ et default est le même (envoi du paquet à Reth1) et on peut regrouper ces entrées. La table d’acheminement la plus probable pour V est :
 	<table>
 		<thead>
 			<tr><th>Destination</th><th>Gateway</th><th>Genmask</th><th>Flags</th><th>Iface</th></tr>
@@ -1333,7 +1333,7 @@ Une fois le <b>3-way handshake</b> effectué, le client et le serveur ont reçu 
 		<tfoot>
 		</tfoot>
 	</table>
-	Le comportement du routeur pour les entrées 160.160.160.0 et 150.150.150.0 est le mˆeme mais regrouper ces entrées est impossible. Le plus petit groupe contenant toutes les adresses de ces sous-réseaux est 128.0.0.0/2 et la table de A ne peut pas contenir l’entrée
+	Le comportement du routeur pour les entrées 160.160.160.0 et 150.150.150.0 est le même mais regrouper ces entrées est impossible. Le plus petit groupe contenant toutes les adresses de ces sous-réseaux est 128.0.0.0/2 et la table de A ne peut pas contenir l’entrée
 	128.0.0.0 140.140.0.2 192.0.0.0 UG eth0
 	<table>
 		<thead>
@@ -1344,7 +1344,7 @@ Une fois le <b>3-way handshake</b> effectué, le client et le serveur ont reçu 
 		<tfoot>
 		</tfoot>
 	</table>
-	Prenons, par exemple, l’adresse 128.1.1.1. Les entrées valides pour cetteadresse seraient 128.0.0.0 et default. Comme le masque de 128.0.0.0 estplus long, c’est cette entrée qui sera choisie ⇒ Erreur : cette adressedevrait ˆetre routée vers “Internet”.
+	Prenons, par exemple, l’adresse 128.1.1.1. Les entrées valides pour cetteadresse seraient 128.0.0.0 et default. Comme le masque de 128.0.0.0 estplus long, c’est cette entrée qui sera choisie ⇒ Erreur : cette adressedevrait être routée vers “Internet”.
 	<br>
 	Une table d’acheminement possible pour B est :
 	<table>
@@ -1361,7 +1361,7 @@ Une fois le <b>3-way handshake</b> effectué, le client et le serveur ont reçu 
 		<tfoot>
 		</tfoot>
 	</table>
-	Le comportement du routeur pour les entrées 160.160.160.0, 140.140.0.0 et default est le mˆeme et on peut regrouper ces entrées. La table d’acheminement la plus probable pour B est :
+	Le comportement du routeur pour les entrées 160.160.160.0, 140.140.0.0 et default est le même et on peut regrouper ces entrées. La table d’acheminement la plus probable pour B est :
 	<table>
 		<thead>
 			<tr><th>Destination</th><th>Gateway</th><th>Genmask</th><th>Flags</th><th>Iface</th></tr>
@@ -1377,7 +1377,7 @@ Une fois le <b>3-way handshake</b> effectué, le client et le serveur ont reçu 
 </li>
 <li>
 	Le paquet doit transiter par R. Les adresses IP source et destination du paquet sont respectivement 140.140.140.1 et 150.150.150.1.
-	<br><b>Important</b> : Lors de l’envoi d’un paquet IP de A vers B l’adresse source du paquet sera IPA et l’adresse de destination du paquet sera IPB depuis l’émission du paquet par A jusqu’`a la réception de celui-ci par B : <b>on ne modifie pas les adresses source et destination d’un paquet IP en cours de route</b>.
+	<br><b>Important</b> : Lors de l’envoi d’un paquet IP de A vers B l’adresse source du paquet sera $IP_A$ et l’adresse de destination du paquet sera IPB depuis l’émission du paquet par A jusqu’à la réception de celui-ci par B : <b>on ne modifie pas les adresses source et destination d’un paquet IP en cours de route</b>.
 </li>
 </ol></div>
 
