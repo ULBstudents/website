@@ -1043,11 +1043,11 @@ Une fois le <b>3-way handshake</b> effectué, le client et le serveur ont reçu 
 			<tr><th>Destination</th><th>Masque</th><th># IP libres</th></tr>
 		</thead>
 		<tbody>
-			<tr><td>124.178.240.0</td><td>255.255.255.0</td><td>2^8 - R(eth1) - T(eth1) - 2 = 252</td></tr>
-			<tr><td>124.178.48.0</td><td>255.255.11110000.00000000</td><td>2^12 - R(eth0) - A - 2 = 4092</td></tr>
-			<tr><td>124.178.64.0</td><td>255.255.11100000.00000000</td><td>2^13 - R(eth0) - S(eth1) - 2 = 8188</td></tr>
-			<tr><td>124.178.96.0</td><td>255.255.11100000.00000000</td><td>2^13 - S(eth0) - B - 2 = 8188</td></tr>
-			<tr><td></td><td></td><td>Total = 20720</td></tr>
+			<tr><td>124.178.240.0</td><td>255.255.255.0</td><td>$2^8 - R(eth1) - T(eth1) - 2 = 252$</td></tr>
+			<tr><td>124.178.48.0</td><td>255.255.11110000.00000000</td><td>$2^12 - R(eth0) - A - 2 = 4092$</td></tr>
+			<tr><td>124.178.64.0</td><td>255.255.11100000.00000000</td><td>$2^13 - R(eth0) - S(eth1) - 2 = 8188$</td></tr>
+			<tr><td>124.178.96.0</td><td>255.255.11100000.00000000</td><td>$2^13 - S(eth0) - B - 2 = 8188$</td></tr>
+			<tr><td></td><td></td><td>$Total = 20720$</td></tr>
 		</tbody>
 		<tfoot>
 		</tfoot>
@@ -1061,6 +1061,114 @@ Une fois le <b>3-way handshake</b> effectué, le client et le serveur ont reçu 
 	</ul>
 </li>
 </ol></div>
+
+
+
+
+
+<h4 class="question">Considérons le réseau de la figure. Les tables contient diverses informations sur les routeurs.
+<figure>
+	<img src="images/topologie4.svg" alt="Topologie" />
+	<figcaption>Topologie</figcaption>
+</figure>
+<figure>
+	<table>
+		<thead>
+			<tr><th>LAN</th><th>Address</th></tr>
+		</thead>
+		<tbody>
+			<tr><td>1</td> <td>255.255.255.0</td></tr>
+			<tr><td>2</td><td>255.255.255.0</td></tr>
+			<tr><td>3</td><td>255.255.255.0</td></tr>
+			<tr><td>4</td><td>255.255.255.0</td></tr>
+			<tr><td>5</td><td>255.255.254.0</td></tr>
+			<tr><td>6</td><td>255.255.254.0</td></tr>
+		</tbody>
+		<tfoot>
+		</tfoot>
+	</table>
+	<figcaption>Information sur les routeurs</figcaption>
+</figure>
+<figure>
+	<table>
+		<thead>
+			<tr><th>LAN</th><th>Address</th></tr>
+		</thead>
+		<tbody>
+			<tr><td>A</td> <td>13</td></tr>
+			<tr><td>B</td><td>125</td></tr>
+			<tr><td>C</td><td>234</td></tr>
+			<tr><td>D</td><td>50</td></tr>
+			<tr><td>E</td><td>79</td></tr>
+		</tbody>
+		<tfoot>
+		</tfoot>
+	</table>
+	<figcaption>Information sur les routeurs</figcaption>
+</figure>
+<ol class="alphabet">
+	<li>Donnez la table d’acheminement de R.</li>
+	<li>La station A envoie un paquet IP à la station B. Décrivez les trames et paquets circulant sur l'intranet, ainsi que l'évolution des différentes tables des routeurs et des stations</li>
+	<li>Oublions les informations données dans les tables et ne regardons que les LAN 5 et 6 ainsi que les routeurs R, U et V. L'adresse du LAN 6 devient : 124.178.16.0 et l'adresse du LAN 5 devient 124.178.24.0. De plus, la station A aura pour host ID 517 et la station C aura pour host ID 517. Le routeur R pourra-t-il fusionner les entrées de sa table d'acheminement sachant que A et C ont le même host ID ? Que se passera-t-il losque C recevra un paquet où le host ID est de 517 ?</li>
+</ol></h4>
+<div class="answer"><ol class="alphabet">
+<li>
+	<table>
+		<thead>
+			<tr><th>Destination</th><th>Gateway</th><th>Masque</th><th>Flags</th><th>Iface</th></tr>
+		</thead>
+		<tbody>
+			<tr><td>localhost</td><td>*</td><td>255.255.255.25 5</td><td>UH</td><td>lo0</td></tr>
+			<tr><td>192.200.36.0</td><td>*</td><td>255.255.255.0</td><td>U</td><td>eth0</td></tr>
+			<tr><td>192.200.34.0</td><td>*</td><td>255.255.255.0</td><td>U</td><td>eth1</td></tr>
+			<tr><td>200.14.208.0</td><td>192.200.34.2 255.255.224.0</td><td>UG</td><td>eth1</td></tr>
+			<tr><td>200.14.2.0</td><td>192.200.34.2</td><td>255.255.255.0</td><td>UG</td><td>eth1</td></tr>
+			<tr><td>128.128.128.0</td><td>192.200.34.4</td><td>255.255.255.0</td><td>UG</td><td>eth1</td></tr>
+			<tr><td>129.129.129.0</td><td>192.200.34.4</td><td>255.255.255.0</td><td>UG</td><td>eth1</td></tr>
+			<tr><td>default</td><td>192.200.34.2</td><td>0.0.0.0</td><td>UG</td><td>eth1</td></tr>
+		</tbody>
+		<tfoot>
+		</tfoot>
+	</table>
+</li>
+<li>
+	Fusion de default, LAN3 et LAN4
+	<table>
+		<thead>
+			<tr><th>Destination</th><th>Gateway</th><th>Masque</th><th>Flags</th><th>Iface</th></tr>
+		</thead>
+		<tbody>
+			<tr><td>localhost</td><td>*</td><td>255.255.255.25 5</td><td>UH</td><td>lo0</td></tr>
+			<tr><td>192.200.36.0</td><td>*</td><td>255.255.255.0</td><td>U</td><td>eth0</td></tr>
+			<tr><td>192.200.34.0</td><td>*</td><td>255.255.255.0</td><td>U</td><td>eth1</td></tr>
+			<tr><td>128.128.128.0</td><td>192.200.34.4</td><td>255.255.255.0</td><td>UG</td><td>eth1</td></tr>
+			<tr><td>129.129.129.0</td><td>192.200.34.4</td><td>255.255.255.0</td><td>UG</td><td>eth1</td></tr>
+			<tr><td>default</td><td>192.200.34.2</td><td>0.0.0.0</td><td>UG</td><td>eth1</td></tr>
+		</tbody>
+		<tfoot>
+		</tfoot>
+	</table>
+	<ul>
+		<li>IP Source = IP de A = 129.129.129.13</li>
+		<li>IP Destination = IP de B = 200.14.2.125</li>
+	</ul>
+	<table>
+		<thead>
+			<tr><th>Etape</th><th>1</th><th>2</th><th>3</th><th>4</th></tr>
+		</thead>
+		<tbody>
+			<tr><th>Mac source</th><th>A</th><th>U(eth1)</th><th>S(eth1)</th><th>T (eth1)</th></tr>
+			<tr><th>Mac Destination</th><th>U(eth0)</th><th>S(eth0)</th><th>T (eth0)</th><th>B</th></tr>
+		</tbody>
+		<tfoot>
+		</tfoot>
+	</table>
+</li>
+<li>
+	Oui, sans aucun problème car ...
+</li>
+</ol></div>
+
 
 
 
