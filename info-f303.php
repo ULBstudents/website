@@ -613,7 +613,19 @@ Les réponses proviennent (ou par l'intermédiaire de résumé) de Denis Steckel
 
 <h4 class="question">Vous créez votre entreprise « MeMyself&I » et vous obtenez le nom de domaine « memyselfandi.com ». Vous souhaitez déployer votre propre serveur <b>DNS</b> pour ce domaine (dns.memyselfandi.com, 111.111.111.111), ainsi qu’un serveur Web  www.memyselfandi.com, 111.111.111.112).<ol class="alphabet"><li>Quelles informations doivent être ajoutées dans la hiérarchie <b>DNS</b> et à quel niveau ? Soyez précis.</li><li>Donnez un scénario typique d’échange de messages <b>DNS</b> permettant à un client de trouver l’adresse <b>IP</b> de votre serveur web, en précisant bien les éléments importants des messages <b>DNS</b>. On supposera que les caches <b>DNS</b> sont vides.</li></ol></h4>
 <div class="answer"><ol class="alphabet">
-<li>Il faut créer les sous-domaines sur le serveur <b>DNS</b> local. Il faut faire un enregistrement de type A avec l'adresse <b>IP</b> aurprès du serveur <b>DNS</b> avec les 2 adresses web ainsi qu'unCNAME pour l'alias?</li>
+<li>
+	Pour rendre le serveur web www.memyselfandi.com accessible, on indique d’abord 2 informations dans le serveur DNS TLD (Top-Level Domain) (.com dans ce cas) :
+	<ul>
+		<li>Le nom du serveur DNS privé qui fait autorité pour notre serveur Web, ce qui sera décrit par le RR suivant : (memyselfandi.com, dns.memyselfandi.com, NS)</li>
+		<li>L’adresse de ce même serveur autoritaire : (dns.memyselfandi.com, 111.111.111.111, A)</li>
+	</ul>
+	Ensuite il faudra rajouter les informations appropriées dans le serveur DNS privé:
+	<ul>
+		<li>L’adresse du serveur web : (www.memyselfandi.com, 111.111.111.112, A)</li>
+		<li>Un RR de type MX pour nom de domaine memyselfandi.com</li>
+		<li>(Si www.memyselfandi.com est un alias, un RR de type CNAME pour connaitre son vrai hostname)</li>
+	</ul>
+</li>
 <li>
 	<figure>
 		<img src="images/dns-name-resolution.svg" alt="DNS name resolution ( recursive and iterated method )" />
