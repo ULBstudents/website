@@ -1156,7 +1156,7 @@ Une fois le <b>3-way handshake</b> effectué, le client et le serveur ont reçu 
 			<tr><th>Destination</th><th>Gateway</th><th>Masque</th><th>Flags</th><th>Iface</th></tr>
 		</thead>
 		<tbody>
-			<tr><td>localhost</td><td>*</td><td>255.255.255.25 5</td><td>UH</td><td>lo0</td></tr>
+			<tr><td>localhost</td><td>*</td><td>255.255.255.255</td><td>UH</td><td>lo0</td></tr>
 			<tr><td>192.200.36.0</td><td>*</td><td>255.255.255.0</td><td>U</td><td>eth0</td></tr>
 			<tr><td>192.200.34.0</td><td>*</td><td>255.255.255.0</td><td>U</td><td>eth1</td></tr>
 			<tr><td>200.14.208.0</td><td>192.200.34.2</td><td>255.255.224.0</td><td>UG</td><td>eth1</td></tr>
@@ -1257,26 +1257,127 @@ Une fois le <b>3-way handshake</b> effectué, le client et le serveur ont reçu 
 <div class="answer"><ol class="alphabet">
 <li>
 	Pour déterminer l’adresse IP de D, il nous manque son netmask et son network ID. Ces valeurs sont identiques pour toutes les adresses IP se trouvant sur le mˆeme sous-réseau que D. Nous pourrions donc utiliser
-$IP_{Reth0}$ , $IP_{Teth0}$ ou $IP_A$. Nous avons :
-IPA = 10001100.10001100.10001100.00000001
-Netmask = 11111111.11111111.00000000.00000000
-IPA AND Netmask = 10001100.10001100.00000000.00000000
-L’adresse IP de D est de la forme
-10001100.10001100.xxxxxxxx.xxxxxxxx
-o`u la partie non définie est complétée avec le hostID. Le hostID de D est
-513. L’encodage de 513 = 512 + 1 = 29 + 20 sur 16 bits est
-0000001000000001. L’adresse du terminal D est donc :
-IPD = 10001100.10001100.00000010.00000001
-= 140.140.2.1
+	$IP_{R_{eth0}}$ , $IP_{T_{eth0}}$ ou $IP_A$. Nous avons :
+	$$\begin{array}{rcl}
+	IP_A &=& 10001100.10001100.10001100.00000001\\
+	Netmask &=& 11111111.11111111.00000000.00000000\\
+	IP_A\ AND\ Netmask &=& 10001100.10001100.00000000.00000000\\
+	\end{array}
+	L’adresse IP de D est de la forme
+	$$10001100.10001100.xxxxxxxx.xxxxxxxx$$
+	où la partie non définie est complétée avec le hostID. Le hostID de D est
+	513. L’encodage de $513 = 512 + 1 = 29 + 20$ sur 16 bits est
+	0000001000000001. L’adresse du terminal D est donc :
+	$$\begin{array}{rcl}
+	IPD &=& 10001100.10001100.00000010.00000001\\
+	&=& 140.140.2.1
+	\end{array}
 </li>
 <li>
 	La table d’acheminement la plus probable pour R est :
-Destination Gateway Genmask Flags Iface
-localhost * 255.255.255.255 UH lo0
-140.140.0.0 * 255.255.0.0 U eth0
-150.150.150.0 160.160.160.4 255.255.255.0 UG eth1
-160.160.160.0 * 255.255.255.0 U eth1
-default 140.140.0.3 0.0.0.0 UG eth0
+	<table>
+		<thead>
+			<tr><th>Destination</th><th>Gateway</th><th>Genmask</th><th>Flags</th><th>Iface</th></tr>
+		</thead>
+		<tbody>
+			<tr><td>localhost</td><td>*</td><td>255.255.255.255</td><td>UH</td><td>lo0</td></tr>
+			<tr><td>140.140.0.0</td><td>*</td><td>255.255.0.0</td><td>U</td><td>eth0</td></tr>
+			<tr><td>150.150.150.0</td><td>160.160.160.4</td><td>255.255.255.0</td><td>UG</td><td>eth1</td></tr>
+			<tr><td>160.160.160.0</td><td>*</td><td>255.255.255.0</td><td>U</td><td>eth1</td></tr>
+			<tr><td>default</td><td>140.140.0.3</td><td>0.0.0.0</td><td>UG</td><td>eth0</td></tr>
+		</tbody>
+		<tfoot>
+		</tfoot>
+	</table>
+	Une table d’acheminement possible pour V est :
+	<table>
+		<thead>
+			<tr><th>Destination</th><th>Gateway</th><th>Genmask</th><th>Flags</th><th>Iface</th></tr>
+		</thead>
+		<tbody>
+			<tr><th>localhost</td><td>*</td><td>255.255.255.255</td><td>UH</td><td>lo0</th></tr>
+			<tr><th>150.150.150.0</td><td>*</td><td>255.255.255.0</td><td>U</td><td>eth0</th></tr>
+			<tr><th>160.160.160.0</td><td>*</td><td>255.255.255.0</td><td>U</td><td>eth1</th></tr>
+			<tr><th>140.140.0.0</td><td>160.160.160.2</td><td>255.255.0.0</td><td>UG</td><td>eth1</th></tr>
+			<tr><th>default</td><td>160.160.160.2</td><td>0.0.0.0</td><td>UG</td><td>eth1</th></tr>
+		</tbody>
+		<tfoot>
+		</tfoot>
+	</table>
+	Le comportement du routeur pour les entrées $140.140.0.0$ et default est le mˆeme (envoi du paquet `a Reth1) et on peut regrouper ces entrées. La table d’acheminement la plus probable pour V est :
+	<table>
+		<thead>
+			<tr><th>Destination</th><th>Gateway</th><th>Genmask</th><th>Flags</th><th>Iface</th></tr>
+		</thead>
+		<tbody>
+			<tr><th>localhost</td><td>*</td><td>255.255.255.255</td><td>UH</td><td>lo0</th></tr>
+			<tr><th>150.150.150.0</td><td>*</td><td>255.255.255.0</td><td>U</td><td>eth0</th></tr>
+			<tr><th>160.160.160.0</td><td>*</td><td>255.255.255.0</td><td>U</td><td>eth1</th></tr>
+			<tr><th>default</td><td>160.160.160.2</td><td>0.0.0.0</td><td>UG</td><td>eth1</th></tr>
+		</tbody>
+		<tfoot>
+		</tfoot>
+	</table>
+	La table d’acheminement la plus probable pour A est :
+	<table>
+		<thead>
+			<tr><th>Destination</th><th>Gateway</th><th>Genmask</th><th>Flags</th><th>Iface</th></tr>
+		</thead>
+		<tbody>
+			<tr><th>localhost</td><td>*</td><td>255.255.255.255</td><td>UH</td><td>lo0</th></tr>
+			<tr><th>140.140.0.0</td><td>*</td><td>255.255.0.0</td><td>U</td><td>eth0</th></tr>
+			<tr><th>160.160.160.0</td><td>140.140.0.2</td><td>255.255.255.0</td><td>UG</td><td>eth0</th></tr>
+			<tr><th>150.150.150.0</td><td>140.140.0.2</td><td>255.255.255.0</td><td>UG</td><td>eth0</th></tr>
+			<tr><th>default</td><td>140.140.0.3</td><td>0.0.0.0</td><td>UG</td><td>eth0</th></tr>
+		</tbody>
+		<tfoot>
+		</tfoot>
+	</table>
+	Le comportement du routeur pour les entrées 160.160.160.0 et 150.150.150.0 est le mˆeme mais regrouper ces entrées est impossible. Le plus petit groupe contenant toutes les adresses de ces sous-réseaux est 128.0.0.0/2 et la table de A ne peut pas contenir l’entrée
+	128.0.0.0 140.140.0.2 192.0.0.0 UG eth0
+	<table>
+		<thead>
+			<tr><th>128.0.0.0</th><th>140.140.0.2</th><th>192.0.0.0</th><th>UG</th><th>eth0</th></tr>
+		</thead>
+		<tbody>
+		</tbody>
+		<tfoot>
+		</tfoot>
+	</table>
+	Prenons, par exemple, l’adresse 128.1.1.1. Les entrées valides pour cetteadresse seraient 128.0.0.0 et default. Comme le masque de 128.0.0.0 estplus long, c’est cette entrée qui sera choisie ⇒ Erreur : cette adressedevrait ˆetre routée vers “Internet”.
+	<br>
+	Une table d’acheminement possible pour B est :
+	<table>
+		<thead>
+			<tr><th>Destination</th><th>Gateway</th><th>Genmask</th><th>Flags</th><th>Iface</th></tr>
+		</thead>
+		<tbody>
+			<tr><th>localhost</td><td>*</td><td>255.255.255.255</td><td>UH</td><td>lo0</th></tr>
+			<tr><th>150.150.150.0</td><td>*</td><td>255.255.255.0</td><td>U</td><td>eth0</th></tr>
+			<tr><th>160.160.160.0</td><td>150.150.150.4</td><td>255.255.255.0</td><td>UG</td><td>eth0</th></tr>
+			<tr><th>140.140.0.0</td><td>150.150.150.4</td><td>255.255.0.0</td><td>UG</td><td>eth0</th></tr>
+			<tr><th>default</td><td>150.150.150.4</td><td>0.0.0.0</td><td>UG</td><td>eth0</th></tr>
+		</tbody>
+		<tfoot>
+		</tfoot>
+	</table>
+	Le comportement du routeur pour les entrées 160.160.160.0, 140.140.0.0 et default est le mˆeme et on peut regrouper ces entrées. La table d’acheminement la plus probable pour B est :
+	<table>
+		<thead>
+			<tr><th>Destination</th><th>Gateway</th><th>Genmask</th><th>Flags</th><th>Iface</th></tr>
+		</thead>
+		<tbody>
+			<tr><th>localhost</td><td>*</td><td>255.255.255.255</td><td>UH</td><td>lo0</th></tr>
+			<tr><th>150.150.150.0</td><td>*</td><td>255.255.255.0</td><td>U</td><td>eth0</th></tr>
+			<tr><th>default</td><td>150.150.150.4</td><td>0.0.0.0</td><td>UG</td><td>eth0</th></tr>
+		</tbody>
+		<tfoot>
+		</tfoot>
+	</table>
+</li>
+<li>
+	Le paquet doit transiter par R. Les adresses IP source et destination du paquet sont respectivement 140.140.140.1 et 150.150.150.1.
+	<br><b>Important</b> : Lors de l’envoi d’un paquet IP de A vers B l’adresse source du paquet sera IPA et l’adresse de destination du paquet sera IPB depuis l’émission du paquet par A jusqu’`a la réception de celui-ci par B : <b>on ne modifie pas les adresses source et destination d’un paquet IP en cours de route</b>.
 </li>
 </ol></div>
 
