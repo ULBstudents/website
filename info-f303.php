@@ -1144,6 +1144,28 @@ Une fois le <b>3-way handshake</b> effectué, le client et le serveur ont reçu 
 	</table>
 	<figcaption>Information sur les routeurs</figcaption>
 </figure>
+<figure>
+	<table>
+		<thead>
+			<tr><th>Routeur</th><th>Interface</th><th>Netmask</th><th>Host ID</th></tr>
+		</thead>
+		<tbody>
+			<tr><td>R</td><td>eth0</td><td>255.255.255.0</td><td>1</td></tr>
+			<tr><td></td><td>eth1</td><td>255.255.255.0</td><td>1</td></tr>
+			<tr><td>S</td><td>eth0</td><td>255.255.255.0</td><td>2</td></tr>
+			<tr><td></td><td>eth1</td><td>255.255.224.0</td><td>2</td></tr>
+			<tr><td>T</td><td>eth0</td><td>255.255.224.0</td><td>3</td></tr>
+			<tr><td></td><td>eth1</td><td>255.255.255.0</td><td>3</td></tr>
+			<tr><td>U</td><td>eth0</td><td>255.255.255.0</td><td>4</td></tr>
+			<tr><td></td><td>eth1</td><td>255.255.255.0</td><td>4</td></tr>
+			<tr><td>V</td><td>eth0</td><td>255.255.255.0</td><td>5</td></tr>
+			<tr><td></td><td>eth1</td><td>255.255.255.0</td><td>5</td></tr>
+		</tbody>
+		<tfoot>
+		</tfoot>
+	</table>
+	<figcaption>Information sur les routeurs</figcaption>
+</figure>
 <ol class="alphabet">
 	<li>Donnez la table d’acheminement de R.</li>
 	<li>La station A envoie un paquet IP à la station B. Décrivez les trames et paquets circulant sur l'intranet, ainsi que l'évolution des différentes tables des routeurs et des stations</li>
