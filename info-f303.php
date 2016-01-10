@@ -1115,12 +1115,12 @@ Une fois le <b>3-way handshake</b> effectué, le client et le serveur ont reçu 
 			<tr><th>LAN</th><th>Address</th></tr>
 		</thead>
 		<tbody>
-			<tr><td>1</td> <td>255.255.255.0</td></tr>
-			<tr><td>2</td><td>255.255.255.0</td></tr>
-			<tr><td>3</td><td>255.255.255.0</td></tr>
-			<tr><td>4</td><td>255.255.255.0</td></tr>
-			<tr><td>5</td><td>255.255.254.0</td></tr>
-			<tr><td>6</td><td>255.255.254.0</td></tr>
+			<tr><td>1</td> <td>192.200.36.0</td></tr>
+			<tr><td>2</td><td>192.200.34.0</td></tr>
+			<tr><td>3</td><td>200.14.208.0</td></tr>
+			<tr><td>4</td><td>200.14.2.0</td></tr>
+			<tr><td>5</td><td>128.128.128.0</td></tr>
+			<tr><td>6</td><td>129.129.129.0</td></tr>
 		</tbody>
 		<tfoot>
 		</tfoot>
