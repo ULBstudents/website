@@ -736,7 +736,7 @@ demandes.</li>
 
 <h4 class="question"><ol class="alphabet"><li>Expliquez le principe général du contrôle de <i>flux</i> de <b>TCP</b>.</li><li>Expliquez deux mécanismes associés ayant pour but de permettre à <b>TCP</b> de s’adapter aux spécificités des applications ou de se protéger vis-à-vis de celles-ci.</li></ol></h4>
 <div class="answer"><ol class="alphabet">
-<li>Cela permet de réguler la vitesse sur le réseau afin d'éviter la congestion. Pour se faire, l'expéditeur a une variable "receive window" pour qu'il sache combien de place disponible se trouve dans le buffer du receveur. Comme <b>TCP</b> ne peut pas surcharger les buffer : LastByteRcvd - LastByteRead <= RcvBuffer.
+<li>Cela permet de réguler la vitesse sur le réseau afin d'éviter de surcharger le receveur. Pour se faire, l'expéditeur a une variable "receive window" pour qu'il sache combien de place disponible se trouve dans le buffer du receveur. Comme <b>TCP</b> ne peut pas surcharger les buffer : $LastByteRcvd - LastByteRead <= RcvBuffer$.
 Le receiver window (rwnd) se définit comme suit : 
 $$rwnd = RcvBuffer - (LastByteRcvd - LastByteRead)$$</li>
 <li>Nagle Algorithm : Quand les données viennent du socket un byte à la fois, on envoie le premier byte et on buffer le reste jusqu'à ce que le premier byte soit reçu. On envoie alors le reste par RTT en 1 fois. Silly Window Problem - Clark' solution : Le receveur envoi une mise à jour de la fenêtre si et seulement si le buffer est à moitié vide ou si un segment entier peut être reçu.</li></ol>
@@ -745,7 +745,9 @@ $$rwnd = RcvBuffer - (LastByteRcvd - LastByteRead)$$</li>
 
 
 <h4 class="question">Combien d’adresses <b>IP</b> doit-on attribuer à un routeur ? Pourquoi ?</h4>
-<div class="answer">Une seule car cela représente le routeur au sein du réseau. L'adresse <b>IP</b> est unique et fait donc référence à un objet bien précis.</div>
+<div class="answer">
+	Une seule car cela représente le routeur au sein du réseau. L'adresse <b>IP</b> est unique et fait donc référence à un objet bien précis. (C'est pas plutôt une adresse par interface ?)
+</div>
 
 
 
