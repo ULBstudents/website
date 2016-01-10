@@ -1021,43 +1021,37 @@ Une fois le <b>3-way handshake</b> effectué, le client et le serveur ont reçu 
 </ol></h4>
 <div class="answer"><ol class="alphabet">
 <li>
-	<figure>
-		<table>
-			<thead>
-				<tr><th>Destination</th><th>Gateway</th><th>Masque</th><th>Flags</th><th>Iface</th></tr>
-			</thead>
-			<tbody>
-				<tr><td>localhost</td><td>*</td><td>255.255.255.25 5</td><td>UH</td><td>lo0</td></tr>
-				<tr><td>124.178.240.0</td><td>*</td><td>255.255.255.0</td><td>U</td><td>eth1</td></tr>
-				<tr><td>124.178.48.0</td><td>*</td><td>255.255.240.0</td><td>U</td><td>eth0</td></tr>
-				<tr><td>124.178.64.0</td><td>*</td><td>255.255.224.0</td><td>U</td><td>eth2</td></tr>
-				<tr><td>124.178.96.0</td><td>124.178.64.2 255.255.224.0</td><td>UG</td><td>eth2</td></tr>
-				<tr><td>default</td><td>124.178.240.3</td><td>0.0.0.0</td><td>UG</td><td>eth1</td></tr>
-			</tbody>
-			<tfoot>
-			</tfoot>
-		</table>
-		<figcaption>Information sur les routeurs</figcaption>
-	</figure>
+	<table>
+		<thead>
+			<tr><th>Destination</th><th>Gateway</th><th>Masque</th><th>Flags</th><th>Iface</th></tr>
+		</thead>
+		<tbody>
+			<tr><td>localhost</td><td>*</td><td>255.255.255.25 5</td><td>UH</td><td>lo0</td></tr>
+			<tr><td>124.178.240.0</td><td>*</td><td>255.255.255.0</td><td>U</td><td>eth1</td></tr>
+			<tr><td>124.178.48.0</td><td>*</td><td>255.255.240.0</td><td>U</td><td>eth0</td></tr>
+			<tr><td>124.178.64.0</td><td>*</td><td>255.255.224.0</td><td>U</td><td>eth2</td></tr>
+			<tr><td>124.178.96.0</td><td>124.178.64.2</td><td>255.255.224.0</td><td>UG</td><td>eth2</td></tr>
+			<tr><td>default</td><td>124.178.240.3</td><td>0.0.0.0</td><td>UG</td><td>eth1</td></tr>
+		</tbody>
+		<tfoot>
+		</tfoot>
+	</table>
 </li>
 <li>
-	<figure>
-		<table>
-			<thead>
-				<tr><th>Destination</th><th>Masque</th><th># IP libres</th></tr>
-			</thead>
-			<tbody>
-				<tr><td>124.178.240.0</td><td>255.255.255.0</td><td>2^8 - R(eth1) - T(eth1) - 2 = 252</td></tr>
-				<tr><td>124.178.48.0</td><td>255.255.11110000.00000000</td><td>2^12 - R(eth0) - A - 2 = 4092</td></tr>
-				<tr><td>124.178.64.0</td><td>255.255.11100000.00000000</td><td>2^13 - R(eth0) - S(eth1) - 2 = 8188</td></tr>
-				<tr><td>124.178.96.0</td><td>255.255.11100000.00000000</td><td>2^13 - S(eth0) - B - 2 = 8188</td></tr>
-				<tr><td></td><td></td><td>Total = 20720</td></tr>
-			</tbody>
-			<tfoot>
-			</tfoot>
-		</table>
-		<figcaption>Information sur les routeurs</figcaption>
-	</figure>
+	<table>
+		<thead>
+			<tr><th>Destination</th><th>Masque</th><th># IP libres</th></tr>
+		</thead>
+		<tbody>
+			<tr><td>124.178.240.0</td><td>255.255.255.0</td><td>2^8 - R(eth1) - T(eth1) - 2 = 252</td></tr>
+			<tr><td>124.178.48.0</td><td>255.255.11110000.00000000</td><td>2^12 - R(eth0) - A - 2 = 4092</td></tr>
+			<tr><td>124.178.64.0</td><td>255.255.11100000.00000000</td><td>2^13 - R(eth0) - S(eth1) - 2 = 8188</td></tr>
+			<tr><td>124.178.96.0</td><td>255.255.11100000.00000000</td><td>2^13 - S(eth0) - B - 2 = 8188</td></tr>
+			<tr><td></td><td></td><td>Total = 20720</td></tr>
+		</tbody>
+		<tfoot>
+		</tfoot>
+	</table>
 </li>
 <li>
 	<ul>
