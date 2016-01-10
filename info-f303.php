@@ -1046,9 +1046,9 @@ Une fois le <b>3-way handshake</b> effectué, le client et le serveur ont reçu 
 		</thead>
 		<tbody>
 			<tr><td>124.178.240.0</td><td>255.255.255.0</td><td>$2^8 - R(eth1) - T(eth1) - 2 = 252$</td></tr>
-			<tr><td>124.178.48.0</td><td>255.255.11110000.00000000</td><td>$2^12 - R(eth0) - A - 2 = 4092$</td></tr>
-			<tr><td>124.178.64.0</td><td>255.255.11100000.00000000</td><td>$2^13 - R(eth0) - S(eth1) - 2 = 8188$</td></tr>
-			<tr><td>124.178.96.0</td><td>255.255.11100000.00000000</td><td>$2^13 - S(eth0) - B - 2 = 8188$</td></tr>
+			<tr><td>124.178.48.0</td><td>255.255.11110000.00000000</td><td>$2^{12} - R(eth0) - A - 2 = 4092$</td></tr>
+			<tr><td>124.178.64.0</td><td>255.255.11100000.00000000</td><td>$2^{13} - R(eth0) - S(eth1) - 2 = 8188$</td></tr>
+			<tr><td>124.178.96.0</td><td>255.255.11100000.00000000</td><td>$2^{13} - S(eth0) - B - 2 = 8188$</td></tr>
 			<tr><td></td><td></td><td>$Total = 20720$</td></tr>
 		</tbody>
 		<tfoot>
@@ -1123,7 +1123,7 @@ Une fois le <b>3-way handshake</b> effectué, le client et le serveur ont reçu 
 			<tr><td>localhost</td><td>*</td><td>255.255.255.25 5</td><td>UH</td><td>lo0</td></tr>
 			<tr><td>192.200.36.0</td><td>*</td><td>255.255.255.0</td><td>U</td><td>eth0</td></tr>
 			<tr><td>192.200.34.0</td><td>*</td><td>255.255.255.0</td><td>U</td><td>eth1</td></tr>
-			<tr><td>200.14.208.0</td><td>192.200.34.2 255.255.224.0</td><td>UG</td><td>eth1</td></tr>
+			<tr><td>200.14.208.0</td><td>192.200.34.2</td><td>255.255.224.0</td><td>UG</td><td>eth1</td></tr>
 			<tr><td>200.14.2.0</td><td>192.200.34.2</td><td>255.255.255.0</td><td>UG</td><td>eth1</td></tr>
 			<tr><td>128.128.128.0</td><td>192.200.34.4</td><td>255.255.255.0</td><td>UG</td><td>eth1</td></tr>
 			<tr><td>129.129.129.0</td><td>192.200.34.4</td><td>255.255.255.0</td><td>UG</td><td>eth1</td></tr>
@@ -1159,8 +1159,8 @@ Une fois le <b>3-way handshake</b> effectué, le client et le serveur ont reçu 
 			<tr><th>Etape</th><th>1</th><th>2</th><th>3</th><th>4</th></tr>
 		</thead>
 		<tbody>
-			<tr><th>Mac source</th><th>A</th><th>U(eth1)</th><th>S(eth1)</th><th>T (eth1)</th></tr>
-			<tr><th>Mac Destination</th><th>U(eth0)</th><th>S(eth0)</th><th>T (eth0)</th><th>B</th></tr>
+			<tr><td>Mac source</td><td>A</td><td>U(eth1)</td><td>S(eth1)</td><td>T (eth1)</td></tr>
+			<tr><td>Mac Destination</td><td>U(eth0)</td><td>S(eth0)</td><td>T (eth0)</td><td>B</td></tr>
 		</tbody>
 		<tfoot>
 		</tfoot>
