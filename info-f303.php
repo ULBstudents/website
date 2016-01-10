@@ -1197,6 +1197,73 @@ Une fois le <b>3-way handshake</b> effectué, le client et le serveur ont reçu 
 
 
 
+<h4 class="question">Considérons le réseau de la figure. Les tables contient diverses informations sur les routeurs.
+<figure>
+	<img src="images/topologie5.svg" alt="Topologie" />
+	<figcaption>Topologie</figcaption>
+</figure>
+<figure>
+	<table>
+		<thead>
+			<tr><th>Routeur</th><th>Interface</th><th>Host ID</th></tr>
+		</thead>
+		<tbody>
+			<tr><td>1</td><td>255.255.255.0</td></tr>
+			<tr><td>R</td><td>eth0</td><td>2</td></tr>
+			<tr><td></td><td>eth1</td><td>2</td></tr>
+			<tr><td>T</td><td>eth0</td><td>3</td></tr>
+			<tr><td></td><td>eth1</td><td>3</td></tr>
+			<tr><td>V</td><td>eth0</td><td>4</td></tr>
+			<tr><td></td><td>eth1</td><td>4</td></tr>
+		</tbody>
+		<tfoot>
+		</tfoot>
+	</table>
+	<figcaption>Information sur les routeurs</figcaption>
+</figure>
+<figure>
+	<table>
+		<thead>
+			<tr><th>Station</th><th>Interface</th><th>IP</th><th>Netmask</th></tr>
+		</thead>
+		<tbody>
+			<tr><td>A</td><td>eth0</td><td>140.140.140.1</td><td>0xffff0000</td></tr>
+			<tr><td>B</td><td>eth0</td><td>150.150.150.1</td><td>0xffffff00</td></tr>
+			<tr><td>C</td><td>eth0</td><td>160.160.160.1</td><td>0xffffff00</td></tr>
+			<tr><td>D</td><td>eth0</td><td>?</td><td>?</td></tr>
+		</tbody>
+		<tfoot>
+		</tfoot>
+	</table>
+	<figcaption>Information sur les routeurs</figcaption>
+</figure>
+<ol class="alphabet">
+	<li>Donnez l’adresse IP de D sachant que son host ID est 513.</li>
+	<li>2 Donnez les tables d’acheminement de R, V, A et B.</li>
+	<li>3 Consid´erons un transfert unidirectionnel de données entre A et B. Donnez les adresses IP qui sont utilis´ees dans les datagrammes qui circulent sur le réseau.</li>
+</ol></h4>
+<div class="answer"><ol class="alphabet">
+<li>
+	Pour d´eterminer l’adresse IP de D, il nous manque son netmask et
+son network ID. Ces valeurs sont identiques pour toutes les adresses IP se
+trouvant sur le mˆeme sous-r´eseau que D. Nous pourrions donc utiliser
+IPReth0 , IPTeth0 ou IPA. Nous avons :
+IPA = 10001100.10001100.10001100.00000001
+Netmask = 11111111.11111111.00000000.00000000
+IPA AND Netmask = 10001100.10001100.00000000.00000000
+L’adresse IP de D est de la forme
+10001100.10001100.xxxxxxxx.xxxxxxxx
+o`u la partie non d´efinie est compl´et´ee avec le hostID. Le hostID de D est
+513. L’encodage de 513 = 512 + 1 = 29 + 20 sur 16 bits est
+0000001000000001. L’adresse du terminal D est donc :
+IPD = 10001100.10001100.00000010.00000001
+= 140.140.2.1
+</li>
+</ol></div>
+
+
+
+
 <h4 class="question">Soit les tables suivantes :
 <figure>
 	<table>
