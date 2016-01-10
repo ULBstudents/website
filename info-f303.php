@@ -38,14 +38,14 @@ Les réponses proviennent (ou par l'intermédiaire de résumé) de Denis Steckel
 <h4 class="question"><ol class="alphabet"><li>Expliquez le principe du multiplexage en longueur d’onde (WDM). Quel est son intérêt ?</li><li>Comparez WDM aux techniques classiques de multiplexage TDM et FDM.</li></ol></h4>
 <div class="answer"><ol class="alphabet">
 <li>
-	Dans WMD, chaque station reçoit deux canaux. Un canal de faible bande passante pour la signalisation de la station et un canal d'une bande passante plus large pour envoyer et recevoir des trames. Chaque canal est divisé en groupes de slots. Appelons m le nombre de slots du canal de signalisation. L'expression n+1 indique le nombre de slots du canal de données : n slots de données utiles et un slot supplémentaire pour que la station renseigne sur son état, principalement pour indiquer les slots libres sur chacun de ses deux canaux. Sur ces deux canaux, la séquence de slots se répète continuellement, avec un marquage particulier pour le slot 0, afin que les stations arrivant plus tard puissent le repérer. Toutes les stations sont synchronisées au moyen d'une seule horloge pilote.
+	La technique <b>WDM</b> est utilisée pour la fibre optique. On peut remarquer que la longueur d’onde étant l’inverse de la fréquence, cette technique utilise donc le même principe que la <b>FDM</b>. En fait, on envoie des photons avec des longueurs d’onde différentes selon l’utilisateur dans la fibre. Ces photons passent dans un prisme pour combiner toutes les lumières à l’entrée de la fibre puis sont à nouveau séparés à la sortie de la fibre à l’aide d’un autre prisme.
+	
 	Le protocole gère 3 classes de trafic :
 	<ul>
 		<li>Un trafic à débit constant en mode connecté, tel celui d'une vidéo compressée.</li>
 		<li>Un trafic à débit variable en mode connecté, tel celui d'un transfert de fichier.</li>
 		<li>Un trafic constitué de datagrammes en mode non connecté, tels des paquets <b>UDP</b>.</li>
 	</ul>
-	Cette technique est donc utilisée pour la fibre optique. On peut remarquer que la longueur d’onde étant l’inverse de la fréquence, cette technique utilise donc le même principe que la FDM. En fait, on envoie des photons avec des longueurs d’onde différentes selon l’utilisateur dans la fibre. Ces photons passent dans un prisme pour combiner toutes les lumières à l’entrée de la fibre puis sont à nouveau séparés à la sortie de la fibre à l’aide d’un autre prisme.
 </li>
 <li>
 	Pour les deux protocoles orientés connexion, l'idée de base est qu'une station A souhaitant communiquer avec une station B doit au préalable insérer une trame de demande de connexion dans un slot libre sur le canal de signalisation de B. Si B accepte, la communication peut avoir lieu par l'intermédiaire du canal de données de A.
