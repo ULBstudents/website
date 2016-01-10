@@ -1263,7 +1263,7 @@ Une fois le <b>3-way handshake</b> effectué, le client et le serveur ont reçu 
 	Netmask &=& 11111111.11111111.00000000.00000000\\
 	IP_A\ AND\ Netmask &=& 10001100.10001100.00000000.00000000\\
 	\end{array}$$
-	L’adresse IP de D est de la forme
+	L’adresse IP de D est de la forme :
 	$$10001100.10001100.xxxxxxxx.xxxxxxxx$$
 	où la partie non définie est complétée avec le hostID. Le hostID de D est
 	513. L’encodage de $513 = 512 + 1 = 29 + 20$ sur 16 bits est
@@ -1295,11 +1295,11 @@ Une fois le <b>3-way handshake</b> effectué, le client et le serveur ont reçu 
 			<tr><th>Destination</th><th>Gateway</th><th>Genmask</th><th>Flags</th><th>Iface</th></tr>
 		</thead>
 		<tbody>
-			<tr><th>localhost</td><td>*</td><td>255.255.255.255</td><td>UH</td><td>lo0</th></tr>
-			<tr><th>150.150.150.0</td><td>*</td><td>255.255.255.0</td><td>U</td><td>eth0</th></tr>
-			<tr><th>160.160.160.0</td><td>*</td><td>255.255.255.0</td><td>U</td><td>eth1</th></tr>
-			<tr><th>140.140.0.0</td><td>160.160.160.2</td><td>255.255.0.0</td><td>UG</td><td>eth1</th></tr>
-			<tr><th>default</td><td>160.160.160.2</td><td>0.0.0.0</td><td>UG</td><td>eth1</th></tr>
+			<tr><td>localhost</td><td>*</td><td>255.255.255.255</td><td>UH</td><td>lo0</td></tr>
+			<tr><td>150.150.150.0</td><td>*</td><td>255.255.255.0</td><td>U</td><td>eth0</td></tr>
+			<tr><td>160.160.160.0</td><td>*</td><td>255.255.255.0</td><td>U</td><td>eth1</td></tr>
+			<tr><td>140.140.0.0</td><td>160.160.160.2</td><td>255.255.0.0</td><td>UG</td><td>eth1</td></tr>
+			<tr><td>default</td><td>160.160.160.2</td><td>0.0.0.0</td><td>UG</td><td>eth1</td></tr>
 		</tbody>
 		<tfoot>
 		</tfoot>
@@ -1310,10 +1310,10 @@ Une fois le <b>3-way handshake</b> effectué, le client et le serveur ont reçu 
 			<tr><th>Destination</th><th>Gateway</th><th>Genmask</th><th>Flags</th><th>Iface</th></tr>
 		</thead>
 		<tbody>
-			<tr><th>localhost</td><td>*</td><td>255.255.255.255</td><td>UH</td><td>lo0</th></tr>
-			<tr><th>150.150.150.0</td><td>*</td><td>255.255.255.0</td><td>U</td><td>eth0</th></tr>
-			<tr><th>160.160.160.0</td><td>*</td><td>255.255.255.0</td><td>U</td><td>eth1</th></tr>
-			<tr><th>default</td><td>160.160.160.2</td><td>0.0.0.0</td><td>UG</td><td>eth1</th></tr>
+			<tr><td>localhost</td><td>*</td><td>255.255.255.255</td><td>UH</td><td>lo0</td></tr>
+			<tr><td>150.150.150.0</td><td>*</td><td>255.255.255.0</td><td>U</td><td>eth0</td></tr>
+			<tr><td>160.160.160.0</td><td>*</td><td>255.255.255.0</td><td>U</td><td>eth1</td></tr>
+			<tr><td>default</td><td>160.160.160.2</td><td>0.0.0.0</td><td>UG</td><td>eth1</td></tr>
 		</tbody>
 		<tfoot>
 		</tfoot>
@@ -1324,11 +1324,11 @@ Une fois le <b>3-way handshake</b> effectué, le client et le serveur ont reçu 
 			<tr><th>Destination</th><th>Gateway</th><th>Genmask</th><th>Flags</th><th>Iface</th></tr>
 		</thead>
 		<tbody>
-			<tr><th>localhost</td><td>*</td><td>255.255.255.255</td><td>UH</td><td>lo0</th></tr>
-			<tr><th>140.140.0.0</td><td>*</td><td>255.255.0.0</td><td>U</td><td>eth0</th></tr>
-			<tr><th>160.160.160.0</td><td>140.140.0.2</td><td>255.255.255.0</td><td>UG</td><td>eth0</th></tr>
-			<tr><th>150.150.150.0</td><td>140.140.0.2</td><td>255.255.255.0</td><td>UG</td><td>eth0</th></tr>
-			<tr><th>default</td><td>140.140.0.3</td><td>0.0.0.0</td><td>UG</td><td>eth0</th></tr>
+			<tr><td>localhost</td><td>*</td><td>255.255.255.255</td><td>UH</td><td>lo0</td></tr>
+			<tr><td>140.140.0.0</td><td>*</td><td>255.255.0.0</td><td>U</td><td>eth0</td></tr>
+			<tr><td>160.160.160.0</td><td>140.140.0.2</td><td>255.255.255.0</td><td>UG</td><td>eth0</td></tr>
+			<tr><td>150.150.150.0</td><td>140.140.0.2</td><td>255.255.255.0</td><td>UG</td><td>eth0</td></tr>
+			<tr><td>default</td><td>140.140.0.3</td><td>0.0.0.0</td><td>UG</td><td>eth0</td></tr>
 		</tbody>
 		<tfoot>
 		</tfoot>
@@ -1352,11 +1352,11 @@ Une fois le <b>3-way handshake</b> effectué, le client et le serveur ont reçu 
 			<tr><th>Destination</th><th>Gateway</th><th>Genmask</th><th>Flags</th><th>Iface</th></tr>
 		</thead>
 		<tbody>
-			<tr><th>localhost</td><td>*</td><td>255.255.255.255</td><td>UH</td><td>lo0</th></tr>
-			<tr><th>150.150.150.0</td><td>*</td><td>255.255.255.0</td><td>U</td><td>eth0</th></tr>
-			<tr><th>160.160.160.0</td><td>150.150.150.4</td><td>255.255.255.0</td><td>UG</td><td>eth0</th></tr>
-			<tr><th>140.140.0.0</td><td>150.150.150.4</td><td>255.255.0.0</td><td>UG</td><td>eth0</th></tr>
-			<tr><th>default</td><td>150.150.150.4</td><td>0.0.0.0</td><td>UG</td><td>eth0</th></tr>
+			<tr><td>localhost</td><td>*</td><td>255.255.255.255</td><td>UH</td><td>lo0</td></tr>
+			<tr><td>150.150.150.0</td><td>*</td><td>255.255.255.0</td><td>U</td><td>eth0</td></tr>
+			<tr><td>160.160.160.0</td><td>150.150.150.4</td><td>255.255.255.0</td><td>UG</td><td>eth0</td></tr>
+			<tr><td>140.140.0.0</td><td>150.150.150.4</td><td>255.255.0.0</td><td>UG</td><td>eth0</td></tr>
+			<tr><td>default</td><td>150.150.150.4</td><td>0.0.0.0</td><td>UG</td><td>eth0</td></tr>
 		</tbody>
 		<tfoot>
 		</tfoot>
@@ -1367,9 +1367,9 @@ Une fois le <b>3-way handshake</b> effectué, le client et le serveur ont reçu 
 			<tr><th>Destination</th><th>Gateway</th><th>Genmask</th><th>Flags</th><th>Iface</th></tr>
 		</thead>
 		<tbody>
-			<tr><th>localhost</td><td>*</td><td>255.255.255.255</td><td>UH</td><td>lo0</th></tr>
-			<tr><th>150.150.150.0</td><td>*</td><td>255.255.255.0</td><td>U</td><td>eth0</th></tr>
-			<tr><th>default</td><td>150.150.150.4</td><td>0.0.0.0</td><td>UG</td><td>eth0</th></tr>
+			<tr><td>localhost</td><td>*</td><td>255.255.255.255</td><td>UH</td><td>lo0</td></tr>
+			<tr><td>150.150.150.0</td><td>*</td><td>255.255.255.0</td><td>U</td><td>eth0</td></tr>
+			<tr><td>default</td><td>150.150.150.4</td><td>0.0.0.0</td><td>UG</td><td>eth0</td></tr>
 		</tbody>
 		<tfoot>
 		</tfoot>
