@@ -100,7 +100,7 @@ Les réponses proviennent (ou par l'intermédiaire de résumé) de Denis Steckel
 	</ul>
 </li>
 <li>
-	Selective Repeat
+	<b>Selective Repeat</b> et/ou <b>Go-Back-N</b> ?
 </li>
 </ol></div>
 
