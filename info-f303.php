@@ -1271,7 +1271,7 @@ Une fois le <b>3-way handshake</b> effectué, le client et le serveur ont reçu 
 	$$\begin{array}{rcl}
 	IPD &=& 10001100.10001100.00000010.00000001\\
 	&=& 140.140.2.1
-	\end{array}
+	\end{array}$$
 </li>
 <li>
 	La table d’acheminement la plus probable pour R est :
