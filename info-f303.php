@@ -122,7 +122,7 @@ Les réponses proviennent (ou par l'intermédiaire de résumé) de Denis Steckel
 		<img src="images/size-window-gbn.svg" alt="Taille maximale de la fenêtre glissante <b>GBN</b> (<b>Go-Back N</b>)" />
 		<figcaption>Taille maximale de la fenêtre glissante <b>GBN</b> (<b>Go-Back N</b>)</figcaption>
 	</figure>
-	La taille maximale de la fenêtre est donc le nombre de numéro de séquence-1.
+	La taille maximale de la fenêtre est donc le nombre de numéro de $séquence-1$. (C'est pas $k/2$ plutôt la taille maximale ?)
 </div>
 
 
