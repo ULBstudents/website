@@ -29,7 +29,7 @@ Les réponses proviennent (ou par l'intermédiaire de résumé) de Denis Steckel
 	</ul>
 </li>
 <li>
-	La fible multimode possède donc un débit plus élevé car il est moins étroit que la fibre monomode.Cependant elle est moins optimale à cause des chevauchement possible et n'est du coup utilisé que pour de courte distances
+	La fible monomode possède donc un débit bien plus élevé car il n'y a pas de dispersion de délai ; on ne doit pas attendre entre les symboles. Elle est cependant bien plus chère. La fibre multimode est moins optimale à cause des chevauchement possible et n'est du coup utilisé que pour de courte distances.
 </li>
 </ol></div>
 
