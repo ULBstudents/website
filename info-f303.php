@@ -731,7 +731,8 @@ $$Timeout = estimation + 4 marge$$
 
 
 <h4 class="question">Citez et définissez les différentes sources de délai que subit un paquet dans un réseau datagramme.</h4>
-<div class="answer">Application du longest prefix match rule pour trouver le réseau qui correspond le mieux à qui envoyer le paquet. Il peut suivre un mauvais chemin car les tables ne sont pas tout le temps à jour et donc arriver en retard.
+<div class="answer">
+	$$d(noeud) = d(processing) + d(queueing) + d(transmission) + d(propagation)$$
 </div>
 
 
