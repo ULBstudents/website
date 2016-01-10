@@ -1262,7 +1262,7 @@ Une fois le <b>3-way handshake</b> effectué, le client et le serveur ont reçu 
 	IP_A &=& 10001100.10001100.10001100.00000001\\
 	Netmask &=& 11111111.11111111.00000000.00000000\\
 	IP_A\ AND\ Netmask &=& 10001100.10001100.00000000.00000000\\
-	\end{array}
+	\end{array}$$
 	L’adresse IP de D est de la forme
 	$$10001100.10001100.xxxxxxxx.xxxxxxxx$$
 	où la partie non définie est complétée avec le hostID. Le hostID de D est
