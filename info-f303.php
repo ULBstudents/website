@@ -81,6 +81,29 @@ Les réponses proviennent (ou par l'intermédiaire de résumé) de Denis Steckel
 
 
 
+<h4 class="question"><ol class="alphabet"><li>Citez et expliquez sommairement les 4 mécanismes de base permettant d'assurer la fiabilité d'un transfert d'information au travers d'un réseau non fiable. Justifiez leur nécessité.</li><li>Décrivez dans les grandes lignes un protocole élémentaire qui les met tous en oeuvre</li></h4>
+<div class="answer"><ol class="alphabet">
+<li>
+	<ul>
+		<li>
+			ACK
+		</li>
+		<li>
+			Error detection (checksum)
+		</li>
+		<li>
+			Sequence number
+		</li>
+		<li>
+			Countdown timer
+		</li>
+	</ul>
+</li>
+<li>
+	Selective Repeat
+</li>
+</ol></div>
+
 <h4 class="question"><ol class="alphabet"><li>Expliquez le principe du protocole <b>stop & wait</b>.</li><li>Est-il toujours performant ?</li></h4>
 <div class="answer"><ol class="alphabet">
 <li>
