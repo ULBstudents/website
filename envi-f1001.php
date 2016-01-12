@@ -1,7 +1,201 @@
 ﻿<h1>ENVI-F1001 - Sciences de la Terre, Environnement et Société</h1>
 
 
-<h2>Le système terre</h2>
+<h2>Partie Pattyn</h2>
+<h3>Logique</h3>
+<ul>
+	<li>Le réchauffement est plus fort en antarctique qu'en arctique. Vrai</li>
+	
+	<li>Le réchauffement est plus fort au pole nord qu'au pole sud. Faux</li>
+
+	<li>Révolution Néolithique est le passage de chasse/pêche à l'agriculture. Vrai</li>
+
+	<li>Après l'ère Néolithique vient l'ère Anthropique. Faux</li>
+
+	<li>Après l'ère Paléolithique vient l'ère Néolithique. Vrai</li>
+</ul>
+
+
+
+<h3>Pourquoi le réchauffement est plus élevé au pole ? Pourquoi il y a un réchauffement important en Antarctique ?</h3>
+<div class="response">
+À cause du vortex polaire qui se manifeste au-dessus des régions polaires au cours des hivers locaux. Il est plus important au pôle sud qu'au pole nord, l'Antarctique est donc le continent le plus froid du globe. C'est une circulation bien structurée des vents dans la stratosphère. Il empêche l'air stratosphérique au-dessus des régions polaires de se mélanger avec de l'air venant des moyennes latitudes.
+</div>
+
+
+
+<h3>Classez les gaz à effet de serre selon leur importance.</h3>
+<div class="response">
+<ul>
+	<li><b>$H_2O$</b> Vapeur d'eau ;
+	<li><b>$CO_2$</b> Dioxyde de carbone ;
+	<li><b>$CH_4$</b> Méthane ;
+	<li><b>$CCI_2F_2$</b> Dichlorodifluorométhane (CFC-12) ;
+	<li><b>$CHCIF_2$</b> Chlorodifluorométhane (HCFC-22) ;
+	<li><b>$CF_4$</b> Tétrafluorométhane ;
+	<li><b>$SF_6$</b> Hexafluorure de soufre.
+</ul>
+</div>
+
+
+
+<h3>Cycle de formation du carbone à compléter.</h3>
+<div class="response">
+	<figure>
+		<img src="images/envi-f1001/cycle_carbone.svg" alt="Cycle du carbone" />
+		<figcaption>Cycle du carbone</figcaption>
+	</figure>
+<ul>
+	<li>les flux rapides, susceptibles d’avoir des conséquences à court terme sur le climat (de la décennie à quelques siècles) ;
+	<li>les flux assez lents dont les conséquences ne s’observent que sur le moyen terme (quelques siècles) ;
+	<li>les flux très lents dont les conséquences ne s’observent que sur le très long terme (plusieurs millions d’années) : ces flux-là sont trop lents pour être à l’origine du récent changement climatique, et ne pourront pas équilibrer les rejets d’origine anthropiques.
+</ul>
+</div>
+
+
+
+<h3>Qu'est-ce que l'ozone troposphérique ?</h3>
+<div class="response">
+L’ozone troposphérique est ce qu’on appelle un polluant secondaire, un photo-oxydant, formé par l’action du rayonnement solaire sur des polluants primaires précurseurs.
+
+Il est le produit de réactions chimiques complexes faisant intervenir les oxydes d’azote, les composes organiques volatils, le monoxyde de carbone, la température et la lumière solaire. L’ozone troposphérique a un effet toxique sur les êtres humains et sur la végétation.
+</div>
+
+
+
+<h3>Pourquoi il y a plus d'ozone troposphérique en milieu rural qu'en zone urbaine ?</h3>
+<div class="response">
+On retrouve l'ozone formé à partir de la pollution urbaine. Les polluants précurseurs étant en faible quantité, ils ne peuvent réduire les concentrations d'ozone la nuit. Les teneurs sont donc quasi-stationnaires.
+</div>
+
+
+
+
+
+
+<h2>Partie Decroly</h2>
+
+
+
+<h3>Logique</h3>
+<ul>
+	<li>Population de 25.000.000 sur Terre en l'an 0. Faux</li>
+
+	<li>Judéo-Chrétien n'a pas de valeurs sacrées aux éléments de la nature. Vrai</li>
+
+	<li>Modernisme est représentation de distance entre l'homme et la nature. ?</li>
+
+	<li>Fin 18ème, Anthoropocène. Vrai</li>
+
+	<li>Lula a voulu diminuer les productions de soja. Faux</li>
+	
+	<li>Le pastoralisme décrit la relation interdépendante entre les éleveurs, leurs troupeaux et leur biotope. Vrai</li>
+	
+	<li>La relation de pastoralisme existe depuis environ 10 000 ans. Vrai</li>
+
+	<li>Nord Sahel, extension de la culture pluviale au détriment du pastoralisme. Vrai</li>
+
+	<li>La finalité de l'agriculture au Sahel avant la colonisation est de faire un maximum de profit. Faux</li>
+	
+	<li>La finalité de l'agriculture au Sahel avant la colonisation est d'avoir le plus d'homme sous son ordre. Vrai</li>
+
+	<li>Augmentation des prix agricoles au Niger entre 1950 et 1970. Vrai</li>
+
+	<li>40\% d'eau douce est amenée sur terre par l'évaporation des océans. Vrai</li>
+	
+	<li>47\% d'eau douce est amenée sur terre par l'évaporation des écoulement des eaux vers la mer. Vrai</li>
+	
+	<li>2,5\% d'eau douce est amenée sur terre par l'évaporation des fontes des glaces. Vrai</li>
+
+	<li>Projet de transfert d'eau en Tunisie au bénéfice du Tourisme. Vrai</li>
+
+	<li>GAP financé par les organismes d'aide au développement. Faux</li>
+
+	<li>GAP accompagné d'une réforme agraire pour les Kurdes. Faux</li>
+
+	<li>La Turquie considère eaux du Tigre et de l'Euphrate comme richesse naturelle nationale. Vrai</li>
+
+	<li>Reduction de la biodiversité plus rapide que rejets Pb. Faux</li>
+
+	<li>Dès 1910, la production de caoutchouc hollandaise a supplanté la production brésilienne. Vrai</li>
+
+	<li>La rouille su-américaine attaque plus les hévéas cultivés que les naturels. Vrai</li>
+</ul>
+
+
+
+<h3 class="question">Définition : obsolescence</h3>
+<div class="response">
+<ul>
+	<li>L'obsolescence] est le fait pour un produit d’être dépassé, et donc de perdre une partie de sa valeur en raison de la seule évolution technique (on parle alors d'<b>obsolescence technique}) ou de la mode (on utilise alors plutôt le mot "démodé") ;
+	<li>L’obsolescence programmée] est le nom donné à l'ensemble des techniques visant à réduire la durée de vie ou d'utilisation d'un produit afin d'en augmenter le taux de remplacement.</div>
+</ul>
+</div>
+
+
+
+<h3>Pourquoi les USA ont tellement de terres irriguées ?</h3>
+<div class="response">
+</div>
+
+
+
+<h3>Pourcentage d'agricultue en Israêl ? Quel est le secteur le plus exploité ?</h3>
+<div class="response">
+</div>
+
+
+
+<h3>Dans quel domaine la Turquie met toute son économie ?</h3>
+<div class="response">
+Dans le tourisme
+</div>
+
+
+
+<h3>Question sur le pourcentage de forêt amazoniene déboisée</h3>
+<div class="response">
+</div>
+
+
+
+<h3>Question sur le pourcentage d'unités de conservation de la forêt brésilienne</h3>
+<div class="response">
+</div>
+
+
+
+<h3>Quelles sont les 3 motivations principales du développement de l'Amazonie et pourquoi il n'y a pas de réforme agraire ?</h3>
+<div class="response">
+</div>
+
+
+
+<h3>Pourquoi le Brésil a encouragé la déforestation et pourquoi il n'y a pas de réforme agraire</h3>
+<div class="response">
+Entre 1970 et 1990, la logique était un déboisement motivé par la spéculation foncière ; On achète des terres pour faire augmenter leur prix et ensuite on les revends. Dans les années '90, le déboisement était plutôt motivé par la rentabilité économique des productions de soja et de viande de boeuf ; On a besoin de place pour ces productions car la demande mondiale est élevée.
+</div>
+
+
+
+<h3>Pourquoi le Brésil préfère une réforme agraire ?</h3>
+<div class="response">
+Coexistence de 2 partis : oligarchie foncière et bourgeoise cafétière
+Les facteurs influençant ...
+<ul>
+	<li>Motifs socioplitiques ;
+	<li>Motifs économiques ;
+	<li>Motifs stratégiques.
+</ul>
+</div>
+
+
+
+
+
+<h2>Partie Regnier</h2>
+
+<h3>Le système terre</h3>
 Âge de la terre: 4,6 milliard d’année.
 
 
@@ -135,7 +329,7 @@ Question: Le système climatique sur terre aurait-il un méchanisme propre lui p
 
 
 
-<h2>Planète Terre: Balance énergétique  et l’effet de serre.</h2>
+<h3>Planète Terre: Balance énergétique  et l’effet de serre.</h3>
 
 
 Vie sur terre due à son climat tempéré.
@@ -284,7 +478,7 @@ L’énergie reçue accroît le mouvement des molécules et perturbe leur vitess
 
 
 
-<h2>La terre dynamique:</h2>
+<h3>La terre dynamique:</h3>
 Système de circulation globaux.
 
 
@@ -494,7 +688,7 @@ Toute modification de la circulation thermohaline peut avoir une influence profo
 
 
 
-<h2>Systèmes de circulation globaux</h2>
+<h3>Systèmes de circulation globaux</h3>
 
 
 Tectonique des plaques: La terre est divisée en différentes plaques rigides qui se déplace les unes par rapport aux autres au cours du temps. (par Wegener)
@@ -864,7 +1058,7 @@ Le cycle de Wilson:
 => Prochain : dans 200 Ma.
 
 
-<h2>Introduction à l’analyse des systèmes:</h2>
+<h3>Introduction à l’analyse des systèmes:</h3>
   
 
 
@@ -1018,7 +1212,7 @@ Exemple: CO2 double
         => Feedback positifs tendent à amplifier l’effet du au forçage du CO2 .
 
 
-<h2>Recyclage des éléments: Le cycle du carbone</h2>
+<h3>Recyclage des éléments: Le cycle du carbone</h3>
 
 
 Introduction:
@@ -1197,7 +1391,7 @@ Boucle de feedback négative => Système stable
 Cette boucle est le facteur clé du contrôle climatique aux échelles de temps géologiques ( > 106 ans)
 
 
-<h2>Evolution du système Terre</h2>
+<h3>Evolution du système Terre</h3>
 1. Spéculations sur le Précambrien:
 A. Régulation de climat à long-terme: Paradoxe du ‘Jeune Soleil Faible’ revisité:
 Evolution de Ts:
