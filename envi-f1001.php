@@ -195,7 +195,7 @@ Les facteurs influençant ...
 
 <h2>Partie Regnier</h2>
 
-<h3 class="question">Le système terre</h3>
+<h3>Le système terre</h3>
 Âge de la terre: 4,6 milliard d’année.
 
 
@@ -329,7 +329,7 @@ Question: Le système climatique sur terre aurait-il un méchanisme propre lui p
 
 
 
-<h3 class="question">Planète Terre: Balance énergétique  et l’effet de serre.</h3>
+<h3>Planète Terre: Balance énergétique  et l’effet de serre.</h3>
 
 
 Vie sur terre due à son climat tempéré.
@@ -478,7 +478,7 @@ L’énergie reçue accroît le mouvement des molécules et perturbe leur vitess
 
 
 
-<h3 class="question">La terre dynamique:</h3>
+<h3>La terre dynamique:</h3>
 Système de circulation globaux.
 
 
@@ -688,7 +688,7 @@ Toute modification de la circulation thermohaline peut avoir une influence profo
 
 
 
-<h3 class="question">Systèmes de circulation globaux</h3>
+<h3>Systèmes de circulation globaux</h3>
 
 
 Tectonique des plaques: La terre est divisée en différentes plaques rigides qui se déplace les unes par rapport aux autres au cours du temps. (par Wegener)
@@ -1058,7 +1058,7 @@ Le cycle de Wilson:
 => Prochain : dans 200 Ma.
 
 
-<h3 class="question">Introduction à l’analyse des systèmes:</h3>
+<h3>Introduction à l’analyse des systèmes:</h3>
   
 
 
@@ -1212,7 +1212,7 @@ Exemple: CO2 double
         => Feedback positifs tendent à amplifier l’effet du au forçage du CO2 .
 
 
-<h3 class="question">Recyclage des éléments: Le cycle du carbone</h3>
+<h3>Recyclage des éléments: Le cycle du carbone</h3>
 
 
 Introduction:
@@ -1391,7 +1391,7 @@ Boucle de feedback négative => Système stable
 Cette boucle est le facteur clé du contrôle climatique aux échelles de temps géologiques ( > 106 ans)
 
 
-<h3 class="question">Evolution du système Terre</h3>
+<h3>Evolution du système Terre</h3>
 1. Spéculations sur le Précambrien:
 A. Régulation de climat à long-terme: Paradoxe du ‘Jeune Soleil Faible’ revisité:
 Evolution de Ts:
