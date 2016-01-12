@@ -3,18 +3,27 @@
 
 <h2>Partie Pattyn</h2>
 <h3 class="question">Logique</h3>
-<ul>
-	<li>Le réchauffement est plus fort en antarctique qu'en arctique. Vrai</li>
-	
-	<li>Le réchauffement est plus fort au pole nord qu'au pole sud. Faux</li>
+<div class="response">
+	<ul>
+		<li>Le réchauffement est plus fort en antarctique qu'en arctique. Vrai</li>
+		
+		<li>Le réchauffement est plus fort au pole nord qu'au pole sud. Faux</li>
 
-	<li>Révolution Néolithique est le passage de chasse/pêche à l'agriculture. Vrai</li>
+		<li>Révolution Néolithique est le passage de chasse-pêche à l'agriculture. Vrai</li>
 
-	<li>Après l'ère Néolithique vient l'ère Anthropique. Faux</li>
+		<li>Après l'ère Néolithique vient l'ère Anthropique. Faux</li>
 
-	<li>Après l'ère Paléolithique vient l'ère Néolithique. Vrai</li>
-</ul>
-
+		<li>Après l'ère Paléolithique vient l'ère Néolithique. Vrai</li>
+		
+		<li>L'ère Anthropique n'existe pas. Vrai</li>
+		
+		<li>Anthropique est un phénomène à la fois naturel et qui est en rapport avec l’espèce humaine. Vrai</li>
+	</ul>
+	<figure>
+		<img src="images/envi-f1001/paleolithique-neolithique" alt="L'ère Paléolithique et Néolithique" />
+		<figcaption>L'ère Paléolithique et Néolithique</figcaption>
+	</figure>
+</div>
 
 
 <h3 class="question">Pourquoi le réchauffement est plus élevé au pole ? Pourquoi il y a un réchauffement important en Antarctique ?</h3>
