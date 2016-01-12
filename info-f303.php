@@ -8,7 +8,7 @@ Les réponses proviennent (ou par l'intermédiaire de résumé) de Denis Steckel
 <h4 class="question">Expliquez la différence entre une paire de cuivre torsadée de catégorie 3 et une paire de catégorie 5. Laquelle permet un débit plus élevé et pourquoi ?</h4>
 <div class="answer">On utilise des paires de cuivre torsadées car en effet deux fils de cuivres parallèle crée un champ magnétique proportionnelle à leur distance, ce qui induit un grand courant et donc beaucoup de bruit. Or lorsqu'ils sont torsadés, les torsades créent chacune leur champs magnétique et courant induit et les flux induits s'inversent dans chaque boucle adjacente. Les effets sont donc atténués. Plus les torsades sont petites, plus l'effet est efficace. Les fils de catégorie 5 sont plus torsadé que ceux de catégorie 3 et donc plus efface (100 Mbps contre 10 Mbps)
 	<figure>
-		<img src="images/cable-torsade.svg" alt="Cable torsadé" />
+		<img src="images/info-f303/cable-torsade" alt="Cable torsadé" />
 		<figcaption>Cable torsadé</figcaption>
 	</figure>
 </div>
@@ -20,7 +20,7 @@ Les réponses proviennent (ou par l'intermédiaire de résumé) de Denis Steckel
 <li>
 	La fibre optique est une émission d'un nuage de photon dans un câble en verre. Composé d’un câble en fibre optique inclus dans un autre, les deux ayant des indices de réfractions différents. Ceci permettant de piéger les signaux par réfraction. les photons ne peuvent plus quitter le câble et se retrouve bloqué dans le câble du centre. On utilise deux types de fibre : Le monomode et multimode.
 	<figure>
-		<img src="images/multimode-monomode.svg" alt="Deux modes de fibres optique" />
+		<img src="images/info-f303/multimode-monomode" alt="Deux modes de fibres optique" />
 		<figcaption>Deux modes de fibres optique</figcaption>
 	</figure>
 	<ul>
@@ -55,7 +55,7 @@ Les réponses proviennent (ou par l'intermédiaire de résumé) de Denis Steckel
 		<li><b>WDM</b> ( <b>Wavelength Division Multiplexing</b> ) : principe similaire à <b>FDM</b>, chaque utilisateur possède sa propre longueur d'ondes.</li>
 	</ul>
 	<figure>
-		<img src="images/fdm-tdm-wdm.svg" alt="FDM TDM WDM" />
+		<img src="images/info-f303/fdm-tdm-wdm" alt="FDM TDM WDM" />
 		<figcaption>FDM TDM WDM</figcaption>
 	</figure>
 </li>
@@ -74,7 +74,7 @@ Les réponses proviennent (ou par l'intermédiaire de résumé) de Denis Steckel
 <div class="answer">
 	Le service de transfert fiable des données doit détecter les erreurs via checksum et utiliser des accusés de réceptions : le récepteur doit dire explicitement à l'envoyeur s'il a reçu avec ou sans erreur le paquet. Un accusé de réception peut être un <b>ACK</b> (packet reçu) ou un <b>NAK</b> (packet reçu mais corrompu). Les accusés de réception pouvant aussi être corrompu, on leur ajoute aussi un checksum. On indique dans le <b>ACK</b> ou le <b>NAK</b> de quel paquet il est l'accusé de réception sinon on peut déstabiliser le système.
 	<figure>
-		<img src="images/ack-not-nominative.svg" alt="Erreur possible lors d'un <b>ACK</b> non nominatif" />
+		<img src="images/info-f303/ack-not-nominative" alt="Erreur possible lors d'un <b>ACK</b> non nominatif" />
 		<figcaption>Erreur possible lors d'un <b>ACK</b> non nominatif</figcaption>
 	</figure>
 </div>
@@ -112,7 +112,7 @@ Les réponses proviennent (ou par l'intermédiaire de résumé) de Denis Steckel
 <li>
 	Ce protocole a été mis au point dans les années 70 pour des réseau peu étendu et peu performant, aujourd'hui il n'est plus performant car les <b>RTT</b> (temps de propagation) sont devenus important, et avec ce protocole ils sont du temps mort.
 	<figure>
-		<img src="images/stopandwait-too-old.svg" alt="Le protocole <b>stop & wait</b> donne du temps mort" />
+		<img src="images/info-f303/stopandwait-too-old" alt="Le protocole <b>stop & wait</b> donne du temps mort" />
 		<figcaption>Le protocole <b>stop & wait</b> donne du temps mort</figcaption>
 	</figure>
 </li>
@@ -124,7 +124,7 @@ Les réponses proviennent (ou par l'intermédiaire de résumé) de Denis Steckel
 <div class="answer">
 	Au lieu d'envoyer les packets un à un comme le protocole <b>stop & wait</b>, on envoie une rafale de packet avec les différents accusés de réceptions séparés. Ici on reste donc actif pendant une partie du <b>RTT</b>. Il existe deux stratégies possible : le protocole à fenêtre glissante <b>GBN</b> (<b>Go-Back N</b>) et protocole à fenêtre glissante <b>SR</b> (<b>Selective Repeat</b>).
 	<figure>
-		<img src="images/pipelining.svg" alt="Le principe du parallélisme" />
+		<img src="images/info-f303/pipelining" alt="Le principe du parallélisme" />
 		<figcaption>Le principe du parallélisme</figcaption>
 	</figure>
 </div>
@@ -142,7 +142,7 @@ Les réponses proviennent (ou par l'intermédiaire de résumé) de Denis Steckel
 <div class="answer">
 	On voit que le récepteur considère que le deuxième paquet qu’il reçoit la deuxième fois est le même que le premier qu’il a déjà reçu et non le troisième packet. Ainsi il le supprime et envoie un <b>ACK</b> pensant que le premier <b>ACK</b> s’est perdu, on perd donc le paquet et perturbe toute la chaîne.
 	<figure>
-		<img src="images/size-window-gbn.svg" alt="Taille maximale de la fenêtre glissante <b>GBN</b> (<b>Go-Back N</b>)" />
+		<img src="images/info-f303/size-window-gbn" alt="Taille maximale de la fenêtre glissante <b>GBN</b> (<b>Go-Back N</b>)" />
 		<figcaption>Taille maximale de la fenêtre glissante <b>GBN</b> (<b>Go-Back N</b>)</figcaption>
 	</figure>
 	La taille maximale de la fenêtre est donc le nombre de numéro de $séquence-1$. (C'est pas $k/2$ plutôt la taille maximale ?)
@@ -329,7 +329,7 @@ Les réponses proviennent (ou par l'intermédiaire de résumé) de Denis Steckel
 	<li>
 		La technologie <b>CSMA</b> (<b>Carrier Sense Multiple Access</b>) est un ensemble de protocoles qui permet à plusieurs machines d'utiliser un même média de communication. Celle-ci vérifie que le support est disponible avant de commencer l'envoi d'une trame. Dans la version simple de <b>CSMA</b>, une machine ne peut pas transmettre si elle détecte de l'activité sur le média, elle attend la fin de la transmission. Cependant, en raison du temps de propagation, surtout sur des longues distances, deux machines pourraient considérer le bus comme libre et commencer à écrire en même temps, pour se retrouver en collision quelques instants après. Il est à noter qu'il est pas possible d'éliminer les collisions sur un bus mais il est possible de développper une méthode pour les limiter et réussir à partager le bus entre plusieurs machines.
 		<figure>
-			<img src="images/collision.svg" alt="Illustation d'une collision" />
+			<img src="images/info-f303/collision" alt="Illustation d'une collision" />
 			<figcaption>Illustation d'une collision</figcaption>
 		</figure>
 	</li>
@@ -379,7 +379,7 @@ Les réponses proviennent (ou par l'intermédiaire de résumé) de Denis Steckel
 	<li>
 		La technologie <b>CSMA</b> (<b>Carrier Sense Multiple Access</b>) est un ensemble de protocoles d'accès à un média. Elle permet à plusieurs machines d'utiliser un même média de communication. Celle-ci vérifie que le support est disponible avant de commencer l'envoi d'une trame. Dans la version simple de <b>CSMA</b>, une machine ne peut pas transmettre si elle détecte de l'activité sur le média, elle attend la fin de la transmission. Cependant, en raison du temps de propagation, surtout sur des longues distances, deux machines pourraient considérer le bus comme libre et commencer à écrire en même temps, pour se retrouver en collision quelques instants après. Il est à noter qu'il est pas possible d'éliminer les collisions sur un bus mais il est possible de développper une méthode pour les limiter et réussir à partager le bus entre plusieurs machines.
 		<figure>
-			<img src="images/collision.svg" alt="Illustation d'une collision" />
+			<img src="images/info-f303/collision" alt="Illustation d'une collision" />
 			<figcaption>Illustation d'une collision</figcaption>
 		</figure>
 		Le <b>CSMA/CD</b> rajoute la contrainte <b>Collision Detection</b>: si lorsqu'un bit a été écrit, l'état mesuré est différent, la machine considère qu'il y a collision et arrête immédiatement d'écrire sur le bus. Elle attend ensuite pour un temps déterminé aléatoirement afin que deux machines en collision ne recommencent pas à émettre en même temps. Son objectif est de limiter le nombre de collisions en organisant le droit à la parole. L'idée est de mettre en place une règle qui permettrait de n'avoir presque plus de collisions.
@@ -474,7 +474,7 @@ Les réponses proviennent (ou par l'intermédiaire de résumé) de Denis Steckel
 		<li>Sinon, tant qu'un enregistrement <b>A</b> n'a pas été trouvé, le serveur recommence les mêmes étapes à partir du domaine obtenu dans le champ <b>CNAME</b>.</li>
 	</ul>
 	<figure>
-		<img src="images/dns-name-resolution.svg" alt="DNS name resolution ( recursive and iterated method )" />
+		<img src="images/info-f303/dns-name-resolution" alt="DNS name resolution ( recursive and iterated method )" />
 		<figcaption>DNS name resolution ( recursive and iterated method )</figcaption>
 	</figure>
 </li>
@@ -561,7 +561,7 @@ Les réponses proviennent (ou par l'intermédiaire de résumé) de Denis Steckel
 			<b>Inconvénients</b> : Le seul problème est que les paquets ont des tailles différentes. Si les paquets avaient tous la même durée, tout aurait été synchrone, on change la matrice de routage à chaque paquet, toutes les connexions en même temps. Quand les paquets ont des tailles variables, le chef d'orchestre doit être plus compliqué. On peut également découper les paquets en petits blocs de taille fixe (complétés par des zéros par exemple). Comme ça, on retrouve le comportement synchrone. Vu de l'extérieur, cette fragmentation est invisible.</li>
 		</ul>
 		<figure>
-			<img src="images/commutation.svg" alt="Matrice de commutation" />
+			<img src="images/info-f303/commutation" alt="Matrice de commutation" />
 			<figcaption>Matrice de commutation</figcaption>
 		</figure>
 	</li>
@@ -628,7 +628,7 @@ Les réponses proviennent (ou par l'intermédiaire de résumé) de Denis Steckel
 </li>
 <li>
 	<figure>
-		<img src="images/dns-name-resolution.svg" alt="DNS name resolution ( recursive and iterated method )" />
+		<img src="images/info-f303/dns-name-resolution" alt="DNS name resolution ( recursive and iterated method )" />
 		<figcaption>DNS name resolution ( recursive and iterated method )</figcaption>
 	</figure>
 </li>
@@ -743,7 +743,7 @@ $$Timeout = estimation + 4 marge$$
 <li>Une version simplifiée du <b>DNS</b> consisterait en un serveur de noms unique contenant toutes les correspondances existantes. Ce système a l’air simple, mais impossible à mettre en oeuvre, pour causes : fragilité d’un site central unique, volume de trafic trop important, base de données centralisée trop éloignée de certains utilisateurs, problèmes de maintenance dus au volume énorme des données à stocker. <b>DNS</b> se doit donc d’être un système distribué.</li>
 <li><b>DNS</b> utilise un grand nombre de serveurs de noms, organisé de manière hiérarchique et distribué dans le monde entier. Il existe trois types de serveurs de noms : les <b>serveurs de noms locaux</b>, les <b>serveurs de nom racine</b> et les <b>serveurs de nom de source autorisée</b>. Chaque fournisseur d’accès possède un <b>serveur de noms local</b>, vers lequel vont toutes les recherches <b>DNS</b> formulées au sein de ce réseau local. Un <b>serveur de noms local</b> est forcément proche du client. Lorsqu’un serveur local de noms n’est pas en mesure de répondre à une demande il se transforme en client <b>DNS</b> et interroge un <b>serveur de nom racine</b>, si celui-ci a une réponse il l’envoie au serveur de noms <b>DNS</b>, qui la transmet alors à l’auteur de la demande ; si le <b>serveur de nom racine</b> ne peut lui non plus satisfaire la demande directement, il répond en donnant l’adresse <b>IP</b> d’un <b>serveur de nom de source autorisée</b> qui connaîtra certainement la correspondance recherchée. Tout serveur est enregistré auprès d’au moins deux <b>serveurs de noms de source autorisée</b>, en général il s’agit tout simplement du fournisseur d’accès. Un <b>serveur de nom est qualifié</b> de source autorisée pour un serveur donné, s’il dispose en permanence d’archives <b>DNS</b> permettant d’établir la conversion pour ce serveur. 
 <figure>
-	<img src="images/dns-name-resolution.svg" alt="DNS name resolution ( recursive and iterated method )" />
+	<img src="images/info-f303/dns-name-resolution" alt="DNS name resolution ( recursive and iterated method )" />
 	<figcaption>DNS name resolution ( recursive and iterated method )</figcaption>
 </figure>
 Toutes ces recherches que nous venons de voir étaient du type récursives, mais <b>DNS</b> autorise également des recherches itératives à n’importe quel moment du processus de recherche : si un serveur n’est pas en mesure de répondre favorablement à la demande, il renvoie directement l’adresse <b>IP</b> du prochain serveur de nom de la chaîne. En général, toutes les demandes d’une même recherche <b>DNS</b> sont récursives, mis à part celle émanant du serveur local de nom adressée au serveur racine qui est de nature itérative. Cette démarche est préférable, les serveurs racines traitant généralement de grands volumes de
@@ -871,7 +871,7 @@ Une fois le <b>3-way handshake</b> effectué, le client et le serveur ont reçu 
 	<li>Des entrées de table de routage incohérentes.</li>
 </ul></li>
 <li>Pour constater la rapidité avec laquelle les bonnes nouvelles se propagent, considérez le sous-réseau illustré à la figure et sur lequel la métrique utilisée est le nombre de sauts. Supposons que A soit inactif au départ et que tous les autres routeurs le sachent. En d'autres termes, ils ont tous enregistré un délai infini vers A.<figure>
-	<img src="images/comportement-pathologique.svg" alt="Comportement pathologique" />
+	<img src="images/info-f303/comportement-pathologique" alt="Comportement pathologique" />
 	<figcaption>Comportement pathologique</figcaption>
 </figure></li>
 <li>Via l'lhorizon éclaté (poison reverse). Si Z passe par Y pour aller à X, Z peut faire croire à Y qu'il se trouve à une distance infinie de X. Y étant persuadé que Z ne peut atteindre X, il opte pour une autre route.  Cette méthode n'est bonne qu'avec des triplets, elle ne marche pas lorsqu'il y a des boucles de plus de trois noeuds.</li>
@@ -935,7 +935,7 @@ Une fois le <b>3-way handshake</b> effectué, le client et le serveur ont reçu 
 	</fieldset>
 	<fieldset class="formula">
 		<legend>Simple envoi</legend>
-		<img src="images/simple-send.svg" alt="Simple envoi" />
+		<img src="images/info-f303/simple-send" alt="Simple envoi" />
 	</fieldset>
 	<fieldset class="formula">
 		<legend>Transformations</legend>
@@ -965,7 +965,7 @@ Une fois le <b>3-way handshake</b> effectué, le client et le serveur ont reçu 
 
 <h4 class="question">Soit le réseau représenté sur la figure. Nous supposons que l’algorithme de <i>spanning tree</i> est stabilisé et que toutes les tables d’acheminement des ponts sont initialement vides.
 <figure>
-	<img src="images/topologie.svg" alt="Topologie" />
+	<img src="images/info-f303/topologie" alt="Topologie" />
 	<figcaption>Topologie</figcaption>
 </figure>
 <ol class="alphabet">
@@ -996,7 +996,7 @@ Une fois le <b>3-way handshake</b> effectué, le client et le serveur ont reçu 
 
 <h4 class="question">Considérons le réseau de la figure. La table contient diverses informations sur les routeurs.
 <figure>
-	<img src="images/topologie3.svg" alt="Topologie" />
+	<img src="images/info-f303/topologie3" alt="Topologie" />
 	<figcaption>Topologie</figcaption>
 </figure>
 <figure>
@@ -1030,7 +1030,7 @@ Une fois le <b>3-way handshake</b> effectué, le client et le serveur ont reçu 
 
 <h4 class="question">Considérons le réseau de la figure. La table 1 contient diverses informations sur les routeurs.
 <figure>
-	<img src="images/topologie2.svg" alt="Topologie" />
+	<img src="images/info-f303/topologie2" alt="Topologie" />
 	<figcaption>Topologie</figcaption>
 </figure>
 <figure>
@@ -1106,7 +1106,7 @@ Une fois le <b>3-way handshake</b> effectué, le client et le serveur ont reçu 
 
 <h4 class="question">Considérons le réseau de la figure. Les tables contient diverses informations sur les routeurs.
 <figure>
-	<img src="images/topologie4.svg" alt="Topologie" />
+	<img src="images/info-f303/topologie4" alt="Topologie" />
 	<figcaption>Topologie</figcaption>
 </figure>
 <figure>
@@ -1234,7 +1234,7 @@ Une fois le <b>3-way handshake</b> effectué, le client et le serveur ont reçu 
 
 <h4 class="question">Considérons le réseau de la figure. Les tables contient diverses informations sur les routeurs.
 <figure>
-	<img src="images/topologie5.svg" alt="Topologie" />
+	<img src="images/info-f303/topologie5" alt="Topologie" />
 	<figcaption>Topologie</figcaption>
 </figure>
 <figure>

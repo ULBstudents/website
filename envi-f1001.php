@@ -51,7 +51,7 @@
 <h3 class="question">Cycle de formation du carbone à compléter.</h3>
 <div class="response">
 	<figure>
-		<img src="images/envi-f1001/cycle_carbone.svg" alt="Cycle du carbone" />
+		<img src="images/envi-f1001/cycle_carbone" alt="Cycle du carbone" />
 		<figcaption>Cycle du carbone</figcaption>
 	</figure>
 <ul>
