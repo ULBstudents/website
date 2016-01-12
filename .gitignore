@@ -1,0 +1,15 @@
+*.temp
+*.tmp
+
+# LaTeX compiles files
+*.aux
+*.bbl
+*.blg
+*.out
+*.toc
+*.log
+
+main.pdf
+
+
+*.db
