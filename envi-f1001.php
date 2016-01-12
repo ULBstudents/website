@@ -2,7 +2,7 @@
 
 
 <h2>Partie Pattyn</h2>
-<h3>Logique</h3>
+<h3 class="question">Logique</h3>
 <ul>
 	<li>Le réchauffement est plus fort en antarctique qu'en arctique. Vrai</li>
 	
@@ -17,14 +17,14 @@
 
 
 
-<h3>Pourquoi le réchauffement est plus élevé au pole ? Pourquoi il y a un réchauffement important en Antarctique ?</h3>
+<h3 class="question">Pourquoi le réchauffement est plus élevé au pole ? Pourquoi il y a un réchauffement important en Antarctique ?</h3>
 <div class="response">
 À cause du vortex polaire qui se manifeste au-dessus des régions polaires au cours des hivers locaux. Il est plus important au pôle sud qu'au pole nord, l'Antarctique est donc le continent le plus froid du globe. C'est une circulation bien structurée des vents dans la stratosphère. Il empêche l'air stratosphérique au-dessus des régions polaires de se mélanger avec de l'air venant des moyennes latitudes.
 </div>
 
 
 
-<h3>Classez les gaz à effet de serre selon leur importance.</h3>
+<h3 class="question">Classez les gaz à effet de serre selon leur importance.</h3>
 <div class="response">
 <ul>
 	<li><b>$H_2O$</b> Vapeur d'eau ;
@@ -39,7 +39,7 @@
 
 
 
-<h3>Cycle de formation du carbone à compléter.</h3>
+<h3 class="question">Cycle de formation du carbone à compléter.</h3>
 <div class="response">
 	<figure>
 		<img src="images/envi-f1001/cycle_carbone.svg" alt="Cycle du carbone" />
@@ -54,7 +54,7 @@
 
 
 
-<h3>Qu'est-ce que l'ozone troposphérique ?</h3>
+<h3 class="question">Qu'est-ce que l'ozone troposphérique ?</h3>
 <div class="response">
 L’ozone troposphérique est ce qu’on appelle un polluant secondaire, un photo-oxydant, formé par l’action du rayonnement solaire sur des polluants primaires précurseurs.
 
@@ -63,7 +63,7 @@ Il est le produit de réactions chimiques complexes faisant intervenir les oxyde
 
 
 
-<h3>Pourquoi il y a plus d'ozone troposphérique en milieu rural qu'en zone urbaine ?</h3>
+<h3 class="question">Pourquoi il y a plus d'ozone troposphérique en milieu rural qu'en zone urbaine ?</h3>
 <div class="response">
 On retrouve l'ozone formé à partir de la pollution urbaine. Les polluants précurseurs étant en faible quantité, ils ne peuvent réduire les concentrations d'ozone la nuit. Les teneurs sont donc quasi-stationnaires.
 </div>
@@ -77,7 +77,7 @@ On retrouve l'ozone formé à partir de la pollution urbaine. Les polluants pré
 
 
 
-<h3>Logique</h3>
+<h3 class="question">Logique</h3>
 <ul>
 	<li>Population de 25.000.000 sur Terre en l'an 0. Faux</li>
 
@@ -127,58 +127,58 @@ On retrouve l'ozone formé à partir de la pollution urbaine. Les polluants pré
 <h3 class="question">Définition : obsolescence</h3>
 <div class="response">
 <ul>
-	<li>L'obsolescence] est le fait pour un produit d’être dépassé, et donc de perdre une partie de sa valeur en raison de la seule évolution technique (on parle alors d'<b>obsolescence technique}) ou de la mode (on utilise alors plutôt le mot "démodé") ;
-	<li>L’obsolescence programmée] est le nom donné à l'ensemble des techniques visant à réduire la durée de vie ou d'utilisation d'un produit afin d'en augmenter le taux de remplacement.</div>
+	<li><b>L'obsolescence</b> est le fait pour un produit d’être dépassé, et donc de perdre une partie de sa valeur en raison de la seule évolution technique (on parle alors d'<b>obsolescence technique</b>) ou de la mode (on utilise alors plutôt le mot "démodé") ;
+	<li><b>L’obsolescence programmée</b> est le nom donné à l'ensemble des techniques visant à réduire la durée de vie ou d'utilisation d'un produit afin d'en augmenter le taux de remplacement.</div>
 </ul>
 </div>
 
 
 
-<h3>Pourquoi les USA ont tellement de terres irriguées ?</h3>
+<h3 class="question">Pourquoi les USA ont tellement de terres irriguées ?</h3>
 <div class="response">
 </div>
 
 
 
-<h3>Pourcentage d'agricultue en Israêl ? Quel est le secteur le plus exploité ?</h3>
+<h3 class="question">Pourcentage d'agricultue en Israêl ? Quel est le secteur le plus exploité ?</h3>
 <div class="response">
 </div>
 
 
 
-<h3>Dans quel domaine la Turquie met toute son économie ?</h3>
+<h3 class="question">Dans quel domaine la Turquie met toute son économie ?</h3>
 <div class="response">
 Dans le tourisme
 </div>
 
 
 
-<h3>Question sur le pourcentage de forêt amazoniene déboisée</h3>
+<h3 class="question">Question sur le pourcentage de forêt amazoniene déboisée</h3>
 <div class="response">
 </div>
 
 
 
-<h3>Question sur le pourcentage d'unités de conservation de la forêt brésilienne</h3>
+<h3 class="question">Question sur le pourcentage d'unités de conservation de la forêt brésilienne</h3>
 <div class="response">
 </div>
 
 
 
-<h3>Quelles sont les 3 motivations principales du développement de l'Amazonie et pourquoi il n'y a pas de réforme agraire ?</h3>
+<h3 class="question">Quelles sont les 3 motivations principales du développement de l'Amazonie et pourquoi il n'y a pas de réforme agraire ?</h3>
 <div class="response">
 </div>
 
 
 
-<h3>Pourquoi le Brésil a encouragé la déforestation et pourquoi il n'y a pas de réforme agraire</h3>
+<h3 class="question">Pourquoi le Brésil a encouragé la déforestation et pourquoi il n'y a pas de réforme agraire</h3>
 <div class="response">
 Entre 1970 et 1990, la logique était un déboisement motivé par la spéculation foncière ; On achète des terres pour faire augmenter leur prix et ensuite on les revends. Dans les années '90, le déboisement était plutôt motivé par la rentabilité économique des productions de soja et de viande de boeuf ; On a besoin de place pour ces productions car la demande mondiale est élevée.
 </div>
 
 
 
-<h3>Pourquoi le Brésil préfère une réforme agraire ?</h3>
+<h3 class="question">Pourquoi le Brésil préfère une réforme agraire ?</h3>
 <div class="response">
 Coexistence de 2 partis : oligarchie foncière et bourgeoise cafétière
 Les facteurs influençant ...
@@ -195,7 +195,7 @@ Les facteurs influençant ...
 
 <h2>Partie Regnier</h2>
 
-<h3>Le système terre</h3>
+<h3 class="question">Le système terre</h3>
 Âge de la terre: 4,6 milliard d’année.
 
 
@@ -329,7 +329,7 @@ Question: Le système climatique sur terre aurait-il un méchanisme propre lui p
 
 
 
-<h3>Planète Terre: Balance énergétique  et l’effet de serre.</h3>
+<h3 class="question">Planète Terre: Balance énergétique  et l’effet de serre.</h3>
 
 
 Vie sur terre due à son climat tempéré.
@@ -478,7 +478,7 @@ L’énergie reçue accroît le mouvement des molécules et perturbe leur vitess
 
 
 
-<h3>La terre dynamique:</h3>
+<h3 class="question">La terre dynamique:</h3>
 Système de circulation globaux.
 
 
@@ -688,7 +688,7 @@ Toute modification de la circulation thermohaline peut avoir une influence profo
 
 
 
-<h3>Systèmes de circulation globaux</h3>
+<h3 class="question">Systèmes de circulation globaux</h3>
 
 
 Tectonique des plaques: La terre est divisée en différentes plaques rigides qui se déplace les unes par rapport aux autres au cours du temps. (par Wegener)
@@ -1058,7 +1058,7 @@ Le cycle de Wilson:
 => Prochain : dans 200 Ma.
 
 
-<h3>Introduction à l’analyse des systèmes:</h3>
+<h3 class="question">Introduction à l’analyse des systèmes:</h3>
   
 
 
@@ -1212,7 +1212,7 @@ Exemple: CO2 double
         => Feedback positifs tendent à amplifier l’effet du au forçage du CO2 .
 
 
-<h3>Recyclage des éléments: Le cycle du carbone</h3>
+<h3 class="question">Recyclage des éléments: Le cycle du carbone</h3>
 
 
 Introduction:
@@ -1391,7 +1391,7 @@ Boucle de feedback négative => Système stable
 Cette boucle est le facteur clé du contrôle climatique aux échelles de temps géologiques ( > 106 ans)
 
 
-<h3>Evolution du système Terre</h3>
+<h3 class="question">Evolution du système Terre</h3>
 1. Spéculations sur le Précambrien:
 A. Régulation de climat à long-terme: Paradoxe du ‘Jeune Soleil Faible’ revisité:
 Evolution de Ts:
