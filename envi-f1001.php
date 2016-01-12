@@ -101,11 +101,11 @@ On retrouve l'ozone formé à partir de la pollution urbaine. Les polluants pré
 
 	<li>Augmentation des prix agricoles au Niger entre 1950 et 1970. Vrai</li>
 
-	<li>40\% d'eau douce est amenée sur terre par l'évaporation des océans. Vrai</li>
+	<li>40% d'eau douce est amenée sur terre par l'évaporation des océans. Vrai</li>
 	
-	<li>47\% d'eau douce est amenée sur terre par l'évaporation des écoulement des eaux vers la mer. Vrai</li>
+	<li>47% d'eau douce est amenée sur terre par l'évaporation des écoulement des eaux vers la mer. Vrai</li>
 	
-	<li>2,5\% d'eau douce est amenée sur terre par l'évaporation des fontes des glaces. Vrai</li>
+	<li>2,5% d'eau douce est amenée sur terre par l'évaporation des fontes des glaces. Vrai</li>
 
 	<li>Projet de transfert d'eau en Tunisie au bénéfice du Tourisme. Vrai</li>
 
