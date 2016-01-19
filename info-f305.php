@@ -127,21 +127,26 @@ sont compatibles avec le système et motiver la réponse.<figure><img src="image
 
 
 
-<h4 class="question">Soit l’équation différentielle suivante $$\dot{x}=rx-x^3,\ x\in\mathbb{R},\ r\in\mathbb{R}<ol><li>Trouver les points d’équilibre du système et étudier leur stabilité en fonction de $r$ ;</li><li>Tracer le diagramme de bifurcation associé. Notez les points d’équilibres instables en pointillé ;</li><li>Etudier la nature des points d’équilibres de manière graphique pour $r = 1$ et $r = 36$ ;</li><li>Vérifier par linéarisation les résultats du point précédent ;</li><li>Tracer qualitativement l’évolution temporelle ($t \in [0, 10]$) de $x$ pour<ol class="alphabet"><li>$r = 1$, $x(0) = 8$</li><li>$r = 1/4$, $x(0) = 8$</li><li>$r = −1$, $x(0) = 8$
+<h4 class="question">Soit l’équation différentielle suivante $$\dot{x}=rx-x^3,\ x\in\mathbb{R},\ r\in\mathbb{R}$$<ol><li>Trouver les points d’équilibre du système et étudier leur stabilité en fonction de $r$ ;</li><li>Tracer le diagramme de bifurcation associé. Notez les points d’équilibres instables en pointillé ;</li><li>Etudier la nature des points d’équilibres de manière graphique pour $r = 1$ et $r = 36$ ;</li><li>Vérifier par linéarisation les résultats du point précédent ;</li><li>Tracer qualitativement l’évolution temporelle ($t \in [0, 10]$) de $x$ pour<ol class="alphabet"><li>$r = 1$, $x(0) = 8$</li><li>$r = 1/4$, $x(0) = 8$</li><li>$r = −1$, $x(0) = 8$
 </li></ol>en tenant en considération la constante de temps.</li><li>Comparer les vitesses de convergence des trajectoires a), b) et c) et expliquer leur différence.</li></ol></h4>
 <div class="answer"><ol class="alphabet">
 	<li>
 		$\bar{x}=0$,$\bar{x}=\sqrt{r}$ et $\bar{x}=-\sqrt{r}$
 	</li>
 	<li>
+		...
 	</li>
 	<li>
+		...
 	</li>
 	<li>
+		...
 	</li>
 	<li>
+		...
 	</li>
 	<li>
+		...
 	</li>
 </ol>
 </div>
