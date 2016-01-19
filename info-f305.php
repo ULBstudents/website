@@ -66,9 +66,9 @@ initiales.
 	<ol>
 		<li>
 			Le graphique de $f(x)$ est
-			<figure><img src="images/info-f305/answerfx.svg" alt="Système S" /></figure>
+			<figure><img src="images/info-f305/answerfx.svg" alt="f(x)" /></figure>
 			alors que celui de $f^2(x)$ est
-			<figure><img src="images/info-f305/answerf2.svg" alt="Système S" /></figure>
+			<figure><img src="images/info-f305/answerf2.svg" alt="f^2(x)" /></figure>
 		</li>
 		<li>
 			Les points d’équilibre du système sont $\bar{x}^{(1)} = 0$ et $\bar{x}^{(2)} = 75$.
