@@ -94,9 +94,9 @@ sont compatibles avec le système et motiver la réponse.<figure><img src="image
 		</li>
 		<li>
 			La matrice de Jacobi est : $$\left \{\begin{array}{rr}2x_1&2x_2\\2x_1&-1\end{array}\right]$$
-			La matrice en \bar{x}^{(1)} est $\left[\begin{array}{rr}2\sqrt{3}&2\\2\sqrt{3}&-1\end{array}\right]$. Le point $\bar{x}^{(1)}$ est une selle pour le système linéarisé, donc le point d'équilibre $\bar{x}^{(1)}$ est instable pour le système original.<br>
-			La matrice en \bar{x}^{(2)} est $\left[\begin{array}{rr}-2\sqrt{3}&2\\-2\sqrt{3}&-1\end{array}\right]$. Le point $\bar{x}^{(2)}$ est un foyer asymptomatiquement stable pour le système linéarisé. Donc le point d'équilibre $\bar{x}^{(2)}$ est asymptotiquement stable pour le système original.<br>
-			La matrice en \bar{x}^{(3)} est $\left[\begin{array}{rr}0&-4\\0&-1\end{array}\right]$. Ce système est non simple puisqu une valeur propre est égale à 0. Nous ne pouvons rien déduire sur la stabilité du point $\bar{x}^{(3)}$ dans le système originale.
+			La matrice en $\bar{x}^{(1)}$ est $\left[\begin{array}{rr}2\sqrt{3}&2\\2\sqrt{3}&-1\end{array}\right]$. Le point $\bar{x}^{(1)}$ est une selle pour le système linéarisé, donc le point d'équilibre $\bar{x}^{(1)}$ est instable pour le système original.<br>
+			La matrice en $\bar{x}^{(2)}$ est $\left[\begin{array}{rr}-2\sqrt{3}&2\\-2\sqrt{3}&-1\end{array}\right]$. Le point $\bar{x}^{(2)}$ est un foyer asymptomatiquement stable pour le système linéarisé. Donc le point d'équilibre $\bar{x}^{(2)}$ est asymptotiquement stable pour le système original.<br>
+			La matrice en $\bar{x}^{(3)}$ est $\left[\begin{array}{rr}0&-4\\0&-1\end{array}\right]$. Ce système est non simple puisqu une valeur propre est égale à 0. Nous ne pouvons rien déduire sur la stabilité du point $\bar{x}^{(3)}$ dans le système originale.
 		</li>
 		<li>
 			Le portrait de phase du système est affiché sur la figure : <figure><img src="images/info-f305/portaitdephase.svg" alt="Portrait de phase" /></figure>
