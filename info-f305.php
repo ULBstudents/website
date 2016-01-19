@@ -85,6 +85,32 @@ initiales.
 
 
 
+<h4 class="question">Considérons le système non linéaire continu d'ordre 2 $$\left \{\begin{array}{r c l}\dot{x}_1  & = & x^2_1+x^2_2-4\\\dot{x}_2  & = & x^2_1-x_2-2\end{array}\right.$$ L'étudiant devra <ol><li>trouver analytiquement le(s) point(s) d’équilibre ;</li><li>étudier la stabilité du(des) point(s) d’équilibre (du système non linéaire) par linéarisation ;</li><li>tracer sur du papier millimétré<ol class="alphabet"><li>les iscoclines du système ;</li><li> le comportement qualitatif des trois trajectoires dont les points initiaux sont: $(1.5, 1.5)$,$(−1, −2)$ et $(0, −2)$.</li></ol></li><li>déterminer lesquelles parmi les quatre évolutions temporelles suivantes
+sont compatibles avec le système et motiver la réponse.<figure><img src="images/info-f305/4evolutionstemporelles.svg" alt="4 évolutions temporelles" /></figure></li></ol><h4>
+<div class="answer">
+	<ol>
+		<li>
+			Le système a trois points d’équilibre: $\bar{x}^{(1)} = ( \sqrt{3},1)$, $\bar{x}^{(2)} = (-\sqrt{3},1)$ et $\bar{x}^{(3)} = (0,-2)$
+		</li>
+		<li>
+			La matrice de Jacobi est : $$\left \{\begin{array}{rr}2x_1&2x_2\\2x_1&-1\end{array}\right]$$
+			La matrice en \bar{x}^{(1)} est $\left \{\begin{array}{rr}2\sqrt{3}&2\\2\sqrt{3}&-1\end{array}\right]$. Le point $\bar{x}^{(1)}$ est une selle pour le système linéarisé, donc le point d'équilibre $\bar{x}^{(1)}$ est instable pour le système original.<br>
+			La matrice en \bar{x}^{(2)} est $\left \{\begin{array}{rr}-2\sqrt{3}&2\\-2\sqrt{3}&-1\end{array}\right]$. Le point $\bar{x}^{(2)}$ est un foyer asymptomatiquement stable pour le système linéarisé. Donc le point d'équilibre $\bar{x}^{(2)} est asymptotiquement stable pour le système original.<br>
+			La matrice en \bar{x}^{(3)} est $\left \{\begin{array}{rr}0&-4\\0&-1\end{array}\right]$. Ce système est non simple puisqu une valeur propre est égale à 0. Nous ne pouvons rien déduire sur la stabilité du point $\bar{x}^{(3)}$ dans le système originale.
+		</li>
+		<li>
+			Le portrait de phase du système est affiché sur la figure : <figure><img src="images/info-f305/portaitdephase.svg" alt="Portrait de phase" /></figure>
+		</li>
+		<li>
+			Les évolutions temporelles a) et c).
+		</li>
+	</ol>
+</div>
+
+
+
+
+
 <h3>Orale</h3>
 
 <h4>Définition de système dynamique</h4>
