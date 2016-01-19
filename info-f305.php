@@ -60,7 +60,7 @@ initiales.
 
 
 
-<h4 class="question">Considérons le système non linéaire à temps discret décrit par l’itération $$x(k+1)=f(x(k))$$ où $x(k)\in[0,100]$ et la fonction $f$ est $$f(x)=\dfrac{1}{25}x(100-x)$$ L'étudiant devra<ol><li>calculer analytiquement $f^2(x)$ et tracer les graphiques respectifs de $f(x)$ et de $f^2(x)$ ;</li>trouver les points d’équilibre ;<li></li><li> étudier la stabilité des points d’équilibre ;</li><li>pour chaque point d’équilibre, simuler graphiquement et numériquement une trajectoire qui soit compatible avec l’analyse de stabilité ;</li><li>sur la base du graphique de $f^2(x)$ estimer les points du cycle d’ordre 2.</li></ol>
+<h4 class="question">Considérons le système non linéaire à temps discret décrit par l’itération $$x(k+1)=f(x(k))$$ où $x(k)\in[0,100]$ et la fonction $f$ est $$f(x)=\dfrac{1}{25}x(100-x)$$ L'étudiant devra<ol><li>calculer analytiquement $f^2(x)$ et tracer les graphiques respectifs de $f(x)$ et de $f^2(x)$ ;</li><li>trouver les points d’équilibre ;</li><li>étudier la stabilité des points d’équilibre ;</li><li>pour chaque point d’équilibre, simuler graphiquement et numériquement une trajectoire qui soit compatible avec l’analyse de stabilité ;</li><li>sur la base du graphique de $f^2(x)$ estimer les points du cycle d’ordre 2.</li></ol>
 </h4>
 <div class="answer">
 	<ol>
