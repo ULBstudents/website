@@ -39,13 +39,24 @@
 
 
 
-<h4 class="question">Considérons le système $S$ à temps continu décrit par la connexion de deux sous-systèmes $S_1$ et $S_2$ illustrée ci-dessous.<figure><img src="images/info-f305/systemes1s2.svg" alt="Système S" /></figure>Soit le sous-système $S_1$ décrit par le modèle $$\left \{\begin{array}{r c l}\dot{x}_1  & = & -(a-1)^2x_1+u\\\dot{y}_1  & = & x_1\end{array}\right.$$ et le sous-système $S_2$ décrit par le modèle $$\left \{\begin{array}{r c l}\dot{x}_2=x_3\\\dot{x}_3 = -bx_3 - 2cx_2 + 3u\\y_2=x_2\end{array}\right.$$ où $a\in\mathbb{R},b\in\mathbb{R},c\in\mathbb{R}$.<ol><li>Déterminer pour quelles valeurs de $a$, $b$, $c$, le système résultant est asymptotiquement
+<h4 class="question">Considérons le système $S$ à temps continu décrit par la connexion de deux sous-systèmes $S_1$ et $S_2$ illustrée ci-dessous.<figure><img src="images/info-f305/systemes1s2.svg" alt="Système S" /></figure>Soit le sous-système $S_1$ décrit par le modèle $$\left \{\begin{array}{r c l}\dot{x}_1  & = & -(a-1)^2x_1+u\\\dot{y}_1  & = & x_1\end{array}\right.$$ et le sous-système $S_2$ décrit par le modèle $$\left \{\begin{array}{r c l}\dot{x}_2&=&x_3\\\dot{x}_3 &=& -bx_3 - 2cx_2 + 3u\\y_2 &=& x_2\end{array}\right.$$ où $a\in\mathbb{R},b\in\mathbb{R},c\in\mathbb{R}$.<ol><li>Déterminer pour quelles valeurs de $a$, $b$, $c$, le système résultant est asymptotiquement
 stable.</li><li> Est-ce que pour ces valeurs le système serait asymptotiquement stable en
 cas de connexion en série ($S_1 \rightarrow S_2$ ou $S_2 \rightarrow S_1$) aussi ?</li></ol>
 </h4>
 <div class="answer">
 	Un système linéaire composé par la parallélisation de deux sous-systèmes linéaires est asymptotiquement stable si et seulement si les deux sous-systèmes sont asymptotiquement stables. Pour que $S_1$ soit asymptotiquement stable il suffit que $a \neq 1$. Pour que $S_2$ soit asymptotiquement stable il suffit que $b > 0$, $c > 0$.
 </div>
+
+
+
+
+<h4 class="question">Considérons le système linéaire d’ordre 2 $$\dot{x} = \left[ \begin{array}{cc}0&1\\-4&-5\end{array}\right]x$$ Calculer les valeurs de $x$ pour $t = 1$ et $t \rightarrow \infty$ pour les deux conditions
+initiales.
+</h4>
+<div class="answer">
+	$$x(0)=\left[\begin{array}{c}3\\3\end{array}\right]$$ $$x(0)=\left[\begin{array}{c}2\\0\end{array}\right]$$
+</div>
+
 
 
 <h3>Orale</h3>
