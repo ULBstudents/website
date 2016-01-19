@@ -39,7 +39,7 @@
 
 
 <h4 class="question">Considérons le système non linéaire continu suivant $$\left \{\begin{array}{r c l}\dot{x}_1  & = & x_2^2+x_1\\\dot{x}_2  & = & x_2^3+1\end{array}\right.$$ où $x_1\in[-6,6]$ et $x_2\in[-6,6]$. L'étudiant devra <ol><li>calculer analytiquement le(s) point(s) d'équilibre</li><li>étudier la stabilité du(des) point(s) d'équilibre (du système non linéaire) par linéarisation</li><li>tracer sur du papier millimétré<ol class="alphabet"><li>le portrait de phase avec les iscoclines du système</li><li>le comportement qualitatif des trois trajectoires dont les points initiaux sont: $(0,0)$, $(3,5)$, $(-3,-2)$ et $(-3,1)$.</li></ol></li></ol></h4>
-<div class="answer">
+<div class="answer"><ol class="alphabet">
 	<li>
 		$$\begin{array}{ll}
 		&\left\{\begin{array}{rcl}x_2^2 +x_1& = & 0\\x_2^3+1 & = & 0\end{array}\right.\\
@@ -53,8 +53,15 @@
 		$$J=\left(\begin{array}{cc}\dfrac{\partial f_1}{\delta x_1}&\dfrac{\delta f_1}{\delta x_2}\\\dfrac{\partial f_2}{\delta x_1}&\dfrac{\delta f_2}{\delta x_2}\end{array}\right)=\left(\begin{array}{cc}\dfrac{(x_2^2+x_1)'}{\delta x_1}&\dfrac{(x_2^2+x_1)'}{\delta x_2}\\\dfrac{(x_2^3+1)'}{\delta x_1}&\dfrac{(x_2^3+1)'}{\delta x_2}\end{array}\right)=\left(\begin{array}{cc}1&2x_2\\0&3x^2_2\end{array}\right)$$
 		Autour du point $[-1;-1]$
 		$$J=\left(\begin{array}{cc}1&2(-1)\\0&3(-1)^2\end{array}\right)=\left(\begin{array}{cc}1&-2\\0&3\end{array}\right)$$
+		Valeurs propres:
+		$$\lambda-4\lambda+3=0$$
+		$$\Delta=16-4.4.3=16-12=4$$
+		Solution: $\left(\begin{array}{c}\dfrac{4+\sqrt{4}}{2}\\\dfrac{4-\sqrt{4}}{2}\end{array}\right)=\left(\begin{array}{c}3\\1\end{array}\right)$&larr;Valeurs propres>0, noeud instable!
 	</li>
-</div>
+	<li>
+		$\left\{\begin{array}{rcl}\dot{x}_1& = & 0\\\dot{x}_2 & = & 0\end{array}\right.\Leftrightarrow\left\{\begin{array}{rcl}x_2^2+x_1& = & 0\\x_2^3+1 & = & 0\end{array}\right.\Leftrightarrow\left\{\begin{array}{rcl}x_1& = & -x_2^2\\x_2^3 & = & -1\end{array}\right.\Leftrightarrow\left\{\begin{array}{rcl}x_1& = & -1\\x_2 & = & -1\end{array}\right.$
+	</li>
+</ol></div>
 
 
 
