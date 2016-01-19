@@ -141,7 +141,7 @@ sont compatibles avec le système et motiver la réponse.<figure><img src="image
 <div class="answer">
 	<ol>
 		<li>
-			Le polynome caractéristique de l'équation homogène est $$\lambda^2-5\lambda+6=0$$ qui a comme racines $\lambda_1=2$,$\lambda_2=3$. L'équation homogène est $$x^h(k)=c_12^k+c_23^k$$ La solution particulière aura une forme $c3(4^k), il suffit d'injecter cela dans l'équation de départ et on a
+			Le polynome caractéristique de l'équation homogène est $$\lambda^2-5\lambda+6=0$$ qui a comme racines $\lambda_1=2$,$\lambda_2=3$. L'équation homogène est $$x^h(k)=c_12^k+c_23^k$$ La solution particulière aura une forme $c3(4^k)$, il suffit d'injecter cela dans l'équation de départ et on a
 			$$\begin{array}{crcl}&c3(4^{k+2})-5c3(4^{k+1})+6c3(4^k)&=&c3(4^k)\\
 			\Leftrightarrow&3(4^k)(c4^2-5c4+6c)&=&3(4^k)\\
 			\Leftrightarrow&c4^2-5c4+6c&=&1\\
