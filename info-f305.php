@@ -50,12 +50,38 @@ cas de connexion en série ($S_1 \rightarrow S_2$ ou $S_2 \rightarrow S_1$) auss
 
 
 
-<h4 class="question">Considérons le système linéaire d’ordre 2 $$\dot{x} = \left[ \begin{array}{cc}0&1\\-4&-5\end{array}\right]x$$ Calculer les valeurs de $x$ pour $t = 1$ et $t \rightarrow \infty$ pour les deux conditions
+
+<h4 class="question">Considérons le système linéaire d’ordre 2 $$\dot{x} = \left[ \begin{array}{rr}0&1\\-4&-5\end{array}\right]x$$ Calculer les valeurs de $x$ pour $t = 1$ et $t \rightarrow \infty$ pour les deux conditions
 initiales.
 </h4>
 <div class="answer">
-	$$x(0)=\left[\begin{array}{c}3\\3\end{array}\right]$$ $$x(0)=\left[\begin{array}{c}2\\0\end{array}\right]$$
+	$$x(0)=\left[\begin{array}{r}3\\3\end{array}\right]$$ $$x(0)=\left[\begin{array}{r}2\\0\end{array}\right]$$
 </div>
+
+
+
+<h4 class="question">Considérons le système non linéaire à temps discret décrit par l’itération $$x(k+1)=f(x(k))$$ où $x(k)\in[0,100]$ et la fonction $f$ est $$f(x)=\dfrac{1}{25}x(100-x)$$ L'étudiant devra<ol><li>calculer analytiquement $f^2(x)$ et tracer les graphiques respectifs de $f(x)$ et de $f^2(x)$ ;</li>trouver les points d’équilibre ;<li></li><li> étudier la stabilité des points d’équilibre ;</li><li>pour chaque point d’équilibre, simuler graphiquement et numériquement une trajectoire qui soit compatible avec l’analyse de stabilité ;</li><li>sur la base du graphique de $f^2(x)$ estimer les points du cycle d’ordre 2.</li></ol>
+</h4>
+<div class="answer">
+	<ol>
+		<li>
+			Le graphique de $f(x)$ est
+			<figure><img src="images/info-f305/answerfx.svg" alt="Système S" /></figure>
+			alors que celui de $f^2(x)$ est
+			<figure><img src="images/info-f305/answerf2.svg" alt="Système S" /></figure>
+		</li>
+		<li>
+			Les points d’équilibre du système sont $\bar{x}^{(1)} = 0$ et $\bar{x}^{(2)} = 75$.
+		</li>
+		<li>
+			Puisque $f'(x)=\dfrac{1}{25}(100-2x)$ avec $f'(x_1)=4$ et $f'(x_2)=-2$ les deux points sont instables.
+		</li>
+		<li>
+			Il existe un cycle d’ordre 2 qui passe par les points d’équilibre de $f^2$ qui ne sont pas points d'équilibre de $f$, c.-à-d. les valeurs $\bar{x}^{(3)} \approx 35$ et $\bar{x}^{(4)} \approx 91$.
+		</li>
+	</ol>
+</div>
+
 
 
 
