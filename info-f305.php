@@ -3,7 +3,7 @@
 
 
 
-<h3>Théorie</h3>
+<h3>Écrit</h3>
 
 <h4 class="question">Considérons le système non linéaire d'ordre 2. $$\left \{\begin{array}{r c l}\dot{x}_1  & = & (a-bx_1)^2\\\dot{x}_2  & = & (c-dx_1)^2\end{array}\right.$$ où $a, b, c$ et $d$ sont quatre constantes réelles L'étudiant devra<ol><li>calculer analytiquement le lieu des points tel que $\dot{x}_1 = \dot{x}_2$.</li><li>calculer analytiquement le(s) point(s) d'équilibre</li></ol>Pour les valeurs <ol class="alphabet"><li>$a=2$, $b=8$, $c=6$, $d=4$</li><li>$a=9$, $b=3$, $c=6$, $d=2$</li></ol><ol><li>étudier la stabilité du(des) point(s) d'équilibre (du système non linéaire) par linéarisation</li><li>tracer sur du papier millimétré<ol class="alphabet"><li>le portrait de phase avec les iscoclines du système</li><li>le comportement qualitatif des trois trajectoires dont les points initiaux sont: $(-2,2)$, $(0,2)$, $(3,2)$ et $(4,1)$.</li></ol><li>déterminer lesquelles parmi les trois évolutions temporelles suivantes sont compatibles avec le système pour les conditions initiales et les constantes $a,b,c$ et $d$ données (motivez la réponse).<figure><img src="images/info-f305/3evolutionstempo.svg" alt="Trois évolutions temporelles" /></figure></li></li></ol></h4>
 <div class="answer">
@@ -37,6 +37,15 @@
 </div>
 
 
+
+
+<h4 class="question">Considérons le système $S$ à temps continu décrit par la connexion de deux sous-systèmes $S_1$ et $S_2$ illustrée ci-dessous.<figure><img src="images/info-f305/systemes1s2.svg" alt="Système S" /></figure>Soit le sous-système $S_1$ décrit par le modèle $$\left \{\begin{array}{r c l}\dot{x}_1  & = & -(a-1)^2x_1+u\\\dot{y}_1  & = & x_1\end{array}\right.$$ et le sous-système $S_2$ décrit par le modèle $$\left \{\begin{array}{r c l}\dot{x}_2=x_3\\\dot{x}_3 = -bx_3 - 2cx_2 + 3u\\y_2=x_2\end{array}\right.$$ où $a\in\mathbb{R},b\in\mathbb{R},c\in\mathbb{R}$.<ol><li>Déterminer pour quelles valeurs de $a$, $b$, $c$, le système résultant est asymptotiquement
+stable.</li><li> Est-ce que pour ces valeurs le système serait asymptotiquement stable en
+cas de connexion en série ($S_1 \rightarrow S_2$ ou $S_2 \rightarrow S_1$) aussi ?</li></ol>
+</h4>
+<div class="answer">
+	Un système linéaire composé par la parallélisation de deux sous-systèmes linéaires est asymptotiquement stable si et seulement si les deux sous-systèmes sont asymptotiquement stables. Pour que $S_1$ soit asymptotiquement stable il suffit que $a \neq 1$. Pour que $S_2$ soit asymptotiquement stable il suffit que $b > 0$, $c > 0$.
+</div>
 
 
 <h3>Orale</h3>
