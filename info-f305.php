@@ -5,11 +5,11 @@
 
 <h3>Écrit</h3>
 
-<h4 class="question">Considérons le système non linéaire d'ordre 2. $$\left \{\begin{array}{r c l}\dot{x}_1  & = & (a-bx_1)^2\\\dot{x}_2  & = & (c-dx_1)^2\end{array}\right.$$ où $a, b, c$ et $d$ sont quatre constantes réelles L'étudiant devra<ol><li>calculer analytiquement le lieu des points tel que $\dot{x}_1 = \dot{x}_2$.</li><li>calculer analytiquement le(s) point(s) d'équilibre</li></ol>Pour les valeurs <ol class="alphabet"><li>$a=2$, $b=8$, $c=6$, $d=4$</li><li>$a=9$, $b=3$, $c=6$, $d=2$</li></ol><ol><li>étudier la stabilité du(des) point(s) d'équilibre (du système non linéaire) par linéarisation</li><li>tracer sur du papier millimétré<ol class="alphabet"><li>le portrait de phase avec les iscoclines du système</li><li>le comportement qualitatif des trois trajectoires dont les points initiaux sont: $(-2,2)$, $(0,2)$, $(3,2)$ et $(4,1)$.</li></ol><li>déterminer lesquelles parmi les trois évolutions temporelles suivantes sont compatibles avec le système pour les conditions initiales et les constantes $a,b,c$ et $d$ données (motivez la réponse).<figure><img src="images/info-f305/3evolutionstempo.svg" alt="Trois évolutions temporelles" /></figure></li></li></ol></h4>
+<h4 class="question">Considérons le système non linéaire d'ordre 2. $$\left \{\begin{array}{r c l}\dot{x}_1  & = & (a-bx_1)^2\\\dot{x}_2  & = & (c-dx_1)^2\end{array}\right.$$ où $a, b, c$ et $d$ sont quatre constantes réelles L'étudiant devra<ol><li>calculer analytiquement le lieu des points tel que $\dot{x}_1 = \dot{x}_2$.</li><li>calculer analytiquement le(s) point(s) d'équilibre</li></ol>Pour les valeurs <ol class="alphabet"><li>$a=2$, $b=8$, $c=6$, $d=4$</li><li>$a=9$, $b=3$, $c=6$, $d=2$</li></ol><ol><li>étudier la stabilité du(des) point(s) d'équilibre (du système non linéaire) par linéarisation</li><li>tracer sur du papier millimétré<ol class="alphabet"><li>le portrait de phase avec les iscoclines du système</li><li>le comportement qualitatif des trois trajectoires dont les points initiaux sont: $(-2,2)$, $(0,2)$, $(3,2)$ et $(4,1)$.</li></ol></li><li>déterminer lesquelles parmi les trois évolutions temporelles suivantes sont compatibles avec le système pour les conditions initiales et les constantes $a,b,c$ et $d$ données (motivez la réponse).<figure><img src="images/info-f305/3evolutionstempo.svg" alt="Trois évolutions temporelles" /></figure></li></li></ol></h4>
 <div class="answer">
 <ol>
 	<li>
-		$\left( \frac{a-c}{b-d},k\right)$ ou $\left( \frac{a+c}{b+d},k\right)$ avec $k\in \mathbb{R}$
+		Donc $\left( \frac{a-c}{b-d},k\right)$ ou $\left( \frac{a+c}{b+d},k\right)$ avec $k\in \mathbb{R}$
 	</li>
 	<li>
 		$\bar{x}=\left(\frac{a}{b}=\frac{c}{d},k\right)$ avec $k\in \mathbb{R}$
@@ -35,6 +35,27 @@
 	</li>
 </ol>
 </div>
+
+
+
+<h4 class="question">Considérons le système non linéaire continu suivant $$\left \{\begin{array}{r c l}\dot{x}_1  & = & x_2^2+x_1\\\dot{x}_2  & = & x_2^3+1\end{array}\right.$$ où $x_1\in[-6,6]$ et $x_2\in[-6,6]$. L'étudiant devra <ol><li>calculer analytiquement le(s) point(s) d'équilibre</li><li>étudier la stabilité du(des) point(s) d'équilibre (du système non linéaire) par linéarisation</li><li>tracer sur du papier millimétré<ol class="alphabet"><li>le portrait de phase avec les iscoclines du système</li><li>le comportement qualitatif des trois trajectoires dont les points initiaux sont: $(0,0)$, $(3,5)$, $(-3,-2)$ et $(-3,1)$.</li></ol></li></ol></h4>
+<div class="answer">
+	<li>
+		$$\begin{array}{ll}
+		&\left\{\begin{array}{rcl}x_2^2 +x_1& = & 0\\x_2^3+1 & = & 0\end{array}\right.\\
+		\Leftrightarrow&\left\{\begin{array}{rcl}x_2^2& = & -x_1\\x_2^3 & = & -1\end{array}\right.\\
+		\Leftrightarrow&\left\{\begin{array}{rcl}(-1)^2& = & -x_1\\x_2 & = & -1\end{array}\right.\\
+		\Leftrightarrow&\left\{\begin{array}{rcl}x_1& = & -1\\x_2 & = & -1\end{array}\right.\\
+		\end{array}$$
+		Solution: $[-1;-1]$
+	</li>
+	<li>
+		$$J=\left(\begin{array}{cc}\dfrac{\partial f_1}{\delta x_1}&\dfrac{\delta f_1}{\delta x_2}\\\dfrac{\partial f_2}{\delta x_1}&\dfrac{\delta f_2}{\delta x_2}\end{array}\right)=\left(\begin{array}{cc}\dfrac{(x_2^2+x_1)'}{\delta x_1}&\dfrac{(x_2^2+x_1)'}{\delta x_2}\\\dfrac{(x_2^3+1)'}{\delta x_1}&\dfrac{(x_2^3+1)'}{\delta x_2}\end{array}\right)=\left(\begin{array}{cc}1&2x_2\\0&3x^2_2\end{array}\right)$$
+		Autour du point $[-1;-1]$
+		$$J=\left(\begin{array}{cc}1&2(-1)\\0&3(-1)^2\end{array}\right)=\left(\begin{array}{cc}1&-2\\0&3\end{array}\right)$$
+	</li>
+</div>
+
 
 
 
