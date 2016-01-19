@@ -109,6 +109,20 @@ sont compatibles avec le système et motiver la réponse.<figure><img src="image
 
 
 
+<h4 class="question">Considerons le système à temps discret décrit par l’équation $$x(k+2)-5x(k+1)+6x(k)=3(4^k)$$ L'étudiant devra <ol><li>Determiner la solution pour $x(0) = 0$, $x(1) = 0$.</li><li>Vérifier de manière numérique pour $k = 0, . . . , 7$ que la solution est correcte.</li><li>Determiner pour le système homogène, s’il existe, le point d’équilibre et, en cas d’existence, analyser sa stabilité.</li></ol></h4>
+<div class="answer">
+	<ol>
+		<li>
+			Une solution particulière est $x^{(p)}=\dfrac{3}{2}4^k$. Le polynome caractéristique de l'équation homogène est $$\lambda^2-5\lambda+6=0$$ qui a comme racines $\lambda_1=2$,$\lambda_2=3$. La forme paramétrique de la solution est donc $$x(k)=c_12^k+c_23^k+\dfrac{3}{2}4^k$$ En imposant les conditions initiales nous obtenons $$c_1=\dfrac{3}{2}, c_2=-3$$
+		</li>
+		<li>
+			La solution numérique pour $k = 0, . . . , 7$ est $[0,0,3,27,165,855,4053,18207]$
+		</li>
+		<li>
+			Le système homogène a l'origine comme point d'équilibre unstable.
+		</li>
+	</ol>
+</div>
 
 
 <h3>Orale</h3>
