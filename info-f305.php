@@ -54,12 +54,12 @@
 		Autour du point $[-1;-1]$
 		$$J=\left(\begin{array}{cc}1&2(-1)\\0&3(-1)^2\end{array}\right)=\left(\begin{array}{cc}1&-2\\0&3\end{array}\right)$$
 		Valeurs propres:
-		$$\lambda-4\lambda+3=0$$
+		$$\lambda^2-4\lambda+3=0$$
 		$$\Delta=16-4.4.3=16-12=4$$
 		Solution: $\left(\begin{array}{c}\dfrac{4+\sqrt{4}}{2}\\\dfrac{4-\sqrt{4}}{2}\end{array}\right)=\left(\begin{array}{c}3\\1\end{array}\right)$&larr;Valeurs propres>0, noeud instable!
 	</li>
 	<li>
-		$\left\{\begin{array}{rcl}\dot{x}_1& = & 0\\\dot{x}_2 & = & 0\end{array}\right.\Leftrightarrow\left\{\begin{array}{rcl}x_2^2+x_1& = & 0\\x_2^3+1 & = & 0\end{array}\right.\Leftrightarrow\left\{\begin{array}{rcl}x_1& = & -x_2^2\\x_2^3 & = & -1\end{array}\right.\Leftrightarrow\left\{\begin{array}{rcl}x_1& = & -1\\x_2 & = & -1\end{array}\right.$
+		$$\left\{\begin{array}{rcl}\dot{x}_1& = & 0\\\dot{x}_2 & = & 0\end{array}\right.\Leftrightarrow\left\{\begin{array}{rcl}x_2^2+x_1& = & 0\\x_2^3+1 & = & 0\end{array}\right.\Leftrightarrow\left\{\begin{array}{rcl}x_1& = & -x_2^2\\x_2^3 & = & -1\end{array}\right.\Leftrightarrow\left\{\begin{array}{rcl}x_1& = & -1\\x_2 & = & -1\end{array}\right.$$
 	</li>
 </ol></div>
 
@@ -141,7 +141,18 @@ sont compatibles avec le système et motiver la réponse.<figure><img src="image
 <div class="answer">
 	<ol>
 		<li>
-			Une solution particulière est $x^{(p)}=\dfrac{3}{2}4^k$. Le polynome caractéristique de l'équation homogène est $$\lambda^2-5\lambda+6=0$$ qui a comme racines $\lambda_1=2$,$\lambda_2=3$. La forme paramétrique de la solution est donc $$x(k)=c_12^k+c_23^k+\dfrac{3}{2}4^k$$ En imposant les conditions initiales nous obtenons $$c_1=\dfrac{3}{2}, c_2=-3$$
+			Le polynome caractéristique de l'équation homogène est $$\lambda^2-5\lambda+6=0$$ qui a comme racines $\lambda_1=2$,$\lambda_2=3$. L'équation homogène est $$x^h(k)=c_12^k+c_23^k$$ La solution particulière aura une forme $c3(4^k), il suffit d'injecter cela dans l'équation de départ et on a
+			$$\begin{array}{crcl}&c3(4^{k+2})-5c3(4^{k+1})+6c3(4^k)&=&c3(4^k)\\
+			\Leftrightarrow&3(4^k)(c4^2-5c4+6c)&=&3(4^k)\\
+			\Leftrightarrow&c4^2-5c4+6c&=&1\\
+			\Leftrightarrow&c&=&\dfrac{1}{2}\\
+			\Leftrightarrow&x^p(k)&=&\dfrac{3}{2}4^k
+			\end{array}$$
+			La solution générale est $$\begin{array}{crcl}&x(k)&=&x^h(k)+x^p(k)\\\Leftrightarrow&x(k)&=&c_12^k+c_23^k+\dfrac{3}{2}4^k\end{array}$$
+			Pour trouver solution particulière pour $x(0)=0$ et $x(1)=1$, il faut résoudre le système suivant afin de trouver $c_1$ et $c_2$ :
+			$$\left\{\begin{array}{rcl}c_1+c_2+\dfrac{3}{2}&=&0\\2c_1+3c_2+\dfrac{3}{2}4&=&0\end{array}\right.$$
+			Et l'on trouve $c_1=\dfrac{3}{2} et $c_2=-3$. La solution particulière est donc
+			$$x(k)=c_12^k+c_23^k+\dfrac{3}{2}4^k$$
 		</li>
 		<li>
 			La solution numérique pour $k = 0, . . . , 7$ est $[0,0,3,27,165,855,4053,18207]$
