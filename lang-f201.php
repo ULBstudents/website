@@ -1,1 +1,3 @@
-﻿<iframe src="http://rodriguevb.be/autre/intense.learning/"></iframe>
+﻿<script>
+	document.location.href = "http://langf201.rodriguevb.be";
+</script>
