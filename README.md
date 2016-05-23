@@ -1,5 +1,5 @@
 # website
-All summary online http://rodriguevb.be/autre/cours/
+All summary online http://ulb.rodriguevb.be
 
 
 Edit here to change directly online
