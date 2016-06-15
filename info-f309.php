@@ -14,9 +14,9 @@
 <h4 class="question">(Unix) Fichiers passwd ou shadow ou group (feuille papier imprimée) : savoir reconnaitre et dire ce que c’est et ce que ça contient. Pourquoi on a autant d’utilisateurs (services) ? Mots de passe ? Pourquoi est-ce qu’on a shadow ? (permissions)</h4>
 <div class="answer">
 <ul>
-	<li>/etc/passwd : contient la liste des utilisateurs</li>
-	<li>/etc/shadow : contient le mot de passe crypté et des attributs étendus</li>
-	<li>/etc/group : liste de groupes</li>
+	<li>/etc/passwd : contient la liste des utilisateurs (file: smithj:x:561:561:Joe Smith:/home/smithj:/bin/bash )</li>
+	<li>/etc/shadow : contient le mot de passe crypté et des attributs étendus (file: smithj:Ep6mckrOLChF.:10063:0:99999:7::: )</li>
+	<li>/etc/group : liste de groupes (file: cdrom:x:24:vivek,student13,raj )</li>
 	<li>/etc/crontab : action à lancer tous les x temps</li>
 </ul>
 Ce sont tous de simples fichiers textes. 
@@ -31,6 +31,11 @@ trouve dans le fichier /etc/group.
 
 Remarque: On a créé shadow car ce fichier, contrairement à passwd, n'est accessible que par root, ainsi les mots de passes sont cryptés et non accessibles aux users lambda,
 créant une double sécurité. Certains programmes ont des comptes utilisateurs pour des raisons d'administration système. Cela permet de restreindre ce que peut faire le programme
+
+
+<div>
+</div>
+
 </div>
 
 
@@ -115,16 +120,15 @@ créant une double sécurité. Certains programmes ont des comptes utilisateurs 
 </div>
 
 
-
-Les 
-
-
-
-
-
 <h4 class="question">sudo: à quoi ça sert? Pourquoi on en a besoin au lieu de juste se connecter en admin, au niveau sécurité, au niveau des mots de passe, recommandations d’utilisation.</h4>
 <div class="answer">
 	L'accès root est toujours présent sur unix mais est fort critiqué car on se demande vraiment si il est necessaire d'avoir quelqu'un qui puisse lire tous les fichiers de tous les utilisateurs. Certaines distributions arrivent à faire sans. L'avantage de sudo est qu'elle ne donne qu'un accès temporaire pour les opérations souhaitées et toutes les actions sont enregistrés dans un fichier log ; on peut donc utiliser ce fichier pour savoir quels actions root ont été effectuées et par qui. Le problème est que le root peut supprimer ce fichier.
+	
+	Sudo est un logiciel permettant à un utilisateur lambda d'exécuter des commandes nécessitant les droits Administrateur (root). Sudo = Substitute User DO !
+	Concrètement, pour exécuter une commande avec les droits de root, il faut taper cette commande : sudo commande puis taper votre mot de passe utilisateur.
+	
+	
+	Pourquoi ? La raison est simple : Dans un système Unix, il est impossible de se connecter avec un utilisateur qui ne possède pas de mot de passe. Il est donc impossible, sous Ubuntu de se loguer directement en tant que root. Pour faire un petit test, tapez la commande su dans un terminal (c'est la commande qui permet de passer en root sous Debian), il vous faudra ensuite renseigner un mot de passe...qui n'existe pas. La connexion sera donc impossible.
 </div>
 
 
@@ -149,13 +153,28 @@ Les
 
 
 
+<h4 class="question">Samba: Qu'est-ce que c'est ? À quoi ça sert?</h4>
+<div class="answer">
+	Samba est un logiciel d'interopérabilité qui permet à des ordinateurs Unix de mettre à disposition des imprimantes et des fichiers dans des réseaux Windows, en mettant en oeuvre le protocole SMB/CIFS de Microsoft Windows. Samba donne la possibilité aux ordinateurs Windows d'accéder aux imprimantes et aux fichiers des ordinateurs Unix en permettant aux serveurs Unix de se substituer à des serveurs Windows.
+	Il utilise TCP/IP. Lorsque les deux systèmes de partage de fichiers (NFS, Samba) sont installés pour comparaison, Samba se révèle moins performant que NFS au niveau des taux de transferts.
+</div>
 
 
+<h4 class="question">NFS: Qu'est-ce que c'est ? À quoi ça sert?</h4>
+<div class="answer">
+	Permet d’accéder aux fichiers d’un serveur distant en montant un(e partie de) file system distant dans la structure du filesystem local de manière transparente pour les applications. Souvent utilisé avec NIS. Il simule une partition UNIX et donc préserve les droits des fichiers mais le problème est que le root client peut modifier les fichiers car ca ne fait pas de différence entre le root client et serveur. Il faudrait une option pour différencier les deux roots (root_squash). En pratique ce que fait NFS c'est partager 'exporter) un répertoire du serveur vers les clients qui le montent dans leurs files systeme. Coté client et serveur ont des daemons
+</div>
 
 
+<h4 class="question">NIS - Yellowpages: Qu'est-ce que c'est ? À quoi ça sert?</h4>
+<div class="answer">
+	Le plus vieux et le pire de ce qu'on peut faire, mais tout le monde l'utilise, il faut donc le connaître. Il est basé sur UNIX et utilise les fichiers UNIX avec un partage de ces fichiers de configurations, on ajoute virtuellement les informations à "/etc/passwd" (Ca c'est cool, mais en contrepartie on perd la portabilité). Il utilise un système client-serveur et une intégration via PAM.
+</div>
 
-
-
+<h4 class="question">LDIF - Yellowpages: Qu'est-ce que c'est ? À quoi ça sert?</h4>
+<div class="answer">
+	Format d'échange de fichier. On crée un script pour écrire un fichier LDIF à partir des fichiers excel, ... contenant les informations. Et LDAP peut charger ce fichier pour créer/mettre à jour l'annuaire (via "ldapmodify") On peut y rajouter des commandes et en faire un pseudo script (pseudo car on ne peut pas faire de boucle).
+</div>
 
 
 
