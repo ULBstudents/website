@@ -82,8 +82,41 @@ créant une double sécurité. Certains programmes ont des comptes utilisateurs 
 
 <h4 class="question">Windows GPO (Group Policies Object): c’est quoi ?</h4>
 <div class="answer">
-	C'est une des principales nouveautés de Windows 2000 (NT5). Ca définit qui a le droit de faire quoi avec son ordinateur.
+	C'est une des principales nouveautés de Windows 2000 (NT5).  C'est un grand avantage pour l'administreur système. Ca définit qui a le droit de faire quoi avec son ordinateur dans l'entreprise.
+	Différence entre droits et permissions :
+	<ul>
+		<li>Droit permet d'effectuer une tache (changer le fond d'écran, installer logiciel) (sudo sur unix)</li>
+		<li>Permission: acces ressource : lire repertoire (acces lecture ecrire habituel)</li>
+	</ul>
+	Très développé pour les droits et permissions. L'idée est d'assigner des gens à des groupes. On peut avoir des
+	<ul>
+		<li>groupes globales ( utilisable partout mais membre d'un seul domaine),</li>
+		<li>groupe local au domaine (n'importe qui peut participer du moment qu'il est dans le domaine),</li>
+		<li>groupe universel ( mélangé membres de differents domaine)</li>
+	</ul>
+	NT4 groupe globale d'un meme domaine mais jamais de différent domaine (mais pouvait aller sur n'importe quel machien avec trust).</p>
+	<ul>
+		<li>Groupe de sécurité - Permissions sur les fichiers</li>
+		<li>Groupe de ditribution - Echanger des messages, notifications des utilisateurs.</li>
+	</ul>
+	GPO : politique d'application des machines. Ca peut être impliqué à n'importe quel norme de l'arbre (tout le domaine ou OU ou sous OU ou user spécifique). Donc on peut dire : ne peut pas utiliser tel ou tel application sur un noeud, c'est vrai pour tous les noeud en dessous.
+	
+	<p>Attention Profil != GPO</p>
+	Profil : ensemble des réglages et paramètres users. Sur unix, fichiers qui commence par un . et qui se trouve dans home, paramètres des applications. Sur windows, le profil c'est un repertoire à part qui est pas dans home et qui contient tout les réglages paramètres applications. Par exemple quel page de démarrage d'un navigateur etc etc...
+	Par contre GPO est tout les régles, les droits d'user : Si vous pouvez ou pas modifier le fond d'écran. tandis que profil votre choix de fond d'écran (les données en temps que tel).
+	
+	Catégoiries GBO flexible et complet
+	<ul>
+		<li>installation logiciel</li>
+		<li>Sécurité</li>
+		<li>Script de démarrage</li>
+		<li>Template</li>
+	</ul>
 </div>
+
+
+
+Les 
 
 
 
