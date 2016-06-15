@@ -1,4 +1,4 @@
-<h1>INFO-F305 - Modélisation et simulation</h1>
+<h1>INFO-F309 - Administration des Systèmes</h1>
 <h2>Examen</h2>
 
 
@@ -11,33 +11,31 @@
 
 
 
-<h4 class="question">Fichier passwd (feuille papier imprimée) : dire ce que c’est et ce que ça contient. Pourquoi on a autant d’utilisateurs (services) ? Mots de passe ? Pourquoi est-ce qu’on a shadow ? (permissions)</h4>
+<h4 class="question">(Unix) Fichiers passwd ou shadow ou group (feuille papier imprimée) : savoir reconnaitre et dire ce que c’est et ce que ça contient. Pourquoi on a autant d’utilisateurs (services) ? Mots de passe ? Pourquoi est-ce qu’on a shadow ? (permissions)</h4>
 <div class="answer">
 <ul>
-	<li>"/etc/passwd" contient la liste des utilisateurs,...</li>
-	<li>"/etc/shadow" contient le mot de passe crypté et des attributs étendus</li>
+	<li>/etc/passwd : contient la liste des utilisateurs</li>
+	<li>/etc/group : liste de groupes</li>
+	<li>/etc/crontab : action à lancer tous les x temps</li>
+	<li>/etc/shadow : contient le mot de passe crypté et des attributs étendus</li>
 </ul>
+Ce sont tous de simples fichiers textes
 On a créé shadow car ce fichier, contrairement à passwd, n'est accessible que par root, ainsi les mots de passes sont cryptés et non accessibles aux users lambda, créant une double sécurité. Rem : Certains programmes ont des comptes utilisateurs pour des raisons d'administration système. Cela permet de restreindre ce que peut faire le programme
 </div>
 
 
 
 
-
-<h4 class="question">Fichier group (feuille papier imprimée) : dire ce que c’est et ce que ça contient. Même que en haut</h4>
+<h4 class="question">SLA 99.99%, pourquoi 99.99% et pas 100% ou 95% ?</h4>
 <div class="answer">
-<ul>
-	<li>"/etc/passwd" contient la liste des utilisateurs,...</li>
-	<li>"/etc/shadow" contient le mot de passe crypté et des attributs étendus</li>
-</ul>
-On a créé shadow car ce fichier, contrairement à passwd, n'est accessible que par root, ainsi les mots de passes sont cryptés et non accessibles aux users lambda, créant une double sécurité. Rem : Certains programmes ont des comptes utilisateurs pour des raisons d'administration système. Cela permet de restreindre ce que peut faire le programme
+	Service-Level Agreement (SLA) c'est le temps de fonctionnement assuré. Ton systeme doit fonctionné au moins 99.99% du temps.
+	C'est impossible de viser 100% car comme tu dépend d'autres services qui eux proposent 99.99%.
+	Par exemple, on a un hébergeur web comme OVH, tu promet à tes clients que leur site sera en ligne 99.99% du temps (maintenance, mise à jours, etc ...) ou comme proximus qui promet que tu auras la connexion 9999% du temps.
 </div>
 
 
 
-
-
-<h4 class="question">MIME: qu’est-ce que c’est et à quoi ça sert? Quels formats? Pourquoi on ne peut pas garder l’ancient unique format? (slides email MIME)</h4>
+<h4 class="question">(Courrier) MIME: qu’est-ce que c’est et à quoi ça sert? Quels formats? Pourquoi on ne peut pas garder l’ancient unique format? (slides email MIME)</h4>
 <div class="answer">
 	Problèmes avec les mails ASCII (RFC 822) :
 	<ul>
@@ -91,7 +89,7 @@ On a créé shadow car ce fichier, contrairement à passwd, n'est accessible que
 
 
 
-<h3>Vite fait synthèse</h3>
+<h3>Abréviation</h3>
 <ul>
 <li>Virtualisation
 <li>Unix
