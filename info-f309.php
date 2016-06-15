@@ -117,6 +117,11 @@ créant une double sécurité. Certains programmes ont des comptes utilisateurs 
 		<li>Script de démarrage</li>
 		<li>Template</li>
 	</ul>
+	<div>
+		Multipurpose Internet Mail Extensions (MIME) ou Extensions multifonctions du courrier Internet est un standard internet qui étend le format de données des courriels pour supporter des textes en différents codage de caractères autres que l'ASCII, des contenus non textuels, des contenus multiples, et des informations d'en-tête en d'autres codages que l'ASCII. Les courriels étant généralement envoyés via le protocole SMTP au format MIME, ces courriels sont souvent appelés courriels SMTP/MIME.
+
+À l'origine, SMTP avait été prévu pour ne transférer que des fichiers textes (codés en ASCII). Avec l'apparition du multimédia et l'utilisation croissante des applications bureautiques, le besoin s'est fait sentir d'échanger, en plus des fichiers textes, des fichiers binaires (format des applications bureautiques, images, sons, fichiers compressés).
+	</div>
 </div>
 
 
@@ -177,9 +182,52 @@ créant une double sécurité. Certains programmes ont des comptes utilisateurs 
 </div>
 
 
+<h4 class="question">SNMP: Qu'est-ce que c'est ? À quoi ça sert ?</h4>
+<div class="answer">
+	Le protocole SNMP permet d’interroger à distance des périphériques réseaux (managed
+	devices) afin d’en connaître l’état, et d’en extraire des statistiques. L’administrateur réseau, au
+	travers d’une console de management, envoie des requêtes aux différents périphériques afin
+	d’obtenir les informations.
+	Il est également possible d’interragir avec les périphériques en leur envoyant des informations,
+	ou encore d’être averti (SNMP traps) quant le système est dans un état d’erreur ou
+	nécessitant une intervention technique.
+	Les données sont structurées sous forme de managed objects, qui sont des ensembles "clé-
+	données" identifiés par un OID (Object Identifier), le tout étant structuré dans une base de
+	données intitulée MIB (Management Information Base).
+	De nombreux périphériques sont directement équipés d’un service SNMP (routeurs,
+	switchs, firewalls, disques réseau, ...) avec un ensemble de managed objects prédéfinis
+	(nombre de machines connectées par exemple, bande passante utilisée, ...).
+</div>
 
 
 
+<h4 class="question">SMTP: Qu'est-ce que c'est ? À quoi ça sert ?</h4>
+<div class="answer">
+	Simple Mail Transfer Protocol est un protocole de communication utilisé pour transférer le courrier électronique vers les serveurs de messagerie électronique.
+	On commence par spécifier l'expéditeur du message, puis le ou les destinataires d'un message, puis, en général après avoir vérifié leur existence, le corps du message est transféré.
+</div>
+
+
+
+
+
+<h4 class="question">Virtualisation: C’est quoi? Pourquoi s’en servir?</h4>
+<div class="answer">
+	Grandes lignes: On veut s’en servir pour répondre à des contraintes matérielles et logicielles.
+	Il existe 3 types de virtualisation: totale, para et partielle. Allez dans le détail :  Comment ça marche, qu’est-ce qui se passe, etc.
+	Quels sont les avantages? Cela résout le problème de downtime des serveurs et du dédoublement du matériel. Par ailleurs, on peut faire des snapshots/checkpoints(et donc faire des tests), pauser en pleine exécution etc (voir slides). “Clonage” n’est pas vraiment spécifique aux VM. On peut faire la même chose avec un disque mais c’est certes plus rapide.
+	Aussi mentionner:
+	- Les multiples instances d’un OS invité sur une seule machine hôte.
+	- Les outils associés aux VM. Ex.: Copier+Coller depuis/vers l’hôte vers/depuis l’invité.
+	- Les machines “diskless” et leur “OS téléchargé”.
+	- Quelque chose avec les périphériques/ports usb (je ne m’en souviens pas, désolé)
+	<ul>
+		<li>Les multiples instances d’un OS invité sur une seule machine hôte.</li>
+		<li>Les outils associés aux VM. Ex.: Copier+Coller depuis/vers l’hôte vers/depuis l’invité.</li>
+		<li>es machines “diskless” et leur “OS téléchargé”.</li>
+		<li>Quelque chose avec les périphériques/ports usb (je ne m’en souviens pas, désolé)</li>
+	</ul>
+</div>
 
 
 
