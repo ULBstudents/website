@@ -15,12 +15,22 @@
 <div class="answer">
 <ul>
 	<li>/etc/passwd : contient la liste des utilisateurs</li>
+	<li>/etc/shadow : contient le mot de passe crypté et des attributs étendus</li>
 	<li>/etc/group : liste de groupes</li>
 	<li>/etc/crontab : action à lancer tous les x temps</li>
-	<li>/etc/shadow : contient le mot de passe crypté et des attributs étendus</li>
 </ul>
-Ce sont tous de simples fichiers textes
-On a créé shadow car ce fichier, contrairement à passwd, n'est accessible que par root, ainsi les mots de passes sont cryptés et non accessibles aux users lambda, créant une double sécurité. Rem : Certains programmes ont des comptes utilisateurs pour des raisons d'administration système. Cela permet de restreindre ce que peut faire le programme
+Ce sont tous de simples fichiers textes. 
+
+Les informations liées aux utilisateurs de votre système se trouvent dans le fichier
+/etc/passwd. Ce fichier liste les utilisateurs, ainsi que leurs propriétés. Sur certains systèmes,
+et en particulier sous Linux, les mots de passe ne sont pas (ou plus) contenus dans ce fichier
+mais plutôt dans le fichier /etc/shadow qui n’est accessible que par l’utilisateur root. Les
+utilisateurs sont regroupés dans des groupes, ce qui permet de donner par exemple en une
+seule ligne de commande accès à un répertoire particulier pour un groupe donné. Cela se
+trouve dans le fichier /etc/group.
+
+Remarque: On a créé shadow car ce fichier, contrairement à passwd, n'est accessible que par root, ainsi les mots de passes sont cryptés et non accessibles aux users lambda,
+créant une double sécurité. Certains programmes ont des comptes utilisateurs pour des raisons d'administration système. Cela permet de restreindre ce que peut faire le programme
 </div>
 
 
