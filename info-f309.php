@@ -130,6 +130,38 @@ Les
 
 
 
+<h4 class="question">Différence entre sudo et su</h4>
+<div class="answer">
+	sudo est habituellement utilisé pour exécuter une commande unique, alors que su root est souvent utilisé pour exécuter un terminal root et exécuter des multiples commandes. L'approche de sudo réduit la possibilité qu'un terminal root soit laissé ouvert indéfiniment sur le poste de travail et encourage l'utilisateur à minimiser son utilisation des privilèges d'administration.
+</div>
+
+
+
+
+<h4 class="question">VLAN: Qu'est-ce que c'est ? À quoi ça sert?</h4>
+<div class="answer">
+	C'est un réseau virtuel. Ca se rapproche de l'idée du SAN, c-a-d regrouper plusieurs disque dure et faire une seule partition qu'on a besoin. Il y avait un temps où il fallait mettre des cable pour créer des réseaux et parfois fallait changer, donc on débranchait et on rebranchait pour par exemple faire plusieurs réseaux différents. Avec VLAN on cable tout sur le même réseau de base de l'entreprise, et on met là dessus des VLAN donc des réseau virtuels pour différencier les appareils.
+	
+	Donc tlm est connecté au meme switch mais on peut définir tel ou tel appareil comme si on avait seulement branché certaines machines et cache les autres réseaux indépendants. Donc quand on déménage des postes ou autres on peut garder la même disposition physique mais changer virtuellement les dispositions.
+	
+	De chez lui le développeur peut utiliser un VPN qui va simuler un cable jusqu'au VLAN et donc il aura la vision comme si il était au bureau. 
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <h3>Abréviation</h3>
@@ -222,6 +254,10 @@ Les
 			<ul>
 				<li>Active directory</li>
 			</ul></li>
+	</ul></li>
+<li>Divers
+	<ul>
+		<li>DAS, NAS, SAN (Direct Attached Storage, Network Attached Storage, Storage Area Network)</li>
 	</ul></li>
 </ul>
 
