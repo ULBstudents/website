@@ -50,7 +50,7 @@ créant une double sécurité. Certains programmes ont des comptes utilisateurs 
 
 
 
-<h4 class="question">(Courrier) MIME: qu’est-ce que c’est et à quoi ça sert? Quels formats? Pourquoi on ne peut pas garder l’ancient unique format? (slides email MIME)</h4>
+<h4 class="question">(Courrier) MIME: qu’est-ce que c’est et à quoi ça sert ? Quels formats? Pourquoi on ne peut pas garder l’ancient unique format? (slides email MIME)</h4>
 <div class="answer">
 	Problèmes avec les mails ASCII (RFC 822) :
 	<ul>
@@ -120,7 +120,7 @@ créant une double sécurité. Certains programmes ont des comptes utilisateurs 
 </div>
 
 
-<h4 class="question">sudo: à quoi ça sert? Pourquoi on en a besoin au lieu de juste se connecter en admin, au niveau sécurité, au niveau des mots de passe, recommandations d’utilisation.</h4>
+<h4 class="question">sudo: à quoi ça sert ? Pourquoi on en a besoin au lieu de juste se connecter en admin, au niveau sécurité, au niveau des mots de passe, recommandations d’utilisation.</h4>
 <div class="answer">
 	L'accès root est toujours présent sur unix mais est fort critiqué car on se demande vraiment si il est necessaire d'avoir quelqu'un qui puisse lire tous les fichiers de tous les utilisateurs. Certaines distributions arrivent à faire sans. L'avantage de sudo est qu'elle ne donne qu'un accès temporaire pour les opérations souhaitées et toutes les actions sont enregistrés dans un fichier log ; on peut donc utiliser ce fichier pour savoir quels actions root ont été effectuées et par qui. Le problème est que le root peut supprimer ce fichier.
 	
@@ -142,7 +142,7 @@ créant une double sécurité. Certains programmes ont des comptes utilisateurs 
 
 
 
-<h4 class="question">VLAN: Qu'est-ce que c'est ? À quoi ça sert?</h4>
+<h4 class="question">VLAN: Qu'est-ce que c'est ? À quoi ça sert ?</h4>
 <div class="answer">
 	C'est un réseau virtuel. Ca se rapproche de l'idée du SAN, c-a-d regrouper plusieurs disque dure et faire une seule partition qu'on a besoin. Il y avait un temps où il fallait mettre des cable pour créer des réseaux et parfois fallait changer, donc on débranchait et on rebranchait pour par exemple faire plusieurs réseaux différents. Avec VLAN on cable tout sur le même réseau de base de l'entreprise, et on met là dessus des VLAN donc des réseau virtuels pour différencier les appareils.
 	
@@ -153,25 +153,25 @@ créant une double sécurité. Certains programmes ont des comptes utilisateurs 
 
 
 
-<h4 class="question">Samba: Qu'est-ce que c'est ? À quoi ça sert?</h4>
+<h4 class="question">Samba: Qu'est-ce que c'est ? À quoi ça sert ?</h4>
 <div class="answer">
 	Samba est un logiciel d'interopérabilité qui permet à des ordinateurs Unix de mettre à disposition des imprimantes et des fichiers dans des réseaux Windows, en mettant en oeuvre le protocole SMB/CIFS de Microsoft Windows. Samba donne la possibilité aux ordinateurs Windows d'accéder aux imprimantes et aux fichiers des ordinateurs Unix en permettant aux serveurs Unix de se substituer à des serveurs Windows.
 	Il utilise TCP/IP. Lorsque les deux systèmes de partage de fichiers (NFS, Samba) sont installés pour comparaison, Samba se révèle moins performant que NFS au niveau des taux de transferts.
 </div>
 
 
-<h4 class="question">NFS: Qu'est-ce que c'est ? À quoi ça sert?</h4>
+<h4 class="question">NFS: Qu'est-ce que c'est ? À quoi ça sert ?</h4>
 <div class="answer">
 	Permet d’accéder aux fichiers d’un serveur distant en montant un(e partie de) file system distant dans la structure du filesystem local de manière transparente pour les applications. Souvent utilisé avec NIS. Il simule une partition UNIX et donc préserve les droits des fichiers mais le problème est que le root client peut modifier les fichiers car ca ne fait pas de différence entre le root client et serveur. Il faudrait une option pour différencier les deux roots (root_squash). En pratique ce que fait NFS c'est partager 'exporter) un répertoire du serveur vers les clients qui le montent dans leurs files systeme. Coté client et serveur ont des daemons
 </div>
 
 
-<h4 class="question">NIS - Yellowpages: Qu'est-ce que c'est ? À quoi ça sert?</h4>
+<h4 class="question">NIS - Yellowpages: Qu'est-ce que c'est ? À quoi ça sert ?</h4>
 <div class="answer">
 	Le plus vieux et le pire de ce qu'on peut faire, mais tout le monde l'utilise, il faut donc le connaître. Il est basé sur UNIX et utilise les fichiers UNIX avec un partage de ces fichiers de configurations, on ajoute virtuellement les informations à "/etc/passwd" (Ca c'est cool, mais en contrepartie on perd la portabilité). Il utilise un système client-serveur et une intégration via PAM.
 </div>
 
-<h4 class="question">LDIF - Yellowpages: Qu'est-ce que c'est ? À quoi ça sert?</h4>
+<h4 class="question">LDIF: Qu'est-ce que c'est ? À quoi ça sert ?</h4>
 <div class="answer">
 	Format d'échange de fichier. On crée un script pour écrire un fichier LDIF à partir des fichiers excel, ... contenant les informations. Et LDAP peut charger ce fichier pour créer/mettre à jour l'annuaire (via "ldapmodify") On peut y rajouter des commandes et en faire un pseudo script (pseudo car on ne peut pas faire de boucle).
 </div>
