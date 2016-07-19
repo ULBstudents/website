@@ -100,7 +100,11 @@ Les réponses proviennent (ou par l'intermédiaire de résumé) de Denis Steckel
 	</ul>
 </li>
 <li>
-	<b>Selective Repeat</b> et/ou <b>Go-Back-N</b> ?
+	<ul>
+		<li><b>stop & wait</b> : utilise le ACK, le timer</li>
+		<li><b>Go-Back-N</b> : utilise le ACK, le sequence number</li>
+		<li><b>Selective Repeat</b> : utilise le ACK, le sequence number</li>
+	</ul>
 </li>
 </ol></div>
 
@@ -941,8 +945,8 @@ Une fois le <b>3-way handshake</b> effectué, le client et le serveur ont reçu 
 		<legend>Transformations</legend>
 		$\begin{array}{lll}
 			x \text{ octets} &=& 8x \text{ bits}\\
-			x \text{ Kbps} &=& x10^{3} \text{ bits}\\
-			x \text{ ms}   &=& x10^{-3} \text{ bps}
+			x \text{ Kbps} &=& x10^{3} \text{ bps}\\
+			x \text{ ms}   &=& x10^{-3} \text{ s}
 		\end{array}$
 	</fieldset>
 	<fieldset class="formula">
@@ -955,7 +959,7 @@ Une fois le <b>3-way handshake</b> effectué, le client et le serveur ont reçu 
 	</fieldset>
 	<fieldset class="formula">
 		<legend>Temps acquit</legend>
-		$T_{paquet} = \dfrac{octets_{en-tête}}{canal}$
+		$T_{acquit} = \dfrac{octets_{en-tête}}{canal}$
 	</fieldset>
 </div>
 
