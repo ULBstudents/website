@@ -1289,11 +1289,11 @@ Une fois le <b>3-way handshake</b> effectué, le client et le serveur ont reçu 
 	Netmask &=& 11111111.11111111.00000000.00000000\\
 	IP_A\ AND\ Netmask &=& 10001100.10001100.00000000.00000000\\
 	\end{array}$$
-	L’adresse IP de D est de la forme :
+	Car $IP_A = 140.140.140.1$ L’adresse IP de D est de la forme :
 	$$10001100.10001100.xxxxxxxx.xxxxxxxx$$
 	où la partie non définie est complétée avec le hostID. Le hostID de D est
-	513. L’encodage de $513 = 512 + 1 = 29 + 20$ sur 16 bits est
-	0000001000000001. L’adresse du terminal D est donc :
+	513. L’encodage de $513 = 512 + 1 = 2^9 + 2^0$ sur 16 bits est
+	00000010.00000001. L’adresse du terminal D est donc :
 	$$\begin{array}{rcl}
 	IP_{D} &=& 10001100.10001100.00000010.00000001\\
 	&=& 140.140.2.1
