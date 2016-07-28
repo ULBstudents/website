@@ -40,7 +40,18 @@ $$
 		Demande&300&300&300&900\\
 	\end{tabular}
 $$
-
+On commence à distribuer les offres en faisant attention de ne pas dépasser la demande :
+$$
+	\begin{tabular}{c|c|c|c||c}
+		&\text{A}&\text{B}&\text{C}&\text{Offre}\\\hline
+		\text{I}&25&17&16&350\\
+		&\textcolor{red}{300}&\textcolor{red}{50}&&\\
+		\text{II}&24&18&14&550\\
+		&&\textcolor{red}{250&\textcolor{red}{300}&\\
+		\hline\hline
+		Demande&300&300&300&900\\
+	\end{tabular}
+$$
 
 </div>
 
