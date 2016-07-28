@@ -32,14 +32,8 @@ d´epˆot est dans le tableau ci-dessous:
 </ul></h4>
 <div class="answer">
 On peut représenter le tableau de la manière suivante :
-$$
-	\begin{tabular}{c|c|c|c||c}
-		&\text{A}&\text{B}&\text{C}&\text{Offre}\\\hline
-		\text{I}&25&17&16&350\\
-		\text{II}&24&18&14&550\\\hline\hline
-		Demande&300&300&300&900\\
-	\end{tabular}
-$$
+$$\begin{tabular}{c|c|c|c||c}&\text{A}&\text{B}&\text{C}&\text{Offre}\\\hline\text{I}&25&17&16&350\\\text{II}&24&18&14&550\\\hline\hlineDemande&300&300&300&900\\\end{tabular}$$
+
 On commence à distribuer les offres en faisant attention de ne pas dépasser la demande :
 $$
 	\begin{tabular}{c|c|c|c||c}
