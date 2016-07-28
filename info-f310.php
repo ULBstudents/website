@@ -1,3 +1,26 @@
+<style type="text/css">
+
+table.moindrecout b {
+    color: red;
+}
+
+table.moindrecout i {
+    color: green;
+    float: right;
+}
+
+table.moindrecout u {
+    float: right;
+    text-decoration: none;
+    color: blue;
+}
+
+table.moindrecout td {
+    min-width: 3.5em;
+    vertical-align: top;
+}
+</style>
+
 <h1>INFO-F310 - Algorithmique et recherche opérationnelle</h1>
 <h2>Méthode</h2>
 
@@ -24,7 +47,7 @@ dépôt est dans le tableau ci-dessous:
 	<li>Une firme automobile a trois usines à Los Angeles, Detroit et New Orleans, et deux centres de distribution à Denver et Miami.</li>
 	<li>Les capacités des trois usines sont de 1000, 1500 et 1200 respectivement, et les demandes aux centres de distribution sont de 2300 et 1400 voitures.</li>
 	<li>Coûts :
-	<table>
+	<table class="moindrecout">
 		<thead>
 			<tr>
 				<th></th>
@@ -54,7 +77,7 @@ dépôt est dans le tableau ci-dessous:
 </ul></h4>
 <div class="answer">
 On peut représenter le tableau de la manière suivante :
-<table>
+<table class="moindrecout">
 	<thead>
 		<tr>
 			<th></th>
@@ -92,7 +115,7 @@ On peut représenter le tableau de la manière suivante :
 </table>
 
 On commence à distribuer les offres en faisant attention de ne pas dépasser la demande. Si l'offre n'est pas égale à la demande, on obtient un modèle non balancé et on introduit une source ou destination artificielle ; ce n'est pas le cas ici car la demande = offre à 900.
-<table>
+<table class="moindrecout">
 	<thead>
 		<tr>
 			<th></th>
@@ -135,13 +158,13 @@ $$o_1 + d_1 = 25\Rightarrow d_1 = 25$$
 $$o_1 + d_2 = 17\Rightarrow d_2 = 17$$
 $$o_2 + d_2 = 18\Rightarrow o_2 = 1$$
 $$o_2 + d_3 = 14\Rightarrow d_3 = 13$$
-<table>
+<table class="moindrecout">
 	<thead>
 		<tr>
 			<th></th>
-			<th>A<b>25</b></th>
-			<th>B<b>17</b></th>
-			<th>C<b>13</b></th>
+			<th>A <b>25</b></th>
+			<th>B <b>17</b></th>
+			<th>C <b>13</b></th>
 			<th>Offre</th>
 		</tr>
 	</thead>
@@ -171,5 +194,57 @@ $$o_2 + d_3 = 14\Rightarrow d_3 = 13$$
 	<tfoot>
 	</tfoot>
 </table>
+
+
+
+
+
+
+<table class="moindrecout">
+	<thead>
+		<tr>
+			<th></th>
+			<th>A <b>25</b></th>
+			<th>B <b>17</b></th>
+			<th>C <b>13</b></th>
+			<th>Offre</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<th>I<br><b>0</b></th>
+			<td>25<i>-0</i><br><b>300</b></td>
+			<td>17<br><b>50</b></td>
+			<td>16</td>
+			<td>350</td>
+		</tr>
+		<tr>
+			<th>II<br><b>1</b></th>
+			<td>24<i>+0</i><br><u>2</u></td>
+			<td>18<br><b>250</b></td>
+			<td>14<br><b>300</b></td>
+			<td>550</td>
+		</tr>
+		<tr>
+			<th>Demande</th>
+			<td>300</td>
+			<td>300</td>
+			<td>300</td>
+			<td>900</td>
+		</tr>
+	</tbody>
+	<tfoot>
+	</tfoot>
+</table>
+
+
+
+
+
+
+
+
+
+
 </div>
 
