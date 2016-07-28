@@ -232,7 +232,7 @@ On calcule maintenant les variable entrante avec le critère d'optimisation $$o_
 	<tfoot>
 	</tfoot>
 </table>
-On en déduit les variables sortantes ( $\theta$ ) ; on doit mettre toutes les variables à 0 ou négatif. On part de AII (2) car il y a pas assez de quantité donc on rajoute $\theta$ quantité.
+On en déduit les variables sortantes ( $\theta$ ) ; on doit mettre toutes les variables à 0 ou négatif. On part de AII (2) car il y a pas assez de quantité donc on rajoute $\theta$ quantité et on retire $\theta$ quantité là où il y en a.
 
 <table class="moindrecout">
 	<thead>
@@ -273,8 +273,43 @@ On en déduit les variables sortantes ( $\theta$ ) ; on doit mettre toutes les v
 
 
 
-
-
+On obtient au final ceci car les variables entrantes sont négatives
+<table class="moindrecout">
+	<thead>
+		<tr>
+			<th></th>
+			<th>A<br><b>25</b></th>
+			<th>B<br><b>17</b></th>
+			<th>C<br><b>13</b></th>
+			<th>Offre</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<th>I<br><b>0</b></th>
+			<td>25<br><b>50</b></td>
+			<td>17<br><b>300</b></td>
+			<td>16<br><u>-1</u></td>
+			<td>350</td>
+		</tr>
+		<tr>
+			<th>II<br><b>1</b></th>
+			<td>24<br><b>250</b></td>
+			<td>18<br><u>-2</u></td>
+			<td>14<br><b>300</b></td>
+			<td>550</td>
+		</tr>
+		<tr>
+			<th>Demande</th>
+			<td>300</td>
+			<td>300</td>
+			<td>300</td>
+			<td>900</td>
+		</tr>
+	</tbody>
+	<tfoot>
+	</tfoot>
+</table>
 
 
 
