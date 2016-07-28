@@ -35,13 +35,13 @@ d´epˆot est dans le tableau ci-dessous:
 		</thead>
 		<tbody>
 			<tr>
-				<td>I</td>
+				<th>I</th>
 				<td>25</td>
 				<td>17</td>
 				<td>16</td>
 			</tr>
 			<tr>
-				<td>II</td>
+				<th>II</th>
 				<td>24</td>
 				<td>18</td>
 				<td>14</td>
@@ -92,17 +92,42 @@ On peut représenter le tableau de la manière suivante :
 </table>
 
 On commence à distribuer les offres en faisant attention de ne pas dépasser la demande :
-$$
-	\begin{tabular}{c|c|c|c||c}
-		&\text{A}&\text{B}&\text{C}&\text{Offre}\\\hline
-		\text{I}&25&17&16&350\\
-		&\textcolor{red}{300}&\textcolor{red}{50}&&\\
-		\text{II}&24&18&14&550\\
-		&&\textcolor{red}{250&\textcolor{red}{300}&\\
-		\hline\hline
-		Demande&300&300&300&900\\
-	\end{tabular}
-$$
+<table>
+	<thead>
+		<tr>
+			<th></th>
+			<th>A</th>
+			<th>B</th>
+			<th>C</th>
+			<th>Offre</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<th>I</th>
+			<td>25<br><b>300</b></td>
+			<td>17<b>50</b></td>
+			<td>16</td>
+			<td>350</td>
+		</tr>
+		<tr>
+			<th>II</th>
+			<td>24</td>
+			<td>18<b>250</b></td>
+			<td>14<b>300</b></td>
+			<td>550</td>
+		</tr>
+		<tr>
+			<th>Demande</th>
+			<td>300</td>
+			<td>300</td>
+			<td>300</td>
+			<td>900</td>
+		</tr>
+	</tbody>
+	<tfoot>
+	</tfoot>
+</table>
 
 </div>
 
