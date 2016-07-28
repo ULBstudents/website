@@ -162,9 +162,9 @@ $$o_2 + d_3 = 14\Rightarrow d_3 = 13$$
 	<thead>
 		<tr>
 			<th></th>
-			<th>A <b>25</b></th>
-			<th>B <b>17</b></th>
-			<th>C <b>13</b></th>
+			<th>A<br><b>25</b></th>
+			<th>B<br><b>17</b></th>
+			<th>C<br><b>13</b></th>
 			<th>Offre</th>
 		</tr>
 	</thead>
@@ -194,34 +194,68 @@ $$o_2 + d_3 = 14\Rightarrow d_3 = 13$$
 	<tfoot>
 	</tfoot>
 </table>
-
-
-
-
-
+On calcule maintenant les variable entrante avec le critère d'optimisation $$o_i+d_j-c_{ij} \le 0$$
 
 <table class="moindrecout">
 	<thead>
 		<tr>
 			<th></th>
-			<th>A <b>25</b></th>
-			<th>B <b>17</b></th>
-			<th>C <b>13</b></th>
+			<th>A<br><b>25</b></th>
+			<th>B<br><b>17</b></th>
+			<th>C<br><b>13</b></th>
 			<th>Offre</th>
 		</tr>
 	</thead>
 	<tbody>
 		<tr>
 			<th>I<br><b>0</b></th>
-			<td>25<i>-0</i><br><b>300</b></td>
+			<td>25<br><b>300</b></td>
 			<td>17<br><b>50</b></td>
 			<td>16</td>
 			<td>350</td>
 		</tr>
 		<tr>
 			<th>II<br><b>1</b></th>
-			<td>24<i>+0</i><br><u>2</u></td>
+			<td>24<br><u>2</u></td>
 			<td>18<br><b>250</b></td>
+			<td>14<br><b>300</b></td>
+			<td>550</td>
+		</tr>
+		<tr>
+			<th>Demande</th>
+			<td>300</td>
+			<td>300</td>
+			<td>300</td>
+			<td>900</td>
+		</tr>
+	</tbody>
+	<tfoot>
+	</tfoot>
+</table>
+On en déduit les variables sortantes ( $\theta$ ) ; on doit mettre toutes les variables à 0 ou négatif. On part de AII (2) car il y a pas assez de quantité donc on rajoute $\theta$ quantité.
+
+<table class="moindrecout">
+	<thead>
+		<tr>
+			<th></th>
+			<th>A<br><b>25</b></th>
+			<th>B<br><b>17</b></th>
+			<th>C<br><b>13</b></th>
+			<th>Offre</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<th>I<br><b>0</b></th>
+			<td>25<i>$-\theta$</i><br><b>300</b></td>
+			<td>17<i>$+\theta$</i><br><b>50</b></td>
+			<td>16</td>
+			<td>350</td>
+		</tr>
+		<tr>
+			<th>II<br><b>1</b></th>
+			<td>24<i>$+\theta$</i><br><u>2</u></td>
+			<td>18<i>$-\theta$</i><br><b>250</b></td>
 			<td>14<br><b>300</b></td>
 			<td>550</td>
 		</tr>
