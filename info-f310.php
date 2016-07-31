@@ -28,7 +28,124 @@ table.moindrecout td {
 
 
 
+
+
+
+
+
 <h3>Simplexe</h3>
+
+
+
+
+
+
+<h4 class="question">Une usine fabrique deux produits: $X$ et $Y$. Leur production nécessite un
+certain nombre de jours de travail, d’heures-machine ainsi qu’une certaine
+quantité de matériaux $A$ et $B$. Ces différentes ressources sont limitées
+mensuellement conformément aux données qui figurent dans le tableau
+ci-dessous. Une analyse de marché a démontré que toute la production
+sera vendue si l’on produit au maximum 30 unités de plus du produit $Y$
+que du produit $X$. Déterminer, graphiquement, la production mensuelle
+qui assure un bénéfice maximum.
+<table class="moindrecout">
+	<thead>
+		<tr>
+			<th></th>
+			<th>Par unité X</th>
+			<th>Par unité Y</th>
+			<th>Ressources</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<th>Journées de travail</th>
+			<th>1</th>
+			<th>5</th>
+			<th>300</th>
+		</tr>
+			<th>Heures-machines</th>
+			<th>1</th>
+			<th>2</th>
+			<th>200</th>
+		</tr>
+			<th>Matériau A ($m^2$)</th>
+			<th>2</th>
+			<th>1</th>
+			<th>170</th>
+		</tr>
+			<th>Matériau B ($m^2$)</th>
+			<th>5</th>
+			<th>2</th>
+			<th>420</th>
+		</tr>
+			<th>Bénéfice Net</th>
+			<td>20</td>
+			<td>30</td>
+			<td></td>
+		</tr>
+	</tbody>
+	<tfoot>
+	</tfoot>
+</table>
+</h4>
+<div class="answer">
+On définit les contraintes
+max $$20x+30y$$
+s.c. :
+$$
+\begin{array}{ccccc}
+	x &+& 5y  & \leq & 300 \\
+   2x &+& 2y  & \leq & 200 \\
+   2x &+&  y  & \leq & 170 \\
+   5x &+& 2y  & \leq & 420 \\
+   -x &+&  y  & \leq & 30 \\
+    x &+&     & \geq & 0 \\
+      & &  y  & \geq & 0 \\
+\end{array}
+$$
+On change les inégalités par des égalités
+$$
+\begin{array}{cccccccccccc}
+	 x &+& 5y &+&t_1&&&&& = & 300 \\
+	2x &+& 2y &&+&t_2&&&& = & 200 \\
+	2x &+&  y &&&+&t_3&&& = & 170 \\
+	5x &+& 2y &&&&+&t_4&& = & 420 \\
+	-x &+&  y &&&&&+&t_5& = & 30 \\
+	 x & &    &&&&&&& \geq & 0 \\
+	   & &  y &&&&&&& \geq & 0 \\
+	   & &    &&&&&&t_i& \geq & 0 & \forall i\\
+\end{array}
+$$
+On isole simplement les $t_i$. Ensuite on choisi soit $20x$ soit $30y$ ; le but étant de mettre les deux négatifs, on choisit le plus haut : $30y$. Puis on choisit un $t_i$ en prennant le plus grand parmi $\dfrac{300}{-5}, \dfrac{200}{-2}, \dfrac{170}{-1}, \dfrac{420}{-2} et \dfrac{30}{-1}. Donc $t_5$.
+$$
+\begin{array}{rrrrrrr}
+	t_1 &=& 300  &-&x&-&5y\\
+	t_2 &=& 200  &-&2x&-&2y\\
+	t_3 &=& 170  &-&2x&-&y\\
+	t_4 &=& 420  &-&5x&-&2y\\
+	\textcolor{red}{t_5} &=& 30   &+&x&-&y\\
+	\hline
+	Z_0 &=&   0 &+&20x&+&30\textcolor{red}{y}
+\end{array}
+$$
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <h3>Problème de transport</h3>
 
 
@@ -440,6 +557,7 @@ On recherche une première solution admissible
 		</tr>
 	</tfoot>
 </table>
+Ensuite on procède de la facon habituelle...
 </div>
 
 
