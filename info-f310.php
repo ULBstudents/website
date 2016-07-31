@@ -117,7 +117,7 @@ $$
 	   & &    &&&&&&t_i& \geq & 0 & \forall i\\
 \end{array}
 $$
-On isole simplement les $t_i$. Ensuite on choisi soit $20x$ soit $30y$ ; le but étant de mettre les deux négatifs, on choisit le plus haut : $30y$. Puis on choisit un $t_i$ en prennant le plus grand parmi $\dfrac{300}{-5}, \dfrac{200}{-2}, \dfrac{170}{-1}, \dfrac{420}{-2} et \dfrac{30}{-1}. Donc $t_5$.
+On isole simplement les $t_i$. Ensuite on choisi soit $20x$ soit $30y$ ; le but étant de mettre les deux négatifs, on choisit le plus haut : $30y$. Puis on choisit un $t_i$ en prennant le plus grand parmi $\dfrac{300}{-5}, \dfrac{200}{-2}, \dfrac{170}{-1}, \dfrac{420}{-2} et \dfrac{30}{-1}$. Donc $t_5$.
 $$
 \begin{array}{rrrrrrr}
 	t_1 &=& 300  &-&x&-&5y\\
@@ -129,6 +129,53 @@ $$
 	Z_0 &=&   0 &+&20x&+&30\textcolor{red}{y}
 \end{array}
 $$
+On refait la même chose, ici on a choisi d'abord les $x$ et $t_1$ car c'est le plus grand parmi $\dfrac{150}{-6}, \dfrac{140}{-4}, \dfrac{140}{-3} et \dfrac{360}{-7}$.
+$$
+\begin{array}{rrrrrrr}
+	\textcolor{red}{t_1} &=& 150  &-&6x&-&5t_5\\
+	t_2 &=& 140  &-&4x&-&2t_5\\
+	t_3 &=& 140  &-&3x&-&t_5\\
+	t_4 &=& 360  &-&7x&-&2t_5\\
+	y   &=& 30   &+&x&-&t_5\\
+	\hline
+	Z_0 &=&   900 &+&50\textcolor{red}{x}&-&30t_5
+\end{array}
+$$
+$$
+\begin{array}{rrrrrrr}
+	\textcolor{red}{t_1} &=& 150  &-&6x&-&5t_5\\
+	t_2 &=& 140  &-&4x&-&2t_5\\
+	t_3 &=& 140  &-&3x&-&t_5\\
+	t_4 &=& 360  &-&7x&-&2t_5\\
+	y   &=& 30   &+&x&-&t_5\\
+	\hline
+	Z_0 &=&   900 &+&50\textcolor{red}{x}&-&30t_5
+\end{array}
+$$
+$$
+\begin{array}{rrrrrrr}
+	x &=& 25    &-& \dfrac{1}{6}t_1  &+&  \dfrac{1}{6}t_5\\
+	\textcolor{red}{t_2} &=& 40  &+& \dfrac{2}{3}t_1  &-&  \dfrac{4}{3}t_5\\
+	t_3 &=& 65  &+& \dfrac{1}{2}t_1  &-&  \dfrac{3}{2}t_5\\
+	t_4 &=& 185 &+& \dfrac{7}{6}t_1  &-&  \dfrac{23}{6}t_5\\
+	y   &=& 55  &-& \dfrac{1}{6}t_1  &-&  \dfrac{1}{6}t_5\\
+	\hline
+	Z_0 &=&   2150  &+&  \dfrac{25}{3}t_1  &-&  \dfrac{35}{3}\textcolor{red}{t_5}
+\end{array}
+$$
+$$
+\begin{array}{rrrrrrr}
+	x   &=& 50    &+& \dfrac{1}{4}t_1  &-&  \dfrac{5}{8}t_2\
+	t_5 &=& 30    &+& \dfrac{1}{2}t_1  &-&  \dfrac{3}{4}t_2\\
+	t_3 &=& 20    &-& \dfrac{1}{4}t_1  &+&  \dfrac{9}{8}t_2\\
+	t_4 &=& 70    &-& \dfrac{3}{4}t_1  &+&  \dfrac{23}{8}t_2\\
+	y   &=& 50    &-& \dfrac{1}{4}t_1  &+&  \dfrac{1}{8}t_2\\
+	\hline
+	Z_0 &=&   2500  &-&  \dfrac{5}{2}t_1  &-&  \dfrac{35}{4}t_5
+\end{array}
+$$
+
+La réponse est donc $x=50$, $y=50$ et Le maximum possible est $2500$
 </div>
 
 
