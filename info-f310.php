@@ -165,7 +165,7 @@ $$
 $$
 $$
 \begin{array}{rrrrrrr}
-	x   &=& 50    &+& \dfrac{1}{4}t_1  &-&  \dfrac{5}{8}t_2\
+	x   &=& 50    &+& \dfrac{1}{4}t_1  &-&  \dfrac{5}{8}t_2\\
 	t_5 &=& 30    &+& \dfrac{1}{2}t_1  &-&  \dfrac{3}{4}t_2\\
 	t_3 &=& 20    &-& \dfrac{1}{4}t_1  &+&  \dfrac{9}{8}t_2\\
 	t_4 &=& 70    &-& \dfrac{3}{4}t_1  &+&  \dfrac{23}{8}t_2\\
