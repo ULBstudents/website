@@ -441,3 +441,22 @@ On recherche une première solution admissible
 	</tfoot>
 </table>
 </div>
+
+
+
+
+<h3>Le Flot Maximum</h3>
+
+<h4 class="question">
+	<img src="http://ulb.rodriguevb.be/images/info-f310/flotmax.svg" alt="Flot maximum" />
+</h4>
+<div class="answer">
+Le calcul de flot maximum est très facile. Il suffit de commencer à prendre un chemin au hasard et prendre le nombre le plus petit. Ici Entre 4,7 et 3 ; le 3 est plus petit. Cela veut dire qu'il n'y peut y avoir qu'un flot maximum de 3 qui passe par ce chemin.
+<img src="http://ulb.rodriguevb.be/images/info-f310/flotmax_sol1.svg" alt="Flot maximum" />
+On procède de manière récursive pour trouver toutes les solutions.
+<img src="http://ulb.rodriguevb.be/images/info-f310/flotmax_sol2.svg" alt="Flot maximum" />
+<img src="http://ulb.rodriguevb.be/images/info-f310/flotmax_sol3.svg" alt="Flot maximum" />
+<img src="http://ulb.rodriguevb.be/images/info-f310/flotmax_sol4.svg" alt="Flot maximum" />
+Pour vérifier si vous avez obtenu un bon résultat, il suffit de faire la comparaison entre le flux sortant de la source et le flux entrant dans la terminaison. Ici 4+3 = 3+4. Du coup si vous savez faire une addition comme un gosse de 8 ans, vous avez le bon résultat.
+<img src="http://ulb.rodriguevb.be/images/info-f310/flotmax_sol5.svg" alt="Flot maximum" />
+</div>
