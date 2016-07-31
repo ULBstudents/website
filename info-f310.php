@@ -60,24 +60,24 @@ qui assure un bénéfice maximum.
 	<tbody>
 		<tr>
 			<th>Journées de travail</th>
-			<th>1</th>
-			<th>5</th>
-			<th>300</th>
+			<td>1</td>
+			<td>5</td>
+			<td>300</td>
 		</tr>
 			<th>Heures-machines</th>
-			<th>1</th>
-			<th>2</th>
-			<th>200</th>
+			<td>1</td>
+			<td>2</td>
+			<td>200</td>
 		</tr>
 			<th>Matériau A ($m^2$)</th>
-			<th>2</th>
-			<th>1</th>
-			<th>170</th>
+			<td>2</td>
+			<td>1</td>
+			<td>170</td>
 		</tr>
 			<th>Matériau B ($m^2$)</th>
-			<th>5</th>
-			<th>2</th>
-			<th>420</th>
+			<td>5</td>
+			<td>2</td>
+			<td>420</td>
 		</tr>
 			<th>Bénéfice Net</th>
 			<td>20</td>
