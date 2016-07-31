@@ -160,7 +160,7 @@ $$
 	t_4 &=& 185 &+& \dfrac{7}{6}t_1  &-&  \dfrac{23}{6}t_5\\
 	y   &=& 55  &-& \dfrac{1}{6}t_1  &-&  \dfrac{1}{6}t_5\\
 	\hline
-	Z_0 &=&   2150  &+&  \dfrac{25}{3}t_1  &-&  \dfrac{35}{3}\textcolor{red}{t_5}
+	Z_0 &=&   2150  &-&  \dfrac{25}{3}t_1  &+&  \dfrac{35}{3}\textcolor{red}{t_5}
 \end{array}
 $$
 $$
