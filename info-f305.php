@@ -39,29 +39,31 @@
 
 
 <h4 class="question">Considérons le système non linéaire continu suivant $$\left \{\begin{array}{r c l}\dot{x}_1  & = & x_2^2+x_1\\\dot{x}_2  & = & x_2^3+1\end{array}\right.$$ où $x_1\in[-6,6]$ et $x_2\in[-6,6]$. L'étudiant devra <ol><li>calculer analytiquement le(s) point(s) d'équilibre</li><li>étudier la stabilité du(des) point(s) d'équilibre (du système non linéaire) par linéarisation</li><li>tracer sur du papier millimétré<ol class="alphabet"><li>le portrait de phase avec les iscoclines du système</li><li>le comportement qualitatif des trois trajectoires dont les points initiaux sont: $(0,0)$, $(3,5)$, $(-3,-2)$ et $(-3,1)$.</li></ol></li></ol></h4>
-<div class="answer"><ol class="alphabet">
-	<li>
-		$$\begin{array}{ll}
-		&\left\{\begin{array}{rcl}x_2^2 +x_1& = & 0\\x_2^3+1 & = & 0\end{array}\right.\\
-		\Leftrightarrow&\left\{\begin{array}{rcl}x_2^2& = & -x_1\\x_2^3 & = & -1\end{array}\right.\\
-		\Leftrightarrow&\left\{\begin{array}{rcl}(-1)^2& = & -x_1\\x_2 & = & -1\end{array}\right.\\
-		\Leftrightarrow&\left\{\begin{array}{rcl}x_1& = & -1\\x_2 & = & -1\end{array}\right.\\
-		\end{array}$$
-		Solution: $[-1;-1]$
-	</li>
-	<li>
-		$$J=\left(\begin{array}{cc}\dfrac{\partial f_1}{\delta x_1}&\dfrac{\delta f_1}{\delta x_2}\\\dfrac{\partial f_2}{\delta x_1}&\dfrac{\delta f_2}{\delta x_2}\end{array}\right)=\left(\begin{array}{cc}\dfrac{(x_2^2+x_1)'}{\delta x_1}&\dfrac{(x_2^2+x_1)'}{\delta x_2}\\\dfrac{(x_2^3+1)'}{\delta x_1}&\dfrac{(x_2^3+1)'}{\delta x_2}\end{array}\right)=\left(\begin{array}{cc}1&2x_2\\0&3x^2_2\end{array}\right)$$
-		Autour du point $[-1;-1]$
-		$$J=\left(\begin{array}{cc}1&2(-1)\\0&3(-1)^2\end{array}\right)=\left(\begin{array}{cc}1&-2\\0&3\end{array}\right)$$
-		Valeurs propres:
-		$$\lambda^2-4\lambda+3=0$$
-		$$\Delta=16-4.4.3=16-12=4$$
-		Solution: $\left(\begin{array}{c}\dfrac{4+\sqrt{4}}{2}\\\dfrac{4-\sqrt{4}}{2}\end{array}\right)=\left(\begin{array}{c}3\\1\end{array}\right)$&larr;Valeurs propres>0, noeud instable!
-	</li>
-	<li>
-		$$\left\{\begin{array}{rcl}\dot{x}_1& = & 0\\\dot{x}_2 & = & 0\end{array}\right.\Leftrightarrow\left\{\begin{array}{rcl}x_2^2+x_1& = & 0\\x_2^3+1 & = & 0\end{array}\right.\Leftrightarrow\left\{\begin{array}{rcl}x_1& = & -x_2^2\\x_2^3 & = & -1\end{array}\right.\Leftrightarrow\left\{\begin{array}{rcl}x_1& = & -1\\x_2 & = & -1\end{array}\right.$$
-	</li>
-</ol></div>
+<div class="answer">
+	<ol class="alphabet">
+		<li>
+			$$\begin{array}{ll}
+			&\left\{\begin{array}{rcl}x_2^2 +x_1& = & 0\\x_2^3+1 & = & 0\end{array}\right.\\
+			\Leftrightarrow&\left\{\begin{array}{rcl}x_2^2& = & -x_1\\x_2^3 & = & -1\end{array}\right.\\
+			\Leftrightarrow&\left\{\begin{array}{rcl}(-1)^2& = & -x_1\\x_2 & = & -1\end{array}\right.\\
+			\Leftrightarrow&\left\{\begin{array}{rcl}x_1& = & -1\\x_2 & = & -1\end{array}\right.\\
+			\end{array}$$
+			Solution: $[-1;-1]$
+		</li>
+		<li>
+			$$J=\left(\begin{array}{cc}\dfrac{\partial f_1}{\delta x_1}&\dfrac{\delta f_1}{\delta x_2}\\\dfrac{\partial f_2}{\delta x_1}&\dfrac{\delta f_2}{\delta x_2}\end{array}\right)=\left(\begin{array}{cc}\dfrac{(x_2^2+x_1)'}{\delta x_1}&\dfrac{(x_2^2+x_1)'}{\delta x_2}\\\dfrac{(x_2^3+1)'}{\delta x_1}&\dfrac{(x_2^3+1)'}{\delta x_2}\end{array}\right)=\left(\begin{array}{cc}1&2x_2\\0&3x^2_2\end{array}\right)$$
+			Autour du point $[-1;-1]$
+			$$J=\left(\begin{array}{cc}1&2(-1)\\0&3(-1)^2\end{array}\right)=\left(\begin{array}{cc}1&-2\\0&3\end{array}\right)$$
+			Valeurs propres:
+			$$\lambda^2-4\lambda+3=0$$
+			$$\Delta=16-4.4.3=16-12=4$$
+			Solution: $\left(\begin{array}{c}\dfrac{4+\sqrt{4}}{2}\\\dfrac{4-\sqrt{4}}{2}\end{array}\right)=\left(\begin{array}{c}3\\1\end{array}\right)$&larr;Valeurs propres>0, noeud instable!
+		</li>
+		<li>
+			$$\left\{\begin{array}{rcl}\dot{x}_1& = & 0\\\dot{x}_2 & = & 0\end{array}\right.\Leftrightarrow\left\{\begin{array}{rcl}x_2^2+x_1& = & 0\\x_2^3+1 & = & 0\end{array}\right.\Leftrightarrow\left\{\begin{array}{rcl}x_1& = & -x_2^2\\x_2^3 & = & -1\end{array}\right.\Leftrightarrow\left\{\begin{array}{rcl}x_1& = & -1\\x_2 & = & -1\end{array}\right.$$
+		</li>
+	</ol>
+</div>
 
 
 
@@ -151,7 +153,7 @@ sont compatibles avec le système et motiver la réponse.<figure><img src="image
 			La solution générale est $$\begin{array}{crcl}&x(k)&=&x^h(k)+x^p(k)\\\Leftrightarrow&x(k)&=&c_12^k+c_23^k+\dfrac{3}{2}4^k\end{array}$$
 			Pour trouver solution particulière pour $x(0)=0$ et $x(1)=1$, il faut résoudre le système suivant afin de trouver $c_1$ et $c_2$ :
 			$$\left\{\begin{array}{rcl}c_1+c_2+\dfrac{3}{2}&=&0\\2c_1+3c_2+\dfrac{3}{2}4&=&0\end{array}\right.$$
-			Et l'on trouve $c_1=\dfrac{3}{2} et $c_2=-3$. La solution particulière est donc
+			Et l'on trouve $c_1=\dfrac{3}{2}$ et $c_2=-3$. La solution particulière est donc
 			$$x(k)=c_12^k+c_23^k+\dfrac{3}{2}4^k$$
 		</li>
 		<li>
@@ -196,11 +198,123 @@ sont compatibles avec le système et motiver la réponse.<figure><img src="image
 
 <h3>Orale</h3>
 
+
+
 <h4>Définition de système dynamique</h4>
+
+
+
+
 <h5 class="question">Énoncer les propriétés de la fonction de transition</h5>
+<div class="answer">
+	La <fonction de transition> permet de passer d'un état au suivant. C'est généralement un calcul sur un intervalle de temps. Une fois qu'on a calculé l'état dont on a besoin, on s'en sert pour trouver la solution y du problème. La fonction de transition possède quelques propriétés :
+	<ol>
+		<li><b>Consistance</b> : Une même série d’entrées doit toujours donner la même solution (pas d'aléatoire) ;</li>
+		<li><b>Causalité</b> : Si on applique deux entrées $u_1$ et $u_2$ ( avec $u_1 = u_2$ ), la sortie doit être la même.</li>
+	</ol>
+</div>
+
+
+
+
+<h5 class="question">Définir un état d'équilibre.</h5>
+<div class="answer">
+	Un <b>état d'équilibre</b> est un état vers lequel tend le système. S'il existe une fonction d'entrée qui ramène le système à un endroit de départ, cet état est un état d'équilibre, et la sortie y correspondante est la sortie d'équilibre. Dans le cas du réservoir, pour toutes les fonctions où le débit de sortie est supérieur au débit d'entrée, le réservoir se videra et restera vide, ce sera un état d'équilibre. Il y a d'autres états d'équilibres, comme celui où le débit d'entrée est égal au débit de sortie. N'importe quel niveau est alors un état d'équilibre.
+</div>
+
+
+
+
 <h5 class="question">Énoncer les définitions de accessibilité et observabilité.</h5>
+<div class="answer">
+	<ol>
+		<li>Un état est <b>accessible</b> à partir d'un autre quand il existe $t_1$ et $t_2$, avec $t_1 \neq t_2$, tel que l'état de départ est l'état du système en $t_1$, et l'état "accessible" est l'état du système en $t_2$. Par exemple, si la température de la pièce ne peut qu'augmenter, l'état 25° n'est pas accessible par l'état 35°. Par contre, 35° peut être atteint après 25°. Un système est <b>connexe</b> s'il existe un chemin entre toute paire d'états dans le système. Où qu'on soit, on peut aller ailleurs en suivant un temps croissant ;</li>
+		<li>Un système <b>observarble</b> est un système dont on peut reconstuire le passé. S'il y a une équivalence entre deux états, on a un problème car il y aura plusieurs chemins menant au même endroit.</li>
+	</ol>
+</div>
+
+
+
 <h5 class="question">Discuter les notions de stabilité.</h5>
+<div class="answer">
+La notion centrale de ces systèmes est la stabilité. Il faut essayer de trouver les
+endroits stables et les points d'équilibre. Si on perturbe l'équilibre, est-ce
+qu'on obtient un chaos ou est-ce qu'on revient à l'équilibre ? Un état d'équilibre
+s'exprime en disant qu'un mouvement est stable quand une perturbation epsilon de
+l'entrée produit une perturbation de sortie delta du même ordre qu'epsilon
+(préférablement plus petite). Si Roméo casse un verre et que Juliette romp pour ça,
+c'est que le système est instable. Dans un système stable, Roméo peut être un salot
+que Juliette l'aimera toujours.<br>
+
+Le fait qu'on reste proche d'un état d'équilibre n'est pas le plus intéressant. La
+<b>stabilité asymptotique</b> permet de dire si un système va retomber sur l'état
+d'équilibre. Un système perturbé peut s'éloigner très fort de l'état d'équilibre,
+mais pourrait toujours y revenir. Dans ce cas, le système n'est pas stable, mais
+<b>asymptotiquement stable</b>. On dit que la limite pour t tendant vers l'infini du
+système perturbé doit valoir l'état stable. Cette stabilité asymptotique est ce qui
+est le plus souvent désiré : quand on règle une température et qu'on ouvre la
+fenêtre, on ne veut pas que la température change juste un peu, on veut qu'au bout
+d'un certain temps on revienne à la température idéale.
+
+</div>
+
+
+
+
+
 <h5 class="question">Formuler les critères de stabilité de Liapounov.</h5>
+<div class="answer">La plupart du temps, les équations différentielles sont complexes et on ne sait pas
+étudier la stabilité en regardant un schéma. Il faudrait pouvoir étudier la
+stabilité sans devoir résoudre les équations. Les techniques qu'on va utiliser sont
+les <b>critères de Liapounov</b>.<br>
+
+L'idée de base est que si on trouve une fonction V continue (ainsi que ses dérivées
+partielles), définie positive autour de son état d'équilibre. Si la dérivée de
+cette fonction est semi-définie négative, alors le système est stable en son état
+d'équilibre. Si la dérivée est définie négative, le système est asymptotiquement
+stable. L'idée de base est que V est souvent l'énergie du système, et si cette
+énergie se dissipe, le système va converger vers son état d'équilibre. Il faut donc
+trouver une fonction d'énergie telle que la système atteint son état stable. De
+manière générale, on veut trouver une fonction qui se dissipe.<br>
+
+Une fonction est <b>définie positive</b> en un point si autour de ce point la fonction
+est strictement positive. Une fonction est <b>semi-définie positive</b> si elle respecte
+la même condition, mais elle peut passer par zéro (jamais en-dessous) en certain
+points. La même chose pour <b>définie négative</b> et <b>semi-définie négative</b>. Les
+fonctions quadratiques sont un bon exemple de fonctions définies positives.
+Note: Une matrice est <b>définie positive</b> si tous les mineurs de la matrice sont
+positifs. On regarde donc a11, puis le déterminant a11 a21 a12 a22, et ainsi de
+suite.<br>
+
+Le plus compliqué est de trouver la fonction V, puis ensuite il suffit de la
+dériver. Dans un système physique, l'énergie peut être utilisée. Si on ne trouve
+pas de fonction V, on ne sait pas dire si le système est stable ou pas, il faut
+utiliser d'autres méthodes.<br>
+
+La dérivée de V est considérée comme étant V' = dV/dx1*f1 + dV/dx2*f2 (pour V avec
+deux variables, chaque variable étant définie par f1 et f2, voir slide 60). Une
+fois la dérivée obtenue, il suffit d'étudier son signe. La slide 62 montre une
+modélisation 3D de la fonction avec son gradient.<br>
+
+Le <b>critère d'instabilité de Liapounov</b> se trouve de la même manière : si V est
+définie positive et V' définie positive aussi, alors le système est instable, il a
+tendance à s'emballer, la perturbation s'amplifie.<br>
+
+Le système du pendule peut s'étudier de cette manière. V(x1, x2) = mgl(1 - cos(x1))
++ 1/2 * ml²x2². C'est la somme de l'énergie potentielle et de l'énergie cinétique.
+Cette fonction est définie positive, et quand on dérive la fonction, on trouve
+(slide 67) V' = -kl²x2², une fonction toujours négative pour des k > 0, donc avec
+une dissipation d'énergie supérieure à zéro. Si k est négatif, le pendule va de
+plus en plus vite, mais ça n'arrive jamais dans le monde réel.
+
+
+
+
+</div>
+
+
+
+
 
 <h4>Systèmes linéaires continus</h4>
 <h5 class="question">Énoncer les propriétés des systèmes linéaires continus.</h5>
