@@ -56,7 +56,7 @@
 			$$J=\left(\begin{array}{cc}1&2(-1)\\0&3(-1)^2\end{array}\right)=\left(\begin{array}{cc}1&-2\\0&3\end{array}\right)$$
 			Valeurs propres:
 			$$\lambda^2-4\lambda+3=0$$
-			$$\Delta=16-4.4.3=16-12=4$$
+			$$\Delta=16-4.1.3=16-12=4$$
 			Solution: $\left(\begin{array}{c}\dfrac{4+\sqrt{4}}{2}\\\dfrac{4-\sqrt{4}}{2}\end{array}\right)=\left(\begin{array}{c}3\\1\end{array}\right)$&larr;Valeurs propres>0, noeud instable!
 		</li>
 		<li>
@@ -120,13 +120,25 @@ sont compatibles avec le système et motiver la réponse.<figure><img src="image
 <div class="answer">
 	<ol>
 		<li>
-			Le système a trois points d’équilibre: $\bar{x}^{(1)} = ( \sqrt{3},1)$, $\bar{x}^{(2)} = (-\sqrt{3},1)$ et $\bar{x}^{(3)} = (0,-2)$
+			$$\begin{array}{ll}
+			               &\left\{\begin{array}{rcl}x_1^2 +x_2^2-4& = & 0\\x_1^2-x_2 -2 & = & 0\end{array}\right.\\
+			\Leftrightarrow&\left\{\begin{array}{rcl}x_2^2x_2+2-4& = & 0\\x_1^2 & = & x_2+2\end{array}\right.
+			\end{array}$$
+			On calcule le delta et on trouve deux points : $-2$ et $1$
+			$$\left\{\begin{array}{rcl}x_2& = & -2\\x_1 & = & 0\end{array}\right.$$
+			$$\left\{\begin{array}{rcl}x_2& = & 1\\x_1 & = &\pm\sqrt{3}\end{array}\right.$$
+			
+			Le système a donc trois points d’équilibre: $\bar{x}^{(1)} = ( \sqrt{3},1)$, $\bar{x}^{(2)} = (-\sqrt{3},1)$ et $\bar{x}^{(3)} = (0,-2)$
 		</li>
 		<li>
-			La matrice de Jacobi est : $$\left \{\begin{array}{rr}2x_1&2x_2\\2x_1&-1\end{array}\right]$$
-			La matrice en $\bar{x}^{(1)}$ est $\left[\begin{array}{rr}2\sqrt{3}&2\\2\sqrt{3}&-1\end{array}\right]$. Le point $\bar{x}^{(1)}$ est une selle pour le système linéarisé, donc le point d'équilibre $\bar{x}^{(1)}$ est instable pour le système original.<br>
-			La matrice en $\bar{x}^{(2)}$ est $\left[\begin{array}{rr}-2\sqrt{3}&2\\-2\sqrt{3}&-1\end{array}\right]$. Le point $\bar{x}^{(2)}$ est un foyer asymptomatiquement stable pour le système linéarisé. Donc le point d'équilibre $\bar{x}^{(2)}$ est asymptotiquement stable pour le système original.<br>
-			La matrice en $\bar{x}^{(3)}$ est $\left[\begin{array}{rr}0&-4\\0&-1\end{array}\right]$. Ce système est non simple puisqu une valeur propre est égale à 0. Nous ne pouvons rien déduire sur la stabilité du point $\bar{x}^{(3)}$ dans le système originale.
+			$$J=\left(\begin{array}{cc}\dfrac{\partial f_1}{\delta x_1}&\dfrac{\delta f_1}{\delta x_2}\\\dfrac{\partial f_2}{\delta x_1}&\dfrac{\delta f_2}{\delta x_2}\end{array}\right)=
+\left(\begin{array}{cc}\dfrac{(x_1^2+x_2^2-4)'}{\delta x_1}&\dfrac{(x_1^2+x_2^2-4)'}{\delta x_2}\\\dfrac{(x_1^2-x_2-2)'}{\delta x_1}&\dfrac{(x_1^2-x_2-2)'}{\delta x_2}\end{array}\right)=
+\left(\begin{array}{cc}2x_1&2x_2\\2x_1&-1\end{array}\right)$$
+			<ul>
+			<li>La matrice en $\bar{x}^{(1)}$ est $\left[\begin{array}{rr}2\sqrt{3}&2\\2\sqrt{3}&-1\end{array}\right]$. Le point $\bar{x}^{(1)}$ est une selle pour le système linéarisé, donc le point d'équilibre $\bar{x}^{(1)}$ est instable pour le système original.</li>
+			<li>La matrice en $\bar{x}^{(2)}$ est $\left[\begin{array}{rr}-2\sqrt{3}&2\\-2\sqrt{3}&-1\end{array}\right]$. Le point $\bar{x}^{(2)}$ est un foyer asymptomatiquement stable pour le système linéarisé. Donc le point d'équilibre $\bar{x}^{(2)}$ est asymptotiquement stable pour le système original.</li>
+			<li>La matrice en $\bar{x}^{(3)}$ est $\left[\begin{array}{rr}0&-4\\0&-1\end{array}\right]$. Ce système est non simple puisqu une valeur propre est égale à 0. Nous ne pouvons rien déduire sur la stabilité du point $\bar{x}^{(3)}$ dans le système originale.</li>
+			</ul>
 		</li>
 		<li>
 			Le portrait de phase du système est affiché sur la figure : <figure><img src="images/info-f305/portaitdephase.svg" alt="Portrait de phase" /></figure>
