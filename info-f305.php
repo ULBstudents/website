@@ -155,9 +155,9 @@ sont compatibles avec le système et motiver la réponse.<figure><img src="image
 				0 &=& det(J-\lambda I)\\
 				&=& \left|\begin{array}{rr}2\sqrt{3}-\lambda&2\\2\sqrt{3}&-1-\lambda\end{array}\right|\\
 				&=& -(2\sqrt{3}-\lambda).-(-1-\lambda)-2.2\sqrt{3}\\
-				&=& (2\sqrt{3}+\lambda).(1+\lambda)-4\sqrt{3}\\
-				&=& 2\sqrt{3}+\lambda+2\sqrt{3}\lambda+\lambda^2-4\sqrt{3}\\
-				&=& \lambda^2+(1+2\sqrt{3})\lambda-2\sqrt{3}
+				&=& (-2\sqrt{3}+\lambda).(1+\lambda)-4\sqrt{3}\\
+				&=& -2\sqrt{3}+\lambda-2\sqrt{3}\lambda+\lambda^2-4\sqrt{3}\\
+				&=& \lambda^2+(1-2\sqrt{3})\lambda-6\sqrt{3}
 				\end{array}
 				$$
 				Le point $\bar{x}^{(1)}$ est une selle pour le système linéarisé, donc le point d'équilibre $\bar{x}^{(1)}$ est instable pour le système original.</li>
@@ -166,13 +166,13 @@ sont compatibles avec le système et motiver la réponse.<figure><img src="image
 				$$
 				\begin{array}{rcl}
 				0 &=& det(J-\lambda I)\\
-				&=& \left|\begin{array}{rr}2\sqrt{3}-\lambda&2\\2\sqrt{3}&-1-\lambda\end{array}\right|\\
-				&=& -(2\sqrt{3}-\lambda).-(-1-\lambda)-2.2\sqrt{3}\\
-				&=& (2\sqrt{3}+\lambda).(1+\lambda)-4\sqrt{3}\\
+				&=& \left|\begin{array}{rr}-2\sqrt{3}-\lambda&2\\-2\sqrt{3}&-1-\lambda\end{array}\right|\\
+				&=& -(-2\sqrt{3}-\lambda).-(-1-\lambda)-2.(-2\sqrt{3})\\
+				&=& (2\sqrt{3}+\lambda).(1+\lambda)+4\sqrt{3}\\
 				&=& 2\sqrt{3}+\lambda+2\sqrt{3}\lambda+\lambda^2-4\sqrt{3}\\
 				&=& \lambda^2+(1+2\sqrt{3})\lambda-2\sqrt{3}
 				\end{array}
-				$$
+$$
 				Le point $\bar{x}^{(2)}$ est un foyer asymptomatiquement stable pour le système linéarisé. Donc le point d'équilibre $\bar{x}^{(2)}$ est asymptotiquement stable pour le système original.
 			</li>
 			<li>
