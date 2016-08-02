@@ -40,7 +40,7 @@
 
 <h4 class="question">Considérons le système non linéaire continu suivant $$\left \{\begin{array}{r c l}\dot{x}_1  & = & x_2^2+x_1\\\dot{x}_2  & = & x_2^3+1\end{array}\right.$$ où $x_1\in[-6,6]$ et $x_2\in[-6,6]$. L'étudiant devra <ol><li>calculer analytiquement le(s) point(s) d'équilibre</li><li>étudier la stabilité du(des) point(s) d'équilibre (du système non linéaire) par linéarisation</li><li>tracer sur du papier millimétré<ol class="alphabet"><li>le portrait de phase avec les iscoclines du système</li><li>le comportement qualitatif des trois trajectoires dont les points initiaux sont: $(0,0)$, $(3,5)$, $(-3,-2)$ et $(-3,1)$.</li></ol></li></ol></h4>
 <div class="answer">
-	<ol class="alphabet">
+	<ol>
 		<li>
 			$$\begin{array}{ll}
 			&\left\{\begin{array}{rcl}x_2^2 +x_1& = & 0\\x_2^3+1 & = & 0\end{array}\right.\\
@@ -66,10 +66,14 @@
 			$$
 			$$\Delta=16-4.1.3=16-12=4$$
 			Solution: $\left(\begin{array}{c}\dfrac{4+\sqrt{4}}{2}\\\dfrac{4-\sqrt{4}}{2}\end{array}\right)=\left(\begin{array}{c}3\\1\end{array}\right)$
-			 &larr; Les valeurs propres $ > 0$ &larr; noeud instable!
+			 &rarr; Les valeurs propres $ > 0$ &rarr; noeud instable!
 		</li>
 		<li>
 			$$\left\{\begin{array}{rcl}\dot{x}_1& = & 0\\\dot{x}_2 & = & 0\end{array}\right.\Leftrightarrow\left\{\begin{array}{rcl}x_2^2+x_1& = & 0\\x_2^3+1 & = & 0\end{array}\right.\Leftrightarrow\left\{\begin{array}{rcl}x_1& = & -x_2^2\\x_2^3 & = & -1\end{array}\right.\Leftrightarrow\left\{\begin{array}{rcl}x_1& = & -1\\x_2 & = & -1\end{array}\right.$$
+			<ol class="alphabet">
+				<li></li>
+				<li></li>
+			</ol>
 		</li>
 	</ol>
 </div>
@@ -131,7 +135,7 @@ sont compatibles avec le système et motiver la réponse.<figure><img src="image
 		<li>On recherche les points d'équilibres :
 			$$\begin{array}{ll}
 			               &\left\{\begin{array}{rcl}x_1^2 +x_2^2-4& = & 0\\x_1^2-x_2 -2 & = & 0\end{array}\right.\\
-			\Leftrightarrow&\left\{\begin{array}{rcl}x_2^2x_2+2-4& = & 0\\x_1^2 & = & x_2+2\end{array}\right.
+			\Leftrightarrow&\left\{\begin{array}{rcl}(x_2+2)+x_2^2-4& = & 0\\x_1^2 & = & x_2+2\end{array}\right.
 			\end{array}$$
 			On calcule le delta et on trouve deux points : $-2$ et $1$
 			$$\left\{\begin{array}{rcl}x_2& = & -2\\x_1 & = & 0\end{array}\right.$$
@@ -144,31 +148,46 @@ sont compatibles avec le système et motiver la réponse.<figure><img src="image
 \left(\begin{array}{cc}\dfrac{(x_1^2+x_2^2-4)'}{\delta x_1}&\dfrac{(x_1^2+x_2^2-4)'}{\delta x_2}\\\dfrac{(x_1^2-x_2-2)'}{\delta x_1}&\dfrac{(x_1^2-x_2-2)'}{\delta x_2}\end{array}\right)=
 \left(\begin{array}{cc}2x_1&2x_2\\2x_1&-1\end{array}\right)$$
 			<ul>
-			<li>La matrice en $\bar{x}^{(1)}$ est $\left(\begin{array}{rr}2\sqrt{3}&2\\2\sqrt{3}&-1\end{array}\right)$.
-			$$
-			\begin{array}{rcl}
-			0 &=& det(J-\lambda I)\\
-			&=& \left|\begin{array}{rr}2\sqrt{3}-\lambda&2\\2\sqrt{3}&-1-\lambda\end{array}\right|\\
-			&=& -(2\sqrt{3}-\lambda).-(-1-\lambda)-2.2\sqrt{3}\\
-			&=& (2\sqrt{3}+\lambda).(1+\lambda)-4\sqrt{3}\\
-			&=& 2\sqrt{3}+\lambda+2\sqrt{3}\lambda+\lambda^2-4\sqrt{3}\\
-			&=& \lambda^2+(1+2\sqrt{3})\lambda-2\sqrt{3}
-			\end{array}
-			$$
-			Le point $\bar{x}^{(1)}$ est une selle pour le système linéarisé, donc le point d'équilibre $\bar{x}^{(1)}$ est instable pour le système original.</li>
-			<li>La matrice en $\bar{x}^{(2)}$ est $\left(\begin{array}{rr}-2\sqrt{3}&2\\-2\sqrt{3}&-1\end{array}\right)$.
-			Le point $\bar{x}^{(2)}$ est un foyer asymptomatiquement stable pour le système linéarisé. Donc le point d'équilibre $\bar{x}^{(2)}$ est asymptotiquement stable pour le système original.</li>
-			<li>La matrice en $\bar{x}^{(3)}$ est $\left(\begin{array}{rr}0&-4\\0&-1\end{array}\right)$.
-			$$
-			\begin{array}{rcl}
-			0 &=& det(J-\lambda I)\\
-			&=& \left|\begin{array}{rr}0-\lambda&-4\\0&-1-\lambda\end{array}\right|\\
-			&=& -(-\lambda).-(-1-\lambda)-(-4).0\\
-			&=& (\lambda).(1+\lambda)\\
-			&=& \lambda^2+\lambda
-			\end{array}
-			$$
-			Ce système est non simple puisqu une valeur propre est égale à 0. Nous ne pouvons rien déduire sur la stabilité du point $\bar{x}^{(3)}$ dans le système originale.</li>
+			<li>
+				La matrice en $\bar{x}^{(1)}$ est $\left(\begin{array}{rr}2\sqrt{3}&2\\2\sqrt{3}&-1\end{array}\right)$.
+				$$
+				\begin{array}{rcl}
+				0 &=& det(J-\lambda I)\\
+				&=& \left|\begin{array}{rr}2\sqrt{3}-\lambda&2\\2\sqrt{3}&-1-\lambda\end{array}\right|\\
+				&=& -(2\sqrt{3}-\lambda).-(-1-\lambda)-2.2\sqrt{3}\\
+				&=& (2\sqrt{3}+\lambda).(1+\lambda)-4\sqrt{3}\\
+				&=& 2\sqrt{3}+\lambda+2\sqrt{3}\lambda+\lambda^2-4\sqrt{3}\\
+				&=& \lambda^2+(1+2\sqrt{3})\lambda-2\sqrt{3}
+				\end{array}
+				$$
+				Le point $\bar{x}^{(1)}$ est une selle pour le système linéarisé, donc le point d'équilibre $\bar{x}^{(1)}$ est instable pour le système original.</li>
+			<li>
+				La matrice en $\bar{x}^{(2)}$ est $\left(\begin{array}{rr}-2\sqrt{3}&2\\-2\sqrt{3}&-1\end{array}\right)$.
+				$$
+				\begin{array}{rcl}
+				0 &=& det(J-\lambda I)\\
+				&=& \left|\begin{array}{rr}2\sqrt{3}-\lambda&2\\2\sqrt{3}&-1-\lambda\end{array}\right|\\
+				&=& -(2\sqrt{3}-\lambda).-(-1-\lambda)-2.2\sqrt{3}\\
+				&=& (2\sqrt{3}+\lambda).(1+\lambda)-4\sqrt{3}\\
+				&=& 2\sqrt{3}+\lambda+2\sqrt{3}\lambda+\lambda^2-4\sqrt{3}\\
+				&=& \lambda^2+(1+2\sqrt{3})\lambda-2\sqrt{3}
+				\end{array}
+				$$
+				Le point $\bar{x}^{(2)}$ est un foyer asymptomatiquement stable pour le système linéarisé. Donc le point d'équilibre $\bar{x}^{(2)}$ est asymptotiquement stable pour le système original.
+			</li>
+			<li>
+				La matrice en $\bar{x}^{(3)}$ est $\left(\begin{array}{rr}0&-4\\0&-1\end{array}\right)$.
+				$$
+				\begin{array}{rcl}
+				0 &=& det(J-\lambda I)\\
+				&=& \left|\begin{array}{rr}0-\lambda&-4\\0&-1-\lambda\end{array}\right|\\
+				&=& -(-\lambda).-(-1-\lambda)-(-4).0\\
+				&=& (\lambda).(1+\lambda)\\
+				&=& \lambda^2+\lambda
+				\end{array}
+				$$
+				Ce système est non simple puisqu une valeur propre est égale à 0. Nous ne pouvons rien déduire sur la stabilité du point $\bar{x}^{(3)}$ dans le système originale.
+			</li>
 			</ul>
 		</li>
 		<li>
