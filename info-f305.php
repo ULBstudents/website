@@ -135,9 +135,9 @@ sont compatibles avec le système et motiver la réponse.<figure><img src="image
 \left(\begin{array}{cc}\dfrac{(x_1^2+x_2^2-4)'}{\delta x_1}&\dfrac{(x_1^2+x_2^2-4)'}{\delta x_2}\\\dfrac{(x_1^2-x_2-2)'}{\delta x_1}&\dfrac{(x_1^2-x_2-2)'}{\delta x_2}\end{array}\right)=
 \left(\begin{array}{cc}2x_1&2x_2\\2x_1&-1\end{array}\right)$$
 			<ul>
-			<li>La matrice en $\bar{x}^{(1)}$ est $\left[\begin{array}{rr}2\sqrt{3}&2\\2\sqrt{3}&-1\end{array}\right]$. Le point $\bar{x}^{(1)}$ est une selle pour le système linéarisé, donc le point d'équilibre $\bar{x}^{(1)}$ est instable pour le système original.</li>
-			<li>La matrice en $\bar{x}^{(2)}$ est $\left[\begin{array}{rr}-2\sqrt{3}&2\\-2\sqrt{3}&-1\end{array}\right]$. Le point $\bar{x}^{(2)}$ est un foyer asymptomatiquement stable pour le système linéarisé. Donc le point d'équilibre $\bar{x}^{(2)}$ est asymptotiquement stable pour le système original.</li>
-			<li>La matrice en $\bar{x}^{(3)}$ est $\left[\begin{array}{rr}0&-4\\0&-1\end{array}\right]$. Ce système est non simple puisqu une valeur propre est égale à 0. Nous ne pouvons rien déduire sur la stabilité du point $\bar{x}^{(3)}$ dans le système originale.</li>
+			<li>La matrice en $\bar{x}^{(1)}$ est $\left(\begin{array}{rr}2\sqrt{3}&2\\2\sqrt{3}&-1\end{array}\right)$. Le point $\bar{x}^{(1)}$ est une selle pour le système linéarisé, donc le point d'équilibre $\bar{x}^{(1)}$ est instable pour le système original.</li>
+			<li>La matrice en $\bar{x}^{(2)}$ est $\left(\begin{array}{rr}-2\sqrt{3}&2\\-2\sqrt{3}&-1\end{array}\right)$. Le point $\bar{x}^{(2)}$ est un foyer asymptomatiquement stable pour le système linéarisé. Donc le point d'équilibre $\bar{x}^{(2)}$ est asymptotiquement stable pour le système original.</li>
+			<li>La matrice en $\bar{x}^{(3)}$ est $\left(\begin{array}{rr}0&-4\\0&-1\end{array}\right)$. Ce système est non simple puisqu une valeur propre est égale à 0. Nous ne pouvons rien déduire sur la stabilité du point $\bar{x}^{(3)}$ dans le système originale.</li>
 			</ul>
 		</li>
 		<li>
