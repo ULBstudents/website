@@ -55,7 +55,15 @@
 			Autour du point $[-1;-1]$
 			$$J=\left(\begin{array}{cc}1&2(-1)\\0&3(-1)^2\end{array}\right)=\left(\begin{array}{cc}1&-2\\0&3\end{array}\right)$$
 			Valeurs propres:
-			$$\lambda^2-4\lambda+3=0$$
+			$$
+				\begin{array}{rcl}
+				det(J-\lambda I) &=&0\\
+				\left|\begin{array}{rr}1-\lambda&-2\\0&3-\lambda\end{array}\right|&=&0\\
+				-(1-\lambda).-(3-\lambda)-(-2).0&=&0\\
+				(-1+\lambda).(-3+\lambda)&=&0\\
+				\lambda^2-4\lambda+3&=&0
+				\end{array}
+			$$
 			$$\Delta=16-4.1.3=16-12=4$$
 			Solution: $\left(\begin{array}{c}\dfrac{4+\sqrt{4}}{2}\\\dfrac{4-\sqrt{4}}{2}\end{array}\right)=\left(\begin{array}{c}3\\1\end{array}\right)$&larr;Valeurs propres>0, noeud instable!
 		</li>
@@ -116,10 +124,10 @@ initiales.
 
 
 <h4 class="question">Considérons le système non linéaire continu d'ordre 2 $$\left \{\begin{array}{r c l}\dot{x}_1  & = & x^2_1+x^2_2-4\\\dot{x}_2  & = & x^2_1-x_2-2\end{array}\right.$$ L'étudiant devra <ol><li>trouver analytiquement le(s) point(s) d’équilibre ;</li><li>étudier la stabilité du(des) point(s) d’équilibre (du système non linéaire) par linéarisation ;</li><li>tracer sur du papier millimétré<ol class="alphabet"><li>les iscoclines du système ;</li><li> le comportement qualitatif des trois trajectoires dont les points initiaux sont: $(1.5, 1.5)$,$(−1, −2)$ et $(0, −2)$.</li></ol></li><li>déterminer lesquelles parmi les quatre évolutions temporelles suivantes
-sont compatibles avec le système et motiver la réponse.<figure><img src="images/info-f305/4evolutionstemporelles.svg" alt="4 évolutions temporelles" /></figure></li></ol><h4>
+sont compatibles avec le système et motiver la réponse.<figure><img src="images/info-f305/4evolutionstemporelles.svg" alt="4 évolutions temporelles" /></figure></li></ol></h4>
 <div class="answer">
 	<ol>
-		<li>
+		<li>On recherche les points d'équilibres :
 			$$\begin{array}{ll}
 			               &\left\{\begin{array}{rcl}x_1^2 +x_2^2-4& = & 0\\x_1^2-x_2 -2 & = & 0\end{array}\right.\\
 			\Leftrightarrow&\left\{\begin{array}{rcl}x_2^2x_2+2-4& = & 0\\x_1^2 & = & x_2+2\end{array}\right.
@@ -130,7 +138,7 @@ sont compatibles avec le système et motiver la réponse.<figure><img src="image
 			
 			Le système a donc trois points d’équilibre: $\bar{x}^{(1)} = ( \sqrt{3},1)$, $\bar{x}^{(2)} = (-\sqrt{3},1)$ et $\bar{x}^{(3)} = (0,-2)$
 		</li>
-		<li>
+		<li>On utilise la jacobienne :
 			$$J=\left(\begin{array}{cc}\dfrac{\partial f_1}{\delta x_1}&\dfrac{\delta f_1}{\delta x_2}\\\dfrac{\partial f_2}{\delta x_1}&\dfrac{\delta f_2}{\delta x_2}\end{array}\right)=
 \left(\begin{array}{cc}\dfrac{(x_1^2+x_2^2-4)'}{\delta x_1}&\dfrac{(x_1^2+x_2^2-4)'}{\delta x_2}\\\dfrac{(x_1^2-x_2-2)'}{\delta x_1}&\dfrac{(x_1^2-x_2-2)'}{\delta x_2}\end{array}\right)=
 \left(\begin{array}{cc}2x_1&2x_2\\2x_1&-1\end{array}\right)$$
