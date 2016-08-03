@@ -17,7 +17,24 @@
 </ol>
 <ol>
 	<li>
-		La matrice ne contiendra que des zéros
+		<ol class="alphabet">
+			<li>
+				( La matrice ne contiendra que des zéros ) &larr; ? &larr; Prof. Alors que &rarr;
+			
+				On cherche la jacobienne pour $$\left \{\begin{array}{r c l c l}\dot{x}_1  & = & (2-8x_1)^2 &=& 64x_1^2-32x_1+4\\\dot{x}_2  & = & (6-4x_1)^2&=&16x_1^2-48x_1+36\end{array}\right.$$
+				$$J=\left(\begin{array}{cc}\dfrac{\partial f_1}{\delta x_1}&\dfrac{\delta f_1}{\delta x_2}\\\dfrac{\partial f_2}{\delta x_1}&\dfrac{\delta f_2}{\delta x_2}\end{array}\right)=
+				\left(\begin{array}{cc}\dfrac{(64x_1^2-32x_1+4)'}{\delta x_1}&\dfrac{(64x_1^2-32x_1+4)'}{\delta x_2}\\\dfrac{(16x_1^2-48x_1+36)'}{\delta x_1}&\dfrac{(16x_1^2-48x_1+36)'}{\delta x_2}\end{array}\right)=
+				\left(\begin{array}{cc}96x_1&0\\-16x_1&0\end{array}\right)$$
+			</li>
+			<li>
+				( La matrice ne contiendra que des zéros ) &larr; ? &larr; Prof. Alors que &rarr;
+				
+				On cherche la jacobienne pour $$\left \{\begin{array}{r c l c l}\dot{x}_1  & = & (9-3x_1)^2 &=& 9x_1^2-54x_1+81\\\dot{x}_2  & = & (6-2x_1)^2&=&4x_1^2-24x_1+36\end{array}\right.$$
+				$$J=\left(\begin{array}{cc}\dfrac{\partial f_1}{\delta x_1}&\dfrac{\delta f_1}{\delta x_2}\\\dfrac{\partial f_2}{\delta x_1}&\dfrac{\delta f_2}{\delta x_2}\end{array}\right)=
+				\left(\begin{array}{cc}\dfrac{(9x_1^2-54x_1+81)'}{\delta x_1}&\dfrac{(9x_1^2-54x_1+81)'}{\delta x_2}\\\dfrac{(4x_1^2-24x_1+36)'}{\delta x_1}&\dfrac{(4x_1^2-24x_1+36)'}{\delta x_2}\end{array}\right)=
+				\left(\begin{array}{cc}-36x_1&0\\-16x_1&0\end{array}\right)$$
+			</li>
+		</ol>
 	</li>
 	<li>
 		<figure>
@@ -41,7 +58,7 @@
 <h4 class="question">Considérons le système non linéaire continu suivant $$\left \{\begin{array}{r c l}\dot{x}_1  & = & x_2^2+x_1\\\dot{x}_2  & = & x_2^3+1\end{array}\right.$$ où $x_1\in[-6,6]$ et $x_2\in[-6,6]$. L'étudiant devra <ol><li>calculer analytiquement le(s) point(s) d'équilibre</li><li>étudier la stabilité du(des) point(s) d'équilibre (du système non linéaire) par linéarisation</li><li>tracer sur du papier millimétré<ol class="alphabet"><li>le portrait de phase avec les iscoclines du système</li><li>le comportement qualitatif des trois trajectoires dont les points initiaux sont: $(0,0)$, $(3,5)$, $(-3,-2)$ et $(-3,1)$.</li></ol></li></ol></h4>
 <div class="answer">
 	<ol>
-		<li>
+		<li>On part des équations de l'énoncé :
 			$$\begin{array}{ll}
 			&\left\{\begin{array}{rcl}x_2^2 +x_1& = & 0\\x_2^3+1 & = & 0\end{array}\right.\\
 			\Leftrightarrow&\left\{\begin{array}{rcl}x_2^2& = & -x_1\\x_2^3 & = & -1\end{array}\right.\\
@@ -50,7 +67,7 @@
 			\end{array}$$
 			Solution: $[-1;-1]$
 		</li>
-		<li>
+		<li>On cherche la jacobienne :
 			$$J=\left(\begin{array}{cc}\dfrac{\partial f_1}{\delta x_1}&\dfrac{\delta f_1}{\delta x_2}\\\dfrac{\partial f_2}{\delta x_1}&\dfrac{\delta f_2}{\delta x_2}\end{array}\right)=\left(\begin{array}{cc}\dfrac{(x_2^2+x_1)'}{\delta x_1}&\dfrac{(x_2^2+x_1)'}{\delta x_2}\\\dfrac{(x_2^3+1)'}{\delta x_1}&\dfrac{(x_2^3+1)'}{\delta x_2}\end{array}\right)=\left(\begin{array}{cc}1&2x_2\\0&3x^2_2\end{array}\right)$$
 			Autour du point $[-1;-1]$
 			$$J=\left(\begin{array}{cc}1&2(-1)\\0&3(-1)^2\end{array}\right)=\left(\begin{array}{cc}1&-2\\0&3\end{array}\right)$$
