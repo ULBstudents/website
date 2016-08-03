@@ -1,4 +1,81 @@
 <h1>INFO-F305 - Modélisation et simulation</h1>
+
+
+
+
+<h2>Résumé</h2>
+
+
+
+<h3>Récapitulatif des différents cas</h3>
+
+
+
+<h4>Valeurs propres réelles et distinctes négatives : noeud stable</h4>
+<figure>
+	<img src="images/info-f305/recap_cas_noeud_stable.svg" alt="noeud stable" />
+</figure>
+
+<h4>Valeurs propres réelles et distinctes positives : noeud instable</h4>
+<figure>
+	<img src="images/info-f305/recap_cas_noeud_instable.svg" alt="noeud instable" />
+</figure>
+
+<h4>Valeurs propres réelles et distinctes positive et négative : selle</h4>
+<figure>
+	<img src="images/info-f305/recap_cas_selle.svg" alt="selle" />
+</figure>
+
+<h4>Une valeur propre nulle et une réelle négative : système non-simple stable</h4>
+<figure>
+	<img src="images/info-f305/recap_cas_sys_nonsimple_stable.svg" alt="système non-simple stable" />
+</figure>
+
+<h4>Une valeur propre nulle et une réelle positive : système non-simple instable</h4>
+<figure>
+	<img src="images/info-f305/recap_cas_sys_nonsimple_instable.svg" alt="système non-simple instable" />
+</figure>
+
+<h4>Valeurs propres réelles et non-distinctes avec matrice A diagonalisable : noeud singulier</h4>
+<figure>
+	<img src="images/info-f305/recap_cas_noeud_singulier.svg" alt="noeud singulier" />
+</figure>
+
+<h4>Valeurs propres réelles et non-distinctes avec matrice A non diagonalisable (un seul vecteur propre et une valeur propre négative) : noeud dégénéré stable</h4>
+<figure>
+	<img src="images/info-f305/recap_cas_noeud_degenere_stable.svg" alt="noeud dégénéré stable" />
+</figure>
+
+<h4>Valeurs propres réelles et non-distinctes avec matrice A non diagonalisable (un seul vecteur propre et une valeur propre positive) : noeud dégénéré instable</h4>
+<figure>
+	<img src="images/info-f305/recap_cas_noeud_degenere_instable.svg" alt="noeud dégénéré instable" />
+</figure>
+
+<h4>Valeurs propres complexes conjuguées avec partie réelle nulle : centre</h4>
+<figure>
+	<img src="images/info-f305/recap_cas_centre.svg" alt="centre" />
+</figure>
+
+<h4>Valeurs propres complexes conjuguées avec partie réelle négative : foyer stable</h4>
+<figure>
+	<img src="images/info-f305/recap_cas_foyer_stable.svg" alt="foyer stable" />
+</figure>
+
+<h4>Valeurs propres complexes conjuguées avec partie réelle positive : foyer instable</h4>
+<figure>
+	<img src="images/info-f305/recap_cas_foyer_instable.svg" alt="foyer instable" />
+</figure>
+
+
+
+
+
+
+
+
+
+
+
 <h2>Examen</h2>
 
 
@@ -38,11 +115,12 @@
 	</li>
 	<li>
 		<figure>
-		<img src="images/info-f305/a9b3c6d2.svg" alt="a9b3c6d2" />
+			<img src="images/info-f305/a2b8c6d4.svg" alt="a2b8c6d4" />
 		</figure>
 		<figure>
-		<img src="images/info-f305/a2b8c6d4.svg" alt="a2b8c6d4" />
+			<img src="images/info-f305/a9b3c6d2.svg" alt="a9b3c6d2" />
 		</figure>
+		
 	</li>
 	<li>
 		Les trois sont faux car
