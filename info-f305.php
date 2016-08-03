@@ -281,7 +281,9 @@ $$
 				&=& \lambda^2+\lambda
 				\end{array}
 				$$
-				Ce système est non simple puisqu une valeur propre est égale à 0. Nous ne pouvons rien déduire sur la stabilité du point $\bar{x}^{(3)}$ dans le système originale.
+				$$\Delta = 1^2-4.1.0 = 1$$
+				$$\lambda_{1,2} = \dfrac{-1 \pm \sqrt{1}}{2} = \{0;-1\}$$
+				Ce système est non simple puisqu une valeur propre est égale à 0. ( Nous ne pouvons rien déduire sur la stabilité du point $\bar{x}^{(3)}$ dans le système originale. ???? Prof ) Système non-simple stable car une valeur propre nulle et un réelle négative. 
 			</li>
 			</ul>
 		</li>
