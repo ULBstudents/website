@@ -249,8 +249,7 @@ sont compatibles avec le système et motiver la réponse.<figure><img src="image
 				\begin{array}{rcl}
 				0 &=& det(J-\lambda I)\\
 				&=& \left|\begin{array}{rr}2\sqrt{3}-\lambda&2\\2\sqrt{3}&-1-\lambda\end{array}\right|\\
-				&=& -(2\sqrt{3}-\lambda).-(-1-\lambda)-2.2\sqrt{3}\\
-				&=& (-2\sqrt{3}+\lambda).(1+\lambda)-4\sqrt{3}\\
+				&=& (2\sqrt{3}-\lambda).(-1-\lambda)-2.2\sqrt{3}\\
 				&=& -2\sqrt{3}+\lambda-2\sqrt{3}\lambda+\lambda^2-4\sqrt{3}\\
 				&=& \lambda^2+(1-2\sqrt{3})\lambda-6\sqrt{3}
 				\end{array}
@@ -264,8 +263,7 @@ sont compatibles avec le système et motiver la réponse.<figure><img src="image
 				\begin{array}{rcl}
 				0 &=& det(J-\lambda I)\\
 				&=& \left|\begin{array}{rr}-2\sqrt{3}-\lambda&2\\-2\sqrt{3}&-1-\lambda\end{array}\right|\\
-				&=& -(-2\sqrt{3}-\lambda).-(-1-\lambda)-2.(-2\sqrt{3})\\
-				&=& (2\sqrt{3}+\lambda).(1+\lambda)+4\sqrt{3}\\
+				&=& (-2\sqrt{3}-\lambda).(-1-\lambda)-2.(-2\sqrt{3})\\
 				&=& 2\sqrt{3}+\lambda+2\sqrt{3}\lambda+\lambda^2-4\sqrt{3}\\
 				&=& \lambda^2+(1+2\sqrt{3})\lambda-2\sqrt{3}
 				\end{array}
@@ -280,8 +278,7 @@ sont compatibles avec le système et motiver la réponse.<figure><img src="image
 				\begin{array}{rcl}
 				0 &=& det(J-\lambda I)\\
 				&=& \left|\begin{array}{rr}0-\lambda&-4\\0&-1-\lambda\end{array}\right|\\
-				&=& -(-\lambda).-(-1-\lambda)-(-4).0\\
-				&=& (\lambda).(1+\lambda)\\
+				&=& (-\lambda).(-1-\lambda)-(-4.0)\\
 				&=& \lambda^2+\lambda
 				\end{array}
 				$$
