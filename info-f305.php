@@ -255,6 +255,8 @@ sont compatibles avec le système et motiver la réponse.<figure><img src="image
 				&=& \lambda^2+(1-2\sqrt{3})\lambda-6\sqrt{3}
 				\end{array}
 				$$
+				$$\Delta = (1-2\sqrt{3})^2-4.1.(-6\sqrt{3}) = 13+20\sqrt{3}$$
+				$$\lambda_{1,2} = \dfrac{-(1-2\sqrt{3}) \pm \sqrt{13+20\sqrt{3}}}{2} = \{4.683174;-2.219087\}$$
 				Le point $\bar{x}^{(1)}$ est une selle pour le système linéarisé, donc le point d'équilibre $\bar{x}^{(1)}$ est instable pour le système original.</li>
 			<li>
 				La matrice en $\bar{x}^{(2)}$ est $\left(\begin{array}{rr}-2\sqrt{3}&2\\-2\sqrt{3}&-1\end{array}\right)$.
@@ -267,7 +269,9 @@ sont compatibles avec le système et motiver la réponse.<figure><img src="image
 				&=& 2\sqrt{3}+\lambda+2\sqrt{3}\lambda+\lambda^2-4\sqrt{3}\\
 				&=& \lambda^2+(1+2\sqrt{3})\lambda-2\sqrt{3}
 				\end{array}
-$$
+				$$
+				$$\Delta = (1+2\sqrt{3})^2-4.1.(-2\sqrt{3}) = 13+12\sqrt{3}$$
+				$$\lambda_{1,2} = \dfrac{-(1+2\sqrt{3}) \pm \sqrt{13+12\sqrt{3}}}{2} = \{0.674175;-5.138277\}$$
 				Le point $\bar{x}^{(2)}$ est un foyer asymptomatiquement stable pour le système linéarisé. Donc le point d'équilibre $\bar{x}^{(2)}$ est asymptotiquement stable pour le système original.
 			</li>
 			<li>
