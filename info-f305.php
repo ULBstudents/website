@@ -333,29 +333,61 @@ sont compatibles avec le système et motiver la réponse.<figure><img src="image
 
 <h4 class="question">Soit l’équation différentielle suivante $$\dot{x}=rx-x^3,\ x\in\mathbb{R},\ r\in\mathbb{R}$$<ol><li>Trouver les points d’équilibre du système et étudier leur stabilité en fonction de $r$ ;</li><li>Tracer le diagramme de bifurcation associé. Notez les points d’équilibres instables en pointillé ;</li><li>Etudier la nature des points d’équilibres de manière graphique pour $r = 1$ et $r = 36$ ;</li><li>Vérifier par linéarisation les résultats du point précédent ;</li><li>Tracer qualitativement l’évolution temporelle ($t \in [0, 10]$) de $x$ pour<ol class="alphabet"><li>$r = 1$, $x(0) = 8$</li><li>$r = 1/4$, $x(0) = 8$</li><li>$r = −1$, $x(0) = 8$
 </li></ol>en tenant en considération la constante de temps.</li><li>Comparer les vitesses de convergence des trajectoires a), b) et c) et expliquer leur différence.</li></ol></h4>
-<div class="answer"><ol class="alphabet">
-	<li>
-		$\bar{x}=0$,$\bar{x}=\sqrt{r}$ et $\bar{x}=-\sqrt{r}$
-	</li>
-	<li>
-		...
-	</li>
-	<li>
-		...
-	</li>
-	<li>
-		...
-	</li>
-	<li>
-		...
-	</li>
-	<li>
-		...
-	</li>
-</ol>
+<div class="answer">
+	<ol>
+		<li>
+			$\bar{x}=0$,$\bar{x}=\sqrt{r}$ et $\bar{x}=-\sqrt{r}$
+			<ul>
+				<li>Si $r \leq 0$, il y a un équilibre stable $\bar{x}=0$</li>
+				<li>Si $r > 0$, il y a un équilibre instable $\bar{x}=0$ et deux équilibres stables $\bar{x}=\sqrt{r}$ et $\bar{x}=-\sqrt{r}$</li>
+			</ul>
+		</li>
+		<li>
+			?
+		</li>
+		<li>
+			...
+		</li>
+		<li>
+			...
+		</li>
+		<li>
+			...
+		</li>
+		<li>
+			...
+		</li>
+	</ol>
 </div>
 
 
+
+
+<h4 class="question">Considérons le système non linéaire à temps discret décrit par l'itération $$x(k+1)=min\left(5,\dfrac{2^{x(k)}{x(k)}\right) où $x(k)\in[1,5]. L'étudiant devra
+<ol>
+	<li>tracer le graphique de $f(x)$</li>
+	<li>trouver la forme analytique et tracer le graphique de $f^2(x)$</li>
+	<li>trouver les points d’équilibre</li>
+	<li>étudier la stabilité des points d’équilibre</li>
+	<li>pour chaque point d’équilibre, simuler graphiquement et numériquement une trajectoire de 5 étapes qui soit compatible avec l’analyse de stabilité</li>
+	<li> trouver, s’il existe, un cycle d’ordre 2, donner les valeurs de ses composantes et montrer numériquement qu’il s’agit d’un cycle</li>
+</ol>
+</h4>
+<div class="answer">
+<ol>
+	<li>
+		Sur la figure 2, on voit le graphique de $f(x)$ (en rouge), de $f^2(x)$ (en bleu) et $y = x$ (en noir)
+		<figure><img src="images/info-f305/graphfx.svg" alt="answer" /></figure>
+	</li>
+	<li>$f^2(x) = min\left(5, 2^{\left(\dfrac{2^x}{x}-x\right)}x\right)$</li>
+	<li>Il y a 3 points d'équilibres $\bar{x}_1=2$, $\bar{x}_2=4$ et $\bar{x}_3=5$</li>
+	<li>
+		Nous avons $$f'(x)=-\dfrac{2^x(x\ln(2)-1)}{x^2}$$Le point d'équilibre $\bar{x}_1 = 2$ est localement asymptotiquement stable car $|f'(\bar{x}_2)|= 0.3863 < 1$ et le point $\bar{x}_2=4$ est instable car $|f'(\bar{x}_2)| = 1.7726 > 1$
+	</li>
+	<li><figure><img src="images/info-f305/traj5etapes.svg" alt="answer" /></figure></li>
+	<li>Il n'y a pas de cycles</li>
+</ol>
+</div>
 
 
 
