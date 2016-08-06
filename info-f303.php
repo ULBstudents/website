@@ -275,6 +275,73 @@ Les réponses proviennent (ou par l'intermédiaire de résumé) de Denis Steckel
 
 
 
+
+<h4 class="question">
+<ol class="alphabet">
+	<li>Expliquez la différence entre un simple ordinateur et un routeur</li>
+	<li>Expliquez le principe d'une table de routage</li>
+</ol>
+</h4>
+<div class="answer">
+<ol class="alphabet">
+	<li>Un routeur est un matériel de la chouche 3 qui relie plusieurs réseaux. Sachant qu'une carte réseau ne peut être relié qu'à un seul réseau ; il doit donc avoir une interface dans chacun des réseaux auquel il est connecté. C'est donc simplement une machine avec plusieurs interfaces (plusieurs cartes réseau), chacune reliée à un réseau. Son rôle va être d'aiguiller les paquets reçus entre les diférents réseaux. Il y a enfaite peu de chose qui différencie un simple ordinateur d'un routeur. La principale différence est qu'un routeur accepte de relayer des paquets qui ne lui sont pas destiné alors qu'une simple machine les jettera à la poubelle.
+	<li>Imaginons que nous sommes un routeur ayant comme adresse MAC l'adresse 00:11:22:33:44:55 et comme adresse IP 192.168.0.1/24. Nous recevons la trame suivante (dans laquelle nous indiquons aussi l'en-tête de couche 3) sur une de nos interfaces :
+	
+	<table>
+		<thead>
+			<tr>
+				<th>$MAC_Next$</th>
+				<th>$MAC_Prev$</th>
+				<th></th>
+				<th></th>
+				<th>$IP_SRC$</th>
+				<th>$IP_DST$</th>
+				<th></th>
+				<th></th>
+			</tr>
+		<tbody>
+			<tr>
+				<td>00:11:22:33:44:55</td>
+				<td>01:2B:45:56:78:ED</td>
+				<td>IP</td>
+				<td>???</td>
+				<td>10.0.0.1</td>
+				<td>136.42.0.28</td>
+				<td>Données à envoyer</td>
+				<td>CRC</td>
+			</tr>
+		</tbody>
+		</thead>
+		<tfoot>
+		</tfoot>
+	</table>
+		
+	Une adresse MAC est propre à un réseau local (règle couche 2), on ne connait donc pas l'adresse mac source ( $MAC_SRC$ ) ni l'adresse mac de destination ( $MAC_DEST$ ). Ici, la trame arrive sur l'interface de notre machine ayant pour adresse IP 192.168.0.1/24. Son réseau ne contient pas d'adresse UP 10.0.0.1 = la machine 10.0.0.1 ne fait pas partie du réseau. L'adresse $MAC_SRC$ que nous voyons ici est celle du dernier routeur qui nous a envoyé la trame.<br>
+	
+	Que se passe-t-il quand notre machine reçoit cette trame ?<br>
+	La carte réseau recoit la trame et lit l'adresse MAC 00:11:22:33:44:55. C'est la sienne. Il lui la suite pour voir qui l'envoie et à quel protocole de couche 3 que la couche 2 doit l'envoyer. Il est inscrit IP, donc  il  envoie la trame en enlevant l'en-tête Ethernet, ce qui donne le datagramme IP, à la couche 3 et plus précisément au protocole IP. La couche 3, donc le protocole IP, lit l'ensemble des informations de l'en-tête IP, puisqu'il sait maintenant que ce datagramme lui est destiné. Et là, l'adresse IP de destination n'est pas la sienne. Ce qui est souvent normal pour un routeur de recevoir un message qui ne lui est pas destiné ; son role va maintenant être d'aiguiller le datagramme vers sa destination. Il possède un table de routage dans laquelle est indiqué le prochain routeur auquel il doit envoyer le datagramme pour que celui-ci arrive à sa destination. La table de routage va donc lister les routeurs auxquels il peut envoyer son datagramme pour joindre une destination donnée. La destination donnée ne va pas être une machine, mais un réseau. Le principe est d'avoir d'un côté la liste des réseaux que l'on veut joindre, et de l'autre la liste des routeurs à qui nous devons envoyer le datagramme pour joindre les réseaux. On appelle aussi ce routeur une passerelle.
+	<table>
+		<thead>
+			<tr><th>Destination</th><th>Gateway</th><th>Masque</th><th>Flags</th><th>Iface</th></tr>
+		</thead>
+		<tbody>
+			<tr><td>localhost</td><td>*</td><td>255.255.255.25 5</td><td>UH</td><td>lo0</td></tr>
+			<tr><td>124.178.240.0</td><td>*</td><td>255.255.255.0</td><td>U</td><td>eth1</td></tr>
+			<tr><td>124.178.48.0</td><td>*</td><td>255.255.240.0</td><td>U</td><td>eth0</td></tr>
+			<tr><td>124.178.64.0</td><td>*</td><td>255.255.224.0</td><td>U</td><td>eth2</td></tr>
+			<tr><td>124.178.96.0</td><td>124.178.64.2</td><td>255.255.224.0</td><td>UG</td><td>eth2</td></tr>
+			<tr><td>default</td><td>124.178.240.3</td><td>0.0.0.0</td><td>UG</td><td>eth1</td></tr>
+		</tbody>
+		<tfoot>
+		</tfoot>
+	</table>
+	Il est important de bien comprendre et retenir ce qui précède, car le routage est la base du fonctionnement d'Internet. Attention, toute machine connectée à un réseau possède une table de routage, même une imprimante, un téléphone, ou un PC,...
+	</li>
+</ol>
+</div>
+
+
+
 <h4 class="question"><ol class="alphabet"><li>Expliquez l’établissement de connexion « 3-way handshake » utilisé dans le protocole de transport <b>TCP</b>, en indiquant les paramètres importants présents dans les échanges et leurs rôles.</li><li>Expliquez avec l’aide d’un exemple pourquoi un « 2-way handshake » ne serait pas suffisant.</li></ol></h4>
 <div class="answer"><ol class="alphabet">
 <li>
@@ -406,6 +473,43 @@ Les réponses proviennent (ou par l'intermédiaire de résumé) de Denis Steckel
 <div class="answer">
 	Le commutateur construit donc dynamiquement une table qui associe des adresses <b>MAC</b> avec les ports correspondant. Lorsqu'il reçoit une trame destinée à une adresse dans cette table, le commutateur renvoie la trame sur le port correspondant. Si port destination = port émetteur, la trame n'est pas transmise. Si l'adresse du destination est inconnue dans la table, alors la trame est traitée comme un broadcast, c'est-à-dire qu'elle est transmise à tous les ports du commutateur sauf celui de réception.
 </div>
+
+
+
+
+<h4 class="question">
+<ol class="alphabet">
+	<li>Décrivez le protocole ARP.</li>
+	<li>Expliquez pourquoi la table ARP est necessaire.</li>
+	<li>Décrivez le Déroulement de A à Z d'une requête ARP.</li>
+	<li>A quel couche appartient ce protocole ?</li>
+</ol>
+</h4>
+<div class="answer">
+<ol class="alphabet">
+	<li>La machine A veut communiquer avec la machine B. Si il regarde sa table de routage, il sait qu'il doit passer son message par la passerelle par défault pour joindre B. Donc pour lui envoyer la trame, il doit connaître son adresse MAC. Or, il ne la connait pas. Il faudrait pouvoir lui demander son adresse MAC mais pour lui demander il faudrait connaître son adresse MAC. C'est pour cela que le protocole ARP a été mis en place. Il peut envoyer un message à l'adresse de broadcast en demandant "est-ce que $IP$ peut m'envoyer son adresse MAC ? Grâce à l'adresse de broadcast ce message sera envoyé à tout le monde, et donc la cible le recevra et pourra lui renvoyer son adresse MAC. ARP est donc un protocole qui permet d'associer une adresse MAC de couche 2 à une adresse IP de couche 3.</li>
+	<li>Les broadcasts risquent de saturer le réseau à chaque fois que l'on veut envoyer une information. C'est pour cela qu'on a mis aussi en place la table ARP. Pour éviter d'avoir à renvoyer en permanence des broadcasts ARP à chaque fois que l'on veut envoyer une information à une machine, nous allons utiliser une table qui va garder les associations adresses IP <-> Adresses MAC pendant un court moment. Ainsi, si j'envoie un paquet à ma passerelle, je noterai son adresse MAC dans ma table ARP et la prochaine fois que je voudrai lui parler, je n'aurai plus à envoyer de broadcast sur le réseau. 
+	<br>La table ARP va donc associer adresse IP et adresse MAC correspondante. les informations contenues dans la table ARP ont une durée de vie limitée. En gros, une valeur va rester environ deux minutes dans la table avant d'être effacée s'il n'y a pas eu de dialogue avec cette adresse entre-temps. C'est pour cela que l'on dit que la table ARP est dynamique. Elle évolue au cours du temps en fonction des machines avec lesquelles il dialogue.</li>
+	<li>
+		Exemple : nous sommes la machine 192.168.0.1 et voulons envoyer un message à la machine 192.168.1.2.
+		Nous savons que nous voulons joindre d'abord le routeur 192.168.0.254, mais ne connaissons pas son adresse MAC.
+		C'est là que le protocole ARP entre en jeu :
+		<ul>
+			<li>On regarde d'abord dans la table ARP locale si on possède l'association entre l'adresse IP 192.168.0.254 et son adresse MAC ;</li>
+			<li>Si on la possède, on envoie l'information et c'est terminé ;</li>
+			<li>Sinon, on envoie un broadcast ARP sur le réseau ;</li>
+			<li>La machine 192.168.0.254 va nous répondre avec son adresse MAC ;</li>
+			<li>Nous allons noter cette adresse MAC dans notre table ARP ;</li>
+			<li>Nous allons enfin pouvoir envoyer notre information.</li>
+		</ul>
+		Voilà comment font les machines pour passer d'une adresse IP à joindre à l'adresse MAC correspondante : grâce au protocole ARP !
+	</li>
+	<li>
+		Le protocole ARP est un protocole de couche 2 ET 3 ! Il manipule des informations de couche 2, les adresses MAC, et des informations de couche 3, les adresses IP. Ainsi, on dit que ce protocole est "à cheval" entre ces deux couches.
+	</li>
+</ol>
+</div>
+
 
 
 
