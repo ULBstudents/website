@@ -256,7 +256,7 @@ sont compatibles avec le système et motiver la réponse.<figure><img src="image
 				$$
 				$$\Delta = (1-2\sqrt{3})^2-4.1.(-6\sqrt{3}) = 13+20\sqrt{3}$$
 				$$\lambda_{1,2} = \dfrac{-(1-2\sqrt{3}) \pm \sqrt{13+20\sqrt{3}}}{2} = \{4.683174;-2.219087\}$$
-				Le point $\bar{x}^{(1)}$ est une selle pour le système linéarisé, donc le point d'équilibre $\bar{x}^{(1)}$ est instable pour le système original.</li>
+				Le point $\bar{x}^{(1)}$ est une selle pour le système linéarisé car on a des valeurs propres positif et négatif, donc le point d'équilibre $\bar{x}^{(1)}$ est instable pour le système original.</li>
 			<li>
 				La matrice en $\bar{x}^{(2)}$ est $\left(\begin{array}{rr}-2\sqrt{3}&2\\-2\sqrt{3}&-1\end{array}\right)$.
 				$$
@@ -264,13 +264,13 @@ sont compatibles avec le système et motiver la réponse.<figure><img src="image
 				0 &=& det(J-\lambda I)\\
 				&=& \left|\begin{array}{rr}-2\sqrt{3}-\lambda&2\\-2\sqrt{3}&-1-\lambda\end{array}\right|\\
 				&=& (-2\sqrt{3}-\lambda).(-1-\lambda)-2.(-2\sqrt{3})\\
-				&=& 2\sqrt{3}+\lambda+2\sqrt{3}\lambda+\lambda^2-4\sqrt{3}\\
-				&=& \lambda^2+(1+2\sqrt{3})\lambda-2\sqrt{3}
+				&=& 2\sqrt{3}+\lambda+2\sqrt{3}\lambda+\lambda^2+4\sqrt{3}\\
+				&=& \lambda^2+(1+2\sqrt{3})\lambda+6\sqrt{3}
 				\end{array}
 				$$
-				$$\Delta = (1+2\sqrt{3})^2-4.1.(-2\sqrt{3}) = 13+12\sqrt{3}$$
-				$$\lambda_{1,2} = \dfrac{-(1+2\sqrt{3}) \pm \sqrt{13+12\sqrt{3}}}{2} = \{0.674175;-5.138277\}$$
-				Le point $\bar{x}^{(2)}$ est un foyer asymptomatiquement stable pour le système linéarisé. Donc le point d'équilibre $\bar{x}^{(2)}$ est asymptotiquement stable pour le système original.
+				$$\Delta = (1+2\sqrt{3})^2-4.1.(6\sqrt{3}) = 13-20\sqrt{3}$$
+				$$\lambda_{1,2} = \dfrac{-(1+2\sqrt{3}) \pm \sqrt{13-20\sqrt{3}}}{2} = \{-reelle+imaginaire;-reelle-imaginaire\}$$
+				Le point $\bar{x}^{(2)}$ est un foyer asymptomatiquement stable pour le système linéarisé car les valeurs propres sont des nombres imaginaires dont la partie réelle est négative. Donc le point d'équilibre $\bar{x}^{(2)}$ est asymptotiquement stable pour le système original.
 			</li>
 			<li>
 				La matrice en $\bar{x}^{(3)}$ est $\left(\begin{array}{rr}0&-4\\0&-1\end{array}\right)$.
@@ -284,7 +284,7 @@ sont compatibles avec le système et motiver la réponse.<figure><img src="image
 				$$
 				$$\Delta = 1^2-4.1.0 = 1$$
 				$$\lambda_{1,2} = \dfrac{-1 \pm \sqrt{1}}{2} = \{0;-1\}$$
-				Ce système est non simple puisqu une valeur propre est égale à 0. ( Nous ne pouvons rien déduire sur la stabilité du point $\bar{x}^{(3)}$ dans le système originale. ???? Prof ) Système non-simple stable car une valeur propre nulle et un réelle négative. 
+				Système non-simple stable car une valeur propre nulle et valeur propre réelle négative. Nous ne pouvons rien déduire sur la stabilité du point $\bar{x}^{(3)}$ dans le système originale.
 			</li>
 			</ul>
 		</li>
