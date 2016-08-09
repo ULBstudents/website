@@ -519,10 +519,12 @@ Les réponses proviennent (ou par l'intermédiaire de résumé) de Denis Steckel
 	Une topologie d'exemple compreant des switches et des routeurs est utilisée. On suppose que le routeur dispose d'un serveur <b>DHCP</b>
 	<ol>
 		<li>On connecte le laptop, avec un navigateur web ouvert ;</li>
-		<li>Il forge une demande <b>DHCP</b>, à destination de ff:ff:ff:ff:ff ;</li>
-		<li>Le switch recoit la trame et la broadcast partout ;</li>
-		<li>La trame arrive au routeur, qui reconnait la demande <b>DHCP</b> et répond ;</li>
+		<li>Le laptop cherche un serveur <b>DHCP</b> sur le réseau et envoie une trame DHCPDISCOVER comme un broadcast à l'adresse MAC ff:ff:ff:ff:ff:ff ;</li>
+		<li>Le switch recoit la trame et la relaye en la broadcast partout ;</li>
+		<li>La trame arrive au routeur, qui reconnait la demande <b>DHCPDISCOVER</b> et répond avec un <b>DHCPOFFER</b>. Il va alors proposer une adresse <b>IP</b>, un masque,une passerelle par défaut ainsi qu'un serveur <b>DNS</b> ;</li>
 		<li>Le laptop apprend son adresse <b>IP</b>, l'<b>IP</b> du routeur, son serveur <b>DNS</b>, etc ;</li>
+		<li>Le laptop répond par un <b>DHCPREQUEST</b>. Celui-ci est aussi envoyé en broadcast et sert à prévenir quelle offre est acceptée.</li>
+		<li>Le serveur DHCP dont l'offre a été acceptée valide la demande et envoie un DHCPACK qui valide l'allocation du bail ( On parle en effet de "bail", car cette attribution d'adresse IP a une durée limitée. Une fois expiré, il faut redemander une adresse IP. ) ;</li>
 		<li>Le laptop forge une requête <b>DNS</b> ;</li>
 		<li>Le laptop envoie un <b>WHO IS</b> <b>ARP</b> pour trouver l'adresse <b>MAC</b> du routeur ;</li>
 		<li>Le laptop recoit cette adresse <b>MAC</b> et le switch retient quelle est l'adresse <b>MAC</b> du laptop ;</li>

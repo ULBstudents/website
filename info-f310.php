@@ -22,12 +22,88 @@ table.moindrecout td {
 </style>
 
 <h1>INFO-F310 - Algorithmique et recherche opérationnelle</h1>
+
+
+
+
+
+
+
+
+
+
+
+
+<h2>Théorie</h2>
+
+
+
+
+
+
+<h4 class="question">
+	Définissez ce qu'est une variable d'écart, une variable en base et une variable hors base dans la méthode du simplexe.
+</h4>
+<div class="answer">
+	Le principe du simplexe est qu'on se déplace de sommet en sommet de manière algébrique jusqu'à trouver le sommet optimal. Le souci est que si on laisse le problème sous forme standard, on obtient une infinité de solutions avec un système de $m$ équations à $n$ inconnues, avec $m<n$. Le principe du simplexe est qu'on fixe à zéro $n-m$ variables.
+	<br>On obtient alors un système de $n$ équations à $n$ inconnues possédant une solution unique. Ce système est appelé solution de base.
+	<ol>
+		<li>Les variables fixées à zéro sont appelée variables hors-base</li>
+		<li>Les autres sont appelées variables en base</li>
+	</ol>
+	Par exemple, un système :
+	$$\begin{array}{rrrrrrr}
+	Z   &=&  0 &-& 20x_1 &+& 45x_2\\
+	s_1 &=& 20 &+&  2x_1 &-&  5x_2\\
+	s_2 &=&  0 &-&  5x_1 &+&  9x_2
+	$$
+	avec $s_1$,$s_2$ les variables en base<br>
+	et $x_1$,$x_2$ les variables hors base
+</div>
+
+
+
+<h4 class="question">
+	Énoncez le théorème de dualité faible et le théorème de dualité forme en programmation linéaire.
+</h4>
+<div class="answer">
+</div>
+
+
+
+
+<h4 class="question">
+<ol>
+	<li>Enoncez le théorème de complémentarité en programmation linéaire.</li>
+	<li>Expliquez brièvement une application possible de ce théorème.</li>
+</ol>
+</h4>
+<div class="answer">
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <h2>Méthode</h2>
-
-
-
-
-
 
 
 
