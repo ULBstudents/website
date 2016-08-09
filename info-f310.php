@@ -64,6 +64,8 @@ table.moindrecout td {
 
 
 
+
+
 <h4 class="question">
 	Énoncez le théorème de dualité faible et le théorème de dualité forme en programmation linéaire.
 </h4>
@@ -77,6 +79,7 @@ table.moindrecout td {
 
 
 
+
 <h4 class="question">
 <ol>
 	<li>Enoncez le théorème de complémentarité en programmation linéaire.</li>
@@ -84,19 +87,32 @@ table.moindrecout td {
 </ol>
 </h4>
 <div class="answer">
-	<b>Complémentarité</b>
-	$x_i(a_i^Ty-c_i)=0$ avec $a_i=$ $i$ème colonne de $A$
+<ol>	
+	<li><b>Complémentarité</b> $x_i(a_i^Ty-c_i)=0$ avec $a_i=$ $i$ème colonne de $A$
 	$$\begin{array}{r}
 	\Rightarrow x_i>0 \Rightarrow a_i^Ty=c_i\\
 	a_i^Ty>c_i \Rightarrow x_i=0
-	\end{array}$$
+	\end{array}$$</li>
 
-	On peut utiliser cela pour résoudre des exercices. Si on a la solution du primal $x_1$, $x_2$
+	<li>On peut utiliser cela pour résoudre des exercices. Si on a la solution du primal $x_1$, $x_2$
 
 	$$\begin{array}{rr}
 	\Rightarrow&x_1>0\Rightarrow a_{11}y_1 + a_{21}y_2 = c_1\\
 	&x_2>0\Rightarrow a_{12}y_1 + a_{22}y_2 = c_2\\
-	\end{array}$$
+	\end{array}$$</li>
+</ol>
+</div>
+
+
+
+
+<h4 class="question">
+<ol>	
+	<li>Définir forme standard et forme canonique d'un programme linéaire.</li>
+	<li>Montrer que tout programme linéaire peut s'écrire sous forme standard et sous forme canonique.</li>
+</ol>
+</h4>
+<div class="answer">
 </div>
 
 
@@ -117,11 +133,7 @@ table.moindrecout td {
 
 
 
-
-
-
-
-<h2>Méthode</h2>
+<h2>Méthodes</h2>
 
 
 
@@ -721,3 +733,63 @@ On procède de manière récursive pour trouver toutes les solutions.
 Pour vérifier si vous avez obtenu un bon résultat, il suffit de faire la comparaison entre le flux sortant de la source et le flux entrant dans la terminaison. Ici 4+3 = 3+4. Du coup si vous savez faire une addition comme un gosse de 8 ans, vous avez le bon résultat.
 <figure><img src="http://ulb.rodriguevb.be/images/info-f310/flotmax_sol5.svg" alt="Flot maximum" /></figure>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+<h2>Exercices</h2>
+
+<h4 class="question">
+	Un petit pays $\lambda$ se trouve sur plusieurs îles. Certaines de ces îles sont reliées par des ponts. λ
+	vient d’entrer en guerre contre son voisin qui se trouve sur le continent. λ possède 3 usines qui
+	produisent des armes : $U_1$, $U_2$ et $U_3$ ; ces usines ne se trouvent pas sur la même île (voir la carte
+	sur la Figure). En ce moment la ligne de front se trouve sur le continent ($F$).<br>
+	On vous demande de répondre aux questions suivantes :
+	<ol>
+		<li>Calculer le nombre maximal d’armes qu’on peut transporter vers la ligne de front (sur le continent) en exécutant l’algorithme de recherche de flot max.</li>
+		<li> Tous les ponts doivent être bien protégés, quels sont les ponts qui doivent être surveillés avec le plus d’attention ? Autrement dit : supposons que vous êtes du côté de l’adversaire et vous devez détruire un ou plusieurs ponts. Quel(s) pont(s) allez-vous détruire ? Justifiez vos choix</li>
+	</ol>
+	<figure><img src="http://ulb.rodriguevb.be/images/info-f310/lacarte.svg" alt="La carte" /></figure>
+</h4>
+<div class="answer">
+<ol>
+	<li>
+		Le nombre maximal d’armes qu’on peut transporter vers la ligne de front (sur le continent) est de $15$.
+		<figure><img src="http://ulb.rodriguevb.be/images/info-f310/lacarte_1.svg" alt="La carte" /></figure>
+	</li>
+	<li>
+		Le pont entre $A$ et $B$ peut sembler important mais comme le montre la figure suivante, elle ne fait que réduire qu'à $9$ le flux maximum.
+		<figure><img src="http://ulb.rodriguevb.be/images/info-f310/lacarte_2.svg" alt="La carte" /></figure>
+		Tandis qu'un retrait d'au moins un des deux ponts sur la liaison $B$ à $F$ ( $BE$ ou $EF$ ) réduirait le flux maximum à $8$.
+		<figure><img src="http://ulb.rodriguevb.be/images/info-f310/lacarte_3.svg" alt="La carte" /></figure>
+	</li>
+</ol>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
