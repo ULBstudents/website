@@ -780,10 +780,104 @@ Pour vérifier si vous avez obtenu un bon résultat, il suffit de faire la compa
 
 
 
-
-
-
-
+<h4 class="question">
+	Une petite firme qui produit du papier a trois usines et quatre centres de distribution. Les capacités des trois usines sont de 15, 25 et 10 tonnes de papier par mois respectivement, et les demandes aux centres de distribution sont de 5, 15, 15 et 15 tonnes de papier par mois. Voici la table des coˆuts :
+	<table class="moindrecout">
+		<thead>
+			<tr>
+				<th></th>
+				<th>$Distro_1$</th>
+				<th>$Distro_2$</th>
+				<th>$Distro_3$</th>
+				<th>$Distro_4$</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<th>$Usine_1$</th>
+				<td>10</td>
+				<td>2</td>
+				<td>20</td>
+				<td>11</td>
+			</tr>
+			<tr>
+				<th>$Usine_2$</th>
+				<td>12</td>
+				<td>7</td>
+				<td>9</td>
+				<td>20</td>
+			</tr>
+			<tr>
+				<th>$Usine_3$</th>
+				<td>4</td>
+				<td>14</td>
+				<td>16</td>
+				<td>18</td>
+			</tr>
+		</tbody>
+		<tfoot>
+		</tfoot>
+	</table>
+	<ol>
+		<li> Modélisez le problème comme un problème de transport,</li>
+		<li> Déterminez la solution optimale en expliquant les détails de la méthode utilisée.</li>
+	</ol>
+</h4>
+<div class="answer">
+	<ol>
+	<li>
+		<table class="moindrecout">
+			<thead>
+				<tr>
+					<th></th>
+					<th>$Distro_1$</th>
+					<th>$Distro_2$</th>
+					<th>$Distro_3$</th>
+					<th>$Distro_4$</th>
+					<th>Offre</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th>$Usine_1$</th>
+					<td>10</td>
+					<td>2</td>
+					<td>20</td>
+					<td>11</td>
+					<td>15</td>
+				</tr>
+				<tr>
+					<th>$Usine_2$</th>
+					<td>12</td>
+					<td>7</td>
+					<td>9</td>
+					<td>20</td>
+					<td>25</td>
+				</tr>
+				<tr>
+					<th>$Usine_3$</th>
+					<td>4</td>
+					<td>14</td>
+					<td>16</td>
+					<td>18</td>
+					<td>10</td>
+				</tr>
+			</tbody>
+			<tfoot>
+				<tr>
+					<th>Demande</th>
+					<td>5</td>
+					<td>15</td>
+					<td>15</td>
+					<td>15</td>
+				</tr>
+			</tfoot>
+		</table>
+	</li>
+	<li>
+	</li>
+	</ol>
+</div>
 
 
 
