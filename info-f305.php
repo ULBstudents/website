@@ -285,7 +285,7 @@ sont compatibles avec le système et motiver la réponse.<figure><img src="image
 	<ol>
 		<li>On recherche les points d'équilibres :
 			$$\begin{array}{ll}
-			               &\left\{\begin{array}{rcl}x_1^2 +x_2^2-4& = & 0\\x_1^2-x_2 -2 & = & 0\end{array}\right.\\
+						   &\left\{\begin{array}{rcl}x_1^2 +x_2^2-4& = & 0\\x_1^2-x_2 -2 & = & 0\end{array}\right.\\
 			\Leftrightarrow&\left\{\begin{array}{rcl}(x_2+2)+x_2^2-4& = & 0\\x_1^2 & = & x_2+2\end{array}\right.
 			\end{array}$$
 			On calcule le delta et on trouve deux points : $-2$ et $1$
