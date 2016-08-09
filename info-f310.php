@@ -56,6 +56,7 @@ table.moindrecout td {
 	Z   &=&  0 &-& 20x_1 &+& 45x_2\\
 	s_1 &=& 20 &+&  2x_1 &-&  5x_2\\
 	s_2 &=&  0 &-&  5x_1 &+&  9x_2
+	\end{array}
 	$$
 	avec $s_1$,$s_2$ les variables en base<br>
 	et $x_1$,$x_2$ les variables hors base
@@ -67,6 +68,10 @@ table.moindrecout td {
 	Énoncez le théorème de dualité faible et le théorème de dualité forme en programmation linéaire.
 </h4>
 <div class="answer">
+	<b>Dualité faible</b> Soit x une solution admissible du primal et y une solution admissible du dual, alors $$C^Tx \leq b^Ty$$ 
+	De plus s'il y a égalité, alors $x$ et $y$ sont des solutions optimales
+
+	<b>Dualité forte</b> Si le primal et le dual admettent tous les deux une solution admissible, ils ont alors tout deux une solution optimale finie et la même valeur objectif optimale. De plus si le primal (dual) est non borné (c-à-d a une solution infinie), alors le dual (primal) n’admet pas de solution admissible.
 </div>
 
 
@@ -79,6 +84,19 @@ table.moindrecout td {
 </ol>
 </h4>
 <div class="answer">
+	<b>Complémentarité</b>
+	$x_i(a_i^Ty-c_i)=0$ avec $a_i=$ $i$ème colonne de $A$
+	$$\begin{array}{r}
+	\Rightarrow x_i>0 \Rightarrow a_i^Ty=c_i\\
+	a_i^Ty>c_i \Rightarrow x_i=0
+	\end{array}$$
+
+	On peut utiliser cela pour résoudre des exercices. Si on a la solution du primal $x_1$, $x_2$
+
+	$$\begin{array}{rr}
+	\Rightarrow&x_1>0\Rightarrow a_{11}y_1 + a_{21}y_2 = c_1\\
+	&x_2>0\Rightarrow a_{12}y_1 + a_{22}y_2 = c_2\\
+	\end{array}$$
 </div>
 
 
