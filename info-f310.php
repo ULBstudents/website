@@ -1,23 +1,23 @@
 <style type="text/css">
 
 table.moindrecout b {
-    color: red;
+	color: red;
 }
 
 table.moindrecout i {
-    color: green;
-    float: right;
+	color: green;
+	float: right;
 }
 
 table.moindrecout u {
-    float: right;
-    text-decoration: none;
-    color: blue;
+	float: right;
+	text-decoration: none;
+	color: blue;
 }
 
 table.moindrecout td {
-    min-width: 3.5em;
-    vertical-align: top;
+	min-width: 3.5em;
+	vertical-align: top;
 }
 </style>
 
@@ -73,7 +73,7 @@ table.moindrecout td {
 	<b>Dualité faible</b> Soit x une solution admissible du primal et y une solution admissible du dual, alors $$C^Tx \leq b^Ty$$ 
 	De plus s'il y a égalité, alors $x$ et $y$ sont des solutions optimales
 
-	<b>Dualité forte</b> Si le primal et le dual admettent tous les deux une solution admissible, ils ont alors tout deux une solution optimale finie et la même valeur objectif optimale. De plus si le primal (dual) est non borné (c-à-d a une solution infinie), alors le dual (primal) n’admet pas de solution admissible.
+	<b>Dualité forte</b> Si le primal et le dual admettent tous les deux une solution admissible, ils ont alors tout deux une solution optimale finie et la même valeur objectif optimale. De plus si le primal (dual) est non borné (c-à-d a une solution infinie), alors le dual (primal) n'admet pas de solution admissible.
 </div>
 
 
@@ -147,11 +147,11 @@ table.moindrecout td {
 
 
 <h4 class="question">Une usine fabrique deux produits: $X$ et $Y$. Leur production nécessite un
-certain nombre de jours de travail, d’heures-machine ainsi qu’une certaine
+certain nombre de jours de travail, d'heures-machine ainsi qu'une certaine
 quantité de matériaux $A$ et $B$. Ces différentes ressources sont limitées
 mensuellement conformément aux données qui figurent dans le tableau
 ci-dessous. Une analyse de marché a démontré que toute la production
-sera vendue si l’on produit au maximum 30 unités de plus du produit $Y$
+sera vendue si l'on produit au maximum 30 unités de plus du produit $Y$
 que du produit $X$. Déterminer, graphiquement, la production mensuelle
 qui assure un bénéfice maximum.
 <table class="moindrecout">
@@ -206,8 +206,8 @@ $$
    2x &+&  y  & \leq & 170 \\
    5x &+& 2y  & \leq & 420 \\
    -x &+&  y  & \leq & 30 \\
-    x &+&     & \geq & 0 \\
-      & &  y  & \geq & 0 \\
+	x &+&	 & \geq & 0 \\
+	  & &  y  & \geq & 0 \\
 \end{array}
 $$
 On change les inégalités par des égalités
@@ -218,9 +218,9 @@ $$
 	2x &+&  y &&&+&t_3&&& = & 170 \\
 	5x &+& 2y &&&&+&t_4&& = & 420 \\
 	-x &+&  y &&&&&+&t_5& = & 30 \\
-	 x & &    &&&&&&& \geq & 0 \\
+	 x & &	&&&&&&& \geq & 0 \\
 	   & &  y &&&&&&& \geq & 0 \\
-	   & &    &&&&&&t_i& \geq & 0 & \forall i\\
+	   & &	&&&&&&t_i& \geq & 0 & \forall i\\
 \end{array}
 $$
 On isole simplement les $t_i$. Ensuite on choisi soit $20x$ soit $30y$ ; le but étant de mettre les deux négatifs, on choisit le plus haut : $30y$. Puis on choisit un $t_i$ en prennant le plus grand parmi $\dfrac{300}{-5}, \dfrac{200}{-2}, \dfrac{170}{-1}, \dfrac{420}{-2} et \dfrac{30}{-1}$. Donc $t_5$.
@@ -260,7 +260,7 @@ $$
 $$
 $$
 \begin{array}{rrrrrrr}
-	x &=& 25    &-& \dfrac{1}{6}t_1  &+&  \dfrac{1}{6}t_5\\
+	x &=& 25	&-& \dfrac{1}{6}t_1  &+&  \dfrac{1}{6}t_5\\
 	\textcolor{red}{t_2} &=& 40  &+& \dfrac{2}{3}t_1  &-&  \dfrac{4}{3}t_5\\
 	t_3 &=& 65  &+& \dfrac{1}{2}t_1  &-&  \dfrac{3}{2}t_5\\
 	t_4 &=& 185 &+& \dfrac{7}{6}t_1  &-&  \dfrac{23}{6}t_5\\
@@ -271,11 +271,11 @@ $$
 $$
 $$
 \begin{array}{rrrrrrr}
-	x   &=& 50    &+& \dfrac{1}{4}t_1  &-&  \dfrac{5}{8}t_2\\
-	t_5 &=& 30    &+& \dfrac{1}{2}t_1  &-&  \dfrac{3}{4}t_2\\
-	t_3 &=& 20    &-& \dfrac{1}{4}t_1  &+&  \dfrac{9}{8}t_2\\
-	t_4 &=& 70    &-& \dfrac{3}{4}t_1  &+&  \dfrac{23}{8}t_2\\
-	y   &=& 50    &-& \dfrac{1}{4}t_1  &+&  \dfrac{1}{8}t_2\\
+	x   &=& 50	&+& \dfrac{1}{4}t_1  &-&  \dfrac{5}{8}t_2\\
+	t_5 &=& 30	&+& \dfrac{1}{2}t_1  &-&  \dfrac{3}{4}t_2\\
+	t_3 &=& 20	&-& \dfrac{1}{4}t_1  &+&  \dfrac{9}{8}t_2\\
+	t_4 &=& 70	&-& \dfrac{3}{4}t_1  &+&  \dfrac{23}{8}t_2\\
+	y   &=& 50	&-& \dfrac{1}{4}t_1  &+&  \dfrac{1}{8}t_2\\
 	\hline
 	Z_0 &=&   2500  &-&  \dfrac{5}{2}t_1  &-&  \dfrac{35}{4}t_5
 \end{array}
@@ -306,11 +306,11 @@ La réponse est donc $x=50$, $y=50$ et Le maximum possible est $2500$
 
 
 <h4 class="question">Une fabrique de conserve expédie des caisses ver des dépôts. Nous voulons
-que le programme d’expédition des caisses minimise le cot de transport
-total des usines ver les dépôts. Pour simplifier, nous supposerons qu’il y a
+que le programme d'expédition des caisses minimise le cot de transport
+total des usines ver les dépôts. Pour simplifier, nous supposerons qu'il y a
 deux usine I et II et trois dépôts A, B, C. Les disponibilité en caisse sont
-respectivement 350 et 550 pour l’usine I et II et le besoin des trois dépôts
-est 300. Le coût d’expedition, par caisse, entre chaque usine et chaque
+respectivement 350 et 550 pour l'usine I et II et le besoin des trois dépôts
+est 300. Le coût d'expedition, par caisse, entre chaque usine et chaque
 dépôt est dans le tableau ci-dessous:
 <ul>
 	<li>Une firme automobile a trois usines à Los Angeles, Detroit et New Orleans, et deux centres de distribution à Denver et Miami.</li>
@@ -590,9 +590,9 @@ On obtient au final ceci car les variables entrantes sont négatives
 <h4 class="question">Des voitures sont transportées depuis trois centres de distribution vers cinq revendeurs. Le coût
 de transport dépend de la distance entre les sources et les destinations ainsi que du fait que
 le camion est plein ou seulement à moitié rempli. La table ci-dessous reprend les distances (en
-km) entre les centres de distribution et les revendeurs ainsi que les capacités d’approvisionnement
+km) entre les centres de distribution et les revendeurs ainsi que les capacités d'approvisionnement
 mensuelles des centres de distribution et les demandes, mensuelles aussi, des revendeurs,
-exprimées en nombres de voitures. Un camion plein peut transporter jusqu’à 18 voitures. Le
+exprimées en nombres de voitures. Un camion plein peut transporter jusqu'à 18 voitures. Le
 coût de transport est de $25 par camion par km.
 <table class="moindrecout">
 	<thead>
@@ -747,37 +747,56 @@ Pour vérifier si vous avez obtenu un bon résultat, il suffit de faire la compa
 
 <h2>Exercices</h2>
 
+
 <h4 class="question">
-	Un petit pays $\lambda$ se trouve sur plusieurs îles. Certaines de ces îles sont reliées par des ponts. λ
-	vient d’entrer en guerre contre son voisin qui se trouve sur le continent. λ possède 3 usines qui
-	produisent des armes : $U_1$, $U_2$ et $U_3$ ; ces usines ne se trouvent pas sur la même île (voir la carte
-	sur la Figure). En ce moment la ligne de front se trouve sur le continent ($F$).<br>
-	On vous demande de répondre aux questions suivantes :
-	<ol>
-		<li>Calculer le nombre maximal d’armes qu’on peut transporter vers la ligne de front (sur le continent) en exécutant l’algorithme de recherche de flot max.</li>
-		<li> Tous les ponts doivent être bien protégés, quels sont les ponts qui doivent être surveillés avec le plus d’attention ? Autrement dit : supposons que vous êtes du côté de l’adversaire et vous devez détruire un ou plusieurs ponts. Quel(s) pont(s) allez-vous détruire ? Justifiez vos choix</li>
-	</ol>
-	<figure><img src="http://ulb.rodriguevb.be/images/info-f310/lacarte.svg" alt="La carte" /></figure>
+Le gérant d'un hôtel souhaite renouveler le linge de toilette de son établissement. Il a besoin de :
+<ul>
+	<li>90 draps de bain,</li>
+	<li>240 serviettes et</li>
+	<li>240 gants de toilette.</li>
+</ul>
+Une première entreprise de vente lui propose un lot A comprenant 2 draps de bain, 4 serviettes et 8
+gants pour 5 €. Une deuxième entreprise vend pour 9 € un lot B de 3 draps de bains, 12 serviettes et 6
+gants de toilettes.
+Pour répondre à ses besoins, le gérant achète $x$ lots A et $y$ lots B.
+<ul>
+	<li>Ecrire le problème du choix optimal des quantités $x$ et $y$ comme un programme linéaire en nombres
+	entiers.</li>
+	<li>Résoudre la relaxation linéaire du problème graphiquement.</li>
+	<li>Quelle est la solution optimale du problème en nombres entiers ? Justifiez.</li>
+	<li>Ecrire le dual du programme linéaire (relaxé).</li>
+	<li>Déterminer la solution optimale du dual.</li>
+	<li>[Bonus] Un hôtel voisin voudrait que notre gérant augmente les quantités commandées afin de lui
+	racheter les draps de bain excédentaire. A quel prix de rachat minimum notre gérant acceptera-t-il
+	cette offre ? Justifier.</li>
+</ul>
 </h4>
 <div class="answer">
-<ol>
-	<li>
-		Le nombre maximal d’armes qu’on peut transporter vers la ligne de front (sur le continent) est de $15$.
-		<figure><img src="http://ulb.rodriguevb.be/images/info-f310/lacarte_1.svg" alt="La carte" /></figure>
-	</li>
-	<li>
-		Le pont entre $A$ et $B$ peut sembler important mais comme le montre la figure suivante, elle ne fait que réduire qu'à $9$ le flux maximum.
-		<figure><img src="http://ulb.rodriguevb.be/images/info-f310/lacarte_2.svg" alt="La carte" /></figure>
-		Tandis qu'un retrait d'au moins un des deux ponts sur la liaison $B$ à $F$ ( $BE$ ou $EF$ ) réduirait le flux maximum à $8$.
-		<figure><img src="http://ulb.rodriguevb.be/images/info-f310/lacarte_3.svg" alt="La carte" /></figure>
-	</li>
-</ol>
+<ul>
+	<li>max $Z = xA + yB$</li>
+</ul>
 </div>
 
 
-
-
-
+<h4 class="question">
+	L'entreprise Mobilier & Co., produit des bureaux et des chaises. La production d'un bureau requiert 4 unités de bois, et la production d'une chaise requiert 3 unités de bois. La vente d'un bureau rapporte 40€, alors que celle d'une chaise rapporte 25€. On suppose que tout ce qui est produit est vendu. Des restrictions de marketing imposent que le nombre de chaises produites soit au moins le double du nombre de bureaux produits. De plus, on ne dispose que de 20 unités de bois.
+	<ul>
+		<li>Formulez un programme linéaire qui détermine le plan de production optimal de Mobilier & Co.</li>
+		<li>Résolvez le problème graphiquement</li>
+		<li>Résolvez le problème avec l'algorithme du simplexe</li>
+		<li>Ecrire le dual du problème linéaire et déterminer sa solution optimale</li>
+		<li>Mobilier & Co. décide d'acheter du bois supplémentaire. Quel prix maximum acceptera-t-elle de payer par unité ?</li>
+	</ul>
+</h4>
+<div class="answer">
+<ul>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+</ul>
+</div>
 
 
 <h4 class="question">
@@ -884,6 +903,58 @@ Pour vérifier si vous avez obtenu un bon résultat, il suffit de faire la compa
 
 
 
+<h4 class="question">
+	Un petit pays $\lambda$ se trouve sur plusieurs îles. Certaines de ces îles sont reliées par des ponts. λ
+	vient d'entrer en guerre contre son voisin qui se trouve sur le continent. λ possède 3 usines qui
+	produisent des armes : $U_1$, $U_2$ et $U_3$ ; ces usines ne se trouvent pas sur la même île (voir la carte
+	sur la Figure). En ce moment la ligne de front se trouve sur le continent ($F$).<br>
+	On vous demande de répondre aux questions suivantes :
+	<ol>
+		<li>Calculer le nombre maximal d'armes qu'on peut transporter vers la ligne de front (sur le continent) en exécutant l'algorithme de recherche de flot max.</li>
+		<li> Tous les ponts doivent être bien protégés, quels sont les ponts qui doivent être surveillés avec le plus d'attention ? Autrement dit : supposons que vous êtes du côté de l'adversaire et vous devez détruire un ou plusieurs ponts. Quel(s) pont(s) allez-vous détruire ? Justifiez vos choix</li>
+	</ol>
+	<figure><img src="http://ulb.rodriguevb.be/images/info-f310/lacarte.svg" alt="La carte" /></figure>
+</h4>
+<div class="answer">
+<ol>
+	<li>
+		Le nombre maximal d'armes qu'on peut transporter vers la ligne de front (sur le continent) est de $15$.
+		<figure><img src="http://ulb.rodriguevb.be/images/info-f310/lacarte_1.svg" alt="La carte" /></figure>
+	</li>
+	<li>
+		Le pont entre $A$ et $B$ peut sembler important mais comme le montre la figure suivante, elle ne fait que réduire qu'à $9$ le flux maximum.
+		<figure><img src="http://ulb.rodriguevb.be/images/info-f310/lacarte_2.svg" alt="La carte" /></figure>
+		Tandis qu'un retrait d'au moins un des deux ponts sur la liaison $B$ à $F$ ( $BE$ ou $EF$ ) réduirait le flux maximum à $8$.
+		<figure><img src="http://ulb.rodriguevb.be/images/info-f310/lacarte_3.svg" alt="La carte" /></figure>
+	</li>
+</ol>
+</div>
 
 
+
+
+<h4 class="question">
+	Le réseau fluvial illustré ci-dessous se compose de canaux à sens unique. Le nombre maximum
+	de bateaux qui peuvent passer à travers chaque canal en une journée est également indiqué sur
+	la figure
+	<figure><img src="http://ulb.rodriguevb.be/images/info-f310/reseaufluvial.svg" alt="Réseau fluvial" /></figure>
+	<ol>
+		<li>Calculer le nombre maximum de bateaux qui peuvent transiter par les réseaux de $P_1$ à $P_2$</li>
+		<li>Sachant que vous pouvez augmenter la capacité d'un canal unique, lequel choisiriez-vous d'augmenter (et comment) pour augmenter le nombre de bateaux qui peuvent passer dans une journée ? (discuter)</li>
+	</ol>
+</h4>
+<div class="answer">
+	<ol>
+		<li>
+			Le nombre maximum de bateau est de 9.
+			<figure><img src="http://ulb.rodriguevb.be/images/info-f310/reseaufluvial_1.svg" alt="Réseau fluvial" /></figure>
+		</li>
+		<li>
+			On a deux choix, soit on augmente le 2 en haut à droite jusqu'à 4. Ce qui fait gagner 2 unités.
+			<figure><img src="http://ulb.rodriguevb.be/images/info-f310/reseaufluvial_2.svg" alt="Réseau fluvial" /></figure>
+			Soit on augmente le 4 en bas à droite jusqu'à 6. Et on gagne aussi 2 unités.
+			<figure><img src="http://ulb.rodriguevb.be/images/info-f310/reseaufluvial_3.svg" alt="Réseau fluvial" /></figure>
+		</li>
+	</ol>
+</div>
 
