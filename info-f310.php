@@ -38,7 +38,7 @@ table.moindrecout td {
 
 
 
-
+<h3>Simplexe</h3>
 
 
 <h4 class="question">
@@ -70,10 +70,15 @@ table.moindrecout td {
 	Énoncez le théorème de dualité faible et le théorème de dualité forme en programmation linéaire.
 </h4>
 <div class="answer">
-	<b>Dualité faible</b> Soit x une solution admissible du primal et y une solution admissible du dual, alors $$C^Tx \leq b^Ty$$ 
-	De plus s'il y a égalité, alors $x$ et $y$ sont des solutions optimales
-
-	<b>Dualité forte</b> Si le primal et le dual admettent tous les deux une solution admissible, ils ont alors tout deux une solution optimale finie et la même valeur objectif optimale. De plus si le primal (dual) est non borné (c-à-d a une solution infinie), alors le dual (primal) n'admet pas de solution admissible.
+	<ul>
+		<li>
+			<b>Dualité faible</b> Soit x une solution admissible du primal et y une solution admissible du dual, alors $$C^Tx \leq b^Ty$$ 
+			De plus s'il y a égalité, alors $x$ et $y$ sont des solutions optimales
+		</li>
+		<li>
+			<b>Dualité forte</b> Si le primal et le dual admettent tous les deux une solution admissible, ils ont alors tout deux une solution optimale finie et la même valeur objectif optimale. De plus si le primal (dual) est non borné (c-à-d a une solution infinie), alors le dual (primal) n'admet pas de solution admissible.
+		</li>
+	</ul>
 </div>
 
 
@@ -81,25 +86,27 @@ table.moindrecout td {
 
 
 <h4 class="question">
-<ol>
-	<li>Enoncez le théorème de complémentarité en programmation linéaire.</li>
-	<li>Expliquez brièvement une application possible de ce théorème.</li>
-</ol>
+	<ol>
+		<li>Enoncez le théorème de complémentarité en programmation linéaire.</li>
+		<li>Expliquez brièvement une application possible de ce théorème.</li>
+	</ol>
 </h4>
 <div class="answer">
 <ol>	
-	<li><b>Complémentarité</b> $x_i(a_i^Ty-c_i)=0$ avec $a_i=$ $i$ème colonne de $A$
-	$$\begin{array}{r}
-	\Rightarrow x_i>0 \Rightarrow a_i^Ty=c_i\\
-	a_i^Ty>c_i \Rightarrow x_i=0
-	\end{array}$$</li>
-
-	<li>On peut utiliser cela pour résoudre des exercices. Si on a la solution du primal $x_1$, $x_2$
-
-	$$\begin{array}{rr}
-	\Rightarrow&x_1>0\Rightarrow a_{11}y_1 + a_{21}y_2 = c_1\\
-	&x_2>0\Rightarrow a_{12}y_1 + a_{22}y_2 = c_2\\
-	\end{array}$$</li>
+	<li>
+		<b>Complémentarité</b> $x_i(a_i^Ty-c_i)=0$ avec $a_i=$ $i$ème colonne de $A$
+		$$\begin{array}{r}
+		\Rightarrow x_i>0 \Rightarrow a_i^Ty=c_i\\
+		a_i^Ty>c_i \Rightarrow x_i=0
+		\end{array}$$
+	</li>
+	<li>
+		On peut utiliser cela pour résoudre des exercices. Si on a la solution du primal $x_1$, $x_2$
+		$$\begin{array}{rr}
+		\Rightarrow&x_1>0\Rightarrow a_{11}y_1 + a_{21}y_2 = c_1\\
+		&x_2>0\Rightarrow a_{12}y_1 + a_{22}y_2 = c_2\\
+		\end{array}$$
+	</li>
 </ol>
 </div>
 
@@ -107,16 +114,36 @@ table.moindrecout td {
 
 
 <h4 class="question">
-<ol>	
-	<li>Définir forme standard et forme canonique d'un programme linéaire.</li>
-	<li>Montrer que tout programme linéaire peut s'écrire sous forme standard et sous forme canonique.</li>
-</ol>
+	<ol>	
+		<li>Définir forme standard et forme canonique d'un programme linéaire.</li>
+		<li>Montrer que tout programme linéaire peut s'écrire sous forme standard et sous forme canonique.</li>
+	</ol>
 </h4>
 <div class="answer">
+	<ol>	
+		<li></li>
+		<li></li>
+	</ol>
 </div>
 
 
 
+<h4 class="question">
+<ol>	
+	<li>Définir (en fran¸cais) le problème de transport.</li>
+	<li>Formuler le problème de transport comme un programme linéaire et écrire son dual.</li>
+	<li>Décrire une itération du simplexe adapté au problème de transport.</li>
+	<li>Justifier la condition d’arrˆet de l’algorithme.</li>
+</ol>
+</h4>
+<div class="answer">
+	<ol>	
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ol>
+</div>
 
 
 
@@ -759,7 +786,7 @@ Une première entreprise de vente lui propose un lot A comprenant 2 draps de bai
 gants pour 5 €. Une deuxième entreprise vend pour 9 € un lot B de 3 draps de bains, 12 serviettes et 6
 gants de toilettes.
 Pour répondre à ses besoins, le gérant achète $x$ lots A et $y$ lots B.
-<ul>
+<ol>
 	<li>Ecrire le problème du choix optimal des quantités $x$ et $y$ comme un programme linéaire en nombres
 	entiers.</li>
 	<li>Résoudre la relaxation linéaire du problème graphiquement.</li>
@@ -769,33 +796,38 @@ Pour répondre à ses besoins, le gérant achète $x$ lots A et $y$ lots B.
 	<li>[Bonus] Un hôtel voisin voudrait que notre gérant augmente les quantités commandées afin de lui
 	racheter les draps de bain excédentaire. A quel prix de rachat minimum notre gérant acceptera-t-il
 	cette offre ? Justifier.</li>
-</ul>
+</ol>
 </h4>
 <div class="answer">
-<ul>
+<ol>
 	<li>max $Z = xA + yB$</li>
-</ul>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+</ol>
 </div>
 
 
 <h4 class="question">
 	L'entreprise Mobilier & Co., produit des bureaux et des chaises. La production d'un bureau requiert 4 unités de bois, et la production d'une chaise requiert 3 unités de bois. La vente d'un bureau rapporte 40€, alors que celle d'une chaise rapporte 25€. On suppose que tout ce qui est produit est vendu. Des restrictions de marketing imposent que le nombre de chaises produites soit au moins le double du nombre de bureaux produits. De plus, on ne dispose que de 20 unités de bois.
-	<ul>
+	<ol>
 		<li>Formulez un programme linéaire qui détermine le plan de production optimal de Mobilier & Co.</li>
 		<li>Résolvez le problème graphiquement</li>
 		<li>Résolvez le problème avec l'algorithme du simplexe</li>
 		<li>Ecrire le dual du problème linéaire et déterminer sa solution optimale</li>
 		<li>Mobilier & Co. décide d'acheter du bois supplémentaire. Quel prix maximum acceptera-t-elle de payer par unité ?</li>
-	</ul>
+	</ol>
 </h4>
 <div class="answer">
-<ul>
+<ol>
 	<li></li>
 	<li></li>
 	<li></li>
 	<li></li>
 	<li></li>
-</ul>
+</ol>
 </div>
 
 
