@@ -13,7 +13,17 @@
 
 div.recap {
 	display: inline-block;
+	border: 0.005em rgba(60,60,60,0.2) solid;
+	width: 25em;
+	vertical-align: top;
+	margin: 0.2em;
+	padding: 0em 1em;
 }
+
+div.recap img {
+	max-width: 20em;
+}
+
 </style>
 
 <div class="recap">
