@@ -449,7 +449,7 @@ sont compatibles avec le système et motiver la réponse.<figure><img src="image
 		$$\Delta = 8^2$$
 		$$\dfrac{-8\pm \sqrt{8^2}}{2} = \{-8 ; 0\}$$
 		L'équation homogène ($x^h(k)$) est alors
-		$$x^h(k)=c_1^0k+c_2(-8)^k$$
+		$$x^h(k)=c_10^k+c_2(-8)^k$$
 	</li>
 	<li>
 		La solution particulière ($x^p(k)$) aura la forme $c8(2^k)$, il suffit d'injecter cela dans l'équation de départ et on a
