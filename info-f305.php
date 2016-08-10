@@ -454,29 +454,30 @@ sont compatibles avec le système et motiver la réponse.<figure><img src="image
 	<li>
 		La solution particulière ($x^p(k)$) aura la forme $c8(2^k)$, il suffit d'injecter cela dans l'équation de départ et on a
 		$$\begin{array}{rrrrrr}
-		&c8(2^{k+4}) &+& c8(2^{k+2}) &=& 8(2^k)\\
-		\Leftrightarrow&8(2^k) (c2^4 &+& c2^2) &=& 8(2^k)\\
-		\Leftrightarrow&c2^4 &+& c2^2 &=& 1\\
-		\Leftrightarrow&&&20c&=&1\\
-		\Leftrightarrow&&&c&=&\dfrac{1}{20}\\
-		\Leftrightarrow&&&x^p(k)&=&\dfrac{8}{20}2^k
+		&c8(2^{k+4}) &+& 8c8(2^{k+2}) &=& 8(2^k)\\
+		\Leftrightarrow&8(2^k) (c2^4 &+& 8c2^2) &=& 8(2^k)\\
+		\Leftrightarrow&c2^4 &+& 8c2^2 &=& 1\\
+		\Leftrightarrow&&&48c&=&1\\
+		\Leftrightarrow&&&c&=&\dfrac{1}{48}\\
+		\Leftrightarrow&&&x^p(k)&=&\dfrac{8}{48}2^k
+		\Leftrightarrow&&&x^p(k)&=&\dfrac{1}{16}2^k
 		\end{array}$$
 	</li>
 	<li>
 		La solution générale ($x(k)$) est
 		$$\begin{array}{rrrrr}
 		x(k) &=& x^h(k) &+& x^p(k)\\
-		&=& c_10^k+c_2(-8)^k&+&\dfrac{8}{20}2^k
+		&=& c_10^k+c_2(-8)^k&+&\dfrac{1}{16}2^k
 		\end{array}$$
 		Pour trouver solution particulière pour $x(0)=\sin(a)$ et $x(1)=\sin(b)$, il faut résoudre le système suivant afin de trouver $c_1$ et $c_2$ :
 		$$\left\{\begin{array}{rrrrr}
-		(-8)^0c_2&+&\dfrac{8}{20}2^0 &=& \sin(a)\\
-		(-8)^1c_2&+&\dfrac{8}{20}2^1 &=& \sin(b)
+		(-8)^0c_2&+&\dfrac{1}{16}2^0 &=& \sin(a)\\
+		(-8)^1c_2&+&\dfrac{1}{16}2^1 &=& \sin(b)
 		\end{array}\right.
 		\Leftrightarrow
 		\left\{\begin{array}{rrc}
-		c_2&=&\sin(a)-\dfrac{8}{20}\\
-		c_2&=&\dfrac{1}{-8}\left(\sin(b)-\dfrac{8}{10}\right)
+		c_2&=&\sin(a)-\dfrac{1}{16}\\
+		c_2&=&\dfrac{1}{-8}\left(\sin(b)-\dfrac{1}{8}\right)
 		\end{array}\right.
 		$$
 		Et l'on trouve $c_1=\mathbb{R}$ et $c_2=NaN$. La solution particulière est donc
