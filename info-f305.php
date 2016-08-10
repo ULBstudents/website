@@ -459,7 +459,7 @@ sont compatibles avec le système et motiver la réponse.<figure><img src="image
 		\Leftrightarrow&c2^4 &+& 8c2^2 &=& 1\\
 		\Leftrightarrow&&&48c&=&1\\
 		\Leftrightarrow&&&c&=&\dfrac{1}{48}\\
-		\Leftrightarrow&&&x^p(k)&=&\dfrac{8}{48}2^k
+		\Leftrightarrow&&&x^p(k)&=&\dfrac{8}{48}2^k\\
 		\Leftrightarrow&&&x^p(k)&=&\dfrac{1}{16}2^k
 		\end{array}$$
 	</li>
@@ -480,10 +480,12 @@ sont compatibles avec le système et motiver la réponse.<figure><img src="image
 		c_2&=&\dfrac{1}{-8}\left(\sin(b)-\dfrac{1}{8}\right)
 		\end{array}\right.
 		$$
-		Et l'on trouve $c_1=\mathbb{R}$ et $c_2=NaN$. La solution particulière est donc
-		$$x(k)=NaN$$
 	</li>
-	<li></li>
+	<li>
+		Et l'on trouve $c_1=\mathbb{R}$ et $c_2=-\dfrac{1}{16}$. La solution particulière est donc
+		$$x(k) = -\dfrac{1}{16}(-8)^k + \dfrac{1}{16}2^k$$
+		La solution numérique pour $k = 0, . . . , 7$ est $[]$
+	</li>
 </ol>
 </div>
 
