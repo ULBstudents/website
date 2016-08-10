@@ -416,7 +416,7 @@ sont compatibles avec le système et motiver la réponse.<figure><img src="image
 			$$x(k)=\dfrac{3}{2}2^k+(-3)3^k+\dfrac{3}{2}4^k$$
 		</li>
 		<li>
-			La solution numérique pour $k = 0, . . . , 7$ est $[0,0,3,27,165,855,4053,18207]$
+			La solution numérique pour $k = 0, 1, 2, 3, 4, 5, 6, 7$ est $[0,0,3,27,165,855,4053,18207]$
 		</li>
 		<li>
 			Le système homogène a l'origine comme point d'équilibre unstable.
