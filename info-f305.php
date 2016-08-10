@@ -474,12 +474,12 @@ sont compatibles avec le système et motiver la réponse.<figure><img src="image
 		(-8)^1c_2&+&\dfrac{8}{20}2^1 &=& \sin(b)
 		\end{array}\right.
 		\Leftrightarrow
-		\left\{\begin{array}{rrrrr}
-		c_2=\sin(a)-\dfrac{8}{20}\\
-		c_2=-8(\sin(b)-\dfrac{8}{10})
+		\left\{\begin{array}{rrc}
+		c_2&=&\sin(a)-\dfrac{8}{20}\\
+		c_2&=&\dfrac{1}{-8}\left(\sin(b)-\dfrac{8}{10}\right)
 		\end{array}\right.
 		$$
-		Et l'on trouve $c_1=NaN$ et $c_2=NaN$. La solution particulière est donc
+		Et l'on trouve $c_1=R$ et $c_2=NaN$. La solution particulière est donc
 		$$x(k)=NaN$$
 	</li>
 	<li></li>
