@@ -433,7 +433,7 @@ sont compatibles avec le système et motiver la réponse.<figure><img src="image
 <ol>
 	<li>Determiner la solution générale de l'équation homogène</li>
 	<li>Donnez une solution particulière de l'équation de départ</li>
-	<li>Donnez la solution générale de l'équation non-homgène sachant que $x(0)=\sin(a)$ et $x(1)=\sin(b)$ où $a\in\mathbb{R}$ et $b\in\mathbb{R}$</li>
+	<li>Donnez la solution générale de l'équation non-homogène sachant que $x(0)=\sin(a)$ et $x(1)=\sin(b)$ où $a\in\mathbb{R}$ et $b\in\mathbb{R}$</li>
 	<li>Sachant que $a=\pi$ et $b=0$, calculez la valeur de $x(k)$ pour $k\in\{0,1,2,3,4\}$.</li>
 </ol>
 </h4>
@@ -479,7 +479,7 @@ sont compatibles avec le système et motiver la réponse.<figure><img src="image
 		c_2&=&\dfrac{1}{-8}\left(\sin(b)-\dfrac{8}{10}\right)
 		\end{array}\right.
 		$$
-		Et l'on trouve $c_1=R$ et $c_2=NaN$. La solution particulière est donc
+		Et l'on trouve $c_1=\mathbb{R}$ et $c_2=NaN$. La solution particulière est donc
 		$$x(k)=NaN$$
 	</li>
 	<li></li>
