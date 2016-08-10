@@ -427,6 +427,57 @@ sont compatibles avec le système et motiver la réponse.<figure><img src="image
 
 
 
+
+
+<h4 class="question">Considerons le système à temps discret décrit par l’équation $$x(k+4)+8x(k+2)=8(2^k)$$
+<ol>
+	<li>Determiner la solution générale de l'équation homogène</li>
+	<li>Donnez une solution particulière de l'équation de départ</li>
+	<li>Donnez la solution générale de l'équation non-homgène sachant que $x(0)=\sin(a)$ et $x(1)=\sin(b)$ où $a\in\mathbb{R}$ et $b\in\mathbb{R}$</li>
+	<li>Sachant que $a=\pi$ et $b=0$, calculez la valeur de $x(k)$ pour $k\in\{0,1,2,3,4\}$.</li>
+</ol>
+</h4>
+<div class="answer">
+<ol>
+	<li>
+		$$\begin{array}{rrrrrr}
+		&x(k+4) &+& 8x(k+2) &=& 8(2^k)\\
+		\Leftrightarrow&\lambda^4 &+& 8\lambda^2 &=& 0
+		\end{array}$$
+		est le polynome caractéristique de l'équation homogène est qui a comme racine si on remplace $\lambda^2=z$
+		$$z^2+8z = 0$$
+		$$\Delta = 8^2$$
+		$$\dfrac{-8\pm \sqrt{8^2}}{2} = \{-8 ; 0\}$$
+		L'équation homogène ($x^h(k)$) est alors
+		$$x^h(k)=c_10k+c_2(-8)k$$
+	</li>
+	<li>
+		La solution particulière ($x^p(k)$) aura la forme $c8(2^k)$, il suffit d'injecter cela dans l'équation de départ et on a
+		$$\begin{array}{rrrrrr}
+		&c8(2^{k+4}) &+& c8(2^{k+2}) &=& 8(2^k)\\
+		\Leftrightarrow&8(2^k) (c2^4 &+& c2^2) &=& 8(2^k)\\
+		\Leftrightarrow&c2^4 &+& c2^2 &=& 1\\
+		\Leftrightarrow&&&20c&=&1\\
+		\Leftrightarrow&&&c&=&\dfrac{1}{20}\\
+		\Leftrightarrow&&&x^p(k)&=&\dfrac{8}{20}2^k
+		\end{array}$$
+	</li>
+	<li>
+		La solution générale ($x(k)$) est
+		$$\begin{array}{rrrrr}
+		x(k) &=& x^h(k) &+& x^p(k)\\
+		&=& c_10k+c_2(-8)k&+&\dfrac{8}{20}2^k
+		\end{array}$$
+	</li>
+	<li></li>
+</ol>
+</div>
+
+
+
+
+
+
 <h4 class="question">Soit l’équation différentielle suivante $$\dot{x}=rx-x^3,\ x\in\mathbb{R},\ r\in\mathbb{R}$$<ol><li>Trouver les points d’équilibre du système et étudier leur stabilité en fonction de $r$ ;</li><li>Tracer le diagramme de bifurcation associé. Notez les points d’équilibres instables en pointillé ;</li><li>Etudier la nature des points d’équilibres de manière graphique pour $r = 1$ et $r = 36$ ;</li><li>Vérifier par linéarisation les résultats du point précédent ;</li><li>Tracer qualitativement l’évolution temporelle ($t \in [0, 10]$) de $x$ pour<ol class="alphabet"><li>$r = 1$, $x(0) = 8$</li><li>$r = 1/4$, $x(0) = 8$</li><li>$r = −1$, $x(0) = 8$
 </li></ol>en tenant en considération la constante de temps.</li><li>Comparer les vitesses de convergence des trajectoires a), b) et c) et expliquer leur différence.</li></ol></h4>
 <div class="answer">
