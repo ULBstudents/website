@@ -11,6 +11,10 @@
 
 <style type="text/css">
 
+div.centre {
+	text-align: center;
+}
+
 div.recap {
 	display: inline-block;
 	border: 0.005em rgba(60,60,60,0.2) solid;
@@ -25,11 +29,11 @@ div.recap img {
 }
 
 </style>
-
+<div class="centre">
 <div class="recap">
 	<div>Valeurs propres réelles et distinctes négatives</div>
-	<div>Système linéarisé : Noeud stable</div>
-	<div>Système original : ?</div>
+	<div><b>Système linéarisé</b> : noeud stable</div>
+	<div><b>Système original</b> : ?</div>
 	<figure>
 		<img src="images/info-f305/recap_cas_noeud_stable.svg" alt="noeud stable" />
 	</figure>
@@ -39,8 +43,8 @@ div.recap img {
 
 <div class="recap">
 	<div>Valeurs propres réelles et distinctes positives</div>
-	<div>Système linéarisé : Noeud instable</div>
-	<div>Système original : ?</div>
+	<div><b>Système linéarisé</b> : noeud instable</div>
+	<div><b>Système original</b> : ?</div>
 	<figure>
 		<img src="images/info-f305/recap_cas_noeud_instable.svg" alt="noeud instable" />
 	</figure>
@@ -50,8 +54,8 @@ div.recap img {
 
 <div class="recap">
 	<div>Valeurs propres réelles et distinctes positive et négative</div>
-	<div>Système linéarisé : selle</div>
-	<div>Système original : instable</div>
+	<div><b>Système linéarisé</b> : selle</div>
+	<div><b>Système original</b> : instable</div>
 	<figure>
 		<img src="images/info-f305/recap_cas_selle.svg" alt="selle" />
 	</figure>
@@ -61,8 +65,8 @@ div.recap img {
 
 <div class="recap">
 	<div>Une valeur propre nulle et une réelle négative</div>
-	<div>Système linéarisé : non-simple stable</div>
-	<div>Système original : ?</div>
+	<div><b>Système linéarisé</b> : non-simple stable</div>
+	<div><b>Système original</b> : impossible de déduire la stabilité</div>
 	<figure>
 		<img src="images/info-f305/recap_cas_sys_nonsimple_stable.svg" alt="système non-simple stable" />
 	</figure>
@@ -72,8 +76,8 @@ div.recap img {
 
 <div class="recap">
 	<div>Une valeur propre nulle et une réelle positive</div>
-	<div>Système linéarisé : non-simple instable</div>
-	<div>Système original : ?</div>
+	<div><b>Système linéarisé</b> : non-simple instable</div>
+	<div><b>Système original</b> : ?</div>
 	<figure>
 		<img src="images/info-f305/recap_cas_sys_nonsimple_instable.svg" alt="système non-simple instable" />
 	</figure>
@@ -83,8 +87,8 @@ div.recap img {
 
 <div class="recap">
 	<div>Valeurs propres réelles et non-distinctes avec matrice $A$ diagonalisable</div>
-	<div>Système linéarisé : noeud singulier</div>
-	<div>Système original : ?</div>
+	<div><b>Système linéarisé</b> : noeud singulier</div>
+	<div><b>Système original</b> : ?</div>
 	<figure>
 		<img src="images/info-f305/recap_cas_noeud_singulier.svg" alt="noeud singulier" />
 	</figure>
@@ -94,8 +98,8 @@ div.recap img {
 
 <div class="recap">
 	<div>Valeurs propres réelles et non-distinctes avec matrice $A$ non diagonalisable (un seul vecteur propre et une valeur propre négative)</div>
-	<div>Système linéarisé : noeud dégénéré stable</div>
-	<div>Système original : ?</div>
+	<div><b>Système linéarisé</b> : noeud dégénéré stable</div>
+	<div><b>Système original</b> : ?</div>
 	<figure>
 		<img src="images/info-f305/recap_cas_noeud_degenere_stable.svg" alt="noeud dégénéré stable" />
 	</figure>
@@ -105,8 +109,8 @@ div.recap img {
 
 <div class="recap">
 	<div>Valeurs propres réelles et non-distinctes avec matrice $A$ non diagonalisable (un seul vecteur propre et une valeur propre positive)</div>
-	<div>Système linéarisé : noeud dégénéré instable</div>
-	<div>Système original : ?</div>
+	<div><b>Système linéarisé</b> : noeud dégénéré instable</div>
+	<div><b>Système original</b> : ?</div>
 	<figure>
 		<img src="images/info-f305/recap_cas_noeud_degenere_instable.svg" alt="noeud dégénéré instable" />
 	</figure>
@@ -116,8 +120,8 @@ div.recap img {
 
 <div class="recap">
 	<div>Valeurs propres complexes conjuguées avec partie réelle nulle</div>
-	<div>Système linéarisé : centre</div>
-	<div>Système original : ?</div>
+	<div><b>Système linéarisé</b> : centre</div>
+	<div><b>Système original</b> : ?</div>
 	<figure>
 		<img src="images/info-f305/recap_cas_centre.svg" alt="centre" />
 	</figure>
@@ -127,8 +131,8 @@ div.recap img {
 
 <div class="recap">
 	<div>Valeurs propres complexes conjuguées avec partie réelle négative</div>
-	<div>Système linéarisé : foyer stable</div>
-	<div>Système original : ?</div>
+	<div><b>Système linéarisé</b> : foyer stable</div>
+	<div><b>Système original</b> : asymptotiquement stable</div>
 	<figure>
 		<img src="images/info-f305/recap_cas_foyer_stable.svg" alt="foyer stable" />
 	</figure>
@@ -138,11 +142,12 @@ div.recap img {
 
 <div class="recap">
 	<div>Valeurs propres complexes conjuguées avec partie réelle positive</div>
-	<div>Système linéarisé : foyer instable</div>
-	<div>Système original : ?</div>
+	<div><b>Système linéarisé</b> : foyer instable</div>
+	<div><b>Système original</b> : ?</div>
 	<figure>
 		<img src="images/info-f305/recap_cas_foyer_instable.svg" alt="foyer instable" />
 	</figure>
+</div>
 </div>
 
 
