@@ -484,7 +484,7 @@ sont compatibles avec le système et motiver la réponse.<figure><img src="image
 	<li>
 		Et l'on trouve $c_1=\mathbb{R}$ et $c_2=-\dfrac{1}{16}$. La solution particulière est donc
 		$$x(k) = -\dfrac{1}{16}(-8)^k + \dfrac{1}{16}2^k$$
-		La solution numérique pour $k = 0, . . . , 7$ est $[]$
+		La solution numérique pour $k = 0, 1, 2, 3, 4$ est $[ . , . , . , . , .]$
 	</li>
 </ol>
 </div>
