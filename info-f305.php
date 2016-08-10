@@ -296,8 +296,8 @@ sont compatibles avec le système et motiver la réponse.<figure><img src="image
 		</li>
 		<li>On utilise la jacobienne :
 			$$J=\left(\begin{array}{cc}\dfrac{\partial f_1}{\delta x_1}&\dfrac{\delta f_1}{\delta x_2}\\\dfrac{\partial f_2}{\delta x_1}&\dfrac{\delta f_2}{\delta x_2}\end{array}\right)=
-\left(\begin{array}{cc}\dfrac{(x_1^2+x_2^2-4)'}{\delta x_1}&\dfrac{(x_1^2+x_2^2-4)'}{\delta x_2}\\\dfrac{(x_1^2-x_2-2)'}{\delta x_1}&\dfrac{(x_1^2-x_2-2)'}{\delta x_2}\end{array}\right)=
-\left(\begin{array}{cc}2x_1&2x_2\\2x_1&-1\end{array}\right)$$
+			\left(\begin{array}{cc}\dfrac{(x_1^2+x_2^2-4)'}{\delta x_1}&\dfrac{(x_1^2+x_2^2-4)'}{\delta x_2}\\\dfrac{(x_1^2-x_2-2)'}{\delta x_1}&\dfrac{(x_1^2-x_2-2)'}{\delta x_2}\end{array}\right)=
+			\left(\begin{array}{cc}2x_1&2x_2\\2x_1&-1\end{array}\right)$$
 			<ul>
 			<li>
 				La matrice en $\bar{x}^{(1)}$ est $\left(\begin{array}{rr}2\sqrt{3}&2\\2\sqrt{3}&-1\end{array}\right)$.
@@ -345,7 +345,23 @@ sont compatibles avec le système et motiver la réponse.<figure><img src="image
 			</ul>
 		</li>
 		<li>
-			Le portrait de phase du système est affiché sur la figure : <figure><img src="images/info-f305/portaitdephase.svg" alt="Portrait de phase" /></figure>
+			<ol class="alphabet">
+				<li>Si on part de la première équation, on obtient une équation d'un cercle de rayon 4 :
+					$$\begin{array}{rrrr}
+					&x_1^2+x_2^2-4 &=& 0 \\
+					\Leftrightarrow &x_2^2 &=& -x_1^2+4\\
+					\Leftrightarrow &x_2   &=& \pm\sqrt{-x_1^2+4}
+					\end{array}$$
+					Si on part de la deuxième équation, on obtient une équation d'une parabole
+					$$\begin{array}{rrrr}
+					&x_1^2-x_2-2 &=& 0 \\
+					\Leftrightarrow &x_2   &=& -x_1^2-2
+					\end{array}$$
+					Le portrait de phase du système est affiché sur la figure :
+					<figure><img src="images/info-f305/portaitdephase.svg" alt="Portrait de phase" /></figure>
+				</li>
+				<li>Heuu help</li>
+			</ol>
 		</li>
 		<li>
 			Les évolutions temporelles a) et c).
