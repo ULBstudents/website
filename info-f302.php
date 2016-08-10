@@ -139,4 +139,44 @@ la formule) ? Justifier.</h4>
 
 
 
+
+
+
 <h3>Pratique</h3>
+
+
+<h4 class="question">
+	Logique du premier ordre - On se donne un langage du premier ordre $S=\{f,p,c\}$ où $f$ est un symbole de fonction unaire, $p$ un symbole de prédicat binaire, et $c$ un symbole de constante. On supose aussi qu'on a l'égalité $=$. Exprimer les propriétés suivantes en logique du premier ordre :
+	<ol>
+		<li>Tout élément et son image par $f$ sont en relation par $p$.</li>
+		<li>La fonction $f$ coincide avec la relation $p$. Autrement dit, si on voit $f$ comme une relation binaire, alors elle est égale à $p$</li>
+		<li>$c$ est le seul élément dont l'image par $f$ est égale à lui-même.</li>
+		<li>Si on suppose que $p$ est une relation d'ordre, exprimer que $f$ est monotone (soit croissante soit décroissante).</li>
+	</ol>
+</h4>
+<div class="answer">
+<ol>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+</ol>
+</div>
+
+
+<h4 class="question">
+	Soit $\sum=\{a,b\}$ un alphabet à deux symboles. Pour chacun des langages suivants, construire un automate qui l'accepte :
+	<ol>
+		<li>$L_1$ est l'ensemble des mots (sur $\sum$), tel 
+		qu'entre toute paire de $a$, il existe au moins un $b$. Exemples: $bababbabb$ et $bab$, mais pas $baaba$.</li>
+		<li>$L_2$ est l'ensemble des mots tel qu'entre toute paire de $a$, il existe un nombre pair de $b$. Exemples: $abbab$, $baabbab$, mais pas $ababba$</li>
+		<li>$L_3=L_1\cap L_2</li>
+	</ol>
+</h4>
+<div class="answer">
+	<ol>
+		<li>ca arrive</li>
+		<li></li>
+		<li></li>
+	</ol>
+</div>
