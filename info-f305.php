@@ -403,17 +403,17 @@ sont compatibles avec le système et motiver la réponse.<figure><img src="image
 	<ol>
 		<li>
 			Le polynome caractéristique de l'équation homogène est $$\lambda^2-5\lambda+6=0$$ qui a comme racines $\lambda_1=2$,$\lambda_2=3$. L'équation homogène est $$x^h(k)=c_12^k+c_23^k$$ La solution particulière aura une forme $c3(4^k)$, il suffit d'injecter cela dans l'équation de départ et on a
-			$$\begin{array}{crcl}&c3(4^{k+2})-5c3(4^{k+1})+6c3(4^k)&=&c3(4^k)\\
+			$$\begin{array}{crcl}&c3(4^{k+2})-5c3(4^{k+1})+6c3(4^k)&=&3(4^k)\\
 			\Leftrightarrow&3(4^k)(c4^2-5c4+6c)&=&3(4^k)\\
 			\Leftrightarrow&c4^2-5c4+6c&=&1\\
 			\Leftrightarrow&c&=&\dfrac{1}{2}\\
 			\Leftrightarrow&x^p(k)&=&\dfrac{3}{2}4^k
 			\end{array}$$
 			La solution générale est $$\begin{array}{crcl}&x(k)&=&x^h(k)+x^p(k)\\\Leftrightarrow&x(k)&=&c_12^k+c_23^k+\dfrac{3}{2}4^k\end{array}$$
-			Pour trouver solution particulière pour $x(0)=0$ et $x(1)=1$, il faut résoudre le système suivant afin de trouver $c_1$ et $c_2$ :
+			Pour trouver solution particulière pour $x(0)=0$ et $x(1)=0$, il faut résoudre le système suivant afin de trouver $c_1$ et $c_2$ :
 			$$\left\{\begin{array}{rcl}c_1+c_2+\dfrac{3}{2}&=&0\\2c_1+3c_2+\dfrac{3}{2}4&=&0\end{array}\right.$$
 			Et l'on trouve $c_1=\dfrac{3}{2}$ et $c_2=-3$. La solution particulière est donc
-			$$x(k)=c_12^k+c_23^k+\dfrac{3}{2}4^k$$
+			$$x(k)=\dfrac{3}{2}2^k+(-3)3^k+\dfrac{3}{2}4^k$$
 		</li>
 		<li>
 			La solution numérique pour $k = 0, . . . , 7$ est $[0,0,3,27,165,855,4053,18207]$
@@ -449,7 +449,7 @@ sont compatibles avec le système et motiver la réponse.<figure><img src="image
 		$$\Delta = 8^2$$
 		$$\dfrac{-8\pm \sqrt{8^2}}{2} = \{-8 ; 0\}$$
 		L'équation homogène ($x^h(k)$) est alors
-		$$x^h(k)=c_10k+c_2(-8)k$$
+		$$x^h(k)=c_1^0k+c_2(-8)^k$$
 	</li>
 	<li>
 		La solution particulière ($x^p(k)$) aura la forme $c8(2^k)$, il suffit d'injecter cela dans l'équation de départ et on a
@@ -466,8 +466,21 @@ sont compatibles avec le système et motiver la réponse.<figure><img src="image
 		La solution générale ($x(k)$) est
 		$$\begin{array}{rrrrr}
 		x(k) &=& x^h(k) &+& x^p(k)\\
-		&=& c_10k+c_2(-8)k&+&\dfrac{8}{20}2^k
+		&=& c_10^k+c_2(-8)^k&+&\dfrac{8}{20}2^k
 		\end{array}$$
+		Pour trouver solution particulière pour $x(0)=\sin(a)$ et $x(1)=\sin(b)$, il faut résoudre le système suivant afin de trouver $c_1$ et $c_2$ :
+		$$\left\{\begin{array}{rrrrr}
+		(-8)^0c_2&+&\dfrac{8}{20}2^0 &=& \sin(a)\\
+		(-8)^1c_2&+&\dfrac{8}{20}2^1 &=& \sin(b)
+		\end{array}\right.
+		\Leftrightarrow
+		\left\{\begin{array}{rrrrr}
+		c_2=\sin(a)-\dfrac{8}{20}\\
+		c_2=-8(\sin(b)-\dfrac{8}{10})
+		\end{array}\right.
+		$$
+		Et l'on trouve $c_1=NaN$ et $c_2=NaN$. La solution particulière est donc
+		$$x(k)=NaN$$
 	</li>
 	<li></li>
 </ol>
