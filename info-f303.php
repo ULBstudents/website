@@ -325,7 +325,7 @@ Les réponses proviennent (ou par l'intermédiaire de résumé) de Denis Steckel
 			<tr><th>Destination</th><th>Gateway</th><th>Masque</th><th>Flags</th><th>Iface</th></tr>
 		</thead>
 		<tbody>
-			<tr><td>localhost</td><td>*</td><td>255.255.255.25 5</td><td>UH</td><td>lo0</td></tr>
+			<tr><td>localhost</td><td>*</td><td>255.255.255.255</td><td>UH</td><td>lo0</td></tr>
 			<tr><td>124.178.240.0</td><td>*</td><td>255.255.255.0</td><td>U</td><td>eth1</td></tr>
 			<tr><td>124.178.48.0</td><td>*</td><td>255.255.240.0</td><td>U</td><td>eth0</td></tr>
 			<tr><td>124.178.64.0</td><td>*</td><td>255.255.224.0</td><td>U</td><td>eth2</td></tr>
@@ -1115,13 +1115,14 @@ Une fois le <b>3-way handshake</b> effectué, le client et le serveur ont reçu 
 			<tr><th>Routeur</th><th>Interface</th><th>Netmask</th><th>Host ID</th></tr>
 		</thead>
 		<tbody>
-			<tr><td>R</td> <td>eth0</td><td>255.255.240.0</td><td>1</td></tr>
-			<tr><td></td><td>eth1</td><td>255.255.255.0</td><td>1</td></tr>
-			<tr><td></td><td>eth2</td><td>255.255.224.0</td><td>1</td></tr>
-			<tr><td>S</td><td>eth0</td><td>255.255.224.0</td><td>2</td></tr>
-			<tr><td></td><td>eth1</td><td>255.255.224.0</td><td>2</td></tr>
-			<tr><td>T</td><td>eth0</td><td>255.255.255.0</td><td>3</td></tr>
-			<tr><td></td><td>eth1</td><td>255.255.255.0</td><td>3</td></tr>
+			
+			<tr><td>R</td><td>eth0</td><td>255.255.255.0</td><td>2</td></tr>
+			<tr><td></td><td>eth1</td><td>255.255.255.0</td><td>2</td></tr>
+			<tr><td>S</td> <td>eth0</td><td>255.255.240.0</td><td>2</td></tr>
+			<tr><td></td><td>eth1</td><td>255.255.255.0</td><td>2</td></tr>
+			<tr><td></td><td>eth2</td><td>255.255.224.0</td><td>2</td></tr>
+			<tr><td>T</td><td>eth0</td><td>255.255.224.0</td><td>3</td></tr>
+			<tr><td></td><td>eth1</td><td>255.255.224.0</td><td>3</td></tr>
 		</tbody>
 		<tfoot>
 		</tfoot>
@@ -1134,6 +1135,60 @@ Une fois le <b>3-way handshake</b> effectué, le client et le serveur ont reçu 
 	<li>Donnez l’adresse <b>IP</b> de l’interface eth0 du routeur S.</li>
 	<li>Combien d’adresses <b>IP</b> différentes pourraient être attribuées à A?</li>
 </ol></h4>
+<div class="answer">
+<ol class="alphabet">
+	<li>
+		<table>
+			<thead>
+				<tr><th>Destination</th><th>Gateway</th><th>Masque</th><th>Flags</th><th>Iface</th></tr>
+			</thead>
+			<tbody>
+				<tr><td>localhost</td><td>*</td><td>255.255.255.255</td><td>UH</td><td>lo0</td></tr>
+				<tr><td>165.128.48.0</td><td>*</td><td>255.255.240.0</td><td>U</td><td>eth0</td></tr>
+				<tr><td>124.128.240.0</td><td>*</td><td>255.255.255.0</td><td>U</td><td>eth1</td></tr>
+				<tr><td>124.178.64.0</td><td>*</td><td>255.255.224.0</td><td>U</td><td>eth2</td></tr>
+				<tr><td>124.178.96.0</td><td>124.178.64.3</td><td>255.255.224.0</td><td>UG</td><td>eth2</td></tr>
+				<tr><td>default</td><td>124.178.64.3</td><td>0.0.0.0</td><td>UG</td><td>eth2</td></tr>
+			</tbody>
+			<tfoot>
+			</tfoot>
+		</table>
+		Fusion
+		<table>
+			<thead>
+				<tr><th>Destination</th><th>Gateway</th><th>Masque</th><th>Flags</th><th>Iface</th></tr>
+			</thead>
+			<tbody>
+				<tr><td>localhost</td><td>*</td><td>255.255.255.255</td><td>UH</td><td>lo0</td></tr>
+				<tr><td>165.128.48.0</td><td>*</td><td>255.255.240.0</td><td>U</td><td>eth0</td></tr>
+				<tr><td>124.128.240.0</td><td>*</td><td>255.255.255.0</td><td>U</td><td>eth1</td></tr>
+				<tr><td>124.178.64.0</td><td>*</td><td>255.255.224.0</td><td>U</td><td>eth2</td></tr>
+				<tr><td>default</td><td>124.178.64.3</td><td>0.0.0.0</td><td>UG</td><td>eth2</td></tr>
+			</tbody>
+			<tfoot>
+			</tfoot>
+		</table>
+	</li>
+	<li>
+		<table>
+			<tbody>
+				<tr><th>76.193</th><td>0100 1100.1100 0001</td></tr>
+				<tr><th>240.0</th><td>1111 0000.0000 0000</td></tr>
+				<tr><th>255.0</th><td>1111 1111.0000 0000</td><td>Seul possible ( 1100 du 76 )</td></tr>
+				<tr><th>224.0</th><td>1110 0000.0000 0000</td></tr>
+			</tbody>
+		</table>
+		Le masque 255.0 est celui du 124.128.240.0 et son host ID sera simplement 193.
+	</li>
+	<li>
+		165.128.48.0
+	</li>
+	<li>
+		$255.255.224.0 = 255.255.1110 0000.0000 0000$ donc nb de 0 : $2^13 = 8192$
+	</li>
+</ol>
+</div>
+
 
 
 
@@ -1174,7 +1229,7 @@ Une fois le <b>3-way handshake</b> effectué, le client et le serveur ont reçu 
 			<tr><th>Destination</th><th>Gateway</th><th>Masque</th><th>Flags</th><th>Iface</th></tr>
 		</thead>
 		<tbody>
-			<tr><td>localhost</td><td>*</td><td>255.255.255.25 5</td><td>UH</td><td>lo0</td></tr>
+			<tr><td>localhost</td><td>*</td><td>255.255.255.255</td><td>UH</td><td>lo0</td></tr>
 			<tr><td>124.178.240.0</td><td>*</td><td>255.255.255.0</td><td>U</td><td>eth1</td></tr>
 			<tr><td>124.178.48.0</td><td>*</td><td>255.255.240.0</td><td>U</td><td>eth0</td></tr>
 			<tr><td>124.178.64.0</td><td>*</td><td>255.255.224.0</td><td>U</td><td>eth2</td></tr>
@@ -1208,7 +1263,7 @@ Une fois le <b>3-way handshake</b> effectué, le client et le serveur ont reçu 
 	</ul>
 	<table>
 		<thead>
-			<tr><th>Etape</th><th>1</th><th>2</th><th>3</th><th>4</th></tr>
+			<tr><th>Etape</th><th>1</th><th>2</th><th>3</th></tr>
 		</thead>
 		<tbody>
 			<tr><th>Mac source</th><td>B</td><td>S(eth1)</td><td>R(eth0)</td></tr>
@@ -1316,7 +1371,7 @@ Une fois le <b>3-way handshake</b> effectué, le client et le serveur ont reçu 
 			<tr><th>Destination</th><th>Gateway</th><th>Masque</th><th>Flags</th><th>Iface</th></tr>
 		</thead>
 		<tbody>
-			<tr><td>localhost</td><td>*</td><td>255.255.255.25 5</td><td>UH</td><td>lo0</td></tr>
+			<tr><td>localhost</td><td>*</td><td>255.255.255.255</td><td>UH</td><td>lo0</td></tr>
 			<tr><td>192.200.36.0</td><td>*</td><td>255.255.255.0</td><td>U</td><td>eth0</td></tr>
 			<tr><td>192.200.34.0</td><td>*</td><td>255.255.255.0</td><td>U</td><td>eth1</td></tr>
 			<tr><td>128.128.128.0</td><td>192.200.34.4</td><td>255.255.255.0</td><td>UG</td><td>eth1</td></tr>
