@@ -1151,6 +1151,7 @@ Une fois le <b>3-way handshake</b> effectué, le client et le serveur ont reçu 
 			</tbody>
 		</table>
 	</li>
+	<li>
 		<ul>
 			<li>IP Source = IP de B</li>
 			<li>IP Destination = IP de A</li>
@@ -1166,7 +1167,6 @@ Une fois le <b>3-way handshake</b> effectué, le client et le serveur ont reçu 
 			<tfoot>
 			</tfoot>
 		</table>
-	<li>
 	</li>
 	<li>
 		Le pont 4 tombe en panne, le pont 6, 5 et 2 ne recoivent plus de BPDU(1,1,4) de la part du pont 4 et l'entrée le concernant arrive à expiration ; ils vont donc commencer à émettre (BP &rarr; FP).
