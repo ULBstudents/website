@@ -1083,7 +1083,95 @@ Une fois le <b>3-way handshake</b> effectué, le client et le serveur ont reçu 
 	<li>La station B envoie une trame à la station A dont elle connaît l’adresse <b>MAC</b>, celle-ci lui répond en lui envoyant à son tour une trame. Décrivez l’évolution des tables d’acheminement des ponts ainsi que les différentes trames qui circulent sur chaque LAN.</li>
 	<li>Le pont 4 tombe en panne. Décrivez un scénario possible d’échange des BPDU entre les ponts et l’évolution des tables relatives au <i>spanning tree</i> jusqu’à stabilité.</li>
 </ol></h4>
-
+<div class="answer">
+<ol class="alphabet">
+	<li>
+		<table>
+			<thead>
+				<tr><th>1</th><th>port</th><th>root ID</th><th>cost</th><th>sender ID</th><th>type</th></tr>
+			</thead>
+			<tbody>
+				
+				<tr><th></th><td>1</td><td>1</td><td>0</td><td>1</td><td>FP</td></tr>
+				<tr><th></th><td>2</td><td>1</td><td>0</td><td>1</td><td>FP</td></tr>
+				<tr><th></th><td>3</td><td>1</td><td>0</td><td>1</td><td>FP</td></tr>
+			</tbody>
+		</table>
+		<table>
+			<thead>
+				<tr><th>2</th><th>port</th><th>root ID</th><th>cost</th><th>sender ID</th><th>type</th></tr>
+			</thead>
+			<tbody>
+				
+				<tr><th></th><td>1</td><td>1</td><td>1</td><td>5</td><td>BP</td></tr>
+				<tr><th></th><td>2</td><td>1</td><td>1</td><td>4</td><td>FP</td></tr>
+			</tbody>
+		</table>
+		<table>
+			<thead>
+				<tr><th>3</th><th>port</th><th>root ID</th><th>cost</th><th>sender ID</th><th>type</th></tr>
+			</thead>
+			<tbody>
+				
+				<tr><th></th><td>1</td><td>1</td><td>0</td><td>1</td><td>RP</td></tr>
+				<tr><th></th><td>2</td><td>1</td><td>0</td><td>1</td><td>BP</td></tr>
+			</tbody>
+		</table>
+		<table>
+			<thead>
+				<tr><th>4</th><th>port</th><th>root ID</th><th>cost</th><th>sender ID</th><th>type</th></tr>
+			</thead>
+			<tbody>
+				
+				<tr><th></th><td>1</td><td>1</td><td>0</td><td>1</td><td>RP</td></tr>
+				<tr><th></th><td>2</td><td>1</td><td>1</td><td>4</td><td>FP</td></tr>
+				<tr><th></th><td>3</td><td>1</td><td>1</td><td>4</td><td>FP</td></tr>
+			</tbody>
+		</table>
+		¨<table>
+			<thead>
+				<tr><th>5</th><th>port</th><th>root ID</th><th>cost</th><th>sender ID</th><th>type</th></tr>
+			</thead>
+			<tbody>
+				
+				<tr><th></th><td>1</td><td>1</td><td>1</td><td>5</td><td>FP</td></tr>
+				<tr><th></th><td>2</td><td>1</td><td>1</td><td>4</td><td>BP</td></tr>
+				<tr><th></th><td>3</td><td>1</td><td>0</td><td>1</td><td>RP</td></tr>
+			</tbody>
+		</table>
+		<table>
+			<thead>
+				<tr><th>6</th><th>port</th><th>root ID</th><th>cost</th><th>sender ID</th><th>type</th></tr>
+			</thead>
+			<tbody>
+				
+				<tr><th></th><td>1</td><td>1</td><td>0</td><td>1</td><td>RP</td></tr>
+				<tr><th></th><td>2</td><td>1</td><td>1</td><td>5</td><td>BP</td></tr>
+				<tr><th></th><td>3</td><td>1</td><td>1</td><td>4</td><td>BP</td></tr>
+			</tbody>
+		</table>
+	</li>
+		<ul>
+			<li>IP Source = IP de B</li>
+			<li>IP Destination = IP de A</li>
+		</ul>
+		<table>
+			<thead>
+				<tr><th>Etape</th><th>1</th><th>2</th><th>3</th></tr>
+			</thead>
+			<tbody>
+				<tr><th>Mac source</th><td>B</td><td>4(eth1)</td><td>1(eth3)</td></tr>
+				<tr><th>Mac Destination</th><td>4(eth3)</td><td>1(eth2)</td><td>A</td></tr>
+			</tbody>
+			<tfoot>
+			</tfoot>
+		</table>
+	<li>
+	</li>
+	<li>
+	</li>
+</ol>
+</div>
 
 
 
@@ -1116,8 +1204,8 @@ Une fois le <b>3-way handshake</b> effectué, le client et le serveur ont reçu 
 		</thead>
 		<tbody>
 			
-			<tr><td>R</td><td>eth0</td><td>255.255.255.0</td><td>2</td></tr>
-			<tr><td></td><td>eth1</td><td>255.255.255.0</td><td>2</td></tr>
+			<tr><td>R</td><td>eth0</td><td>255.255.255.0</td><td>1</td></tr>
+			<tr><td></td><td>eth1</td><td>255.255.255.0</td><td>1</td></tr>
 			<tr><td>S</td> <td>eth0</td><td>255.255.240.0</td><td>2</td></tr>
 			<tr><td></td><td>eth1</td><td>255.255.255.0</td><td>2</td></tr>
 			<tr><td></td><td>eth2</td><td>255.255.224.0</td><td>2</td></tr>
@@ -1174,17 +1262,17 @@ Une fois le <b>3-way handshake</b> effectué, le client et le serveur ont reçu 
 			<tbody>
 				<tr><th>76.193</th><td>0100 1100.1100 0001</td></tr>
 				<tr><th>240.0</th><td>1111 0000.0000 0000</td></tr>
-				<tr><th>255.0</th><td>1111 1111.0000 0000</td><td>Seul possible ( 1100 du 76 )</td></tr>
+				<tr><th>255.0</th><td>1111 1111.0000 0000</td></tr>
 				<tr><th>224.0</th><td>1110 0000.0000 0000</td></tr>
 			</tbody>
 		</table>
-		Le masque 255.0 est celui du 124.128.240.0 et son host ID sera simplement 193.
+		Seul possible 255.0 pour le 1100 du 76. Le masque 255.0 est celui du 124.128.240.0 et son host ID sera simplement 193.
 	</li>
 	<li>
 		165.128.48.0
 	</li>
 	<li>
-		$255.255.224.0 = 255.255.1110 0000.0000 0000$ donc nb de 0 : $2^13 = 8192$
+		$255.255.224.0 = 255.255.1110 0000.0000 0000$ donc nb de 0 : $2^{13} = 8192$
 	</li>
 </ol>
 </div>
