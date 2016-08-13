@@ -1104,7 +1104,7 @@ Une fois le <b>3-way handshake</b> effectué, le client et le serveur ont reçu 
 			<tbody>
 				
 				<tr><th></th><td>1</td><td>1</td><td>1</td><td>5</td><td>BP</td></tr>
-				<tr><th></th><td>2</td><td>1</td><td>1</td><td>4</td><td>FP</td></tr>
+				<tr><th></th><td>2</td><td>1</td><td>1</td><td>4</td><td>RP</td></tr>
 			</tbody>
 		</table>
 		<table>
@@ -1128,7 +1128,7 @@ Une fois le <b>3-way handshake</b> effectué, le client et le serveur ont reçu 
 				<tr><th></th><td>3</td><td>1</td><td>1</td><td>4</td><td>FP</td></tr>
 			</tbody>
 		</table>
-		¨<table>
+		<table>
 			<thead>
 				<tr><th>5</th><th>port</th><th>root ID</th><th>cost</th><th>sender ID</th><th>type</th></tr>
 			</thead>
