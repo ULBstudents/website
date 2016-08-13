@@ -1203,10 +1203,20 @@ Une fois le <b>3-way handshake</b> effectué, le client et le serveur ont reçu 
 </li>
 <li>
 	<ul>
-		<li>IP Source = IP de B</li>
-		<li>IP Destination = IP de A</li>
-		<li>Chemin = B > S > R > A</li>
+		<li>IP Source = IP de B = 124.178.96.X</li>
+		<li>IP Destination = IP de A = 124.178.62.53</li>
 	</ul>
+	<table>
+		<thead>
+			<tr><th>Etape</th><th>1</th><th>2</th><th>3</th><th>4</th></tr>
+		</thead>
+		<tbody>
+			<tr><th>Mac source</th><td>B</td><td>S(eth1)</td><td>R(eth0)</td></tr>
+			<tr><th>Mac Destination</th><td>S(eth0)</td><td>R(eth2)</td><td>A</td></tr>
+		</tbody>
+		<tfoot>
+		</tfoot>
+	</table>
 </li>
 </ol></div>
 
@@ -1300,8 +1310,6 @@ Une fois le <b>3-way handshake</b> effectué, le client et le serveur ont reçu 
 		<tfoot>
 		</tfoot>
 	</table>
-</li>
-<li>
 	Fusion de default, LAN3 et LAN4
 	<table>
 		<thead>
@@ -1318,6 +1326,8 @@ Une fois le <b>3-way handshake</b> effectué, le client et le serveur ont reçu 
 		<tfoot>
 		</tfoot>
 	</table>
+</li>
+<li>
 	<ul>
 		<li>IP Source = IP de A = 129.129.129.13</li>
 		<li>IP Destination = IP de B = 200.14.2.125</li>
