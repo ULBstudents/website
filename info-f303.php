@@ -1169,6 +1169,61 @@ Une fois le <b>3-way handshake</b> effectué, le client et le serveur ont reçu 
 	<li>
 	</li>
 	<li>
+		Le pont 4 tombe en panne, le pont 6, 5 et 2 ne recoivent plus de BPDU(1,1,4) de la part du pont 4 et l'entrée le concernant arrive à expiration ; ils vont donc commencer à émettre (BP &rarr; FP).
+		Le pont 2 va recevoir BPDU(1,1,5) sur son port 2 et va mettre sa table à jour au profit du port 1 qui passe de (BP &rarr; RP) mais le port 2 devient BP.
+		<table>
+			<thead>
+				<tr><th>1</th><th>port</th><th>root ID</th><th>cost</th><th>sender ID</th><th>type</th></tr>
+			</thead>
+			<tbody>
+				
+				<tr><th></th><td>1</td><td>1</td><td>0</td><td>1</td><td>FP</td></tr>
+				<tr><th></th><td>2</td><td>1</td><td>0</td><td>1</td><td>FP</td></tr>
+				<tr><th></th><td>3</td><td>1</td><td>0</td><td>1</td><td>FP</td></tr>
+			</tbody>
+		</table>
+		<table>
+			<thead>
+				<tr><th>2</th><th>port</th><th>root ID</th><th>cost</th><th>sender ID</th><th>type</th></tr>
+			</thead>
+			<tbody>
+				
+				<tr><th></th><td>1</td><td>1</td><td>1</td><td>5</td><td>RP</td></tr>
+				<tr><th></th><td>2</td><td>1</td><td>1</td><td>5</td><td>BP</td></tr>
+			</tbody>
+		</table>
+		<table>
+			<thead>
+				<tr><th>3</th><th>port</th><th>root ID</th><th>cost</th><th>sender ID</th><th>type</th></tr>
+			</thead>
+			<tbody>
+				
+				<tr><th></th><td>1</td><td>1</td><td>0</td><td>1</td><td>RP</td></tr>
+				<tr><th></th><td>2</td><td>1</td><td>0</td><td>1</td><td>BP</td></tr>
+			</tbody>
+		</table>
+		<table>
+			<thead>
+				<tr><th>5</th><th>port</th><th>root ID</th><th>cost</th><th>sender ID</th><th>type</th></tr>
+			</thead>
+			<tbody>
+				
+				<tr><th></th><td>1</td><td>1</td><td>1</td><td>5</td><td>FP</td></tr>
+				<tr><th></th><td>2</td><td>1</td><td>1</td><td>5</td><td>FP</td></tr>
+				<tr><th></th><td>3</td><td>1</td><td>0</td><td>1</td><td>RP</td></tr>
+			</tbody>
+		</table>
+		<table>
+			<thead>
+				<tr><th>6</th><th>port</th><th>root ID</th><th>cost</th><th>sender ID</th><th>type</th></tr>
+			</thead>
+			<tbody>
+				
+				<tr><th></th><td>1</td><td>1</td><td>0</td><td>1</td><td>RP</td></tr>
+				<tr><th></th><td>2</td><td>1</td><td>1</td><td>5</td><td>BP</td></tr>
+				<tr><th></th><td>3</td><td>1</td><td>2</td><td>6</td><td>FP</td></tr>
+			</tbody>
+		</table>
 	</li>
 </ol>
 </div>
