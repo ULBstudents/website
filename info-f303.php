@@ -1073,16 +1073,115 @@ Une fois le <b>3-way handshake</b> effectué, le client et le serveur ont reçu 
 
 
 
-<h4 class="question">Soit le réseau représenté sur la figure. Nous supposons que l’algorithme de <i>spanning tree</i> est stabilisé et que toutes les tables d’acheminement des ponts sont initialement vides.
-<figure>
-	<img src="images/info-f303/topologie" alt="Topologie" />
-	<figcaption>Topologie</figcaption>
-</figure>
-<ol class="alphabet">
-	<li>Donnez les tables relatives au <i>spanning tree</i> de chaque pont.</li>
-	<li>La station B envoie une trame à la station A dont elle connaît l’adresse <b>MAC</b>, celle-ci lui répond en lui envoyant à son tour une trame. Décrivez l’évolution des tables d’acheminement des ponts ainsi que les différentes trames qui circulent sur chaque LAN.</li>
-	<li>Le pont 4 tombe en panne. Décrivez un scénario possible d’échange des BPDU entre les ponts et l’évolution des tables relatives au <i>spanning tree</i> jusqu’à stabilité.</li>
-</ol></h4>
+
+
+
+<h4 class="question">
+	Soit A et B deux machines située sur un même réseaux de 1Mbps ($10^6$). A envoie des données à B (la taille maximale des segments a été négociée à 512 bytes de données), les en-têtes <b>TCP</b> et <b>IP</b> forment un total de 40 bytes. B envoie un acquit (segment <b>TCP</b> vide) à A à la réception d’un segment, après le temps de traitement de celui-ci fixé à 100ms. La station B a une fenêtre de réception de 36 MSS. Le seuil initial pour l’algorithme de slow-start est de 16 MSS. Le temps de propagation est négligeable.
+	<ol class="alphabet">
+		<li>Que vaut le RTT ?</li>
+		<li>Combien de temps faudra-t-il à A pour arriver à une fenêtre de congestion de taille maximale ?</li>
+	</ol>
+</h4>
+<div class="answer">
+	<ol class="alphabet">
+		<li>
+		</li>
+	</ol>
+</div>
+
+
+
+
+
+
+
+
+
+<h4 class="question">
+	Soit A et B deux machines située sur un même réseaux de 1Mbps ($10^6$). A envoie des données à B (la taille maximale des segments à été négociée à 256 bytes de données), les en-têtes <b>TCP</b> et <b>IP</b> forment un total de 40 bytes. B envoi un acquit (segment <b>TCP</b> vide) à A à la réception d’un segment, après le temps de traitement de celui-ci fixé à 20ms. La station B a une fenêtre de réception de 12 MSS. Le seuil initial pour l’algorithme de slow-start est de 8 MSS.
+	<ol class="alphabet">
+		<li>Que vaut le RTT ?</li>
+		<li>Combien de temps faudra-t-il à A pour arriver à une fenêtre de congestion de taille maximale ?</li>
+	</ol>
+</h4>
+<div class="answer">
+	<ol class="alphabet">
+		<li>
+		</li>
+	</ol>
+</div>
+
+
+
+
+
+
+
+
+
+
+<h4 class="question">
+	Trois stations $S_1$, $S_2$ et $S_3$ se partagent un segment de réseau de type 802.3 (CSMA/CD, 10Mbps). La première station désire émettre une trame de 1000 bits alors que les deux autres stations souhaitent émettre chacune deux trames de 1000 bits. La durée d’un slot de contention a été fixée à $2T = 2:10^{-6}$ s. Lorsque plusieurs stations veulent accéder au réseau, on supposera que la probabilité de retransmission dans un slot est constante et égale à $p = \dfrac{1}{2}$. Calculez :
+	<ol class="alphabet">
+		<li>la durée moyenne d’envoi des 2 premières trames,</li>
+		<li>la durée moyenne d’envoi des 5 trames.</li>
+	</ol>
+	Sachant que les stations commencent à émettre leur première trame en même temps.
+</h4>
+<div class="answer">
+	<ol class="alphabet">
+		<li>
+		</li>
+	</ol>
+</div>
+
+
+
+
+
+
+<h4 class="question">
+	Un émetteur envoie des paquets à un récepteur à l'aide d'un protocole de transport <i>stop and wait</i>. Le débit brut du réseau est de 1 Mbps. Chacun de ces paquets contient 1000 bits de données utiles. L'émetteur retransmet un paquet s'il ne reçoit pas q'acquit (24 bytes) avant l'expiration de son timer, fixé à 1 s. Sachant qu'en moyenne un paquet (données ou acquit) sur 100 n'arrive pas à bon port, alculez l'efficacité moyenne de la connexion. On supposera négligeable les délais de propagations et les overheads introduits par l'encapsulation des données.</h4>
+<div class="answer">
+</div>
+
+
+
+
+
+
+
+
+
+<h4 class="question">
+	Deux entités A et B ont établi une connexion <b>TCP</b> passant par deux routeurs $R$ et $S$. Les liaisons $A \leftrightarrow R$, $R \leftrightarrow S$ et $S \leftrightarrow B$ ont un débit de respectivement 10 Mbps, 1 Mbps, et 1 Mbps. Chacune de ces liaisons a un temps de propagation de 10 ms. $A$ souhaite envoyer des données à $B$ le plus rapidement possible. La fenêtre de réception de $B$ est de 18 MSS, le MSS ayant été négocié à 10 Kb, en-tête compris. Le seuil de l'algorithme de <i>slow-start</i> est initialement fixé à 12 MSS. A chaque réception d'un segment, $B$ répond par un acquit de 24 octets, en-tête compis. Un timer de retransmission de 1 s est enclenché à chaque début d'envoi d'une rafale. Combien de temps faut-il à $A$ pour arrive à un fenetre de congestion de taille maximale, sachant que la troisième rafale sera entièrement perdue et qu'il n'y aura pas d'autres pertes ?
+</h4>
+<div class="answer">
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<h4 class="question">
+	Soit le réseau représenté sur la figure. Nous supposons que l’algorithme de <i>spanning tree</i> est stabilisé et que toutes les tables d’acheminement des ponts sont initialement vides.
+	<figure>
+		<img src="images/info-f303/topologie" alt="Topologie" />
+		<figcaption>Topologie</figcaption>
+	</figure>
+	<ol class="alphabet">
+		<li>Donnez les tables relatives au <i>spanning tree</i> de chaque pont.</li>
+		<li>La station B envoie une trame à la station A dont elle connaît l’adresse <b>MAC</b>, celle-ci lui répond en lui envoyant à son tour une trame. Décrivez l’évolution des tables d’acheminement des ponts ainsi que les différentes trames qui circulent sur chaque LAN.</li>
+		<li>Le pont 4 tombe en panne. Décrivez un scénario possible d’échange des BPDU entre les ponts et l’évolution des tables relatives au <i>spanning tree</i> jusqu’à stabilité.</li>
+	</ol>
+</h4>
 <div class="answer">
 <ol class="alphabet">
 	<li>
@@ -1230,20 +1329,9 @@ Une fois le <b>3-way handshake</b> effectué, le client et le serveur ont reçu 
 
 
 
-<h4 class="question">Soit A et B deux machines située sur un même réseaux de 1Mbps ($10^6$). A envoie des données à B (la taille maximale des segments a été négociée à 512 bytes de données), les en-têtes <b>TCP</b> et <b>IP</b> forment un total de 40 bytes. B envoie un acquit (segment <b>TCP</b> vide) à A à la réception d’un segment, après le temps de traitement de celui-ci fixé à 100ms. La station B a une fenêtre de réception de 36 MSS. Le seuil initial pour l’algorithme de slow-start est de 16 MSS. Le temps de propagation est négligeable.
-<ol class="alphabet">
-	<li>Que vaut le RTT ?</li>
-	<li>Combien de temps faudra-t-il à A pour arriver à une fenêtre de congestion de taille maximale ?</li>
-</ol></h4>
 
 
 
-
-<h4 class="question">Soit A et B deux machines située sur un même réseaux de 1Mbps ($10^6$). A envoie des données à B (la taille maximale des segments à été négociée à 256 bytes de données), les en-têtes <b>TCP</b> et <b>IP</b> forment un total de 40 bytes. B envoi un acquit (segment <b>TCP</b> vide) à A à la réception d’un segment, après le temps de traitement de celui-ci fixé à 20ms. La station B a une fenêtre de réception de 12 MSS. Le seuil initial pour l’algorithme de slow-start est de 8 MSS.
-<ol class="alphabet">
-	<li>Que vaut le RTT ?</li>
-	<li>Combien de temps faudra-t-il à A pour arriver à une fenêtre de congestion de taille maximale ?</li>
-</ol></h4>
 
 
 
@@ -1336,6 +1424,13 @@ Une fois le <b>3-way handshake</b> effectué, le client et le serveur ont reçu 
 
 
 
+
+
+
+
+
+
+
 <h4 class="question">Considérons le réseau de la figure. La table 1 contient diverses informations sur les routeurs.
 <figure>
 	<img src="images/info-f303/topologie2" alt="Topologie" />
@@ -1422,177 +1517,190 @@ Une fois le <b>3-way handshake</b> effectué, le client et le serveur ont reçu 
 
 
 
-<h4 class="question">Considérons le réseau de la figure. Les tables contient diverses informations sur les routeurs.
-<figure>
-	<img src="images/info-f303/topologie4" alt="Topologie" />
-	<figcaption>Topologie</figcaption>
-</figure>
-<figure>
-	<table>
-		<thead>
-			<tr><th>LAN</th><th>Address</th></tr>
-		</thead>
-		<tbody>
-			<tr><td>1</td> <td>192.200.36.0</td></tr>
-			<tr><td>2</td><td>192.200.34.0</td></tr>
-			<tr><td>3</td><td>200.14.208.0</td></tr>
-			<tr><td>4</td><td>200.14.2.0</td></tr>
-			<tr><td>5</td><td>128.128.128.0</td></tr>
-			<tr><td>6</td><td>129.129.129.0</td></tr>
-		</tbody>
-		<tfoot>
-		</tfoot>
-	</table>
-	<figcaption>Information sur les routeurs</figcaption>
-</figure>
-<figure>
-	<table>
-		<thead>
-			<tr><th>LAN</th><th>Address</th></tr>
-		</thead>
-		<tbody>
-			<tr><td>A</td> <td>13</td></tr>
-			<tr><td>B</td><td>125</td></tr>
-			<tr><td>C</td><td>234</td></tr>
-			<tr><td>D</td><td>50</td></tr>
-			<tr><td>E</td><td>79</td></tr>
-		</tbody>
-		<tfoot>
-		</tfoot>
-	</table>
-	<figcaption>Information sur les routeurs</figcaption>
-</figure>
-<figure>
-	<table>
-		<thead>
-			<tr><th>Routeur</th><th>Interface</th><th>Netmask</th><th>Host ID</th></tr>
-		</thead>
-		<tbody>
-			<tr><td>R</td><td>eth0</td><td>255.255.255.0</td><td>1</td></tr>
-			<tr><td></td><td>eth1</td><td>255.255.255.0</td><td>1</td></tr>
-			<tr><td>S</td><td>eth0</td><td>255.255.255.0</td><td>2</td></tr>
-			<tr><td></td><td>eth1</td><td>255.255.224.0</td><td>2</td></tr>
-			<tr><td>T</td><td>eth0</td><td>255.255.224.0</td><td>3</td></tr>
-			<tr><td></td><td>eth1</td><td>255.255.255.0</td><td>3</td></tr>
-			<tr><td>U</td><td>eth0</td><td>255.255.255.0</td><td>4</td></tr>
-			<tr><td></td><td>eth1</td><td>255.255.255.0</td><td>4</td></tr>
-			<tr><td>V</td><td>eth0</td><td>255.255.255.0</td><td>5</td></tr>
-			<tr><td></td><td>eth1</td><td>255.255.255.0</td><td>5</td></tr>
-		</tbody>
-		<tfoot>
-		</tfoot>
-	</table>
-	<figcaption>Information sur les routeurs</figcaption>
-</figure>
+
+
+
+
+
+
+<h4 class="question">
+	Considérons le réseau de la figure. Les tables contient diverses informations sur les routeurs.
+	<figure>
+		<img src="images/info-f303/topologie4" alt="Topologie" />
+		<figcaption>Topologie</figcaption>
+	</figure>
+	<figure>
+		<table>
+			<thead>
+				<tr><th>LAN</th><th>Address</th></tr>
+			</thead>
+			<tbody>
+				<tr><td>1</td> <td>192.200.36.0</td></tr>
+				<tr><td>2</td><td>192.200.34.0</td></tr>
+				<tr><td>3</td><td>200.14.208.0</td></tr>
+				<tr><td>4</td><td>200.14.2.0</td></tr>
+				<tr><td>5</td><td>128.128.128.0</td></tr>
+				<tr><td>6</td><td>129.129.129.0</td></tr>
+			</tbody>
+			<tfoot>
+			</tfoot>
+		</table>
+		<figcaption>Information sur les routeurs</figcaption>
+	</figure>
+	<figure>
+		<table>
+			<thead>
+				<tr><th>LAN</th><th>Address</th></tr>
+			</thead>
+			<tbody>
+				<tr><td>A</td> <td>13</td></tr>
+				<tr><td>B</td><td>125</td></tr>
+				<tr><td>C</td><td>234</td></tr>
+				<tr><td>D</td><td>50</td></tr>
+				<tr><td>E</td><td>79</td></tr>
+			</tbody>
+			<tfoot>
+			</tfoot>
+		</table>
+		<figcaption>Information sur les routeurs</figcaption>
+	</figure>
+	<figure>
+		<table>
+			<thead>
+				<tr><th>Routeur</th><th>Interface</th><th>Netmask</th><th>Host ID</th></tr>
+			</thead>
+			<tbody>
+				<tr><td>R</td><td>eth0</td><td>255.255.255.0</td><td>1</td></tr>
+				<tr><td></td><td>eth1</td><td>255.255.255.0</td><td>1</td></tr>
+				<tr><td>S</td><td>eth0</td><td>255.255.255.0</td><td>2</td></tr>
+				<tr><td></td><td>eth1</td><td>255.255.224.0</td><td>2</td></tr>
+				<tr><td>T</td><td>eth0</td><td>255.255.224.0</td><td>3</td></tr>
+				<tr><td></td><td>eth1</td><td>255.255.255.0</td><td>3</td></tr>
+				<tr><td>U</td><td>eth0</td><td>255.255.255.0</td><td>4</td></tr>
+				<tr><td></td><td>eth1</td><td>255.255.255.0</td><td>4</td></tr>
+				<tr><td>V</td><td>eth0</td><td>255.255.255.0</td><td>5</td></tr>
+				<tr><td></td><td>eth1</td><td>255.255.255.0</td><td>5</td></tr>
+			</tbody>
+			<tfoot>
+			</tfoot>
+		</table>
+		<figcaption>Information sur les routeurs</figcaption>
+	</figure>
+	<ol class="alphabet">
+		<li>Donnez la table d’acheminement de R.</li>
+		<li>La station A envoie un paquet IP à la station B. Décrivez les trames et paquets circulant sur l'intranet, ainsi que l'évolution des différentes tables des routeurs et des stations</li>
+		<li>Oublions les informations données dans les tables et ne regardons que les LAN 5 et 6 ainsi que les routeurs R, U et V. L'adresse du LAN 6 devient : 124.178.16.0 et l'adresse du LAN 5 devient 124.178.24.0. De plus, la station A aura pour host ID 517 et la station C aura pour host ID 517. Le routeur R pourra-t-il fusionner les entrées de sa table d'acheminement sachant que A et C ont le même host ID ? Que se passera-t-il losque C recevra un paquet où le host ID est de 517 ?</li>
+	</ol>
+</h4>
+<div class="answer">
+	<ol class="alphabet">
+		<li>
+			<table>
+				<thead>
+					<tr><th>Destination</th><th>Gateway</th><th>Masque</th><th>Flags</th><th>Iface</th></tr>
+				</thead>
+				<tbody>
+					<tr><td>localhost</td><td>*</td><td>255.255.255.255</td><td>UH</td><td>lo0</td></tr>
+					<tr><td>192.200.36.0</td><td>*</td><td>255.255.255.0</td><td>U</td><td>eth0</td></tr>
+					<tr><td>192.200.34.0</td><td>*</td><td>255.255.255.0</td><td>U</td><td>eth1</td></tr>
+					<tr><td>200.14.208.0</td><td>192.200.34.2</td><td>255.255.224.0</td><td>UG</td><td>eth1</td></tr>
+					<tr><td>200.14.2.0</td><td>192.200.34.2</td><td>255.255.255.0</td><td>UG</td><td>eth1</td></tr>
+					<tr><td>128.128.128.0</td><td>192.200.34.4</td><td>255.255.255.0</td><td>UG</td><td>eth1</td></tr>
+					<tr><td>129.129.129.0</td><td>192.200.34.4</td><td>255.255.255.0</td><td>UG</td><td>eth1</td></tr>
+					<tr><td>default</td><td>192.200.34.2</td><td>0.0.0.0</td><td>UG</td><td>eth1</td></tr>
+				</tbody>
+				<tfoot>
+				</tfoot>
+			</table>
+			Fusion de default, LAN3 et LAN4
+			<table>
+				<thead>
+					<tr><th>Destination</th><th>Gateway</th><th>Masque</th><th>Flags</th><th>Iface</th></tr>
+				</thead>
+				<tbody>
+					<tr><td>localhost</td><td>*</td><td>255.255.255.255</td><td>UH</td><td>lo0</td></tr>
+					<tr><td>192.200.36.0</td><td>*</td><td>255.255.255.0</td><td>U</td><td>eth0</td></tr>
+					<tr><td>192.200.34.0</td><td>*</td><td>255.255.255.0</td><td>U</td><td>eth1</td></tr>
+					<tr><td>128.128.128.0</td><td>192.200.34.4</td><td>255.255.255.0</td><td>UG</td><td>eth1</td></tr>
+					<tr><td>129.129.129.0</td><td>192.200.34.4</td><td>255.255.255.0</td><td>UG</td><td>eth1</td></tr>
+					<tr><td>default</td><td>192.200.34.2</td><td>0.0.0.0</td><td>UG</td><td>eth1</td></tr>
+				</tbody>
+				<tfoot>
+				</tfoot>
+			</table>
+		</li>
+		<li>
+			<ul>
+				<li>IP Source = IP de A = 129.129.129.13</li>
+				<li>IP Destination = IP de B = 200.14.2.125</li>
+			</ul>
+			<table>
+				<thead>
+					<tr><th>Etape</th><th>1</th><th>2</th><th>3</th><th>4</th></tr>
+				</thead>
+				<tbody>
+					<tr><th>Mac source</th><td>A</td><td>U(eth1)</td><td>S(eth1)</td><td>T (eth1)</td></tr>
+					<tr><th>Mac Destination</th><td>U(eth0)</td><td>S(eth0)</td><td>T (eth0)</td><td>B</td></tr>
+				</tbody>
+			</table>
+		</li>
+		<li>
+			Oui, sans aucun problème car ...
+		</li>
+	</ol>
+</div>
+
+
+
+
+<h4 class="question">
+	Considérons le réseau de la figure. Les tables contient diverses informations sur les routeurs.
+	<figure>
+		<img src="images/info-f303/topologie5" alt="Topologie" />
+		<figcaption>Topologie</figcaption>
+	</figure>
+	<figure>
+		<table>
+			<thead>
+				<tr><th>Routeur</th><th>Interface</th><th>Host ID</th></tr>
+			</thead>
+			<tbody>
+				<tr><td>R</td><td>eth0</td><td>2</td></tr>
+				<tr><td></td><td>eth1</td><td>2</td></tr>
+				<tr><td>T</td><td>eth0</td><td>3</td></tr>
+				<tr><td></td><td>eth1</td><td>3</td></tr>
+				<tr><td>V</td><td>eth0</td><td>4</td></tr>
+				<tr><td></td><td>eth1</td><td>4</td></tr>
+			</tbody>
+			<tfoot>
+			</tfoot>
+		</table>
+		<figcaption>Information sur les routeurs</figcaption>
+	</figure>
+	<figure>
+		<table>
+			<thead>
+				<tr><th>Station</th><th>Interface</th><th>IP</th><th>Netmask</th></tr>
+			</thead>
+			<tbody>
+				<tr><td>A</td><td>eth0</td><td>140.140.140.1</td><td>0xffff0000</td></tr>
+				<tr><td>B</td><td>eth0</td><td>150.150.150.1</td><td>0xffffff00</td></tr>
+				<tr><td>C</td><td>eth0</td><td>160.160.160.1</td><td>0xffffff00</td></tr>
+				<tr><td>D</td><td>eth0</td><td>?</td><td>?</td></tr>
+			</tbody>
+			<tfoot>
+			</tfoot>
+		</table>
+		<figcaption>Information sur les routeurs</figcaption>
+	</figure>
+	<ol class="alphabet">
+		<li>Donnez l’adresse IP de D sachant que son host ID est 513.</li>
+		<li>2 Donnez les tables d’acheminement de R, V, A et B.</li>
+		<li>3 Considérons un transfert unidirectionnel de données entre A et B. Donnez les adresses IP qui sont utilisées dans les datagrammes qui circulent sur le réseau.</li>
+	</ol>
+</h4>
+<div class="answer">
 <ol class="alphabet">
-	<li>Donnez la table d’acheminement de R.</li>
-	<li>La station A envoie un paquet IP à la station B. Décrivez les trames et paquets circulant sur l'intranet, ainsi que l'évolution des différentes tables des routeurs et des stations</li>
-	<li>Oublions les informations données dans les tables et ne regardons que les LAN 5 et 6 ainsi que les routeurs R, U et V. L'adresse du LAN 6 devient : 124.178.16.0 et l'adresse du LAN 5 devient 124.178.24.0. De plus, la station A aura pour host ID 517 et la station C aura pour host ID 517. Le routeur R pourra-t-il fusionner les entrées de sa table d'acheminement sachant que A et C ont le même host ID ? Que se passera-t-il losque C recevra un paquet où le host ID est de 517 ?</li>
-</ol></h4>
-<div class="answer"><ol class="alphabet">
-<li>
-	<table>
-		<thead>
-			<tr><th>Destination</th><th>Gateway</th><th>Masque</th><th>Flags</th><th>Iface</th></tr>
-		</thead>
-		<tbody>
-			<tr><td>localhost</td><td>*</td><td>255.255.255.255</td><td>UH</td><td>lo0</td></tr>
-			<tr><td>192.200.36.0</td><td>*</td><td>255.255.255.0</td><td>U</td><td>eth0</td></tr>
-			<tr><td>192.200.34.0</td><td>*</td><td>255.255.255.0</td><td>U</td><td>eth1</td></tr>
-			<tr><td>200.14.208.0</td><td>192.200.34.2</td><td>255.255.224.0</td><td>UG</td><td>eth1</td></tr>
-			<tr><td>200.14.2.0</td><td>192.200.34.2</td><td>255.255.255.0</td><td>UG</td><td>eth1</td></tr>
-			<tr><td>128.128.128.0</td><td>192.200.34.4</td><td>255.255.255.0</td><td>UG</td><td>eth1</td></tr>
-			<tr><td>129.129.129.0</td><td>192.200.34.4</td><td>255.255.255.0</td><td>UG</td><td>eth1</td></tr>
-			<tr><td>default</td><td>192.200.34.2</td><td>0.0.0.0</td><td>UG</td><td>eth1</td></tr>
-		</tbody>
-		<tfoot>
-		</tfoot>
-	</table>
-	Fusion de default, LAN3 et LAN4
-	<table>
-		<thead>
-			<tr><th>Destination</th><th>Gateway</th><th>Masque</th><th>Flags</th><th>Iface</th></tr>
-		</thead>
-		<tbody>
-			<tr><td>localhost</td><td>*</td><td>255.255.255.255</td><td>UH</td><td>lo0</td></tr>
-			<tr><td>192.200.36.0</td><td>*</td><td>255.255.255.0</td><td>U</td><td>eth0</td></tr>
-			<tr><td>192.200.34.0</td><td>*</td><td>255.255.255.0</td><td>U</td><td>eth1</td></tr>
-			<tr><td>128.128.128.0</td><td>192.200.34.4</td><td>255.255.255.0</td><td>UG</td><td>eth1</td></tr>
-			<tr><td>129.129.129.0</td><td>192.200.34.4</td><td>255.255.255.0</td><td>UG</td><td>eth1</td></tr>
-			<tr><td>default</td><td>192.200.34.2</td><td>0.0.0.0</td><td>UG</td><td>eth1</td></tr>
-		</tbody>
-		<tfoot>
-		</tfoot>
-	</table>
-</li>
-<li>
-	<ul>
-		<li>IP Source = IP de A = 129.129.129.13</li>
-		<li>IP Destination = IP de B = 200.14.2.125</li>
-	</ul>
-	<table>
-		<thead>
-			<tr><th>Etape</th><th>1</th><th>2</th><th>3</th><th>4</th></tr>
-		</thead>
-		<tbody>
-			<tr><th>Mac source</th><td>A</td><td>U(eth1)</td><td>S(eth1)</td><td>T (eth1)</td></tr>
-			<tr><th>Mac Destination</th><td>U(eth0)</td><td>S(eth0)</td><td>T (eth0)</td><td>B</td></tr>
-		</tbody>
-	</table>
-</li>
-<li>
-	Oui, sans aucun problème car ...
-</li>
-</ol></div>
-
-
-
-
-<h4 class="question">Considérons le réseau de la figure. Les tables contient diverses informations sur les routeurs.
-<figure>
-	<img src="images/info-f303/topologie5" alt="Topologie" />
-	<figcaption>Topologie</figcaption>
-</figure>
-<figure>
-	<table>
-		<thead>
-			<tr><th>Routeur</th><th>Interface</th><th>Host ID</th></tr>
-		</thead>
-		<tbody>
-			<tr><td>R</td><td>eth0</td><td>2</td></tr>
-			<tr><td></td><td>eth1</td><td>2</td></tr>
-			<tr><td>T</td><td>eth0</td><td>3</td></tr>
-			<tr><td></td><td>eth1</td><td>3</td></tr>
-			<tr><td>V</td><td>eth0</td><td>4</td></tr>
-			<tr><td></td><td>eth1</td><td>4</td></tr>
-		</tbody>
-		<tfoot>
-		</tfoot>
-	</table>
-	<figcaption>Information sur les routeurs</figcaption>
-</figure>
-<figure>
-	<table>
-		<thead>
-			<tr><th>Station</th><th>Interface</th><th>IP</th><th>Netmask</th></tr>
-		</thead>
-		<tbody>
-			<tr><td>A</td><td>eth0</td><td>140.140.140.1</td><td>0xffff0000</td></tr>
-			<tr><td>B</td><td>eth0</td><td>150.150.150.1</td><td>0xffffff00</td></tr>
-			<tr><td>C</td><td>eth0</td><td>160.160.160.1</td><td>0xffffff00</td></tr>
-			<tr><td>D</td><td>eth0</td><td>?</td><td>?</td></tr>
-		</tbody>
-		<tfoot>
-		</tfoot>
-	</table>
-	<figcaption>Information sur les routeurs</figcaption>
-</figure>
-<ol class="alphabet">
-	<li>Donnez l’adresse IP de D sachant que son host ID est 513.</li>
-	<li>2 Donnez les tables d’acheminement de R, V, A et B.</li>
-	<li>3 Considérons un transfert unidirectionnel de données entre A et B. Donnez les adresses IP qui sont utilisées dans les datagrammes qui circulent sur le réseau.</li>
-</ol></h4>
-<div class="answer"><ol class="alphabet">
 <li>
 	Pour déterminer l’adresse IP de D, il nous manque son netmask et son network ID. Ces valeurs sont identiques pour toutes les adresses IP se trouvant sur le même sous-réseau que D. Nous pourrions donc utiliser
 	$IP_{R_{eth0}}$ , $IP_{T_{eth0}}$ ou $IP_A$. Nous avons :
@@ -1808,20 +1916,3 @@ Une fois le <b>3-way handshake</b> effectué, le client et le serveur ont reçu 
 	</li>
 </ol>
 </div>
-
-
-
-<h4 class="question">Trois stations $S_1$, $S_2$ et $S_3$ se partagent un segment de réseau de type 802.3 (CSMA/CD, 10Mbps). La première station désire émettre une trame de 1000 bits alors que les deux autres stations souhaitent émettre chacune deux trames de 1000 bits. La durée d’un slot de contention a été fixée à $2T = 2:10^{-6}$ s. Lorsque plusieurs stations veulent accéder au réseau, on supposera que la probabilité de retransmission dans un slot est constante et égale à $p = \dfrac{1}{2}$. Calculez :
-<ol class="alphabet">
-	<li>la durée moyenne d’envoi des 2 premières trames,</li>
-	<li>la durée moyenne d’envoi des 5 trames.</li>
-</ol>
-Sachant que les stations commencent à émettre leur première trame en même temps.</h4>
-
-
-
-<h4 class="question">Un émetteur envoie des paquets à un récepteur à l'aide d'un protocole de transport <i>stop and wait</i>. Le débit brut du réseau est de 1 Mbps. Chacun de ces paquets contient 1000 bits de données utiles. L'émetteur retransmet un paquet s'il ne reçoit pas q'acquit (24 bytes) avant l'expiration de son timer, fixé à 1 s. Sachant qu'en moyenne un paquet (données ou acquit) sur 100 n'arrive pas à bon port, alculez l'efficacité moyenne de la connexion. On supposera négligeable les délais de propagations et les overheads introduits par l'encapsulation des données.</h4>
-
-
-
-<h4 class="question">Deux entités A et B ont établi une connexion <b>TCP</b> passant par deux routeurs $R$ et $S$. Les liaisons $A \leftrightarrow R$, $R \leftrightarrow S$ et $S \leftrightarrow B$ ont un débit de respectivement 10 Mbps, 1 Mbps, et 1 Mbps. Chacune de ces liaisons a un temps de propagation de 10 ms. $A$ souhaite envoyer des données à $B$ le plus rapidement possible. La fenêtre de réception de $B$ est de 18 MSS, le MSS ayant été négocié à 10 Kb, en-tête compris. Le seuil de l'algorithme de <i>slow-start</i> est initialement fixé à 12 MSS. A chaque réception d'un segment, $B$ répond par un acquit de 24 octets, en-tête compis. Un timer de retransmission de 1 s est enclenché à chaque début d'envoi d'une rafale. Combien de temps faut-il à $A$ pour arrive à un fenetre de congestion de taille maximale, sachant que la troisième rafale sera entièrement perdue et qu'il n'y aura pas d'autres pertes ?</h4>
