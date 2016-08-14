@@ -776,8 +776,8 @@ Les réponses proviennent (ou par l'intermédiaire de résumé) de Denis Steckel
 	Donc, la NAT associe $n$ adresses privées à une seule adresse publique. Ainsi, on peut connecter $n$ machines en n'utilisant qu'une seule adresse publique. On économise donc des adresses. Lorsqu'un paquet est envoyé vers l'extérieur, il passe par le dispositif <b>NAT</b> qui converti l'adresse <b>IP</b> interne en adresse <b>IP</b> officielle du routeur. Le dispositif <b>NAT</b> et un pare-feu sont souvent combinés dans le même équipement, offrant ainsi une certaine sécurité en contrôlant précisément ce qui entre sur le réseau et en sort.
 	<table>
 		<thead>
-			<tr><th rowspan="8">Structure d'une table <b>NAT</b></th></tr>
-			<tr><th rowspan="4">réseau privé</th><th rowspan="4">box</th></tr>
+			<tr><th colspan="8">Structure d'une table <b>NAT</b></th></tr>
+			<tr><th colspan="4">réseau privé</th><th colspan="4">box</th></tr>
 		</thead>
 		<tbody>
 			<tr><th>IP SRC</th><th>IP DST</th><th>PORT SRC</th><th>PORT DST</th><th>IP SRC</th><th>IP DST</th><th>PORT SRC</th><th>PORT DST</th></tr>
