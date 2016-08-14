@@ -776,13 +776,13 @@ Les réponses proviennent (ou par l'intermédiaire de résumé) de Denis Steckel
 	Donc, la NAT associe $n$ adresses privées à une seule adresse publique. Ainsi, on peut connecter $n$ machines en n'utilisant qu'une seule adresse publique. On économise donc des adresses. Lorsqu'un paquet est envoyé vers l'extérieur, il passe par le dispositif <b>NAT</b> qui converti l'adresse <b>IP</b> interne en adresse <b>IP</b> officielle du routeur. Le dispositif <b>NAT</b> et un pare-feu sont souvent combinés dans le même équipement, offrant ainsi une certaine sécurité en contrôlant précisément ce qui entre sur le réseau et en sort.
 	<table>
 		<thead>
-			<th rowspan="8">Structure d'une table <b>NAT</b></th>
-			<th rowspan="4">réseau privé</th><th rowspan="4">box</th>
+			<tr><th rowspan="8">Structure d'une table <b>NAT</b></th></tr>
+			<tr><th rowspan="4">réseau privé</th><th rowspan="4">box</th></tr>
 		</thead>
 		<tbody>
 			<tr><th>IP SRC</th><th>IP DST</th><th>PORT SRC</th><th>PORT DST</th><th>IP SRC</th><th>IP DST</th><th>PORT SRC</th><th>PORT DST</th></tr>
-			<tr><th>192.168.0.1</th><th>217.70.184.38</th><th>10277</th><th>80</th><th>82.238.22.47</th><th>217.70.184.38</th><th>2356</th><th>80</th></tr>
-			<tr><th>192.168.0.2</th><th>217.70.184.38</th><th>10277</th><th>80</th><th>82.238.22.47</th><th>217.70.184.38</th><th>2357</th><th>80</th></tr>
+			<tr><td>192.168.0.1</td><td>217.70.184.38</td><td>10277</td><td>80</td><td>82.238.22.47</td><td>217.70.184.38</td><td>2356</td><td>80</td></tr>
+			<tr><td>192.168.0.2</td><td>217.70.184.38</td><td>10277</td><td>80</td><td>82.238.22.47</td><td>217.70.184.38</td><td>2357</td><td>80</td></tr>
 		</tbody>
 	</table>
 	On voit maintenant que lorsqu'un paquet reviendra avec comme port destination 2356, la box saura qu'il s'agit d'un paquet à destination de 192.168.0.1 et que, lorsqu'il reviendra avec comme port destination 2357, ce sera pour la machine 192.168.0.2. Vu que c'est la box elle-même qui choisit le port source, on est sûrs qu'on n'aura jamais deux fois le même port.
