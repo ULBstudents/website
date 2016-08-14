@@ -1538,8 +1538,6 @@ Une fois le <b>3-way handshake</b> effectué, le client et le serveur ont reçu 
 			<tr><th>Mac source</th><td>A</td><td>U(eth1)</td><td>S(eth1)</td><td>T (eth1)</td></tr>
 			<tr><th>Mac Destination</th><td>U(eth0)</td><td>S(eth0)</td><td>T (eth0)</td><td>B</td></tr>
 		</tbody>
-		<tfoot>
-		</tfoot>
 	</table>
 </li>
 <li>
@@ -1747,8 +1745,6 @@ Une fois le <b>3-way handshake</b> effectué, le client et le serveur ont reçu 
 			<tr><td></td><td>2</td><td>1</td><td>1</td><td>2</td><td>BP</td></tr>
 			<tr><td></td><td>3</td><td>1</td><td>0</td><td>1</td><td>BP</td></tr>
 		</tbody>
-		<tfoot>
-		</tfoot>
 	</table>
 	<figcaption>tables du spanning tree</figcaption>
 </figure>
@@ -1757,8 +1753,57 @@ Une fois le <b>3-way handshake</b> effectué, le client et le serveur ont reçu 
 	<li>La station A envoie une trame à la station B dont elle connaît l’adresse <b>MAC</b>, celle-ci lui répond en lui envoyant à son tour une trame. Décrivez l’évolution des tables d’acheminement des ponts, sachant que celles-ci sont initialement vides, ainsi que les différentes trames qui circulent sur chaque LAN. Pour arriver à destination, cette trame devra traverser deux ponts.</li>
 	<li>Le pont 1 tombe en panne. Décrivez un scénario possible d’échange des BPDU entre les ponts et l’évolution des tables relatives au spanning tree jusqu’à stabilité.</li>
 </ol></h4>
-
-
+<div class="answer">
+<ol class="alphabet">
+	<li>
+		<figure>
+			<img src="images/info-f303/spanningtree" alt="Réseau possible" />
+			<figcaption>Réseau possible</figcaption>
+		</figure>
+	</li>
+	<li>
+		Voir (a).
+		<table>
+			<thead>
+				<tr><th>Etape</th><th>1</th><th>2</th><th>3</th></tr>
+			</thead>
+			<tbody>
+				<tr><th>Mac source</th>     <td>A</td>      <td>2(eth1)</td><td>1(eth1)</td><td>B</td>      <td>1(eth2)</td><td>2(eth2)</td></tr>
+				<tr><th>Mac Destination</th><td>2(eth2)</td><td>1(eth2)</td><td>B</td>      <td>1(eth1)</td><td>2(eth1)</td><td>A</td></tr>
+			</tbody>
+		</table>
+		<ol>
+			<li>A envoie une trame $MAC_{source}=MAC_A$ et $MAC_{dest}=MAC_B$ sur $LAN3$ et le pont 2 port 2 recoit la trame. Il associe aussi $MAC_A$ à son port 2.</li>
+			<li>Le pont 2 renvoie sur le $LAN2$ via le port 1. Le pont 1 recoit la trame sur le port 2, il associe $MAC_A$ sur son port 2 et renvoie la trame sur le $LAN1$ via son port 1.</li>
+			<li>Le pont 4 et le port 3 recoivent la trame, ils associent $MAC_A$ sur leur port 1. B reçoit la trame.</li>
+			<li>B envoie une trame $MAC_{source}=MAC_B$ et $MAC_{dest}=MAC_A$ sur $LAN1$ et le pont 1,3,4 recoivent la trame sur leur port 1. Ils associe aussi $MAC_B$ à leur port 1.</li>
+			<li>Le pont 1 renvoie sur son port 2 sachant sa table et le pont 2 recoit sur son port 1.</li>
+			<li>Le pont 2 renvoie sur son port 2 sachant sa table et A recoit.</li>
+		</ol>
+	</li>
+	<li>
+		Le pont 1 tombe en panne, il n'emet plus son BPDU et l'entrée qui lui est associé au pont 2,3 et 4 arrivent à expiration, ils commencent donc à emettre par default sur leurs ports. Le pont 3 recevant un meilleur BPDU sur son port 2 va mettre à jour sa table avec un $rootID=2$ et mettre son port 1 à FP et son port 2 à RP. Le port 4 recoit 3 BPDU ; BPDU(2,0,2) sur le port 2 (devient RP) et BPDU(2,1,3) sur les port 1,3 (tous les deux BP car le port 2 est meilleur).
+		<table>
+			<thead>
+				<tr><th>pont</th><th>port</th><th>root ID</th><th>cost</th><th>sender ID</th><th>type</th></tr>
+			</thead>
+			<tbody>
+				<tr><th>pont 2</th><td>1</td><td>2</td><td>0</td><td>2</td><td>FP</td></tr>
+				<tr><th></th>      <td>2</td><td>2</td><td>0</td><td>2</td><td>FP</td></tr>
+			</tbody>
+			<tbody>
+				<tr><th>pont 3</th><td>1</td><td>2</td><td>0</td><td>2</td><td>RP</td></tr>
+				<tr><th></th>      <td>2</td><td>2</td><td>1</td><td>3</td><td>FP</td></tr>
+			</tbody>
+			<tbody>
+				<tr><td>pont 4</td><td>1</td><td>2</td><td>1</td><td>3</td><td>BP</td></tr>
+				<tr><th></th>      <td>2</td><td>2</td><td>0</td><td>2</td><td>RP</td></tr>
+				<tr><th></th>      <td>3</td><td>2</td><td>1</td><td>3</td><td>BP</td></tr>
+			</tbody>
+		</table>
+	</li>
+</ol>
+</div>
 
 
 
