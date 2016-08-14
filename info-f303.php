@@ -1765,7 +1765,7 @@ Une fois le <b>3-way handshake</b> effectué, le client et le serveur ont reçu 
 		Voir (a).
 		<table>
 			<thead>
-				<tr><th>Etape</th><th>1</th><th>2</th><th>3</th></tr>
+				<tr><th>Etape</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th></tr>
 			</thead>
 			<tbody>
 				<tr><th>Mac source</th>     <td>A</td>      <td>2(eth1)</td><td>1(eth1)</td><td>B</td>      <td>1(eth2)</td><td>2(eth2)</td></tr>
@@ -1789,18 +1789,22 @@ Une fois le <b>3-way handshake</b> effectué, le client et le serveur ont reçu 
 			</thead>
 			<tbody>
 				<tr><th>pont 2</th><td>1</td><td>2</td><td>0</td><td>2</td><td>FP</td></tr>
-				<tr><th></th>      <td>2</td><td>2</td><td>0</td><td>2</td><td>FP</td></tr>
+				<tr><td></td>      <td>2</td><td>2</td><td>0</td><td>2</td><td>FP</td></tr>
 			</tbody>
 			<tbody>
 				<tr><th>pont 3</th><td>1</td><td>2</td><td>0</td><td>2</td><td>RP</td></tr>
-				<tr><th></th>      <td>2</td><td>2</td><td>1</td><td>3</td><td>FP</td></tr>
+				<tr><td></td>      <td>2</td><td>2</td><td>1</td><td>3</td><td>FP</td></tr>
 			</tbody>
 			<tbody>
-				<tr><td>pont 4</td><td>1</td><td>2</td><td>1</td><td>3</td><td>BP</td></tr>
-				<tr><th></th>      <td>2</td><td>2</td><td>0</td><td>2</td><td>RP</td></tr>
-				<tr><th></th>      <td>3</td><td>2</td><td>1</td><td>3</td><td>BP</td></tr>
+				<tr><th>pont 4</th><td>1</td><td>2</td><td>1</td><td>3</td><td>BP</td></tr>
+				<tr><td></td>      <td>2</td><td>2</td><td>0</td><td>2</td><td>RP</td></tr>
+				<tr><td></td>      <td>3</td><td>2</td><td>1</td><td>3</td><td>BP</td></tr>
 			</tbody>
 		</table>
+		<figure>
+			<img src="images/info-f303/spanningtree_2" alt="Réseau possible" />
+			<figcaption>Réseau possible</figcaption>
+		</figure>
 	</li>
 </ol>
 </div>
