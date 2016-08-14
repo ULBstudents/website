@@ -759,9 +759,33 @@ Les réponses proviennent (ou par l'intermédiaire de résumé) de Denis Steckel
 
 
 
-<h4 class="question">Expliquez le principe de NAT et la structure d’une table NAT.</h4>
-<div class="answer">Lorsqu'un paquet est envoyé vers l'extérieur, il passe par un dispositif <b>NAT</b> qui converti l'adresse <b>IP</b> interne en adresse <b>IP</b> officielle de l'entreprise. Le dispositif <b>NAT</b> et un pare-feu sont souvent combinés dans le même équipement, offrant ainsi une certaine sécurité en contrôlant précisément ce qui entre sur le réseau et en sort. Structure d'une table <b>NAT</b>:
-<table><tbody><tr><th><b>IP</b> interne</th><th><b>IP</b> externe</th><th>Durée (s)</th><th>Réutilisable?</th></tr></tbody></table>
+<h4 class="question">
+	Expliquez le principe de NAT et la structure d’une table NAT.
+</h4>
+<div class="answer">
+	La NAT vient résoudre deux problème problème majeurs :
+	<ul>
+		<li>Tout d'abord la pénurie d'adresse IP sur Internet, résolu par la mise en place de plages d'adresses IP pour une utilisation privée</li>
+		<li>Et du coup le second qui est de pouvoir accéder à Internet en utilisant ces adresses IP privées.</li>
+	</ul>
+	En fait, si on reprends le principe de la couche 3, il y a bien un facteur limitant au nombre de machines possibles sur Internet, c'est le nombre d'adresses IP disponibles. Rappel: Une adresse IP est codée sur 4 octets, soit 32 bits. Elle peut donc prendre $2^32$ valeurs, soit environ 4 294 967 296. Ca peut paraitre beaucoup mais avec le nombre d'appareil connectés ne cesse d'augmenter et on approche très rapidement au quota.
+	La transition de IPv4 à IPv6 est en place mais il faut une solution temporaire pour ne pas priver les machines actuels du réseau du jour au lendemain. 
+	<br><br>
+	Vu que certains réseaux étaient privés et que les machines sur ces réseaux n'avaient pas besoin d'être jointes depuis Internet (elles étaient de simples clients, mais pas des serveurs), il n'était pas nécessaire de leur fournir une adresse IP publique à chacune d'entre elles. Ainsi, on s'est dit qu'on pourrait donner des adresses IP privées à ces machines. Cette plage d'adresses privée n'est donc pas utilisée sur Internet, elle est réservée pour tous les réseaux du monde entier qui n'ont pas besoin d'être joints depuis Internet ( par exemple 192.168.x.x ou 10.x.x.x ou 172.16.x.x ).
+	<br><br>
+	Donc, la NAT associe $n$ adresses privées à une seule adresse publique. Ainsi, on peut connecter $n$ machines en n'utilisant qu'une seule adresse publique. On économise donc des adresses. Lorsqu'un paquet est envoyé vers l'extérieur, il passe par le dispositif <b>NAT</b> qui converti l'adresse <b>IP</b> interne en adresse <b>IP</b> officielle du routeur. Le dispositif <b>NAT</b> et un pare-feu sont souvent combinés dans le même équipement, offrant ainsi une certaine sécurité en contrôlant précisément ce qui entre sur le réseau et en sort.
+	<table>
+		<thead>
+			<th rowspan="8">Structure d'une table <b>NAT</b></th>
+			<th rowspan="4">réseau privé</th><th rowspan="4">box</th>
+		</thead>
+		<tbody>
+			<tr><th>IP SRC</th><th>IP DST</th><th>PORT SRC</th><th>PORT DST</th><th>IP SRC</th><th>IP DST</th><th>PORT SRC</th><th>PORT DST</th></tr>
+			<tr><th>192.168.0.1</th><th>217.70.184.38</th><th>10277</th><th>80</th><th>82.238.22.47</th><th>217.70.184.38</th><th>2356</th><th>80</th></tr>
+			<tr><th>192.168.0.2</th><th>217.70.184.38</th><th>10277</th><th>80</th><th>82.238.22.47</th><th>217.70.184.38</th><th>2357</th><th>80</th></tr>
+		</tbody>
+	</table>
+	On voit maintenant que lorsqu'un paquet reviendra avec comme port destination 2356, la box saura qu'il s'agit d'un paquet à destination de 192.168.0.1 et que, lorsqu'il reviendra avec comme port destination 2357, ce sera pour la machine 192.168.0.2. Vu que c'est la box elle-même qui choisit le port source, on est sûrs qu'on n'aura jamais deux fois le même port.
 </div>
 
 
@@ -1086,6 +1110,10 @@ Une fois le <b>3-way handshake</b> effectué, le client et le serveur ont reçu 
 <div class="answer">
 	<ol class="alphabet">
 		<li>
+			?
+		</li>
+		<li>
+			?
 		</li>
 	</ol>
 </div>
@@ -1108,6 +1136,10 @@ Une fois le <b>3-way handshake</b> effectué, le client et le serveur ont reçu 
 <div class="answer">
 	<ol class="alphabet">
 		<li>
+			?
+		</li>
+		<li>
+			?
 		</li>
 	</ol>
 </div>
@@ -1132,6 +1164,10 @@ Une fois le <b>3-way handshake</b> effectué, le client et le serveur ont reçu 
 <div class="answer">
 	<ol class="alphabet">
 		<li>
+			?
+		</li>
+		<li>
+			?
 		</li>
 	</ol>
 </div>
@@ -1144,6 +1180,7 @@ Une fois le <b>3-way handshake</b> effectué, le client et le serveur ont reçu 
 <h4 class="question">
 	Un émetteur envoie des paquets à un récepteur à l'aide d'un protocole de transport <i>stop and wait</i>. Le débit brut du réseau est de 1 Mbps. Chacun de ces paquets contient 1000 bits de données utiles. L'émetteur retransmet un paquet s'il ne reçoit pas q'acquit (24 bytes) avant l'expiration de son timer, fixé à 1 s. Sachant qu'en moyenne un paquet (données ou acquit) sur 100 n'arrive pas à bon port, alculez l'efficacité moyenne de la connexion. On supposera négligeable les délais de propagations et les overheads introduits par l'encapsulation des données.</h4>
 <div class="answer">
+	?
 </div>
 
 
@@ -1158,6 +1195,7 @@ Une fois le <b>3-way handshake</b> effectué, le client et le serveur ont reçu 
 	Deux entités A et B ont établi une connexion <b>TCP</b> passant par deux routeurs $R$ et $S$. Les liaisons $A \leftrightarrow R$, $R \leftrightarrow S$ et $S \leftrightarrow B$ ont un débit de respectivement 10 Mbps, 1 Mbps, et 1 Mbps. Chacune de ces liaisons a un temps de propagation de 10 ms. $A$ souhaite envoyer des données à $B$ le plus rapidement possible. La fenêtre de réception de $B$ est de 18 MSS, le MSS ayant été négocié à 10 Kb, en-tête compris. Le seuil de l'algorithme de <i>slow-start</i> est initialement fixé à 12 MSS. A chaque réception d'un segment, $B$ répond par un acquit de 24 octets, en-tête compis. Un timer de retransmission de 1 s est enclenché à chaque début d'envoi d'une rafale. Combien de temps faut-il à $A$ pour arrive à un fenetre de congestion de taille maximale, sachant que la troisième rafale sera entièrement perdue et qu'il n'y aura pas d'autres pertes ?
 </h4>
 <div class="answer">
+	?
 </div>
 
 
