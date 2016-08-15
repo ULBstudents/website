@@ -1436,7 +1436,7 @@ Une fois le <b>3-way handshake</b> effectué, le client et le serveur ont reçu 
 
 
 
-	$C_3 = \dfrac{2\tau}{A_3} = \dfrac{4*10^{-6}}{0.421875} = 0.000 009 48$\<br>
+	$C_3 = \dfrac{2\tau}{A_3} = \dfrac{4*10^{-6}}{0.421875} = 0.000 009 48$<br>
 	$C_2 = \dfrac{2\tau}{A_2} = \dfrac{4*10^{-6}}{0.5} = 0.000 010 67$<br>
 	$T_1 = \dfrac{1250}{10*10^6} = 0.000125s$<br>
 	$T_1 = \dfrac{1000}{10*10^6} = 0.0001s$
@@ -1451,7 +1451,31 @@ Une fois le <b>3-way handshake</b> effectué, le client et le serveur ont reçu 
 	Quatre stations $S_1$, $S_2$ et $S_3$ et $S_4$ se partagent un segment de réseau de type 802.3 (CSMA/CD, 10Mbps). La première station désire émettre une trame de 1000 bits, la deuxième une trame de 1250 bits et les deux autres stations souhaitent émettre chacune deux trames de 1500 bits. La durée d’un slot de contention a été fixée à $2\tau = 2.10^{-6}$ s. Lorsque plusieurs stations veulent accéder au réseau, on supposera que la probabilité de retransmission dans un slot est constante et égale à $p = \dfrac{1}{3}$. Calculez la durée moyenne d’envoi des 3 premières trames. Sachant que les stations commencent à émettre leur première trame en même temps.
 </h4>
 <div class="answer">
-	?
+	La probabilité qu’une des 2 stations acquiert le canal dans un slot(libre) est :
+	$A_2 = kp(1-p)^{k-1} = \dfrac{2}{3}\left(1-\dfrac{1}{3}\right)^{2-1} = 0.444$<br>
+
+	La probabilité qu’une des 3 stations acquiert le canal dans un slot(libre) est : 
+	$A_3 = kp(1-p)^{k-1} = \dfrac{3}{3}\left(1-\dfrac{2}{3}\right)^{3-1} = 0.444$<br>
+
+	La probabilité qu’une des 3 stations acquiert le canal dans un slot(libre) est : 
+	$A_4 = kp(1-p)^{k-1} = \dfrac{4}{3}\left(1-\dfrac{4}{3}\right)^{4-1} = 0.395$<br>
+
+
+	$C_2 = \dfrac{2\tau}{A_2} = \dfrac{2*10^{-6}}{0.444} = 0.0000045$<br>
+	$C_3 = \dfrac{2\tau}{A_3} = \dfrac{2*10^{-6}}{0.444} = 0.0000045$<br>
+	$C_4 = \dfrac{2\tau}{A_4} = \dfrac{2*10^{-6}}{0.395} = 0.0000050625$<br>
+
+	$T_1 = \dfrac{1000}{10*10^6} = 0.0001s$<br>
+	$T_2 = \dfrac{1250}{10*10^6} = 0.000125s$<br>
+	$T_3 = T_4 = \dfrac{1500}{10*10^6} = 0.00015s$
+	<figure>
+		<img src="images/info-f303/csma_3" alt="CSMA" />
+		<figcaption>CSMA</figcaption>
+	</figure>
+	$arbre1 = C_4 + \dfrac{5}{3}C_3 + \dfrac{1}{3}C_2 + T_1 + \dfrac{5}{9}T_2 + \dfrac{13}{9}T_{3,4} = 0.0003952$<br>
+	$arbre2 = C_4 + \dfrac{5}{3}C_3 + \dfrac{1}{3}C_2 + T_2 + \dfrac{5}{9}T_1 + \dfrac{13}{9}T_{3,4} = 0.0004063$<br>
+	$arbre3 = \dfrac{9}{4}C_4 + \dfrac{3}{4}C_3 + \dfrac{23}{48}T_1 + \dfrac{23}{48}T_2 + \dfrac{98}{48}T_{3,4} = 0.0004288$<br>
+	$\dfrac{arbre1}{4} + \dfrac{arbre2}{4} + \dfrac{2 arbre3}{4} = 0.0004148$
 </div>
 
 
