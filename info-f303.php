@@ -625,11 +625,30 @@ Les réponses proviennent (ou par l'intermédiaire de résumé) de Denis Steckel
 	</ol>
 </div>
 
+<h4 class="question">
+	Décrivez le protocole RIP.
+</h4>
+<div class="answer">
+	Routing Information Protocol (RIP, protocole d'information de routage) est un protocole de routage IP de type Vector Distance (à vecteur de distances) s'appuyant sur l'algorithme de détermination des routes décentralisé Bellman-Ford. Il permet à chaque routeur de communiquer aux routeurs voisins la métrique, c’est-à-dire la distance qui les sépare d'un réseau IP déterminé quant au nombre de sauts ou « hops » en anglais.
+	Pour chaque réseau IP connu, chaque routeur conserve l'adresse du routeur voisin dont la métrique est la plus petite. Ces meilleures routes sont diffusées toutes les 30 secondes.
+	<br>
+	Les limitation de RIP :
+	<ul>
+		<li>Pour éviter les boucles de routage, le nombre de sauts est limité à 15. Au-delà, les paquets sont supprimés.</li>
+		<li>RIP ne prend en compte que la distance entre deux machines en ce qui concerne le saut, mais il ne considère pas l'état de la liaison afin de choisir la meilleure bande passante possible. Si l'on considère un réseau composé de trois routeurs A, B et C, reliés en triangle, RIP préférera passer par la liaison directe A-B même si la bande passante n'est que de 56 kbit/s alors qu'elle est de 20 Mbit/s entre A et C et C et B.</li>
+
+	</ul>
+	Ces limitations sont corrigées dans le protocole OSPF.
+</div>
+
 
 
 <h4 class="question">
 	<ol class="alphabet">
-		<li>Dans quelle(s) situation(s) le protocole de routage à vecteur de distances (DV) risque-t-il de ne pas converger ?</li><li>Décrivez un comportement pathologique possible à l’aide d’un exemple simple.</li><li>Comment peut-on atténuer ce phénomène ?</li>
+		<li>Dans quelle(s) situation(s) le protocole de routage à vecteur de distances (DV) risque-t-il de ne pas converger ?</li>
+		<li>Décrivez un comportement pathologique possible à l’aide d’un exemple simple.</li>
+		<li>Comment peut-on atténuer ce phénomène ? Expliquez.</li>
+		<li>Dé</li>
 	</ol>
 </h4>
 <div class="answer">
@@ -648,7 +667,10 @@ Les réponses proviennent (ou par l'intermédiaire de résumé) de Denis Steckel
 			</figure>
 		</li>
 		<li>
-			Via le poison reverse. Si Z passe par Y pour aller à X, Z peut faire croire à Y qu'il se trouve à une distance infinie de X. Y étant persuadé que Z ne peut atteindre X, il opte pour une autre route.  Cette méthode n'est bonne qu'avec des triplets, elle ne marche pas lorsqu'il y a des boucles de plus de trois noeuds.
+			Solution: définir un nombre maximum de sauts, comme via le <b>Route poisoning</b> : lorsqu'une route vers un réseau tombe, le réseau est immédiatement averti d'une métrique de distance infinie (le maximum de sauts +1), plus aucune incrémentation n'est possible.
+			<br>
+			Si $Z$ passe par $Y$ pour aller à $X$, $Z$ peut faire croire à $Y$ qu'il se trouve à une distance infinie de $X$. Y étant persuadé que Z ne peut atteindre X, il opte pour une autre route. Cette méthode n'est bonne qu'avec des triplets, elle ne marche pas lorsqu'il y a des boucles de plus de trois noeuds.<br><br>
+			Le poison reverse (Route poisoning) est une méthode pour prévenir qu'une route
 		</li>
 	</ol>
 </div>
