@@ -1428,7 +1428,23 @@ Une fois le <b>3-way handshake</b> effectué, le client et le serveur ont reçu 
 	Trois stations $S_1$, $S_2$ et $S_3$ se partagent un segment de réseau de type 802.3 (CSMA/CD, 10Mbps). La première station désire émettre une trame de 1000 bits alors que les deux autres stations souhaitent émettre chacune deux trames de 1250 bits alors que les deux autres stations souhaitent émettre chacune deux trames de 1000 bits. La station S3 doit attendre l’envoi de la première trame de $S_2$ avant de commencer à émettre sur le réseau. La durée d’un slot de contention a été fixée à $2\tau = 4.10^{-6}$ s. Considérez les temps de réaction des différentes stations comme nul. Lorsque plusieurs stations veulent accéder au réseau, on supposera que la probabilité de retransmission dans un slot est constante et égale à $p = \dfrac{1}{4}$. Calculez la durée moyenne d’envoi des 2 premières trames. Sachant que les stations commencent à émettre leur première trame en même temps, sous les contraintes déjà évoquées précédemment.
 </h4>
 <div class="answer">
-	?
+	La probabilité qu’une des 2 stations acquiert le canal dans un slot(libre) est :
+	$A_2 = kp(1-p)^{k-1} = \dfrac{2}{4}\left(1-\dfrac{1}{4}\right)^{2-1} = 0.375$<br>
+
+	La probabilité qu’une des 3 stations acquiert le canal dans un slot(libre) est : 
+	$A_3 = kp(1-p)^{k-1} = \dfrac{3}{4}\left(1-\dfrac{1}{4}\right)^{3-1} = 0.421875$<br>
+
+
+
+	$C_3 = \dfrac{2\tau}{A_3} = \dfrac{4*10^{-6}}{0.421875} = 0.000 009 48$\<br>
+	$C_2 = \dfrac{2\tau}{A_2} = \dfrac{4*10^{-6}}{0.5} = 0.000 010 67$<br>
+	$T_1 = \dfrac{1250}{10*10^6} = 0.000125s$<br>
+	$T_1 = \dfrac{1000}{10*10^6} = 0.0001s$
+	<figure>
+		<img src="images/info-f303/csma_2" alt="CSMA" />
+		<figcaption>CSMA</figcaption>
+	</figure>
+	$C_2+\dfrac{1}{2}(T_1+T_2)+\dfrac{1}{2}(T_2+C_3+\dfrac{T_1}{3}+\dfrac{T_2}{3}+\dfrac{T_3}{3}) = 0.000232$
 </div>
 
 <h4 class="question">
