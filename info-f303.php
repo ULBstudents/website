@@ -408,8 +408,8 @@ Les réponses proviennent (ou par l'intermédiaire de résumé) de Denis Steckel
 		La technologie <b>CSMA</b> a été amélioré par différents modes d'accès: 
 		<ul>
 			<li><b>CSMA</b> <b>persistant</b>: consiste à toujours écouter le canal, et on émet dedans dès qu'il est libre.</li>
+			<li><b>CSMA</b> <b>non-persistant</b>: dans ce mode chaque station vérifie régulièrement que le média soit disponible. Si ce n'est pas le cas, elle attend un temps aléatoire pour revérifier si le média est enfin libre. Enfin, lorsque le média n'est pas occupé, la station transmet ses informations immédiatement. Cette approche réduit les collisions mais le temps d'attente initial peut être très long.</li>
 			<li><b>CSMA</b> <b>p-persistant</b>: si une station souhaite émettre et que le canal est libre, elle émet avec une probabilité p. Sinon, elle attend un intervalle de temps avant de retenter avec la même probabilité p. En cas de collision, la station attend un temps aléatoire avant de recommencer la procédure. Cela permet d'éviter que deux stations se jettent sur le canal en même temps. La difficulté est d'avoir un bon p : trop bas et le délai augmente, trop haut et on a plein de collisions.</li>
-			<li><b>CSMA</b> <b>non-persistant</b>: dans ce modes chaque station vérifie régulièrement que le média soit disponible. Si ce n'est pas le cas, elle attend un temps aléatoire pour revérifier si le média est enfin libre. Enfin, lorsque le média n'est pas occupé, la station transmet ses informations immédiatement. Cette approche réduit les collisions mais le temps d'attente initial peut être très long.</li>
 		</ul>
 	</li>
 	<li>
@@ -554,6 +554,71 @@ Les réponses proviennent (ou par l'intermédiaire de résumé) de Denis Steckel
 
 
 
+
+<h4 class="question"><ol class="alphabet"><li>Dans quelle(s) situation(s) le protocole de routage à vecteur de distances (DV) risque-t-il de ne pas converger ?</li><li>Décrivez un comportement pathologique possible à l’aide d’un exemple simple.</li><li>Comment peut-on atténuer ce phénomène ?</li></ol></h4>
+<div class="answer"><ol class="alphabet">
+<li><ul>
+	<li>Des boucles de routage.</li>
+	<li>Le trafic est acheminé de façon incohérente.</li>
+	<li>Des entrées de table de routage incohérentes.</li>
+</ul></li>
+<li>Pour constater la rapidité avec laquelle les bonnes nouvelles se propagent, considérez le sous-réseau illustré à la figure et sur lequel la métrique utilisée est le nombre de sauts. Supposons que A soit inactif au départ et que tous les autres routeurs le sachent. En d'autres termes, ils ont tous enregistré un délai infini vers A.<figure>
+	<img src="images/info-f303/comportement-pathologique" alt="Comportement pathologique" />
+	<figcaption>Comportement pathologique</figcaption>
+</figure></li>
+<li>Via l'lhorizon éclaté (poison reverse). Si Z passe par Y pour aller à X, Z peut faire croire à Y qu'il se trouve à une distance infinie de X. Y étant persuadé que Z ne peut atteindre X, il opte pour une autre route.  Cette méthode n'est bonne qu'avec des triplets, elle ne marche pas lorsqu'il y a des boucles de plus de trois noeuds.</li>
+</ol></div>
+
+<h4 class="question"><ol class="alphabet"><li>Considérez un protocole de routage à états de liens (link state). Décrivez le contenu des paquets de routage, expliquez le rôle de chaque champ, et décrivez la méthode de diffusion des paquets.</li><li>En quelques mots, en quoi est-ce fondamentalement différent des protocoles à vecteur de distances ?</li></ol></h4>
+<div class="answer"><ol class="alphabet">
+<li><ol>
+	<li>Le nom de la source.</li>
+	<li>Un numéro de séquence : Il permet de savoir à quel paquet le routeur en est (pour ne pas mettre à jour avec un vieux paquet).</li>
+	<li>Un âge</li>
+	<li>Le nom de ses voisins et les coûts associés (qui ne sont pas obligatoirement identiques pour les 2 sens	d’une arête.</li>
+	<li>Des <b>ACK</b> flags et des Send flags pour savoir. Le send flag permet de savoir qui a déjà reçu le paquet et à qui le paquet n’a pas encore été envoyé, tandis que l’<b>ACK</b> flag sert juste à savoir si on a renvoyé l’<b>ACK</b> de ce paquet à un certain nœud</li>
+</ol>
+Chaque noeud reçoit les mêmes infos. Tous les noeuds envoient toutes les infos à tous ses voisins qui n'ont pas encore reçu l'info. Ensuite ils doivent chacun effectuer un Dijkstra pour chaque destination. Pour les protocoles à vecteur de distances, on utilise la programmation dynamique. Chaque noeud envoi périodiquement son vecteur de distance à ses voisins de manière asynchrone. Quand un noeud reçoit un vecteur de distance, il met à jour le sien et si un chemin change il avertit ses autres voisins. Les algorithmes à vecteur de distance sont moins robustes mais beaucoup plus rapides.</li>
+<li>Contrairement au DV, la distance vers une destination n'est pas calculée au fur et à mesure en sommant le prochain coût estimé par le prochain saut et le coût pour atteindre ce prochain routeur. On calcule la distance directement via un arbre (spanning tree).</li>
+</ol>
+</div>
+
+
+<h4 class="question">Le protocole de routage inter-domaine BGP est plus apparenté à la famille des protocoles de routage intra-domaine à vecteur de distances (DV) qu’à celle des protocoles à état de lien (LS).<ol class="alphabet"><li>Expliquez deux ressemblances importantes entre BGP et un protocole DV.</li><li>Expliquez deux différences importantes entre BGP et un protocole DV, et leur raison d’être.</li></ol></h4>
+<div class="answer"><ol class="alphabet">
+<li>
+	<ol>
+		<li>
+			Obtention de la connaissance des voisins
+		</li>
+		<li>
+			Propage les informations dans tout le réseau.
+		</li>
+	</ol>
+</li>
+<li>
+	<ol>
+		<li>
+			BGP mémorise toutes les routes vers toutes les destination : récupération rapide lorsqu'une destination devient inaccessible via la route initialement choisie.
+		</li>
+		<li>
+			BGP construit des routes sans boucles : - Le chemin suivi est décrit explicitement à l'aide des AS traversés.
+		</li>
+		<li>
+			Détection facile des boucles
+		</li>
+	</ol>
+</li>
+</ol>
+</div>
+
+
+
+
+
+
+
+
 <h4 class="question"><ol class="alphabet"><li>Définissez les différents types de « Resource Records (RR)» utilisés par le protocole <b>DNS</b> et expliquez leur rôle.</li><li>Donnez le scénario d’échange de messages <b>DNS</b>, par la méthode itérative, permettant à un client de trouver l’adresse <b>IP</b> d’un serveur web dont l’URL est <b>www.company.com</b>, <i>en indiquant les RR présents dans ces messages</i>. On supposera que les caches <b>DNS</b> sont vides.</li></ol></h4>
 <div class="answer"><ol class="alphabet">
 <li>
@@ -592,33 +657,6 @@ Les réponses proviennent (ou par l'intermédiaire de résumé) de Denis Steckel
 
 
 
-<h4 class="question">Le protocole de routage inter-domaine BGP est plus apparenté à la famille des protocoles de routage intra-domaine à vecteur de distances (DV) qu’à celle des protocoles à état de lien (LS).<ol class="alphabet"><li>Expliquez deux ressemblances importantes entre BGP et un protocole DV.</li><li>Expliquez deux différences importantes entre BGP et un protocole DV, et leur raison d’être.</li></ol></h4>
-<div class="answer"><ol class="alphabet">
-<li>
-	<ol>
-		<li>
-			Obtention de la connaissance des voisins
-		</li>
-		<li>
-			Propage les informations dans tout le réseau.
-		</li>
-	</ol>
-</li>
-<li>
-	<ol>
-		<li>
-			BGP mémorise toutes les routes vers toutes les destination : récupération rapide lorsqu'une destination devient inaccessible via la route initialement choisie.
-		</li>
-		<li>
-			BGP construit des routes sans boucles : - Le chemin suivi est décrit explicitement à l'aide des AS traversés.
-		</li>
-		<li>
-			Détection facile des boucles
-		</li>
-	</ol>
-</li>
-</ol></div>
-
 
 
 <h4 class="question"><ol class="alphabet"><li>Nommez et expliquez succinctement les 2 grandes familles de protocoles de routage intra-domaine (IGP) en insistant sur leurs différences.</li><li>Expliquez en quoi et pourquoi le protocole de routage inter-domaine de l’Internet (BGP) est différent des protocoles de routage intra-domaine (IGP) déployés dans les divers systèmes autonomes (AS) qui composent l’Internet.</li></ol></h4>
@@ -653,6 +691,17 @@ Les réponses proviennent (ou par l'intermédiaire de résumé) de Denis Steckel
 	Les noeuds peuvent retenir de l'information, tel qu'un chemin qu'il connait qui ne lui rapporte rien.
 </li>
 </ol></div>
+
+
+
+
+<h4 class="question"><ol class="alphabet"><li>Déterminez analytiquement l’expression de l’efficacité du protocole ALOHA discrétisé (slotted ALOHA) en fonction de la charge du réseau pour un grand nombre de stations actives. On supposera que chaque station émet dans un slot avec une probabilité p.</li><li>Représentez l’efficacité graphiquement (avec définition des axes), et expliquez la forme de la courbe.</li><li>La suppression des slots (Cf. ALOHA pur) améliore-t-elle les performances ? Pourquoi ?</li></ol></h4>
+<div class="answer"><ol class="alphabet">
+<li>Si on suppose qu’on a N nœuds qui ont beaucoup de trames à envoyer. Chacun transmet sur un slot avec une certaine probabilité p. Un nœud à $p(1-p)^{N-1}$ chances d’envoyer un paquet parce qu’il faut qu’il envoie un paquet ($p$) <i>et</i> qu’aucun des $N-1$ autres nœuds n’envoient un paquet ($1-p$) en même temps. La probabilité que n’importe quel nœud envoient un paquet avec succès est de $$Np(1-p)^{N-1}$$ Pour une efficacité maximale, il faut donc trouver un p tel que $Np(1-p)^{N-1}$ soit maximale. On trouve (en dérivant) que L’efficacité est maximale quand $p=\dfrac{1}{N}$. Si on imagine que N tend vers l’infini, on sait que $$\lim\limits_{n-\infty}\left(1+\left(\dfrac{G}{n}\right)\right)^{n} = e^{-G}$$ Et donc pour $G=1$ $$e^{-1} = \dfrac{1}{e} = 0.37 = 37\% \text{ d'efficacité}$$</li>
+<li>(Slide 5-28) ?</li>
+<li>Non, la probabilité de collision augmente. On obtient une efficacité de 18%.</li>
+</ol></div>
+
 
 
 
@@ -921,19 +970,7 @@ $$rwnd = RcvBuffer - (LastByteRcvd - LastByteRead)$$</li>
 
 
 
-<h4 class="question"><ol class="alphabet"><li>Considérez un protocole de routage à états de liens (link state). Décrivez le contenu des paquets de routage, expliquez le rôle de chaque champ, et décrivez la méthode de diffusion des paquets.</li><li>En quelques mots, en quoi est-ce fondamentalement différent des protocoles à vecteur de distances ?</li></ol></h4>
-<div class="answer"><ol class="alphabet">
-<li><ol>
-	<li>Le nom de la source.</li>
-	<li>Un numéro de séquence : Il permet de savoir à quel paquet le routeur en est (pour ne pas mettre à jour avec un vieux paquet).</li>
-	<li>Un âge</li>
-	<li>Le nom de ses voisins et les coûts associés (qui ne sont pas obligatoirement identiques pour les 2 sens	d’une arête.</li>
-	<li>Des <b>ACK</b> flags et des Send flags pour savoir. Le send flag permet de savoir qui a déjà reçu le paquet et à qui le paquet n’a pas encore été envoyé, tandis que l’<b>ACK</b> flag sert juste à savoir si on a renvoyé l’<b>ACK</b> de ce paquet à un certain nœud</li>
-</ol>
-Chaque noeud reçoit les mêmes infos. Tous les noeuds envoient toutes les infos à tous ses voisins qui n'ont pas encore reçu l'info. Ensuite ils doivent chacun effectuer un Dijkstra pour chaque destination. Pour les protocoles à vecteur de distances, on utilise la programmation dynamique. Chaque noeud envoi périodiquement son vecteur de distance à ses voisins de manière asynchrone. Quand un noeud reçoit un vecteur de distance, il met à jour le sien et si un chemin change il avertit ses autres voisins. Les algorithmes à vecteur de distance sont moins robustes mais beaucoup plus rapides.</li>
-<li>Contrairement au DV, la distance vers une destination n'est pas calculée au fur et à mesure en sommant le prochain coût estimé par le prochain saut et le coût pour atteindre ce prochain routeur. On calcule la distance directement via un arbre (spanning tree).</li>
-</ol>
-</div>
+
 
 
 
@@ -995,30 +1032,6 @@ Une fois le <b>3-way handshake</b> effectué, le client et le serveur ont reçu 
 <li>En effet, on repère une connexion avec les 2 adresses <b>IP</b> et les 2 numéros de <b>port</b>. Si cette connexion arrive à son terme et que juste après avoir fermé cette connexion, on rétabli une connexion avec les même <b>IP</b> et <b>ports</b> comment peut-on distinguer les 2 connexions (il pourrait y avoir un vieux paquet de la première connexion qui s’était baladé sur le réseau et qui est arrivé beaucoup plus tard)?</li>
 </ol></div>
 
-
-
-<h4 class="question"><ol class="alphabet"><li>Dans quelle(s) situation(s) le protocole de routage à vecteur de distances (DV) risque-t-il de ne pas converger ?</li><li>Décrivez un comportement pathologique possible à l’aide d’un exemple simple.</li><li>Comment peut-on atténuer ce phénomène ?</li></ol></h4>
-<div class="answer"><ol class="alphabet">
-<li><ul>
-	<li>Des boucles de routage.</li>
-	<li>Le trafic est acheminé de façon incohérente.</li>
-	<li>Des entrées de table de routage incohérentes.</li>
-</ul></li>
-<li>Pour constater la rapidité avec laquelle les bonnes nouvelles se propagent, considérez le sous-réseau illustré à la figure et sur lequel la métrique utilisée est le nombre de sauts. Supposons que A soit inactif au départ et que tous les autres routeurs le sachent. En d'autres termes, ils ont tous enregistré un délai infini vers A.<figure>
-	<img src="images/info-f303/comportement-pathologique" alt="Comportement pathologique" />
-	<figcaption>Comportement pathologique</figcaption>
-</figure></li>
-<li>Via l'lhorizon éclaté (poison reverse). Si Z passe par Y pour aller à X, Z peut faire croire à Y qu'il se trouve à une distance infinie de X. Y étant persuadé que Z ne peut atteindre X, il opte pour une autre route.  Cette méthode n'est bonne qu'avec des triplets, elle ne marche pas lorsqu'il y a des boucles de plus de trois noeuds.</li>
-</ol></div>
-
-
-
-<h4 class="question"><ol class="alphabet"><li>Déterminez analytiquement l’expression de l’efficacité du protocole ALOHA discrétisé (slotted ALOHA) en fonction de la charge du réseau pour un grand nombre de stations actives. On supposera que chaque station émet dans un slot avec une probabilité p.</li><li>Représentez l’efficacité graphiquement (avec définition des axes), et expliquez la forme de la courbe.</li><li>La suppression des slots (Cf. ALOHA pur) améliore-t-elle les performances ? Pourquoi ?</li></ol></h4>
-<div class="answer"><ol class="alphabet">
-<li>Si on suppose qu’on a N nœuds qui ont beaucoup de trames à envoyer. Chacun transmet sur un slot avec une certaine probabilité p. Un nœud à $p(1-p)^{N-1}$ chances d’envoyer un paquet parce qu’il faut qu’il envoie un paquet ($p$) <i>et</i> qu’aucun des $N-1$ autres nœuds n’envoient un paquet ($1-p$) en même temps. La probabilité que n’importe quel nœud envoient un paquet avec succès est de $$Np(1-p)^{N-1}$$ Pour une efficacité maximale, il faut donc trouver un p tel que $Np(1-p)^{N-1}$ soit maximale. On trouve (en dérivant) que L’efficacité est maximale quand $p=\dfrac{1}{N}$. Si on imagine que N tend vers l’infini, on sait que $$\lim\limits_{n-\infty}\left(1+\left(\dfrac{G}{n}\right)\right)^{n} = e^{-G}$$ Et donc pour $G=1$ $$e^{-1} = \dfrac{1}{e} = 0.37 = 37\% \text{ d'efficacité}$$</li>
-<li>(Slide 5-28) ?</li>
-<li>Non, la probabilité de collision augmente. On obtient une efficacité de 18%.</li>
-</ol></div>
 
 
 
@@ -1154,7 +1167,7 @@ Une fois le <b>3-way handshake</b> effectué, le client et le serveur ont reçu 
 
 
 <h4 class="question">
-	Trois stations $S_1$, $S_2$ et $S_3$ se partagent un segment de réseau de type 802.3 (CSMA/CD, 10Mbps). La première station désire émettre une trame de 1000 bits alors que les deux autres stations souhaitent émettre chacune deux trames de 1000 bits. La durée d’un slot de contention a été fixée à $2T = 2:10^{-6}$ s. Lorsque plusieurs stations veulent accéder au réseau, on supposera que la probabilité de retransmission dans un slot est constante et égale à $p = \dfrac{1}{2}$. Calculez :
+	Trois stations $S_1$, $S_2$ et $S_3$ se partagent un segment de réseau de type 802.3 (CSMA/CD, 10Mbps). La première station désire émettre une trame de 1000 bits alors que les deux autres stations souhaitent émettre chacune deux trames de 1000 bits. La durée d’un slot de contention a été fixée à $2\tau = 2.10^{-6}$ s. Lorsque plusieurs stations veulent accéder au réseau, on supposera que la probabilité de retransmission dans un slot est constante et égale à $p = \dfrac{1}{2}$. Calculez :
 	<ol class="alphabet">
 		<li>la durée moyenne d’envoi des 2 premières trames,</li>
 		<li>la durée moyenne d’envoi des 5 trames.</li>
@@ -1164,10 +1177,25 @@ Une fois le <b>3-way handshake</b> effectué, le client et le serveur ont reçu 
 <div class="answer">
 	<ol class="alphabet">
 		<li>
-			?
+			La probabilité qu’une des 3 stations acquiert le canal dans un slot(libre) est : $A_3 = kp(1-p)^{k-1} = 3\dfrac{1}{2}(1-\frac{1}{2})^{3-1} = 0.375$<br>
+			La probabilité qu’une des 2 stations acquiert le canal dans un slot(libre) est : $A_2 = kp(1-p)^{k-1} = 2\dfrac{1}{2}(1-\frac{1}{2})^{2-1} = 0.5$<br>
+			$C_3 = \frac{2\tau}{A_3} = \dfrac{2*10^{-6}}{0.375} = 0.000 005 33$<br>
+			$C_2 = \frac{2\tau}{A_2} = \dfrac{2*10^{-6}}{0.5} = 0.000 004$<br>
+			$T = \dfrac{1000}{10*10^6} = 0.0001s$
+			<figure>
+				<img src="images/info-f303/csma_0" alt="CSMA" />
+				<figcaption>CSMA</figcaption>
+			</figure>
+			$\dfrac{5}{3}C_3+\dfrac{1}{3}C_2+2T=0.0002102$
 		</li>
 		<li>
-			?
+			<figure>
+				<img src="images/info-f303/csma_1" alt="CSMA" />
+				<figcaption>CSMA</figcaption>
+			</figure>
+			$arbre1 = \dfrac{1}{3}C_3+\dfrac{5}{6}C_2+\dfrac{20}{12}T$<br>
+			$arbre2 = arbre3 = \dfrac{7}{9}*C_3+\dfrac{4}{9} C_2 + \dfrac{20}{12} T$<br>
+			$\dfrac{arbre1}{3}+\dfrac{arbre2}{3}+\dfrac{arbre3}{3}=\dfrac{17}{9}C_3+\dfrac{31}{18}C_2+5T=0.0005169$
 		</li>
 	</ol>
 </div>

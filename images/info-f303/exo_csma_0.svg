@@ -1,0 +1,657 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="100.53601mm"
+   height="31.274555mm"
+   viewBox="0 0 356.22996 110.81536"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="exo_csma_0.svg">
+  <defs
+     id="defs4">
+    <clipPath
+       id="clipPath3352"
+       clipPathUnits="userSpaceOnUse">
+      <path
+         inkscape:connector-curvature="0"
+         id="path3354"
+         d="m 0,0 1024,0 0,768 L 0,768 0,0 Z" />
+    </clipPath>
+    <clipPath
+       id="clipPath3362"
+       clipPathUnits="userSpaceOnUse">
+      <path
+         inkscape:connector-curvature="0"
+         id="path3364"
+         d="M 0,768 1024,768 1024,0 0,0 0,768 Z" />
+    </clipPath>
+    <clipPath
+       id="clipPath3368"
+       clipPathUnits="userSpaceOnUse">
+      <path
+         inkscape:connector-curvature="0"
+         id="path3370"
+         d="m 0,0 1024,0 0,768 L 0,768 0,0 Z" />
+    </clipPath>
+    <clipPath
+       id="clipPath3380"
+       clipPathUnits="userSpaceOnUse">
+      <path
+         inkscape:connector-curvature="0"
+         id="path3382"
+         d="m 0,0 1024,0 0,768 L 0,768 0,0 Z" />
+    </clipPath>
+    <mask
+       id="mask3682"
+       height="1"
+       width="1"
+       y="0"
+       x="0"
+       maskUnits="userSpaceOnUse">
+      <image
+         id="image3684"
+         xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAAAAAoCAAAAAA0kXtVAAAAAXNCSVQI5gpbmQAAAGdJREFUaIHt0EERACAMwDCGf88gI481Cnqdd3a7OkBrgA7QGqADtAboAK0BOkBrgA7QGqADtAboAK0BOkBrgA7QGqADtAboAK0BOkBrgA7QGqADtAboAK0BOkBrgA7QGqADtAboAO0Db/MBT/sZ9HEAAAAASUVORK5CYII="
+         preserveAspectRatio="none"
+         height="1"
+         width="1" />
+    </mask>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1"
+     inkscape:cx="593.69025"
+     inkscape:cy="201.14106"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     fit-margin-top="1"
+     fit-margin-left="1"
+     fit-margin-right="1"
+     fit-margin-bottom="1"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Calque 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(1011.7557,-297.85622)">
+    <path
+       inkscape:connector-curvature="0"
+       id="path3392"
+       style="fill:#000000;stroke:#000000;stroke-width:0.7801038;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m -986.92731,344.99568 16.06918,-21.61016" />
+    <text
+       id="text3396"
+       style="font-variant:normal;font-weight:normal;font-size:16.38217735px;font-family:'Gill Sans MT';-inkscape-font-specification:GillSans;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.31204152;stroke-opacity:1"
+       x="-1008.8563"
+       y="358.38239">
+      <tspan
+         id="tspan3398"
+         y="358.38239"
+         x="-1008.8563"
+         style="fill:#000000;stroke:#000000;stroke-width:0.31204152;stroke-opacity:1">C</tspan>
+    </text>
+    <text
+       id="text3402"
+       style="font-variant:normal;font-weight:normal;font-size:10.92145252px;font-family:'Gill Sans MT';-inkscape-font-specification:GillSans;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.31204152;stroke-opacity:1"
+       x="-997.25757"
+       y="359.6409">
+      <tspan
+         id="tspan3404"
+         y="359.6409"
+         x="-997.25757"
+         style="fill:#000000;stroke:#000000;stroke-width:0.31204152;stroke-opacity:1">3</tspan>
+    </text>
+    <text
+       id="text3408"
+       style="font-variant:normal;font-weight:normal;font-size:16.38217735px;font-family:'Gill Sans MT';-inkscape-font-specification:GillSans;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.31204152;stroke-opacity:1"
+       x="-964.3186"
+       y="324.0578">
+      <tspan
+         id="tspan3410"
+         y="324.0578"
+         x="-964.3186"
+         style="fill:#000000;stroke:#000000;stroke-width:0.31204152;stroke-opacity:1">T</tspan>
+    </text>
+    <text
+       id="text3414"
+       style="font-variant:normal;font-weight:normal;font-size:10.92145252px;font-family:'Gill Sans MT';-inkscape-font-specification:GillSans;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.31204152;stroke-opacity:1"
+       x="-954.42365"
+       y="325.31635">
+      <tspan
+         id="tspan3416"
+         y="325.31635"
+         x="-954.42365"
+         style="fill:#000000;stroke:#000000;stroke-width:0.31204152;stroke-opacity:1">1</tspan>
+    </text>
+    <text
+       id="text3420"
+       style="font-variant:normal;font-weight:normal;font-size:16.38217735px;font-family:'Gill Sans MT';-inkscape-font-specification:GillSans;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.31204152;stroke-opacity:1"
+       x="-963.71924"
+       y="358.77243">
+      <tspan
+         id="tspan3422"
+         y="358.77243"
+         x="-963.71924"
+         style="fill:#000000;stroke:#000000;stroke-width:0.31204152;stroke-opacity:1">T</tspan>
+    </text>
+    <text
+       id="text3426"
+       style="font-variant:normal;font-weight:normal;font-size:10.92145252px;font-family:'Gill Sans MT';-inkscape-font-specification:GillSans;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.31204152;stroke-opacity:1"
+       x="-953.82434"
+       y="360.03098">
+      <tspan
+         id="tspan3428"
+         y="360.03098"
+         x="-953.82434"
+         style="fill:#000000;stroke:#000000;stroke-width:0.31204152;stroke-opacity:1">2</tspan>
+    </text>
+    <text
+       id="text3432"
+       style="font-variant:normal;font-weight:normal;font-size:16.38217735px;font-family:'Gill Sans MT';-inkscape-font-specification:GillSans;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.31204152;stroke-opacity:1"
+       x="-964.10925"
+       y="395.82736">
+      <tspan
+         id="tspan3434"
+         y="395.82736"
+         x="-964.10925"
+         style="fill:#000000;stroke:#000000;stroke-width:0.31204152;stroke-opacity:1">T</tspan>
+    </text>
+    <text
+       id="text3438"
+       style="font-variant:normal;font-weight:normal;font-size:10.92145252px;font-family:'Gill Sans MT';-inkscape-font-specification:GillSans;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.31204152;stroke-opacity:1"
+       x="-954.21436"
+       y="397.08588">
+      <tspan
+         id="tspan3440"
+         y="397.08588"
+         x="-954.21436"
+         style="fill:#000000;stroke:#000000;stroke-width:0.31204152;stroke-opacity:1">3</tspan>
+    </text>
+    <text
+       id="text3444"
+       style="font-variant:normal;font-weight:normal;font-size:16.38217735px;font-family:'Gill Sans MT';-inkscape-font-specification:GillSans;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.31204152;stroke-opacity:1"
+       x="-925.49414"
+       y="324.0578">
+      <tspan
+         id="tspan3446"
+         y="324.0578"
+         x="-925.49414"
+         style="fill:#000000;stroke:#000000;stroke-width:0.31204152;stroke-opacity:1">C</tspan>
+    </text>
+    <text
+       id="text3450"
+       style="font-variant:normal;font-weight:normal;font-size:10.92145252px;font-family:'Gill Sans MT';-inkscape-font-specification:GillSans;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.31204152;stroke-opacity:1"
+       x="-913.89539"
+       y="325.31635">
+      <tspan
+         id="tspan3452"
+         y="325.31635"
+         x="-913.89539"
+         style="fill:#000000;stroke:#000000;stroke-width:0.31204152;stroke-opacity:1">2</tspan>
+    </text>
+    <path
+       inkscape:connector-curvature="0"
+       id="path3456"
+       style="fill:#000000;stroke:#000000;stroke-width:0.7801038;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m -987.31735,353.18677 16.77222,0" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path3460"
+       style="fill:#000000;stroke:#000000;stroke-width:0.7801038;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m -987.31735,364.88833 16.45066,23.96246" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path3464"
+       style="fill:#000000;stroke:#000000;stroke-width:0.7801038;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m -946.75197,318.86221 16.77223,0" />
+    <text
+       id="text3468"
+       style="font-variant:normal;font-weight:normal;font-size:16.38217735px;font-family:'Gill Sans MT';-inkscape-font-specification:GillSans;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.31204152;stroke-opacity:1"
+       x="-877.51776"
+       y="312.74631">
+      <tspan
+         id="tspan3470"
+         y="312.74631"
+         x="-877.51776"
+         style="fill:#000000;stroke:#000000;stroke-width:0.31204152;stroke-opacity:1">T</tspan>
+    </text>
+    <text
+       id="text3474"
+       style="font-variant:normal;font-weight:normal;font-size:10.92145252px;font-family:'Gill Sans MT';-inkscape-font-specification:GillSans;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.31204152;stroke-opacity:1"
+       x="-867.6228"
+       y="314.00485">
+      <tspan
+         id="tspan3476"
+         y="314.00485"
+         x="-867.6228"
+         style="fill:#000000;stroke:#000000;stroke-width:0.31204152;stroke-opacity:1">2</tspan>
+    </text>
+    <text
+       id="text3480"
+       style="font-variant:normal;font-weight:normal;font-size:16.38217735px;font-family:'Gill Sans MT';-inkscape-font-specification:GillSans;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.31204152;stroke-opacity:1"
+       x="-876.73761"
+       y="332.63898">
+      <tspan
+         id="tspan3482"
+         y="332.63898"
+         x="-876.73761"
+         style="fill:#000000;stroke:#000000;stroke-width:0.31204152;stroke-opacity:1">T</tspan>
+    </text>
+    <text
+       id="text3486"
+       style="font-variant:normal;font-weight:normal;font-size:10.92145252px;font-family:'Gill Sans MT';-inkscape-font-specification:GillSans;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.31204152;stroke-opacity:1"
+       x="-866.84277"
+       y="333.89746">
+      <tspan
+         id="tspan3488"
+         y="333.89746"
+         x="-866.84277"
+         style="fill:#000000;stroke:#000000;stroke-width:0.31204152;stroke-opacity:1">3</tspan>
+    </text>
+    <path
+       inkscape:connector-curvature="0"
+       id="path3492"
+       style="fill:#000000;stroke:#000000;stroke-width:0.7801038;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m -901.50595,318.86221 16.55124,-11.38015" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path3496"
+       style="fill:#000000;stroke:#000000;stroke-width:0.7801038;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m -901.50595,323.54283 16.65028,5.48028" />
+    <text
+       id="text3500"
+       style="font-variant:normal;font-weight:normal;font-size:16.38217735px;font-family:'Gill Sans MT';-inkscape-font-specification:GillSans;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.31204152;stroke-opacity:1"
+       x="-923.93396"
+       y="359.55252">
+      <tspan
+         id="tspan3502"
+         y="359.55252"
+         x="-923.93396"
+         style="fill:#000000;stroke:#000000;stroke-width:0.31204152;stroke-opacity:1">C</tspan>
+    </text>
+    <text
+       id="text3506"
+       style="font-variant:normal;font-weight:normal;font-size:10.92145252px;font-family:'Gill Sans MT';-inkscape-font-specification:GillSans;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.31204152;stroke-opacity:1"
+       x="-912.33521"
+       y="360.81107">
+      <tspan
+         id="tspan3508"
+         y="360.81107"
+         x="-912.33521"
+         style="fill:#000000;stroke:#000000;stroke-width:0.31204152;stroke-opacity:1">3</tspan>
+    </text>
+    <path
+       inkscape:connector-curvature="0"
+       id="path3512"
+       style="fill:#000000;stroke:#000000;stroke-width:0.7801038;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m -945.19175,354.35693 16.77223,0" />
+    <text
+       id="text3516"
+       style="font-variant:normal;font-weight:normal;font-size:16.38217735px;font-family:'Gill Sans MT';-inkscape-font-specification:GillSans;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.31204152;stroke-opacity:1"
+       x="-875.95752"
+       y="348.24103">
+      <tspan
+         id="tspan3518"
+         y="348.24103"
+         x="-875.95752"
+         style="fill:#000000;stroke:#000000;stroke-width:0.31204152;stroke-opacity:1">T</tspan>
+    </text>
+    <text
+       id="text3522"
+       style="font-variant:normal;font-weight:normal;font-size:10.92145252px;font-family:'Gill Sans MT';-inkscape-font-specification:GillSans;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.31204152;stroke-opacity:1"
+       x="-866.06262"
+       y="349.49957">
+      <tspan
+         id="tspan3524"
+         y="349.49957"
+         x="-866.06262"
+         style="fill:#000000;stroke:#000000;stroke-width:0.31204152;stroke-opacity:1">2</tspan>
+    </text>
+    <text
+       id="text3528"
+       style="font-variant:normal;font-weight:normal;font-size:16.38217735px;font-family:'Gill Sans MT';-inkscape-font-specification:GillSans;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.31204152;stroke-opacity:1"
+       x="-875.17743"
+       y="368.13367">
+      <tspan
+         id="tspan3530"
+         y="368.13367"
+         x="-875.17743"
+         style="fill:#000000;stroke:#000000;stroke-width:0.31204152;stroke-opacity:1">T</tspan>
+    </text>
+    <text
+       id="text3534"
+       style="font-variant:normal;font-weight:normal;font-size:10.92145252px;font-family:'Gill Sans MT';-inkscape-font-specification:GillSans;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.31204152;stroke-opacity:1"
+       x="-865.28259"
+       y="369.39221">
+      <tspan
+         id="tspan3536"
+         y="369.39221"
+         x="-865.28259"
+         style="fill:#000000;stroke:#000000;stroke-width:0.31204152;stroke-opacity:1">3</tspan>
+    </text>
+    <path
+       inkscape:connector-curvature="0"
+       id="path3540"
+       style="fill:#000000;stroke:#000000;stroke-width:0.7801038;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m -899.94574,354.42557 16.55124,-11.38014" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path3544"
+       style="fill:#000000;stroke:#000000;stroke-width:0.7801038;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m -899.94574,359.03755 16.65029,5.48028" />
+    <text
+       id="text3548"
+       style="font-variant:normal;font-weight:normal;font-size:16.38217735px;font-family:'Gill Sans MT';-inkscape-font-specification:GillSans;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.31204152;stroke-opacity:1"
+       x="-922.76373"
+       y="395.04727">
+      <tspan
+         id="tspan3550"
+         y="395.04727"
+         x="-922.76373"
+         style="fill:#000000;stroke:#000000;stroke-width:0.31204152;stroke-opacity:1">C</tspan>
+    </text>
+    <text
+       id="text3554"
+       style="font-variant:normal;font-weight:normal;font-size:10.92145252px;font-family:'Gill Sans MT';-inkscape-font-specification:GillSans;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.31204152;stroke-opacity:1"
+       x="-911.1651"
+       y="396.30579">
+      <tspan
+         id="tspan3556"
+         y="396.30579"
+         x="-911.1651"
+         style="fill:#000000;stroke:#000000;stroke-width:0.31204152;stroke-opacity:1">3</tspan>
+    </text>
+    <path
+       inkscape:connector-curvature="0"
+       id="path3560"
+       style="fill:#000000;stroke:#000000;stroke-width:0.7801038;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m -944.0216,389.85164 16.77222,0" />
+    <text
+       id="text3564"
+       style="font-variant:normal;font-weight:normal;font-size:16.38217735px;font-family:'Gill Sans MT';-inkscape-font-specification:GillSans;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.31204152;stroke-opacity:1"
+       x="-874.78741"
+       y="383.73575">
+      <tspan
+         id="tspan3566"
+         y="383.73575"
+         x="-874.78741"
+         style="fill:#000000;stroke:#000000;stroke-width:0.31204152;stroke-opacity:1">T</tspan>
+    </text>
+    <text
+       id="text3570"
+       style="font-variant:normal;font-weight:normal;font-size:10.92145252px;font-family:'Gill Sans MT';-inkscape-font-specification:GillSans;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.31204152;stroke-opacity:1"
+       x="-864.89252"
+       y="384.99429">
+      <tspan
+         id="tspan3572"
+         y="384.99429"
+         x="-864.89252"
+         style="fill:#000000;stroke:#000000;stroke-width:0.31204152;stroke-opacity:1">2</tspan>
+    </text>
+    <text
+       id="text3576"
+       style="font-variant:normal;font-weight:normal;font-size:16.38217735px;font-family:'Gill Sans MT';-inkscape-font-specification:GillSans;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.31204152;stroke-opacity:1"
+       x="-874.00732"
+       y="403.62839">
+      <tspan
+         id="tspan3578"
+         y="403.62839"
+         x="-874.00732"
+         style="fill:#000000;stroke:#000000;stroke-width:0.31204152;stroke-opacity:1">T</tspan>
+    </text>
+    <text
+       id="text3582"
+       style="font-variant:normal;font-weight:normal;font-size:10.92145252px;font-family:'Gill Sans MT';-inkscape-font-specification:GillSans;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.31204152;stroke-opacity:1"
+       x="-864.11243"
+       y="404.88693">
+      <tspan
+         id="tspan3584"
+         y="404.88693"
+         x="-864.11243"
+         style="fill:#000000;stroke:#000000;stroke-width:0.31204152;stroke-opacity:1">3</tspan>
+    </text>
+    <path
+       inkscape:connector-curvature="0"
+       id="path3588"
+       style="fill:#000000;stroke:#000000;stroke-width:0.7801038;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m -898.77559,389.92029 16.55125,-11.38014" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path3592"
+       style="fill:#000000;stroke:#000000;stroke-width:0.7801038;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m -898.77559,394.53227 16.65029,5.48029" />
+    <text
+       id="text3596"
+       style="font-variant:normal;font-weight:normal;font-size:16.38217735px;font-family:'Gill Sans MT';-inkscape-font-specification:GillSans;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.31204152;stroke-opacity:1"
+       x="-804.96814"
+       y="358.38239">
+      <tspan
+         id="tspan3598"
+         y="358.38239"
+         x="-804.96814"
+         style="fill:#000000;stroke:#000000;stroke-width:0.31204152;stroke-opacity:1">C</tspan>
+    </text>
+    <text
+       id="text3602"
+       style="font-variant:normal;font-weight:normal;font-size:10.92145252px;font-family:'Gill Sans MT';-inkscape-font-specification:GillSans;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.31204152;stroke-opacity:1"
+       x="-793.36938"
+       y="359.6409">
+      <tspan
+         id="tspan3604"
+         y="359.6409"
+         x="-793.36938"
+         style="fill:#000000;stroke:#000000;stroke-width:0.31204152;stroke-opacity:1">3</tspan>
+    </text>
+    <text
+       id="text3608"
+       style="font-variant:normal;font-weight:normal;font-size:16.38217735px;font-family:'Gill Sans MT';-inkscape-font-specification:GillSans;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.31204152;stroke-opacity:1"
+       x="-756.9917"
+       y="358.77243">
+      <tspan
+         id="tspan3610"
+         y="358.77243"
+         x="-756.9917"
+         style="fill:#000000;stroke:#000000;stroke-width:0.31204152;stroke-opacity:1">T</tspan>
+    </text>
+    <path
+       inkscape:connector-curvature="0"
+       id="path3614"
+       style="fill:#000000;stroke:#000000;stroke-width:0.7801038;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m -782.93018,354.35693 16.77223,0" />
+    <text
+       id="text3618"
+       style="font-variant:normal;font-weight:normal;font-size:16.38217735px;font-family:'Gill Sans MT';-inkscape-font-specification:GillSans;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.31204152;stroke-opacity:1"
+       x="-719.93683"
+       y="359.55252">
+      <tspan
+         id="tspan3620"
+         y="359.55252"
+         x="-719.93683"
+         style="fill:#000000;stroke:#000000;stroke-width:0.31204152;stroke-opacity:1">C</tspan>
+    </text>
+    <text
+       id="text3624"
+       style="font-variant:normal;font-weight:normal;font-size:10.92145252px;font-family:'Gill Sans MT';-inkscape-font-specification:GillSans;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.31204152;stroke-opacity:1"
+       x="-708.33813"
+       y="360.81107">
+      <tspan
+         id="tspan3626"
+         y="360.81107"
+         x="-708.33813"
+         style="fill:#000000;stroke:#000000;stroke-width:0.31204152;stroke-opacity:1">2</tspan>
+    </text>
+    <path
+       inkscape:connector-curvature="0"
+       id="path3630"
+       style="fill:#000000;stroke:#000000;stroke-width:0.7801038;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m -741.19464,354.35693 16.77224,0" />
+    <text
+       id="text3634"
+       style="font-variant:normal;font-weight:normal;font-size:16.38217735px;font-family:'Gill Sans MT';-inkscape-font-specification:GillSans;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.31204152;stroke-opacity:1"
+       x="-718.76666"
+       y="395.04727">
+      <tspan
+         id="tspan3636"
+         y="395.04727"
+         x="-718.76666"
+         style="fill:#000000;stroke:#000000;stroke-width:0.31204152;stroke-opacity:1">C</tspan>
+    </text>
+    <text
+       id="text3640"
+       style="font-variant:normal;font-weight:normal;font-size:10.92145252px;font-family:'Gill Sans MT';-inkscape-font-specification:GillSans;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.31204152;stroke-opacity:1"
+       x="-707.16791"
+       y="396.30579">
+      <tspan
+         id="tspan3642"
+         y="396.30579"
+         x="-707.16791"
+         style="fill:#000000;stroke:#000000;stroke-width:0.31204152;stroke-opacity:1">3</tspan>
+    </text>
+    <path
+       inkscape:connector-curvature="0"
+       id="path3646"
+       style="fill:#000000;stroke:#000000;stroke-width:0.7801038;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m -740.88547,367.0764 17.52352,22.78099" />
+    <text
+       id="text3650"
+       style="font-variant:normal;font-weight:normal;font-size:16.38217735px;font-family:'Gill Sans MT';-inkscape-font-specification:GillSans;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.31204152;stroke-opacity:1"
+       x="-668.84003"
+       y="396.21738">
+      <tspan
+         id="tspan3652"
+         y="396.21738"
+         x="-668.84003"
+         style="fill:#000000;stroke:#000000;stroke-width:0.31204152;stroke-opacity:1">T</tspan>
+    </text>
+    <path
+       inkscape:connector-curvature="0"
+       id="path3656"
+       style="fill:#000000;stroke:#000000;stroke-width:0.7801038;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m -694.77846,390.63175 15.60207,0" />
+    <text
+       id="text3660"
+       style="font-variant:normal;font-weight:normal;font-size:16.38217735px;font-family:'Gill Sans MT';-inkscape-font-specification:GillSans;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.31204152;stroke-opacity:1"
+       x="-670.01013"
+       y="359.9426">
+      <tspan
+         id="tspan3662"
+         y="359.9426"
+         x="-670.01013"
+         style="fill:#000000;stroke:#000000;stroke-width:0.31204152;stroke-opacity:1">T</tspan>
+    </text>
+    <path
+       inkscape:connector-curvature="0"
+       id="path3666"
+       style="fill:#000000;stroke:#000000;stroke-width:0.7801038;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m -695.94862,354.35693 15.60208,0" />
+    <text
+       id="text3670"
+       style="font-variant:normal;font-weight:normal;font-size:9.3612442px;font-family:'Gill Sans MT';-inkscape-font-specification:GillSans;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.31204152;stroke-opacity:1"
+       x="-738.74573"
+       y="350.83429">
+      <tspan
+         id="tspan3672"
+         sodipodi:role="line"
+         y="350.83429"
+         x="-738.74573 -734.06512 -731.43646"
+         style="stroke-width:0.31204152">1/3</tspan>
+    </text>
+    <text
+       id="text3676"
+       style="font-variant:normal;font-weight:normal;font-size:9.3612442px;font-family:'Gill Sans MT';-inkscape-font-specification:GillSans;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.31204152;stroke-opacity:1"
+       x="-746.46033"
+       y="386.52402">
+      <tspan
+         id="tspan3678"
+         sodipodi:role="line"
+         y="386.52402"
+         x="-746.46033 -741.77966 -739.15106"
+         style="stroke-width:0.31204152">2/3</tspan>
+    </text>
+    <text
+       id="text3690"
+       style="font-variant:normal;font-weight:normal;font-size:16.38217735px;font-family:'Gill Sans MT';-inkscape-font-specification:GillSans;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.31204152;stroke-opacity:1"
+       x="-856.84497"
+       y="357.60229">
+      <tspan
+         id="tspan3692"
+         y="357.60229"
+         x="-856.84497"
+         style="fill:#000000;stroke:#000000;stroke-width:0.31204152;stroke-opacity:1">T</tspan>
+    </text>
+    <text
+       id="text3696"
+       style="font-variant:normal;font-weight:normal;font-size:10.92145252px;font-family:'Gill Sans MT';-inkscape-font-specification:GillSans;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.31204152;stroke-opacity:1"
+       x="-846.95013"
+       y="358.86078">
+      <tspan
+         id="tspan3698"
+         y="358.86078"
+         x="-846.95013"
+         style="fill:#000000;stroke:#000000;stroke-width:0.31204152;stroke-opacity:1">1</tspan>
+    </text>
+    <path
+       inkscape:connector-curvature="0"
+       id="path3702"
+       style="fill:#000000;stroke:#000000;stroke-width:0.7801038;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m -899.16563,356.3072 42.09677,-3.12148" />
+    <text
+       id="text3706"
+       style="font-variant:normal;font-weight:normal;font-size:16.38217735px;font-family:'Gill Sans MT';-inkscape-font-specification:GillSans;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.31204152;stroke-opacity:1"
+       x="-855.28479"
+       y="393.87708">
+      <tspan
+         id="tspan3708"
+         y="393.87708"
+         x="-855.28479"
+         style="fill:#000000;stroke:#000000;stroke-width:0.31204152;stroke-opacity:1">T</tspan>
+    </text>
+    <text
+       id="text3712"
+       style="font-variant:normal;font-weight:normal;font-size:10.92145252px;font-family:'Gill Sans MT';-inkscape-font-specification:GillSans;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.31204152;stroke-opacity:1"
+       x="-845.38989"
+       y="395.13562">
+      <tspan
+         id="tspan3714"
+         y="395.13562"
+         x="-845.38989"
+         style="fill:#000000;stroke:#000000;stroke-width:0.31204152;stroke-opacity:1">1</tspan>
+    </text>
+    <path
+       inkscape:connector-curvature="0"
+       id="path3718"
+       style="fill:#000000;stroke:#000000;stroke-width:0.7801038;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m -897.60543,392.58308 42.09678,-3.12148" />
+  </g>
+</svg>
