@@ -709,7 +709,7 @@ Les réponses proviennent (ou par l'intermédiaire de résumé) de Denis Steckel
 		<img src="images/info-f303/as" alt="Autonomous System" />
 		<figcaption><b>Autonomous System</b> (<b>AS</b>)</figcaption>
 	</figure>
-	Un <b>AS</b> est un ensemble de réseaux informatiques IP intégrés à Internet et dont la politique de routage interne est cohérente. Un AS est généralement sous le contrôle d'une entité ou organisation unique, typiquement un fournisseur d'accès à Internet. Au sein d'un AS, le protocole de routage est qualifié d'« interne » (par exemple, <b>Open shortest path first</b>, abrégé en <b>OSPF</b>). Entre deux systèmes autonomes, le routage est « externe » (par exemple Border Gateway Protocol, abrégé en BGP).
+	Un <b>AS</b> est un ensemble de réseaux informatiques IP intégrés à Internet et dont la politique de routage interne est cohérente. Un AS est généralement sous le contrôle d'une entité ou organisation unique, typiquement un fournisseur d'accès à Internet. Au sein d'un AS, le protocole de routage est qualifié d'« interne » (par exemple, <b>Open shortest path first</b>, abrégé en <b>OSPF</b>). Entre deux systèmes autonomes, le routage est « externe » (par exemple Border Gateway Protocol, abrégé en <b>BGP</b>).
 	<ul>
 		<li>
 			Au sein de chaque AS on implémente des protocoles de routage qui permettent aux routeurs internes à l'AS et aux routeurs de bordure de l'AS de construire leurs tables de routage. Ces tables, bien sûr, ne connaissent que les réseaux IP internes à l'AS. Ces protocoles sont appelés des IGP : Interior Gateway Protocol.
@@ -724,10 +724,10 @@ Les réponses proviennent (ou par l'intermédiaire de résumé) de Denis Steckel
 
 
 <h4 class="question">
-	Le protocole de routage inter-domaine BGP est plus apparenté à la famille des protocoles de routage intra-domaine à vecteur de distances (DV) qu’à celle des protocoles à état de lien (LS).
+	Le protocole de routage inter-domaine <b>BGP</b> est plus apparenté à la famille des protocoles de routage intra-domaine à vecteur de distances (DV) qu’à celle des protocoles à état de lien (LS).
 	<ol class="alphabet">
-		<li>Expliquez deux ressemblances importantes entre BGP et un protocole DV.</li>
-		<li>Expliquez deux différences importantes entre BGP et un protocole DV, et leur raison d’être.</li>
+		<li>Expliquez deux ressemblances importantes entre <b>BGP</b> et un protocole DV.</li>
+		<li>Expliquez deux différences importantes entre <b>BGP</b> et un protocole DV, et leur raison d’être.</li>
 	</ol>
 </h4>
 <div class="answer">
@@ -745,10 +745,10 @@ Les réponses proviennent (ou par l'intermédiaire de résumé) de Denis Steckel
 		<li>
 			<ol>
 				<li>
-					BGP mémorise toutes les routes vers toutes les destination : récupération rapide lorsqu'une destination devient inaccessible via la route initialement choisie.
+					<b>BGP</b> mémorise toutes les routes vers toutes les destination : récupération rapide lorsqu'une destination devient inaccessible via la route initialement choisie.
 				</li>
 				<li>
-					BGP construit des routes sans boucles : - Le chemin suivi est décrit explicitement à l'aide des <b>Autonomous System</b> (<b>AS</b>) traversés.
+					<b>BGP</b> construit des routes sans boucles : - Le chemin suivi est décrit explicitement à l'aide des <b>Autonomous System</b> (<b>AS</b>) traversés.
 				</li>
 				<li>
 					Détection facile des boucles
@@ -767,7 +767,7 @@ Les réponses proviennent (ou par l'intermédiaire de résumé) de Denis Steckel
 <h4 class="question">
 	<ol class="alphabet">
 		<li>Nommez et expliquez succinctement les 2 grandes familles de protocoles de routage intra-domaine (IGP) en insistant sur leurs différences.</li>
-		<li>Expliquez en quoi et pourquoi le protocole de routage inter-domaine de l’Internet (BGP) est différent des protocoles de routage intra-domaine (IGP) déployés dans les divers systèmes autonomes (<b>AS</b>) qui composent l’Internet.</li>
+		<li>Expliquez en quoi et pourquoi le protocole de routage inter-domaine de l’Internet (<b>BGP</b>) est différent des protocoles de routage intra-domaine (IGP) déployés dans les divers systèmes autonomes (<b>AS</b>) qui composent l’Internet.</li>
 	</ol>
 </h4>
 <div class="answer">
@@ -787,15 +787,15 @@ Les réponses proviennent (ou par l'intermédiaire de résumé) de Denis Steckel
 				<img src="images/info-f303/as" alt="Autonomous System" />
 				<figcaption><b>Autonomous System</b> (<b>AS</b>)</figcaption>
 			</figure>
-			Les connexions entre deux voisins BGP (neighbors ou peers) sont configurées explicitement entre deux routeurs. Ils communiquent alors entre eux via une session TCP sur le port 179 initiée par l'un des deux routeurs. BGP est le seul protocole de routage à utiliser TCP comme protocole de transport.
+			Les connexions entre deux voisins <b>BGP</b> (neighbors ou peers) sont configurées explicitement entre deux routeurs. Ils communiquent alors entre eux via une session TCP sur le port 179 initiée par l'un des deux routeurs. <b>BGP</b> est le seul protocole de routage à utiliser TCP comme protocole de transport.
 			<br>
-			Il existe deux versions de BGP : Interior BGP (iBGP) et Exterior BGP (eBGP). iBGP est utilisé à l'intérieur d'un Autonomous System alors que eBGP est utilisé entre deux AS.
+			Il existe deux versions de <b>BGP</b> : Interior <b>BGP</b> (<b>iBGP</b>) et Exterior <b>BGP</b> (<b>eBGP</b>). <b>iBGP</b> est utilisé à l'intérieur d'un Autonomous System alors que <b>eBGP</b> est utilisé entre deux AS.
 			<br>
-			En général, les connexions eBGP sont établies sur des connexions point-à-point ou sur des réseaux locaux (un Internet Exchange Point par exemple), le TTL des paquets de la session BGP est alors fixé à 1. Si la liaison physique est rompue, la session eBGP l'est également, et tous les préfixes appris par celle-ci sont annoncés comme supprimés et retirés de la table de routage.
+			En général, les connexions <b>eBGP</b> sont établies sur des connexions point-à-point ou sur des réseaux locaux (un Internet Exchange Point par exemple), le <b>TTL</b> des paquets de la session <b>BGP</b> est alors fixé à 1. Si la liaison physique est rompue, la session <b>eBGP</b> l'est également, et tous les préfixes appris par celle-ci sont annoncés comme supprimés et retirés de la table de routage.
 			<br>
-			À l'inverse, les connexions iBGP sont généralement établies entre des adresses logiques, non associées à une interface physique particulière. Ceci permet, en cas de rupture d'un lien physique, de conserver la session iBGP active si un lien alternatif existe et si un protocole de routage interne dynamique (IGP) est employé (par exemple OSPF).
+			À l'inverse, les connexions <b>iBGP</b> sont généralement établies entre des adresses logiques, non associées à une interface physique particulière. Ceci permet, en cas de rupture d'un lien physique, de conserver la session <b>iBGP</b> active si un lien alternatif existe et si un protocole de routage interne dynamique (<b>IGP</b>) est employé (par exemple <b>OSPF</b>).
 			<br>
-			En conclusion, IGP sert au routage interne alors que BGP sert au routage externe. De plus, BGP ne communique qu'avec leurs voisins directs avec un TTL de 1.
+			En conclusion, <b>IGP</b> sert au routage interne alors que <b>BGP</b> sert au routage externe. De plus, <b>BGP</b> ne communique qu'avec leurs voisins directs avec un <b>TTL</b> de 1.
 		</li>
 	</ol>
 </div>
@@ -806,8 +806,8 @@ Les réponses proviennent (ou par l'intermédiaire de résumé) de Denis Steckel
 
 <h4 class="question">
 	<ol class="alphabet">
-		<li>Décrivez les principes du protocole de routage inter-domaine BGP.</li>
-		<li>Expliquez comment BGP permet à un réseau périphérique (« stub ») multi-connecté (« multihomed ») de ne pas accepter du trafic de transit.</li>
+		<li>Décrivez les principes du protocole de routage inter-domaine <b>BGP</b>.</li>
+		<li>Expliquez comment <b>BGP</b> permet à un réseau périphérique (« stub ») multi-connecté (« multihomed ») de ne pas accepter du trafic de transit.</li>
 	</ol>
 </h4>
 <div class="answer">
@@ -817,12 +817,12 @@ Les réponses proviennent (ou par l'intermédiaire de résumé) de Denis Steckel
 				<img src="images/info-f303/as" alt="Autonomous System" />
 				<figcaption><b>Autonomous System</b> (<b>AS</b>)</figcaption>
 			</figure>
-			Le protocole inter-domaine BGP est la version Exterior BGP (<b>eBGP</b>) qui est utilisé est l'extérieur et entre deux <b>Autonomous System</b> (<b>AS</b>) alors que Interior BGP (<b>iBGP</b>) est utilisé à l'intérieur d'un <b>Autonomous System</b> (<b>AS</b>).
-			<b>eBGP</b> crée un connexion <b>TCP</b> permanente entre les autres <b>Autonomous System</b> (<b>AS</b>) qu'il peut atteindre, afin de se mettre à jour et d'envoyer des "promesses" (dire qu'il peut atteindre). Quand un routeur de la frontière utilisant <b>eBGP</b> reçoit ces mises à jour, il utilise <b>iBGP</b> pour communiquer ce qu'il a reçu aux routeur internes.</li>
+			Le protocole inter-domaine <b>BGP</b> est la version Exterior <b>BGP</b> (<b><b>eBGP</b></b>) qui est utilisé est l'extérieur et entre deux <b>Autonomous System</b> (<b>AS</b>) alors que Interior <b>BGP</b> (<b>iBGP</b>) est utilisé à l'intérieur d'un <b>Autonomous System</b> (<b>AS</b>).
+			<b><b>eBGP</b></b> crée un connexion <b>TCP</b> permanente entre les autres <b>Autonomous System</b> (<b>AS</b>) qu'il peut atteindre, afin de se mettre à jour et d'envoyer des "promesses" (dire qu'il peut atteindre). Quand un routeur de la frontière utilisant <b><b>eBGP</b></b> reçoit ces mises à jour, il utilise <b>iBGP</b> pour communiquer ce qu'il a reçu aux routeur internes.</li>
 			
 			<br>Le protocole <b>BGP</b> permet donc à chaque <b>Autonomous System</b> (<b>AS</b>) d'obtenir:
 			<ul>
-				<li>Des informations sur la manière d'attendre un autre <b>Autonomous System</b> (<b>AS</b>) via <b>eBGP</b>.</li>
+				<li>Des informations sur la manière d'attendre un autre <b>Autonomous System</b> (<b>AS</b>) via <b><b>eBGP</b></b>.</li>
 				<li>De propager ces informations aux routeurs internes via <b>iBGP</b>.</li>
 			</ul>
 		<li>
