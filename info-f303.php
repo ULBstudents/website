@@ -618,47 +618,6 @@ Chaque noeud reçoit les mêmes infos. Tous les noeuds envoient toutes les infos
 
 
 
-
-<h4 class="question"><ol class="alphabet"><li>Définissez les différents types de « Resource Records (RR)» utilisés par le protocole <b>DNS</b> et expliquez leur rôle.</li><li>Donnez le scénario d’échange de messages <b>DNS</b>, par la méthode itérative, permettant à un client de trouver l’adresse <b>IP</b> d’un serveur web dont l’URL est <b>www.company.com</b>, <i>en indiquant les RR présents dans ces messages</i>. On supposera que les caches <b>DNS</b> sont vides.</li></ol></h4>
-<div class="answer"><ol class="alphabet">
-<li>
-	Les enregistrements sur <b>DNS</b> sont sous le format : (<i>name</i>, <i>value</i>, <i>type</i>, <i>tt1</i>). On a plusieurs types possibles, entre autre :
-	<ul>
-		<li>
-			<b>A</b> : <i>name</i> est hostname et <i>value</i> est l'<b>IP</b> de l'hostname. <b>A</b> fournit le mapping standard <b>hostname-to-IP</b> ( <b>A</b> <b>IPv4</b>, <b>AAAA</b> <b>IPv6</b> ) ;
-		</li>
-		<li>
-			<b>NS</b> : <i>name</i> est un domaine name is domain (exemple: google.be) et <i>value</i> est le hostname d'un serveur <b>DNS</b> autoritaire qui connait l'adresse <b>IP</b> du domaine. Il permet à un client de connaître le serveur à contacter pour ce domaine ;
-		</li>
-		<li>
-			<b>CNAME</b> : <i>name</i> est un alias pour le hostname présent dans <i>value</i> ;
-		</li>
-		<li>
-			<b>MX</b> : nom du serveur mail associé à <i>name</i>.
-		</li>
-	</ul>
-</li>
-<li>
-	Le scénario de la méthode itérative est :
-	<ul>
-		<li>Le client émet une requête <b>www.company.com in A</b> à son serveur <b>DNS</b> local. </li>
-		<li>Le serveur local, n'ayant pas l'adresse requise en cache, contacte un des root servers (défini dans sa configuration), avec la même requête.</li>
-		<li>Le serveur root contacté lui renvoie alors le nom et l'adresse authoritaire (champs <b>NS</b> et <b>A</b> du serveur principal pour le <b>TLD</b> <b>.com</b>)</li>
-		<li>Le serveur local réémet à nouveau la même requête vers le serveur du <b>TLD</b> <b>.com</b>. Ce serveur <b>TLD</b> renvoie lui aussi les champs <b>NS</b> et <b>A</b> pour le serveur faisant authorité sur le domaine <b>www.company.com</b> (par exemple <i>ns110.ovh.net</i>).</li>
-		<li>Le serveur local contacte alors le serveur authoritaire, qui lui renvoie la zone pour le domaine <b>company.com</b>, qui contient un champ <b>CNAME</b> pour <b>www.company.com</b>. Si cet champ pointe vers le domaine contenu dans l'enregistrement <b>A</b> de la zone, la recherche s'arrête, le client a obtenu l'ip désirée.</li>
-		<li>Sinon, tant qu'un enregistrement <b>A</b> n'a pas été trouvé, le serveur recommence les mêmes étapes à partir du domaine obtenu dans le champ <b>CNAME</b>.</li>
-	</ul>
-	<figure>
-		<img src="images/info-f303/dns-name-resolution" alt="DNS name resolution ( recursive and iterated method )" />
-		<figcaption>DNS name resolution ( recursive and iterated method )</figcaption>
-	</figure>
-</li>
-</ol></div>
-
-
-
-
-
 <h4 class="question"><ol class="alphabet"><li>Nommez et expliquez succinctement les 2 grandes familles de protocoles de routage intra-domaine (IGP) en insistant sur leurs différences.</li><li>Expliquez en quoi et pourquoi le protocole de routage inter-domaine de l’Internet (BGP) est différent des protocoles de routage intra-domaine (IGP) déployés dans les divers systèmes autonomes (AS) qui composent l’Internet.</li></ol></h4>
 <div class="answer"><ol class="alphabet">
 <li>
@@ -770,6 +729,48 @@ Chaque noeud reçoit les mêmes infos. Tous les noeuds envoient toutes les infos
 
 
 
+
+
+
+
+
+
+<h4 class="question"><ol class="alphabet"><li>Définissez les différents types de « Resource Records (RR)» utilisés par le protocole <b>DNS</b> et expliquez leur rôle.</li><li>Donnez le scénario d’échange de messages <b>DNS</b>, par la méthode itérative, permettant à un client de trouver l’adresse <b>IP</b> d’un serveur web dont l’URL est <b>www.company.com</b>, <i>en indiquant les RR présents dans ces messages</i>. On supposera que les caches <b>DNS</b> sont vides.</li></ol></h4>
+<div class="answer"><ol class="alphabet">
+<li>
+	Les enregistrements sur <b>DNS</b> sont sous le format : (<i>name</i>, <i>value</i>, <i>type</i>, <i>tt1</i>). On a plusieurs types possibles, entre autre :
+	<ul>
+		<li>
+			<b>A</b> : <i>name</i> est hostname et <i>value</i> est l'<b>IP</b> de l'hostname. <b>A</b> fournit le mapping standard <b>hostname-to-IP</b> ( <b>A</b> <b>IPv4</b>, <b>AAAA</b> <b>IPv6</b> ) ;
+		</li>
+		<li>
+			<b>NS</b> : <i>name</i> est un domaine name is domain (exemple: google.be) et <i>value</i> est le hostname d'un serveur <b>DNS</b> autoritaire qui connait l'adresse <b>IP</b> du domaine. Il permet à un client de connaître le serveur à contacter pour ce domaine ;
+		</li>
+		<li>
+			<b>CNAME</b> : <i>name</i> est un alias pour le hostname présent dans <i>value</i> ;
+		</li>
+		<li>
+			<b>MX</b> : nom du serveur mail associé à <i>name</i>.
+		</li>
+	</ul>
+</li>
+<li>
+	Le scénario de la méthode itérative est :
+	<ul>
+		<li>Le client émet une requête <b>www.company.com in A</b> à son serveur <b>DNS</b> local. </li>
+		<li>Le serveur local, n'ayant pas l'adresse requise en cache, contacte un des root servers (défini dans sa configuration), avec la même requête.</li>
+		<li>Le serveur root contacté lui renvoie alors le nom et l'adresse authoritaire (champs <b>NS</b> et <b>A</b> du serveur principal pour le <b>TLD</b> <b>.com</b>)</li>
+		<li>Le serveur local réémet à nouveau la même requête vers le serveur du <b>TLD</b> <b>.com</b>. Ce serveur <b>TLD</b> renvoie lui aussi les champs <b>NS</b> et <b>A</b> pour le serveur faisant authorité sur le domaine <b>www.company.com</b> (par exemple <i>ns110.ovh.net</i>).</li>
+		<li>Le serveur local contacte alors le serveur authoritaire, qui lui renvoie la zone pour le domaine <b>company.com</b>, qui contient un champ <b>CNAME</b> pour <b>www.company.com</b>. Si cet champ pointe vers le domaine contenu dans l'enregistrement <b>A</b> de la zone, la recherche s'arrête, le client a obtenu l'ip désirée.</li>
+		<li>Sinon, tant qu'un enregistrement <b>A</b> n'a pas été trouvé, le serveur recommence les mêmes étapes à partir du domaine obtenu dans le champ <b>CNAME</b>.</li>
+	</ul>
+	<figure>
+		<img src="images/info-f303/dns-name-resolution" alt="DNS name resolution ( recursive and iterated method )" />
+		<figcaption>DNS name resolution ( recursive and iterated method )</figcaption>
+	</figure>
+</li>
+</ol></div>
+
 <h4 class="question">Vous créez votre entreprise « MeMyself&I » et vous obtenez le nom de domaine « memyselfandi.com ». Vous souhaitez déployer votre propre serveur <b>DNS</b> pour ce domaine (dns.memyselfandi.com, 111.111.111.111), ainsi qu’un serveur Web  www.memyselfandi.com, 111.111.111.112).<ol class="alphabet"><li>Quelles informations doivent être ajoutées dans la hiérarchie <b>DNS</b> et à quel niveau ? Soyez précis.</li><li>Donnez un scénario typique d’échange de messages <b>DNS</b> permettant à un client de trouver l’adresse <b>IP</b> de votre serveur web, en précisant bien les éléments importants des messages <b>DNS</b>. On supposera que les caches <b>DNS</b> sont vides.</li></ol></h4>
 <div class="answer"><ol class="alphabet">
 <li>
@@ -792,6 +793,13 @@ Chaque noeud reçoit les mêmes infos. Tous les noeuds envoient toutes les infos
 	</figure>
 </li>
 </ol></div>
+
+
+
+
+
+
+
 
 
 <h4 class="question"><ol class="alphabet"><li>Pourquoi la couche de transport (<b>UDP</b> et <b>TCP</b>) comporte-t-elle une fonction de <b>démultiplexage</b> ?</li><li>Décrivez les techniques de <b>démultiplexage</b> effectuées par <b>UDP</b> et <b>TCP</b> en mettant bien en évidence leurs différences ?</li></ol></h4>
