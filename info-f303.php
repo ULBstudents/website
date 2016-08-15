@@ -560,9 +560,6 @@ Les réponses proviennent (ou par l'intermédiaire de résumé) de Denis Steckel
 
 
 
-
-
-
 <h4 class="question">
 	<ol class="alphabet">
 		<li>Décrivez le protocole de vecteur de distance (DV).</li>
@@ -703,6 +700,24 @@ Les réponses proviennent (ou par l'intermédiaire de résumé) de Denis Steckel
 
 
 
+
+<h4 class="question">
+	Expliquez se qu'est un <b>Autonomous System</b> (<b>AS</b>)
+</h4>
+<div class="answer">
+	Un <b>AS</b> est un ensemble de réseaux informatiques IP intégrés à Internet et dont la politique de routage interne est cohérente. Un AS est généralement sous le contrôle d'une entité ou organisation unique, typiquement un fournisseur d'accès à Internet. Au sein d'un AS, le protocole de routage est qualifié d'« interne » (par exemple, <b>Open shortest path first</b>, abrégé en <b>OSPF</b>). Entre deux systèmes autonomes, le routage est « externe » (par exemple Border Gateway Protocol, abrégé en BGP).
+	<ul>
+		<li>
+			Au sein de chaque AS on implémente des protocoles de routage qui permettent aux routeurs internes à l'AS et aux routeurs de bordure de l'AS de construire leurs tables de routage. Ces tables, bien sûr, ne connaissent que les réseaux IP internes à l'AS. Ces protocoles sont appelés des IGP : Interior Gateway Protocol.
+		</li>
+		<li>
+			les routeurs de bordures des diff�rentes AS sont interconnect�s entre eux et �changent des informations sur le contenu des AS gr�ce � un protocole de routage. Ce protocole permet de contr�ler parfaitement les informations transmises. Un AS n'aura donc pas forc�ment connaissance de tous les r�seaux existants dans un AS voisin. Ces protocoles de routage sont appel�s des EGP : Exterior Gateway Protocol.
+		</li>
+	</ul>
+</div>
+
+
+
 <h4 class="question">
 	Le protocole de routage inter-domaine BGP est plus apparenté à la famille des protocoles de routage intra-domaine à vecteur de distances (DV) qu’à celle des protocoles à état de lien (LS).
 	<ol class="alphabet">
@@ -728,7 +743,7 @@ Les réponses proviennent (ou par l'intermédiaire de résumé) de Denis Steckel
 					BGP mémorise toutes les routes vers toutes les destination : récupération rapide lorsqu'une destination devient inaccessible via la route initialement choisie.
 				</li>
 				<li>
-					BGP construit des routes sans boucles : - Le chemin suivi est décrit explicitement à l'aide des AS traversés.
+					BGP construit des routes sans boucles : - Le chemin suivi est décrit explicitement à l'aide des <b>Autonomous System</b> (<b>AS</b>) traversés.
 				</li>
 				<li>
 					Détection facile des boucles
@@ -744,21 +759,28 @@ Les réponses proviennent (ou par l'intermédiaire de résumé) de Denis Steckel
 
 
 
-<h4 class="question"><ol class="alphabet"><li>Nommez et expliquez succinctement les 2 grandes familles de protocoles de routage intra-domaine (IGP) en insistant sur leurs différences.</li><li>Expliquez en quoi et pourquoi le protocole de routage inter-domaine de l’Internet (BGP) est différent des protocoles de routage intra-domaine (IGP) déployés dans les divers systèmes autonomes (AS) qui composent l’Internet.</li></ol></h4>
-<div class="answer"><ol class="alphabet">
-<li>
-	<ul>
+<h4 class="question">
+	<ol class="alphabet">
+		<li>Nommez et expliquez succinctement les 2 grandes familles de protocoles de routage intra-domaine (IGP) en insistant sur leurs différences.</li>
+		<li>Expliquez en quoi et pourquoi le protocole de routage inter-domaine de l’Internet (BGP) est différent des protocoles de routage intra-domaine (IGP) déployés dans les divers systèmes autonomes (<b>AS</b>) qui composent l’Internet.</li>
+	</ol>
+</h4>
+<div class="answer">
+	<ol class="alphabet">
 		<li>
-			<b>RIP</b> ( <b>Routing Information Protocol</b> ) : utilise un algorithme de vecteurs de distance qui se limite à 25 noeuds par paquet. Au-delà, il faudra plusieurs paquets. 0 représente l'infini. Les vecteurs de distance sont envoyés toutes les 30 secondes à ses voisins. <b>RIP</b> possède un mécanisme pour détecter les pannes, si un router n'a pas reçu de message d'un voisin depuis 180 secondes, il le déclare mort. <b>RIP</b> est un protocole de la couche d'application (PAS de la couche réseau), les messages sont envoyés dans des paquets <b>UDP</b>.
+			<ul>
+				<li>
+					<b>RIP</b> ( <b>Routing Information Protocol</b> ) : utilise un algorithme de vecteurs de distance qui se limite à 25 noeuds par paquet. Au-delà, il faudra plusieurs paquets. 0 représente l'infini. Les vecteurs de distance sont envoyés toutes les 30 secondes à ses voisins. <b>RIP</b> possède un mécanisme pour détecter les pannes, si un router n'a pas reçu de message d'un voisin depuis 180 secondes, il le déclare mort. <b>RIP</b> est un protocole de la couche d'application (PAS de la couche réseau), les messages sont envoyés dans des paquets <b>UDP</b>.
+				</li>
+				<li>
+					<b>OSPF</b> ( <b>Open Shortest Path First</b> ) : utilise un algorithme d'état des lien. Chaque message est envoyé seulement à ses voisins qui le renvoient à leurs voisins,.. jusqu'à ce que l'entièreté du système autonome ai reçu le message. Les messages sont directement envoyés depuis la couche de transport (PAS partie de la couche d'application).
+				</li>
+			</ul>
 		</li>
 		<li>
-			<b>OSPF</b> ( <b>Open Shortest Path First</b> ) : utilise un algorithme d'état des lien. Chaque message est envoyé seulement à ses voisins qui le renvoient à leurs voisins,.. jusqu'à ce que l'entièreté du système autonome ai reçu le message. Les messages sont directement envoyés depuis la couche de transport (PAS partie de la couche d'application).
+			IGP sert au routage interne alors que BGP sert au routage externe. De plus, BGP ne communique qu'avec leurs voisins directs.
 		</li>
-	</ul>
-</li>
-<li>
-	IGP sert au routage interne alors que BGP sert au routage externe. De plus, BGP ne communique qu'avec leurs voisins directs.
-</li>
+	</ol>
 </div>
 
 
@@ -768,13 +790,13 @@ Les réponses proviennent (ou par l'intermédiaire de résumé) de Denis Steckel
 <h4 class="question"><ol class="alphabet"><li>Décrivez les principes du protocole de routage inter-domaine BGP.</li><li>Expliquez comment BGP permet à un réseau périphérique (« stub ») multi-connecté (« multihomed ») de ne pas accepter du trafic de transit.</li></ol></h4>
 <div class="answer"><ol class="alphabet">
 <li>
-	Permet à chaque AS d'obtenir:
+	Permet à chaque <b>Autonomous System</b> (<b>AS</b>) d'obtenir:
 	<ul>
-		<li>Des informations sur la manière d'attendre un autre AS.</li>
+		<li>Des informations sur la manière d'attendre un autre <b>Autonomous System</b> (<b>AS</b>).</li>
 		<li>De propager ces informations aux routeurs internes.</li>
 		<li>De trouver des bons chemins basés sur non-seulement les informations obtenues dans les points précédents mais en plus sur des polices.</li>
 	</ul>
-	2 protocoles BGP: l'interne (iBGP) et l'externe (eBGP). eBGP crée un connexion <b>TCP</b> permanente entre les autres AS qu'il peut atteindre, afin de se mettre à jour et d'envoyer des "promesses" (dire qu'il peut atteindre). Quand un routeur de la frontière utilisant eBGP reçoit ces mises à jour, il utilise iBGP pour communiquer ce qu'il a reçu aux routeur internes.</li>
+	2 protocoles BGP: l'interne (iBGP) et l'externe (eBGP). eBGP crée un connexion <b>TCP</b> permanente entre les autres <b>Autonomous System</b> (<b>AS</b>) qu'il peut atteindre, afin de se mettre à jour et d'envoyer des "promesses" (dire qu'il peut atteindre). Quand un routeur de la frontière utilisant eBGP reçoit ces mises à jour, il utilise iBGP pour communiquer ce qu'il a reçu aux routeur internes.</li>
 <li>
 	Les noeuds peuvent retenir de l'information, tel qu'un chemin qu'il connait qui ne lui rapporte rien.
 </li>
