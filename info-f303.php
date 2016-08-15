@@ -705,15 +705,19 @@ Les réponses proviennent (ou par l'intermédiaire de résumé) de Denis Steckel
 	Expliquez se qu'est un <b>Autonomous System</b> (<b>AS</b>)
 </h4>
 <div class="answer">
+	<img src="images/info-f303/as" alt="Autonomous System" />
+		<figcaption><b>Autonomous System</b> (<b>AS</b>)</figcaption>
+	</figure>
 	Un <b>AS</b> est un ensemble de réseaux informatiques IP intégrés à Internet et dont la politique de routage interne est cohérente. Un AS est généralement sous le contrôle d'une entité ou organisation unique, typiquement un fournisseur d'accès à Internet. Au sein d'un AS, le protocole de routage est qualifié d'« interne » (par exemple, <b>Open shortest path first</b>, abrégé en <b>OSPF</b>). Entre deux systèmes autonomes, le routage est « externe » (par exemple Border Gateway Protocol, abrégé en BGP).
 	<ul>
 		<li>
 			Au sein de chaque AS on implémente des protocoles de routage qui permettent aux routeurs internes à l'AS et aux routeurs de bordure de l'AS de construire leurs tables de routage. Ces tables, bien sûr, ne connaissent que les réseaux IP internes à l'AS. Ces protocoles sont appelés des IGP : Interior Gateway Protocol.
 		</li>
 		<li>
-			les routeurs de bordures des diff�rentes AS sont interconnect�s entre eux et �changent des informations sur le contenu des AS gr�ce � un protocole de routage. Ce protocole permet de contr�ler parfaitement les informations transmises. Un AS n'aura donc pas forc�ment connaissance de tous les r�seaux existants dans un AS voisin. Ces protocoles de routage sont appel�s des EGP : Exterior Gateway Protocol.
+			les routeurs de bordures des différentes AS sont interconnectés entre eux et échangent des informations sur le contenu des AS grâce à un protocole de routage. Ce protocole permet de contr�ler parfaitement les informations transmises. Un AS n'aura donc pas forcément connaissance de tous les r�seaux existants dans un AS voisin. Ces protocoles de routage sont appelés des EGP : Exterior Gateway Protocol.
 		</li>
 	</ul>
+	
 </div>
 
 
