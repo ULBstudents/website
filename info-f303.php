@@ -555,61 +555,165 @@ Les réponses proviennent (ou par l'intermédiaire de résumé) de Denis Steckel
 
 
 
-<h4 class="question"><ol class="alphabet"><li>Dans quelle(s) situation(s) le protocole de routage à vecteur de distances (DV) risque-t-il de ne pas converger ?</li><li>Décrivez un comportement pathologique possible à l’aide d’un exemple simple.</li><li>Comment peut-on atténuer ce phénomène ?</li></ol></h4>
-<div class="answer"><ol class="alphabet">
-<li><ul>
-	<li>Des boucles de routage.</li>
-	<li>Le trafic est acheminé de façon incohérente.</li>
-	<li>Des entrées de table de routage incohérentes.</li>
-</ul></li>
-<li>Pour constater la rapidité avec laquelle les bonnes nouvelles se propagent, considérez le sous-réseau illustré à la figure et sur lequel la métrique utilisée est le nombre de sauts. Supposons que A soit inactif au départ et que tous les autres routeurs le sachent. En d'autres termes, ils ont tous enregistré un délai infini vers A.<figure>
-	<img src="images/info-f303/comportement-pathologique" alt="Comportement pathologique" />
-	<figcaption>Comportement pathologique</figcaption>
-</figure></li>
-<li>Via l'lhorizon éclaté (poison reverse). Si Z passe par Y pour aller à X, Z peut faire croire à Y qu'il se trouve à une distance infinie de X. Y étant persuadé que Z ne peut atteindre X, il opte pour une autre route.  Cette méthode n'est bonne qu'avec des triplets, elle ne marche pas lorsqu'il y a des boucles de plus de trois noeuds.</li>
-</ol></div>
 
-<h4 class="question"><ol class="alphabet"><li>Considérez un protocole de routage à états de liens (link state). Décrivez le contenu des paquets de routage, expliquez le rôle de chaque champ, et décrivez la méthode de diffusion des paquets.</li><li>En quelques mots, en quoi est-ce fondamentalement différent des protocoles à vecteur de distances ?</li></ol></h4>
-<div class="answer"><ol class="alphabet">
-<li><ol>
-	<li>Le nom de la source.</li>
-	<li>Un numéro de séquence : Il permet de savoir à quel paquet le routeur en est (pour ne pas mettre à jour avec un vieux paquet).</li>
-	<li>Un âge</li>
-	<li>Le nom de ses voisins et les coûts associés (qui ne sont pas obligatoirement identiques pour les 2 sens	d’une arête.</li>
-	<li>Des <b>ACK</b> flags et des Send flags pour savoir. Le send flag permet de savoir qui a déjà reçu le paquet et à qui le paquet n’a pas encore été envoyé, tandis que l’<b>ACK</b> flag sert juste à savoir si on a renvoyé l’<b>ACK</b> de ce paquet à un certain nœud</li>
-</ol>
-Chaque noeud reçoit les mêmes infos. Tous les noeuds envoient toutes les infos à tous ses voisins qui n'ont pas encore reçu l'info. Ensuite ils doivent chacun effectuer un Dijkstra pour chaque destination. Pour les protocoles à vecteur de distances, on utilise la programmation dynamique. Chaque noeud envoi périodiquement son vecteur de distance à ses voisins de manière asynchrone. Quand un noeud reçoit un vecteur de distance, il met à jour le sien et si un chemin change il avertit ses autres voisins. Les algorithmes à vecteur de distance sont moins robustes mais beaucoup plus rapides.</li>
-<li>Contrairement au DV, la distance vers une destination n'est pas calculée au fur et à mesure en sommant le prochain coût estimé par le prochain saut et le coût pour atteindre ce prochain routeur. On calcule la distance directement via un arbre (spanning tree).</li>
-</ol>
+
+
+
+
+
+
+
+<h4 class="question">
+	<ol class="alphabet">
+		<li>Décrivez le protocole de vecteur de distance (DV).</li>
+		<li>Décrivez le protocole d'états de liens (LS).</li>
+		<li>Expliquez les différences fondamentales entre ces deux protocoles.</li>
+	</ol>
+</h4>
+<div class="answer">
+	<ol class="alphabet">
+		<li>
+			Le protocole de ce type ont un fonctionnement assez simple :
+			<ul>
+				<li>Tous les routeurs du réseau transmettent à interval régulier des mises à jours sur tous leurs ports. Ces updates sont des paquets IP mit en broadcast (ff:ff:ff:ff:ff:ff) et contenant la quasi totalité de leur table de routage.</li>
+				<li>Tous les routeurs recoivent ces updates en comparant le contenu avec les entrées de leur table de routage.</li>
+				<li>Chaque routeur a donc l'impression d'être le centre du réseau, il ne voit qu'un chemin à empreinter vers un routeur pour atteindre un autre routeur.</li>
+			</ul>
+			Les vecteurs de distance présentent au moins deux inconveinients majeurs :
+			<ul>
+				<li>La charge réseau induite par les updates est conséquent, chaque routeur met régulièrement sur le réseau l'ensemble de sa table de routage. Ce trafic est non négligeable surtout dans le cas de grands réseaux.</li>
+				<li>Le protocole n'est aussi pas très réactif avec le cas de <b>RIP</b>.</li>
+			</ul>
+			Les protocoles à vecteur de distances s'appuient sur l'algorithme de Ford-Bellman.
+		</li>
+		<li>
+			Suite aux inconvéinients produits par le protocole de vecteur de distance (DV), le protocole d'état de lien (LS) a été inventé. À l'inverse de ces protocoles de vecteurs, les protocoles dits à états de lien comme <b>OSPF</b> s'appuient sur l'algorithme de Dijkstra et chaque routeur connait l'entièreté de la topologie du réseau :
+			<ul>
+				<li>Chaque routeur transmet, comme précédemment, des updates à ses voisins mais uniquement lors d'un changemant d'état (coûts, indisponibilité, etc, ...)</li>
+				<li>Avec un algorithme implémenté, le routeur construit le réseau et le maintient à jour à chaque update.</li>
+			</ul>
+			Malheureusement, il y a au moins quelques inconvénients :
+			<ul>
+				<li>Les routeurs nécéssitent des performances CPU et des capacités mémoires supérieures que pour les vecteurs de distance (plus cher!)</li>
+				<li>Ce type de protocole très réactif nécessite des réglages précis des timers de transmission car sa réactivité peut justement nuire à la stabilité du routage (Dans le cas de micro-coupure de liens, on risque de changer toutes les tables et ca peut nuire au réseau)</li>
+			</ul>
+		</li>
+		<li>
+			<table>
+				<thead>
+					<tr>
+						<th>Vecteur de distance (DV)</th>
+						<th>État de lien (LS)</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Tous les routeurs du réseau transmettent à interval régulier des updates sur tous leurs ports. </td>
+						<td>Les routeurs n'émettent des updates que lorsque des liens changent d'état (coûts, indisponibilité, etc, ...)</td>
+					</tr>
+					<tr>
+						<td>les updates émis contiennent la quasi totalité de leur table de routage</td>
+						<td>Les updates émis ne contiennent que des descriptions de liens ayant changé d'état, ils sont donc moins volumineux.</td>
+					</tr>
+					<tr>
+						<td>Les routeurs doivent attendre l'interval d'update pour recevoir l'information.</td>
+						<td>Les routeurs retransmettent immédiatement les mises à jour à leurs voisins, ils compilent leur table de routage après, le protocole est donc beaucoup plus réactif !</td>
+					</tr>
+				</tbody>
+			</table>
+		</li>
+	</ol>
 </div>
 
 
-<h4 class="question">Le protocole de routage inter-domaine BGP est plus apparenté à la famille des protocoles de routage intra-domaine à vecteur de distances (DV) qu’à celle des protocoles à état de lien (LS).<ol class="alphabet"><li>Expliquez deux ressemblances importantes entre BGP et un protocole DV.</li><li>Expliquez deux différences importantes entre BGP et un protocole DV, et leur raison d’être.</li></ol></h4>
-<div class="answer"><ol class="alphabet">
-<li>
-	<ol>
+
+<h4 class="question">
+	<ol class="alphabet">
+		<li>Dans quelle(s) situation(s) le protocole de routage à vecteur de distances (DV) risque-t-il de ne pas converger ?</li><li>Décrivez un comportement pathologique possible à l’aide d’un exemple simple.</li><li>Comment peut-on atténuer ce phénomène ?</li>
+	</ol>
+</h4>
+<div class="answer">
+	<ol class="alphabet">
 		<li>
-			Obtention de la connaissance des voisins
+			<ul>
+				<li>Des boucles de routage.</li>
+				<li>Le trafic est acheminé de façon incohérente.</li>
+				<li>Des entrées de table de routage incohérentes.</li>
+			</ul>
 		</li>
 		<li>
-			Propage les informations dans tout le réseau.
+			Pour constater la rapidité avec laquelle les bonnes nouvelles se propagent, considérez le sous-réseau illustré à la figure et sur lequel la métrique utilisée est le nombre de sauts. Supposons que A soit inactif au départ et que tous les autres routeurs le sachent. En d'autres termes, ils ont tous enregistré un délai infini vers A.<figure>
+			<img src="images/info-f303/comportement-pathologique" alt="Comportement pathologique" />
+				<figcaption>Comportement pathologique</figcaption>
+			</figure>
+		</li>
+		<li>
+			Via le poison reverse. Si Z passe par Y pour aller à X, Z peut faire croire à Y qu'il se trouve à une distance infinie de X. Y étant persuadé que Z ne peut atteindre X, il opte pour une autre route.  Cette méthode n'est bonne qu'avec des triplets, elle ne marche pas lorsqu'il y a des boucles de plus de trois noeuds.
 		</li>
 	</ol>
-</li>
-<li>
-	<ol>
+</div>
+
+
+
+<h4 class="question">
+	<ol class="alphabet">
+		<li>Considérez un protocole de routage à états de liens (link state). Décrivez le contenu des paquets de routage, expliquez le rôle de chaque champ, et décrivez la méthode de diffusion des paquets.</li><li>En quelques mots, en quoi est-ce fondamentalement différent des protocoles à vecteur de distances ?</li>
+	</ol>
+</h4>
+<div class="answer">
+	<ol class="alphabet">
 		<li>
-			BGP mémorise toutes les routes vers toutes les destination : récupération rapide lorsqu'une destination devient inaccessible via la route initialement choisie.
+			<ol>
+				<li>Le nom de la source.</li>
+				<li>Un numéro de séquence : Il permet de savoir à quel paquet le routeur en est (pour ne pas mettre à jour avec un vieux paquet).</li>
+				<li>Un âge</li>
+				<li>Le nom de ses voisins et les coûts associés (qui ne sont pas obligatoirement identiques pour les 2 sens	d’une arête.</li>
+				<li>Des <b>ACK</b> flags et des Send flags pour savoir. Le send flag permet de savoir qui a déjà reçu le paquet et à qui le paquet n’a pas encore été envoyé, tandis que l’<b>ACK</b> flag sert juste à savoir si on a renvoyé l’<b>ACK</b> de ce paquet à un certain nœud</li>
+			</ol>
+			Chaque noeud reçoit les mêmes infos. Tous les noeuds envoient toutes les infos à tous ses voisins qui n'ont pas encore reçu l'info. Ensuite ils doivent chacun effectuer un Dijkstra pour chaque destination. Pour les protocoles à vecteur de distances, on utilise la programmation dynamique. Chaque noeud envoi périodiquement son vecteur de distance à ses voisins de manière asynchrone. Quand un noeud reçoit un vecteur de distance, il met à jour le sien et si un chemin change il avertit ses autres voisins. Les algorithmes à vecteur de distance sont moins robustes mais beaucoup plus rapides.
 		</li>
 		<li>
-			BGP construit des routes sans boucles : - Le chemin suivi est décrit explicitement à l'aide des AS traversés.
-		</li>
-		<li>
-			Détection facile des boucles
+			Contrairement au DV, la distance vers une destination n'est pas calculée au fur et à mesure en sommant le prochain coût estimé par le prochain saut et le coût pour atteindre ce prochain routeur. On calcule la distance directement via un arbre (spanning tree).
 		</li>
 	</ol>
-</li>
-</ol>
+</div>
+
+
+
+
+<h4 class="question">
+	Le protocole de routage inter-domaine BGP est plus apparenté à la famille des protocoles de routage intra-domaine à vecteur de distances (DV) qu’à celle des protocoles à état de lien (LS).
+	<ol class="alphabet">
+		<li>Expliquez deux ressemblances importantes entre BGP et un protocole DV.</li>
+		<li>Expliquez deux différences importantes entre BGP et un protocole DV, et leur raison d’être.</li>
+	</ol>
+</h4>
+<div class="answer">
+	<ol class="alphabet">
+		<li>
+			<ol>
+				<li>
+					Obtention de la connaissance des voisins
+				</li>
+				<li>
+					Propage les informations dans tout le réseau.
+				</li>
+			</ol>
+		</li>
+		<li>
+			<ol>
+				<li>
+					BGP mémorise toutes les routes vers toutes les destination : récupération rapide lorsqu'une destination devient inaccessible via la route initialement choisie.
+				</li>
+				<li>
+					BGP construit des routes sans boucles : - Le chemin suivi est décrit explicitement à l'aide des AS traversés.
+				</li>
+				<li>
+					Détection facile des boucles
+				</li>
+			</ol>
+		</li>
+	</ol>
 </div>
 
 
@@ -636,6 +740,9 @@ Chaque noeud reçoit les mêmes infos. Tous les noeuds envoient toutes les infos
 </div>
 
 
+
+
+
 <h4 class="question"><ol class="alphabet"><li>Décrivez les principes du protocole de routage inter-domaine BGP.</li><li>Expliquez comment BGP permet à un réseau périphérique (« stub ») multi-connecté (« multihomed ») de ne pas accepter du trafic de transit.</li></ol></h4>
 <div class="answer"><ol class="alphabet">
 <li>
@@ -654,12 +761,17 @@ Chaque noeud reçoit les mêmes infos. Tous les noeuds envoient toutes les infos
 
 
 
+
+
+
 <h4 class="question"><ol class="alphabet"><li>Déterminez analytiquement l’expression de l’efficacité du protocole ALOHA discrétisé (slotted ALOHA) en fonction de la charge du réseau pour un grand nombre de stations actives. On supposera que chaque station émet dans un slot avec une probabilité p.</li><li>Représentez l’efficacité graphiquement (avec définition des axes), et expliquez la forme de la courbe.</li><li>La suppression des slots (Cf. ALOHA pur) améliore-t-elle les performances ? Pourquoi ?</li></ol></h4>
 <div class="answer"><ol class="alphabet">
 <li>Si on suppose qu’on a N nœuds qui ont beaucoup de trames à envoyer. Chacun transmet sur un slot avec une certaine probabilité p. Un nœud à $p(1-p)^{N-1}$ chances d’envoyer un paquet parce qu’il faut qu’il envoie un paquet ($p$) <i>et</i> qu’aucun des $N-1$ autres nœuds n’envoient un paquet ($1-p$) en même temps. La probabilité que n’importe quel nœud envoient un paquet avec succès est de $$Np(1-p)^{N-1}$$ Pour une efficacité maximale, il faut donc trouver un p tel que $Np(1-p)^{N-1}$ soit maximale. On trouve (en dérivant) que L’efficacité est maximale quand $p=\dfrac{1}{N}$. Si on imagine que N tend vers l’infini, on sait que $$\lim\limits_{n-\infty}\left(1+\left(\dfrac{G}{n}\right)\right)^{n} = e^{-G}$$ Et donc pour $G=1$ $$e^{-1} = \dfrac{1}{e} = 0.37 = 37\% \text{ d'efficacité}$$</li>
 <li>(Slide 5-28) ?</li>
 <li>Non, la probabilité de collision augmente. On obtient une efficacité de 18%.</li>
 </ol></div>
+
+
 
 
 
@@ -693,14 +805,16 @@ Chaque noeud reçoit les mêmes infos. Tous les noeuds envoient toutes les infos
 
 
 <h4 class="question"><ol class="alphabet"><li>Expliquez le principe du « Longest Prefix Match » lors de l’acheminement de paquets <b>IP</b>.</li><li>Quel est son intérêt ?</li></ol></h4>
-<div class="answer"><ol class="alphabet">
-	<li>
-		Quand on cherche à envoyer une table d'entrée pour une adresse de destination donnéee, on utilise le préfixe de la plus longue adresse qui correspond à l'adresse de destination.
-	</li>
-	<li>
-		Ca sert à détecter le cas où une table donne un sous-réseau.
-	</li>
-</ol></div>
+<div class="answer">
+	<ol class="alphabet">
+		<li>
+			Quand on cherche à envoyer une table d'entrée pour une adresse de destination donnéee, on utilise le préfixe de la plus longue adresse qui correspond à l'adresse de destination.
+		</li>
+		<li>
+			Ca sert à détecter le cas où une table donne un sous-réseau.
+		</li>
+	</ol>
+</div>
 
 
 
@@ -708,24 +822,26 @@ Chaque noeud reçoit les mêmes infos. Tous les noeuds envoient toutes les infos
 
 
 <h4 class="question"><ol class="alphabet"><li>Expliquez le rôle et le principe général des codes détecteurs d’erreur.</li><li>Pourquoi ne peuvent-ils être efficaces à 100% ?</li><li>Donnez un exemple de code détecteur d’erreur plus élaboré que le bit de parité, et expliquez son principe.</li></ol></h4>
-<div class="answer"><ol class="alphabet">
-<li>
-	Il s'agit de détecter si il y a une erreur dans le paquet transmis. Pour cela, on introduit un ou plusieurs bits de contrôle dans le paquet afin de savoir si le code a été changé ou pas.
-</li>
-<li>
-	Car si il y a un seul bit de parité, on ne peut détecter que des erreurs impaires. Il faut mettre plusieurs bits de parités mais cela limite quand même toutefois le nombre d'erreurs détectables. De plus, rien ne dit qu'une erreur ne peut pas se produire sur un de ces bits.
-</li>
-<li>
-	<ul>
+<div class="answer">
+	<ol class="alphabet">
 		<li>
-			<b>Bit de parité</b> : Soit D des informations à transmettre de d bits. L’expéditeur ajoute aux données un unique bit tel que la somme des d + 1 bits soit paire (ou impaire selon ce qui est convenu par le modèle). Cette méthode est un peu faible, car si un nombre pair d’erreurs s’est glissé dans les données, elles ne seront pas détectées ; elle ne peut donc être appliquée que sur des systèmes pour lesquels les erreurs n’arrivent pas en rafale et dont la probabilité est extrêmement faible.
+			Il s'agit de détecter si il y a une erreur dans le paquet transmis. Pour cela, on introduit un ou plusieurs bits de contrôle dans le paquet afin de savoir si le code a été changé ou pas.
 		</li>
 		<li>
-			<b>Checksum</b> : les codes <b>CRC</b> (<b>Code de Redondance cyclique</b>) sont une technique de détection d'erreur très fréquente et opère de la manière suivante : Lors de l’envoi, l’émetteur ajoute un nombre sur 16 bits à la fin des données (D), de manière à ce que ces données D et ce nombre CRC forment un nombre exactement divisible par G (modulo 2). En pratique l’émetteur divise D par G et met dans CRC le reste de cette division. Le destinataire, connaissant G, n’a qu’a diviser le paquet par G, s’il n’obtient pas zéro c’est qu’il y a eu des erreurs. Le point cruciale est le choix de G(x), puisqu’il ne faut pas que les données entachées d’erreur soient divisible par lui. Plus le polynôme est grand, plus on détece d'erreurs, il faut donc choisir entre la taille et la performance.
+			Car si il y a un seul bit de parité, on ne peut détecter que des erreurs impaires. Il faut mettre plusieurs bits de parités mais cela limite quand même toutefois le nombre d'erreurs détectables. De plus, rien ne dit qu'une erreur ne peut pas se produire sur un de ces bits.
 		</li>
-	</ul>
-</li>
-</ol></div>
+		<li>
+			<ul>
+				<li>
+					<b>Bit de parité</b> : Soit D des informations à transmettre de d bits. L’expéditeur ajoute aux données un unique bit tel que la somme des d + 1 bits soit paire (ou impaire selon ce qui est convenu par le modèle). Cette méthode est un peu faible, car si un nombre pair d’erreurs s’est glissé dans les données, elles ne seront pas détectées ; elle ne peut donc être appliquée que sur des systèmes pour lesquels les erreurs n’arrivent pas en rafale et dont la probabilité est extrêmement faible.
+				</li>
+				<li>
+					<b>Checksum</b> : les codes <b>CRC</b> (<b>Code de Redondance cyclique</b>) sont une technique de détection d'erreur très fréquente et opère de la manière suivante : Lors de l’envoi, l’émetteur ajoute un nombre sur 16 bits à la fin des données (D), de manière à ce que ces données D et ce nombre CRC forment un nombre exactement divisible par G (modulo 2). En pratique l’émetteur divise D par G et met dans CRC le reste de cette division. Le destinataire, connaissant G, n’a qu’a diviser le paquet par G, s’il n’obtient pas zéro c’est qu’il y a eu des erreurs. Le point cruciale est le choix de G(x), puisqu’il ne faut pas que les données entachées d’erreur soient divisible par lui. Plus le polynôme est grand, plus on détece d'erreurs, il faut donc choisir entre la taille et la performance.
+				</li>
+			</ul>
+		</li>
+	</ol>
+</div>
 
 
 
