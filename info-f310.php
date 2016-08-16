@@ -162,15 +162,20 @@ table.moindrecout td {
 	<li>Définir (en français) le problème de transport.</li>
 	<li>Formuler le problème de transport comme un programme linéaire et écrire son dual.</li>
 	<li>Décrire une itération du simplexe adapté au problème de transport.</li>
-	<li>Justifier la condition d’arrˆet de l’algorithme.</li>
+	<li>Justifier la condition d’arrêt de l’algorithme.</li>
 </ol>
 </h4>
 <div class="answer">
 	<ol>	
+		<li>
+			Un produit doit être transporté de sources vers des destinations (dépôts, clients). Son objectif est de déterminer la quantité envoyée de chaque source à chaque destination en minimisant les coûts de
+			transport. Les coûts étant proportionnels aux quantités transportées. Il faut aussi satisfaire les contraintes d’offre limitée aux sources et de demande aux destinations.
+		</li>
 		<li></li>
 		<li></li>
-		<li></li>
-		<li></li>
+		<li>
+			La condition d'arrêt de l'algorithme est lorsque toutes les variables entrantes sont négatifs ( $o_i + d_j - c_{ij} \geq 0$ )
+		</li>
 	</ol>
 </div>
 
