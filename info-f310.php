@@ -140,10 +140,10 @@ table.moindrecout td {
 					$$a^Tx\leq b$$ $$-a^Tx \leq -b$$
 				</li>
 				<li>
-					$a^Tx \geq b \Leftrightarrow -a^Tx \geq -b
+					$a^Tx \geq b \Leftrightarrow -a^Tx \geq -b$
 				</li>
 				<li>
-					$\min c^Tx = -\max -c^Tx
+					$\min c^Tx = -\max -c^Tx$
 				</li>
 				<li>
 					Variable $x$ non resteinte : substitution par deux variables (partie positive et négative)
