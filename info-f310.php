@@ -45,7 +45,7 @@ table.moindrecout td {
 	Définissez ce qu'est une variable d'écart, une variable en base et une variable hors base dans la méthode du simplexe.
 </h4>
 <div class="answer">
-	Le principe du simplexe est qu'on se déplace de sommet en sommet de manière algébrique jusqu'à trouver le sommet optimal. Le souci est que si on laisse le problème sous forme standard, on obtient une infinité de solutions avec un système de $m$ équations à $n$ inconnues, avec $m<n$. Le principe du simplexe est qu'on fixe à zéro $n-m$ variables.
+	Le principe du simplexe est qu'on se déplace de sommet en sommet de manière algébrique jusqu'à trouver le sommet optimal. Le souci est que si on laisse le problème sous forme standard, on obtient une infinité de solutions avec un système de $m$ équations à $n$ inconnues, avec $ m \< n $. Le principe du simplexe est qu'on fixe à zéro $n-m$ variables.
 	<br>On obtient alors un système de $n$ équations à $n$ inconnues possédant une solution unique. Ce système est appelé solution de base.
 	<ol>
 		<li>Les variables fixées à zéro sont appelée variables hors-base</li>
@@ -121,8 +121,37 @@ table.moindrecout td {
 </h4>
 <div class="answer">
 	<ol>	
-		<li></li>
-		<li></li>
+		<li>
+			<ul>
+				<li><b>Forme standard</b> : Un programme est sous forme standard lorsque toutes ses contraintes sont des égalités et toutes ses variables sont non-négatives.</li>
+				<li><b>Forme canonique</b> : Un programme est sous forme canonique lorsque toutes ses contraintes sont des inégalités et toutes ses variables sont non-négatives.</li>
+			</ul>
+		</li>
+		<li>
+			Théorème 1 (Equivalence des formes standard et canonique). Tout programme linéaire peut s’écrire sous forme standard et sous forme canonique.
+			<br><b>Démonstration</b>
+			<ul>
+				<li>
+					Une contrainte d'inégalité $a^Tx\leq b peut être transformée en égalité par l'introduction d'une variable d'écart :
+					$$a^Tx +s = b$$ $$s \geq 0$$
+				</li>
+				<li>
+					Une contrainte d'égalité $a^Tx=b$ peut être remplacée par deux inégalités :
+					$$a^Tx\leq b$$ $$-a^Tx \leq -b$$
+				</li>
+				<li>
+					$a^Tx \geq b \Leftrightarrow -a^Tx \geq -b
+				</li>
+				<li>
+					$\min c^Tx = -\max -c^Tx
+				</li>
+				<li>
+					Variable $x$ non resteinte : substitution par deux variables (partie positive et négative)
+					$$x = x^{+} - x^{-}$$
+					Avec $x^{+},x^{-} \leq 0$ Il existe toujours une solution optimale telle que $x^{+} =$ ou $x^{-}=0$
+				</li>
+			</ul>
+		</li>
 	</ol>
 </div>
 
@@ -130,7 +159,7 @@ table.moindrecout td {
 
 <h4 class="question">
 <ol>	
-	<li>Définir (en fran¸cais) le problème de transport.</li>
+	<li>Définir (en français) le problème de transport.</li>
 	<li>Formuler le problème de transport comme un programme linéaire et écrire son dual.</li>
 	<li>Décrire une itération du simplexe adapté au problème de transport.</li>
 	<li>Justifier la condition d’arrˆet de l’algorithme.</li>
@@ -542,7 +571,7 @@ On en déduit les variables sortantes ( $\theta$ ) ; on doit mettre toutes les v
 			<th>I<br><b>0</b></th>
 			<td>25<i>$-\theta$</i><br><b>300</b></td>
 			<td>17<i>$+\theta$</i><br><b>50</b></td>
-			<td>16</td>
+			<td>16<br><u>-3</u></td>
 			<td>350</td>
 		</tr>
 		<tr>
@@ -570,7 +599,7 @@ On obtient au final ceci car les variables entrantes sont négatives
 			<th></th>
 			<th>A<br><b>25</b></th>
 			<th>B<br><b>17</b></th>
-			<th>C<br><b>13</b></th>
+			<th>C<br><b>15</b></th>
 			<th>Offre</th>
 		</tr>
 	</thead>
@@ -583,7 +612,7 @@ On obtient au final ceci car les variables entrantes sont négatives
 			<td>350</td>
 		</tr>
 		<tr>
-			<th>II<br><b>1</b></th>
+			<th>II<br><b>-1</b></th>
 			<td>24<br><b>250</b></td>
 			<td>18<br><u>-2</u></td>
 			<td>14<br><b>300</b></td>
