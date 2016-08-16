@@ -132,7 +132,7 @@ table.moindrecout td {
 			<br><b>Démonstration</b>
 			<ul>
 				<li>
-					Une contrainte d'inégalité $a^Tx\leq b peut être transformée en égalité par l'introduction d'une variable d'écart :
+					Une contrainte d'inégalité $a^Tx\leq b$ peut être transformée en égalité par l'introduction d'une variable d'écart :
 					$$a^Tx +s = b$$ $$s \geq 0$$
 				</li>
 				<li>
