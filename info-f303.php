@@ -1542,7 +1542,7 @@ $\begin{array}{lll}
 RTT &=& T_{MSS|10Mbps} + 2 T_{MSS|1MBps} + 2 T_{propagation} + T_{ACK} + 2T_{ACK|1Mbps}\\
 &=& 0.001 + 2*0.01 + 3*0.01 + 0.000192 + 2. 0.00192\\
 &=& 0.0514032 s
-\end{array}$
+\end{array}$<br>
 $\dfrac{rwnd(10000)}{RTT}=\dfrac{12(10000)}{0.0514032} = 233448571$ Mbps<br>
 $cwnd = \dfrac{1000000*0.0514032}{10000} = 5$
 <table>
