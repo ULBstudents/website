@@ -1538,18 +1538,18 @@ Timer?
 	Deux entités A et B ont établi une connexion <b>TCP</b> passant par deux routeurs $R$ et $S$. Les liaisons $A \leftrightarrow R$, $R \leftrightarrow S$ et $S \leftrightarrow B$ ont un débit de respectivement 10 Mbps, 1 Mbps, et 1 Mbps. Chacune de ces liaisons a un temps de propagation de 10 ms. $A$ souhaite envoyer des données à $B$ le plus rapidement possible. La fenêtre de réception de $B$ est de 18 MSS, le MSS ayant été négocié à 10 Kb, en-tête compris. Le seuil de l'algorithme de <i>slow-start</i> est initialement fixé à 12 MSS. A chaque réception d'un segment, $B$ répond par un acquit de 24 octets, en-tête compis. Un timer de retransmission de 1 s est enclenché à chaque début d'envoi d'une rafale. Combien de temps faut-il à $A$ pour arrive à un fenetre de congestion de taille maximale, sachant que la troisième rafale sera entièrement perdue et qu'il n'y aura pas d'autres pertes ?
 </h4>
 <div class="answer">
-$T_{MSS|10Mbps} = \dfrac{10000}{10.10^7} = 0.001$ s<br>
-$T_{MSS|1Mbps} = \dfrac{10000}{10.10^6} = 0.01$ s<br>
-$T_{porpagation} = 10$ ms$ = 0.01$ s<br>
-$T_{ACK|10Mbps} = \dfrac{24.8}{10.10^7} = 0.0000192$ s<br>
-$T_{ACK|1Mbps} = \dfrac{24.8}{10.10^6} = 0.000192$ s<br>
+$T_{MSS|10Mbps} = \dfrac{10000}{10.10^7} = 0.0001$ s<br>
+$T_{MSS|1Mbps} = \dfrac{10000}{10.10^6} = 0.001$ s<br>
+$T_{propagation} = 10$ ms$ = 0.01$ s<br>
+$T_{ACK|10Mbps} = \dfrac{24.8}{10.10^7} = 0.00000192$ s<br>
+$T_{ACK|1Mbps} = \dfrac{24.8}{10.10^6} = 0.0000192$ s<br>
 $\begin{array}{lll}
 RTT &=& T_{MSS|10Mbps} + 2 T_{MSS|1MBps} + 2 T_{propagation} + T_{ACK} + 2T_{ACK|1Mbps}\\
-&=& 0.001 + 2*0.01 + 3*0.01 + 0.000192 + 2. 0.00192\\
-&=& 0.0514032 s
+&=& 0.0001 + 2*0.001 + 2*0.01 + 0.00000192 + 2*0.0000192\\
+&=& 0.02214032 s
 \end{array}$<br>
-$\dfrac{rwnd(10000)}{RTT}=\dfrac{12(10000)}{0.0514032} = 233448571$ Mbps<br>
-$cwnd = \dfrac{1000000*0.0514032}{10000} = 5$
+$\dfrac{rwnd(10000)}{RTT}=\dfrac{12(10000)}{0.02214032} = 5419975.863$ bps<br>
+$cwnd = \dfrac{1000000*0.02214032}{10000} = 2.214032$
 <table>
 	<thead>
 		<tr><th>RTT</th><th>ACK</th><th>CWND (MSS)</th><th>Envoyé (MSS)</th></tr>
@@ -1570,7 +1570,7 @@ $cwnd = \dfrac{1000000*0.0514032}{10000} = 5$
 	</thead>
 </table>
 Il faut donc Timeout + 16 RTT
-$$1 + 16*0.0514032 = 1.8124512 s$$
+$$1 + 16*0.02214032 = 1.35424512 s$$
 </div>
 
 
