@@ -1156,6 +1156,7 @@ Les réponses proviennent (ou par l'intermédiaire de résumé) de Denis Steckel
 
 
 
+
 <h4 class="question">
 	<ol class="alphabet">
 		<li>Expliquez la technique de fragmentation de paquets IP en justifiant le rôle des différents champs pertinents de l’en-tête des paquets.</li>
@@ -1164,8 +1165,8 @@ Les réponses proviennent (ou par l'intermédiaire de résumé) de Denis Steckel
 </h4>
 <div class="answer">
 	<ol class="alphabet">
-		<li></li>
-		<li></li>
+		<li>?</li>
+		<li>?</li>
 	</ol>
 </div>
 
