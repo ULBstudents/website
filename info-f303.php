@@ -90,7 +90,9 @@ Les réponses proviennent (ou par l'intermédiaire de résumé) de Denis Steckel
 		
 		
 		</li>
-		<li></li>
+		<li>
+			Le cas où CRC valide un faux positif est extrèmement faible et pourrait survenir uniquement dans le cas d'une double erreur. À la fois dans le message et à la fois dans la valeur du CRC.
+		</li>
 		<li>
 			Au plus le degré u polynome est grand, au moins d'erreur il y a. Mais au plus long est le calcul et il y a aussi plus d'information à transmettre. Il est donc très important de choisir un bon degré, ni trop grand ni trop petit.
 		</li>
