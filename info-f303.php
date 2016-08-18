@@ -68,6 +68,41 @@ Les réponses proviennent (ou par l'intermédiaire de résumé) de Denis Steckel
 
 
 
+
+
+
+<h4 class="question">
+	<ol class="alphabet">
+		<li>Expliquez le principe des codes polynomiaux (CRC) pour la détection d'erreurs.</li>
+		<li>Pour un polynôme donné, citez un exemple d’erreur que le code CRC associé ne pourra pas détecter.</li>
+		<li>Quelle est l'importance du degré du polynôme utilisé ? Pourquoi ?</li>
+	</ol>
+</h4>
+<div class="answer">
+	<ol class="alphabet">
+		<li>Un contrôle de redondance cyclique ou CRC (Cyclic Redundancy Check) est un outil logiciel permettant de détecter les erreurs de transmission ou de transfert par ajout, combinaison et comparaison de données redondantes, obtenues grâce à une procédure de hachage. Les CRC sont évalués (échantillonnés) avant et après la transmission ou le transfert, puis comparés pour s’assurer que les données sont strictement identiques. Le codage binaire est très pratique pour une utilisation dans des appareils électroniques tels qu'un ordinateur, dans lesquels l'information peut être codée grâce à la présence ou non d'un signal électrique. Cependant le signal électrique peut subir des perturbations (distortion, présence de bruit), notamment lors du transport des données sur un long trajet. Ainsi, le contrôle de la validité des données est nécessaire pour certaines applications (professionelles, bancaires, industrielles, confidentielles, relatives à la sécurité, ...). 
+		C'est pourquoi il existe des mécanismes permettant de garantir un certain niveau d'intégrité des données, c'est-à-dire de fournir au destinataire une assurance que les données reçues sont bien similaires aux données émises. La protection contre les erreurs peut se faire en mettant en place des mécanismes logiques de détection et de correction des erreurs. La plupart des systèmes de contrôle d'erreur au niveau logique sont basés sur un ajout d'information (on parle de « redondance ») permettant de vérifier la validité des données.<br><br><br>
+		Le contrôle de redondance cyclique (noté CRC, ou en anglais Cyclic Redundancy Check) est un moyen de contrôle d'intégrité des données puissant et facile à mettre en oeuvre. Il représente la principale méthode de détection d'erreurs utilisée dans les télécommunications. Le contrôle de redondance cyclique consiste à protéger des blocs de données, appelés trames 
+
+		(frames en anglais). A chaque trame est associé un bloc de données, appelé code de contrôle. Le code CRC contient des éléments redondants vis-à-vis de la trame, permettant de détecter les erreurs, mais aussi de les réparer.  Le principe du CRC consiste à traiter les séquences binaires comme des polynômes binaires, c'est-à-dire des polynômes dont les coefficients correspondent à la séquence binaire. Ainsi la séquence binaire 0110101001 peut être représentée 
+		sous la forme polynomiale suivante :  $0*X^9 + 1*X^8 + 1*X^7 + 0*X^6 + 1*X^5 + 0*X^4 + 1*X^3 + 0*X^2 + 0*X^1 + 1*X^0$ De cette façon, le bit de poids faible de la séquence (le bit le plus à droite) représente le degré 0 du polynôme ($X^0 = 1$), le 4ème bit en partant de la droite représente le degré 3 du polynôme ($X^3$)... Une séquence de n bits constitue donc un polynôme de degré maximal $n-1$. Toutes les expressions polynomiales sont manipulées par la suite avec une arithmétique modulo 2. Dans ce mécanisme de détection d'erreur, 
+		un polynôme prédéfini (appelé polynôme générateur et noté G(X)) est connu de l'émetteur et du récepteur. La détection d'erreur consiste pour l'émetteur à effectuer un algorithme sur les bits de la trame afin de générer un CRC, et de transmettre ces deux éléments  au récepteur. Il suffit alors au récepteur d'effectuer le même calcul afin de vérifier que le CRC est valide. 
+		
+		
+		</li>
+		<li></li>
+		<li>
+			Au plus le degré u polynome est grand, au moins d'erreur il y a. Mais au plus long est le calcul et il y a aussi plus d'information à transmettre. Il est donc très important de choisir un bon degré, ni trop grand ni trop petit.
+		</li>
+	</ol>
+</div>
+
+
+
+
+
+
+
 <h4 class="question">
 	<ol class="alphabet">
 		<li>Expliquez la différence entre un baud et un bps (bit par seconde).</li>
@@ -884,6 +919,9 @@ Les réponses proviennent (ou par l'intermédiaire de résumé) de Denis Steckel
 		<li>Heu.. Mettez tous se que vous savez sur BGP..</li>
 	</ol>
 </div>
+
+
+
 
 
 
