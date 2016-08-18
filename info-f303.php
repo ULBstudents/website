@@ -1332,10 +1332,30 @@ Une fois le <b>3-way handshake</b> effectué, le client et le serveur ont reçu 
 <div class="answer">
 	<ol class="alphabet">
 		<li>
-			?
+			Étape par étape :
+			<ol>
+				<li>Temps de A vers B : $\dfrac{(512+40)8}{10^6} = 0.004416 $ s</li>
+				<li>Temps de traitement de A : $0.1 $ s</li>
+				<li>Temps de B vers A : $\dfrac{(40)8}{10^6} = 0.00032 $ s</li>
+			</ol>
+			Donc $0.00416 + 0.1 + 0.00032 = 0.10448$ s
 		</li>
 		<li>
-			?
+			<table>
+				<thead>
+					<tr><th>RTT</th><th>Recu</th><th>CWND</th><th>Envoyé</th></tr>
+				</thead>
+				<tbody>
+					<tr><td>0</td><td>0</td><td>1</td><td>1</td></tr>
+					<tr><td>1</td><td>1</td><td>2</td><td>2</td></tr>
+					<tr><td>2</td><td>2</td><td>4</td><td>4</td></tr>
+					<tr><td>3</td><td>4</td><td>8</td><td>8</td></tr>
+					<tr><td>4</td><td>8</td><td>16</td><td>16</td></tr>
+					<tr><td>5</td><td>16</td><td>17</td><td>17</td></tr>
+					<tr><td>...</td><td>...</td><td>...</td><td>...</td></tr>
+					<tr><td>24</td><td>35</td><td>36</td><td>36</td></tr>
+				</thead>
+			</table>
 		</li>
 	</ol>
 </div>
