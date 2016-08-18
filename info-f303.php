@@ -1526,7 +1526,12 @@ Une fois le <b>3-way handshake</b> effectué, le client et le serveur ont reçu 
 <h4 class="question">
 	Un émetteur envoie des paquets à un récepteur à l'aide d'un protocole de transport <i>stop and wait</i>. Le débit brut du réseau est de 1 Mbps. Chacun de ces paquets contient 1000 bits de données utiles. L'émetteur retransmet un paquet s'il ne reçoit pas q'acquit (24 bytes) avant l'expiration de son timer, fixé à 1 s. Sachant qu'en moyenne un paquet (données ou acquit) sur 100 n'arrive pas à bon port, alculez l'efficacité moyenne de la connexion. On supposera négligeable les délais de propagations et les overheads introduits par l'encapsulation des données.</h4>
 <div class="answer">
-	?
+Débit utile $= \dfrac{bits}{T_{t} + T_{ACK} + T_p} = \dfrac{1000}{\dfrac{1000}{10.10^6}+\dfrac{24.8}{10.10^6}+0}$<br>
+
+Efficacité $= \dfrac{\text{débit utile}}{\text{vitesse}} = \dfrac{1000}{1000+24.8}=0.839=83,9\%$<br>
+
+
+Timer?
 </div>
 
 <h4 class="question">
