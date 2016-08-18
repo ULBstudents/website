@@ -16,22 +16,27 @@ Les réponses proviennent (ou par l'intermédiaire de résumé) de Denis Steckel
 
 
 <h4 class="question"><ol class="alphabet"><li>Expliquez la différence entre une fibre optique monomode et une fibre multimode.</li><li>Laquelle permet un débit plus élevé et pourquoi ?</li></ol></h4>
-<div class="answer"><ol class="alphabet">
-<li>
-	La fibre optique est une émission d'un nuage de photon dans un câble en verre. Composé d’un câble en fibre optique inclus dans un autre, les deux ayant des indices de réfractions différents. Ceci permettant de piéger les signaux par réfraction. les photons ne peuvent plus quitter le câble et se retrouve bloqué dans le câble du centre. On utilise deux types de fibre : Le monomode et multimode.
-	<figure>
-		<img src="images/info-f303/multimode-monomode" alt="Deux modes de fibres optique" />
-		<figcaption>Deux modes de fibres optique</figcaption>
-	</figure>
-	<ul>
-		<li><b>Multimode</b> : Le problème de la fibre optique est que les photons émis dans un même nuage prennent des trajectoires différentes (en fonctions des angles de réflexions au sein du câble), les photons du signal n’arrivent donc pas en même temps au bout du câble (ni dans la même partie). Or plus la distance est longues plus cet effet grandit et plus l’écart entre les photons de tête et de queue s’agrandit, on a donc un étalement puis un chevauchement des flux. Pour éviter les chevauchement on est donc obligé d’espacer les émissions en fonction des distances et capacités de réceptions.</li>
-		<li><b>Monomode</b> : Ici on utilise un verre plus étroit ( 2.4 µ ) avec un seul mode de propagation, les photons vont donc en ligne droite, sans étalement. C’est efficace pour les grandes distances, mais plus chère.</li>
-	</ul>
-</li>
-<li>
-	La fible monomode possède donc un débit bien plus élevé car il n'y a pas de dispersion de délai ; on ne doit pas attendre entre les symboles. Elle est cependant bien plus chère. La fibre multimode est moins optimale à cause des chevauchement possible et n'est du coup utilisé que pour de courte distances.
-</li>
-</ol></div>
+<div class="answer">
+	<ol class="alphabet">
+		<li>
+			La fibre optique est une émission d'un nuage de photon dans un câble en verre. Composé d’un câble en fibre optique inclus dans un autre, les deux ayant des indices de réfractions différents. Ceci permettant de piéger les signaux par réfraction. les photons ne peuvent plus quitter le câble et se retrouve bloqué dans le câble du centre. On utilise deux types de fibre : Le monomode et multimode.
+			<figure>
+				<img src="images/info-f303/multimode-monomode" alt="Deux modes de fibres optique" />
+				<figcaption>Deux modes de fibres optique</figcaption>
+			</figure>
+			<ul>
+				<li><b>Multimode</b> : Le problème de la fibre optique est que les photons émis dans un même nuage prennent des trajectoires différentes (en fonctions des angles de réflexions au sein du câble), les photons du signal n’arrivent donc pas en même temps au bout du câble (ni dans la même partie). Or plus la distance est longues plus cet effet grandit et plus l’écart entre les photons de tête et de queue s’agrandit, on a donc un étalement puis un chevauchement des flux. Pour éviter les chevauchement on est donc obligé d’espacer les émissions en fonction des distances et capacités de réceptions.</li>
+				<li><b>Monomode</b> : Ici on utilise un verre plus étroit ( 2.4 µ ) avec un seul mode de propagation, les photons vont donc en ligne droite, sans étalement. C’est efficace pour les grandes distances, mais plus chère.</li>
+			</ul>
+		</li>
+		<li>
+			La fible monomode possède donc un débit bien plus élevé car il n'y a pas de dispersion de délai ; on ne doit pas attendre entre les symboles. Elle est cependant bien plus chère. La fibre multimode est moins optimale à cause des chevauchement possible et n'est du coup utilisé que pour de courte distances.
+		</li>
+	</ol>
+</div>
+
+
+
 
 
 
@@ -60,6 +65,32 @@ Les réponses proviennent (ou par l'intermédiaire de résumé) de Denis Steckel
 	</figure>
 </li>
 </ol></div>
+
+
+
+<h4 class="question">
+	<ol class="alphabet">
+		<li>Expliquez la différence entre un baud et un bps (bit par seconde).</li>
+		<li>Qu’est-ce qui limite le nombre de bauds sur un canal de communication ?</li>
+		<li>Qu’est-ce qui limite le nombre de bps sur un canal de communication ?</li>
+		<li>Comment module-t-on le signal dans les modems « dial-up » les plus courants ? Expliquez sommairement.</li>
+	</ol>
+</h4>
+<div class="answer">
+	<ol class="alphabet">
+		<li>
+			un bps : bit per seconde... un baud c'est une unité x (un bit,un truc, un machin) par seconde, en gros le baud peut s apliquer a autre chose que des bit.
+		</li>
+			Nyquist impose une borne maximale au débit de symboles. Cette fréquence maximale est de $2H$, avec $H$ la bande de fréquence disponible en Hertz du canal de transmission. Quand on transmet une émission radio, on a un canal, et on doit tenir dedans. H vient du cable et 2 vient du bruit. Sur un réseau de téléphone, la bande passante est d'environ 4000 Hz la fréquence maximale de la voix humaine.
+		<li>
+			Bah le bruit, la loi de Shannon, c'est évident. La loi de shannon dit que le début en bits est égal à $H*log_2(1+S/N)$ avec $S/N$ étant le rapport du signal sur le bruit. S'il n'y avait pas de bruit, on aurait eu un log de l'infini. Ce qui est important est bien le rapport du signal par le bruit : si on a beaucoup de bruit mais qu'on sait augmenter le signal, c'est bon. Généralement le rapport signal/bruit sur un réseau téléphonique est de 1000.
+		</li>
+		<li>
+			C'est une forme d'accès à internet qui utilise le réseau téléphonique pour établir une connexion à un ISP. La vitesse maximale est de 56 Kbps et on ne peut téléphoner en même temps. Modulateur/DéModulateur. Le But d'un modem est de transformer des informations binaires (numériques) en un signal analogique (et vice-versa). Le plus souvent on modifie à la fois l'amplitude du signal et sa phase. On ne passe donc pas 1 bit à la fois, mais au moins 2 (1 grâce à l'amplitude et 1 à la phase).
+		</li>
+	</ol>
+</div>
+
 
 
 
