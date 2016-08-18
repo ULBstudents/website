@@ -1568,8 +1568,7 @@ $cwnd = \dfrac{1000000*0.02214032}{10000} = 2.214032 = 2$
 		<tr><td>18</td><td>17</td><td>18</td><td>18</td><td>6</td></tr>
 	</thead>
 </table>
-Il faut donc Timeout + 18 RTT
-$$1 + 18*0.02214032 = 1.39852576 s$$
+Il faut donc Timeout + 18 RTT : $1 + 18*0.02214032 = 1.39852576 s$
 </div>
 
 
