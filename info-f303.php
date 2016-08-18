@@ -462,12 +462,11 @@ Les réponses proviennent (ou par l'intermédiaire de résumé) de Denis Steckel
 		<b>Ethernet</b> repose sur un algorithme d’accès multiple <b>CSMA/CD</b> dont la méthode d'accès a été améliorée. Pour que l'émetteur détecte une collision, il doit être en train d'émettre. Il faut donc que la trame soit suffisament longue pour que le délai soit suffisament long et que l'emetteur entend la collision. Sinon l'émetteur transmet tout puis n'entend pas qu'il a eu de collision. Sur un réseau de 10 Mbps et 2.5 km, il faut qu'une trame fasse au moins 250 bits. Ethernet a choisi 512 bits minimum. Pour encore améliorer les choses, l'émetteur attend de manière exponentielle (entre $0$ et $2^{collisions-1}$ temps de transmission de 512 bits) quand il détecte une collision. Ainsi, si les collisions sont rares, on n'attend pas trop. S'il y en a plein, on attend plus longtemps pour augmenter l'efficacité. Quand une collision survient, l'émeteur envoie un <b>jam</b> : un signal fort histoire que tout le monde sur la ligne soit au courant de la collision.
 	</li>
 	<li>
-		$F_{min} : \dfrac{2BL}{C} = \pm BL * 10^{-8}$ bits
-		$F = Frame Size$<br>
-		$B = Bandwidth$<br>
-		$L = lngueur du canal$<br>
-		Si $F$ est plus petit, le délai de transmission est plus court et donc on peut envoyer plus de trames et éviter des collisions. Pour éviter cela,
-		efficacité du réseau = $\dfrac{1}{1+2BL+\dfrac{e}{CF}}$<br>
+		$F$ : Frame Size<br>
+		$B$ : Bandwidth<br>
+		$L$ : lngueur du canal<br>
+		$F_{min} : \dfrac{2BL}{C} = \pm BL * 10^{-8}$ bits<br>
+		Si $F$ est plus petit, le délai de transmission est plus court et donc on peut envoyer plus de trames et éviter des collisions. Pour éviter cela, efficacité du réseau = $\dfrac{1}{1+2BL+\dfrac{e}{CF}}$<br>
 
 		On doit donc augmenter la bande passante ou la distance.
 	</li>
