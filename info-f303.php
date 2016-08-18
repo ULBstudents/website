@@ -878,7 +878,12 @@ Les réponses proviennent (ou par l'intermédiaire de résumé) de Denis Steckel
 </ol></div>
 
 
-<h4 class="question"><ol class="alphabet"><li>Expliquez le principe du « Longest Prefix Match » lors de l’acheminement de paquets <b>IP</b>.</li><li>Quel est son intérêt ?</li></ol></h4>
+<h4 class="question">
+	<ol class="alphabet">
+		<li>Expliquez le principe du « Longest Prefix Match » lors de l’acheminement de paquets <b>IP</b>.</li>
+		<li>Quel est son intérêt ?</li>
+	</ol>
+</h4>
 <div class="answer">
 	<ol class="alphabet">
 		<li>
@@ -889,7 +894,7 @@ Les réponses proviennent (ou par l'intermédiaire de résumé) de Denis Steckel
 			L'adresse 192.168.20.19 est donné, seulement ces 2 entrées sont matchés. Le routeur prendra le Longest Prefix Match, c-a-d 192.168.20.16/28 car le masque 28 (255.255.255.240) est plus grand que le masque 16 (255.255.0.0)
 		</li>
 		<li>
-			Cela rends la route du packet beaucoup plus spécifique. Ca sert aussi détecter le cas où une table donne un sous-réseau. Car par exemple, la majorité des routeur ont souvent une entrée default, celui-ci est le seul avec un masque 0 (0.0.0.0) donc la dernière possibilité.
+			Cela rends la route du packet beaucoup plus spécifique. Ca sert aussi détecter le cas où une table donne un sous-réseau. Car par exemple, la majorité des routeur ont souvent une entrée default, celui-ci est le seul avec un masque 0 (0.0.0.0) donc la dernière possibilité dans le Longest Prefix Match.
 		</li>
 	</ol>
 </div>
@@ -899,7 +904,13 @@ Les réponses proviennent (ou par l'intermédiaire de résumé) de Denis Steckel
 
 
 
-<h4 class="question"><ol class="alphabet"><li>Expliquez le rôle et le principe général des codes détecteurs d’erreur.</li><li>Pourquoi ne peuvent-ils être efficaces à 100% ?</li><li>Donnez un exemple de code détecteur d’erreur plus élaboré que le bit de parité, et expliquez son principe.</li></ol></h4>
+<h4 class="question">
+	<ol class="alphabet">
+		<li>Expliquez le rôle et le principe général des codes détecteurs d’erreur.</li>
+		<li>Pourquoi ne peuvent-ils être efficaces à 100% ?</li>
+		<li>Donnez un exemple de code détecteur d’erreur plus élaboré que le bit de parité, et expliquez son principe.</li>
+	</ol>
+</h4>
 <div class="answer">
 	<ol class="alphabet">
 		<li>
