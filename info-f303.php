@@ -117,13 +117,13 @@ Les réponses proviennent (ou par l'intermédiaire de résumé) de Denis Steckel
 	<ol class="alphabet">
 		<li>
 			<ul>
-				<li>Un bps : bit per seconde</li>
-				<li>Un Baud : C'est un symbole (n'importe quoi) par seconde, en gros le baud peut s apliquer a autre chose que des bit.</li>
+				<li>Un <b>bps</b> : bit per seconde</li>
+				<li>Un <b>Baud</b> : C'est un symbole (n'importe quoi) par seconde, en gros le baud peut s apliquer a autre chose que des bit.</li>
 			</ul>
 		</li>
 			Nyquist impose une borne maximale au débit de symboles. Cette fréquence maximale est de $2H$, avec $H$ la bande de fréquence disponible en Hertz du canal de transmission. Quand on transmet une émission radio, on a un canal, et on doit tenir dedans. H vient du cable et 2 vient du bruit. Sur un réseau de téléphone, la bande passante est d'environ 4000 Hz la fréquence maximale de la voix humaine.
 		<li>
-			Bah le bruit, la loi de Shannon, c'est évident. La loi de shannon dit que le début en bits est égal à $H*log_2(1+S/N)$ avec $S/N$ étant le rapport du signal sur le bruit. S'il n'y avait pas de bruit, on aurait eu un log de l'infini. Ce qui est important est bien le rapport du signal par le bruit : si on a beaucoup de bruit mais qu'on sait augmenter le signal, c'est bon. Généralement le rapport signal/bruit sur un réseau téléphonique est de 1000.
+			Bah le bruit, la loi de <b>Shannon</b>, c'est évident. La loi de shannon dit que le début en bits est égal à $H*log_2(1+S/N)$ avec $S/N$ étant le rapport du signal sur le bruit. S'il n'y avait pas de bruit, on aurait eu un log de l'infini. Ce qui est important est bien le rapport du signal par le bruit : si on a beaucoup de bruit mais qu'on sait augmenter le signal, c'est bon. Généralement le rapport signal/bruit sur un réseau téléphonique est de 1000.
 		</li>
 		<li>
 			C'est une forme d'accès à internet qui utilise le réseau téléphonique pour établir une connexion à un ISP. La vitesse maximale est de 56 Kbps et on ne peut téléphoner en même temps. Modulateur/DéModulateur. Le But d'un modem est de transformer des informations binaires (numériques) en un signal analogique (et vice-versa). Le plus souvent on modifie à la fois l'amplitude du signal et sa phase. On ne passe donc pas 1 bit à la fois, mais au moins 2 (1 grâce à l'amplitude et 1 à la phase).
@@ -171,8 +171,8 @@ Les réponses proviennent (ou par l'intermédiaire de résumé) de Denis Steckel
 		<li>
 			<ul>
 				<li><b>stop & wait</b> : utilise le ACK, le timer</li>
-				<li><b>Go-Back-N</b> : utilise le ACK, le sequence number</li>
-				<li><b>Selective Repeat</b> : utilise le ACK, le sequence number</li>
+				<li><b>Go-Back-N</b> : utilise le timer, le ACK, le sequence number</li>
+				<li><b>Selective Repeat</b> : utilise le timer, le ACK, le sequence number</li>
 			</ul>
 		</li>
 	</ol>
