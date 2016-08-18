@@ -1479,7 +1479,7 @@ Une fois le <b>3-way handshake</b> effectué, le client et le serveur ont reçu 
 		<li>
 			<table>
 				<thead>
-					<tr><th>RTT</th><th>Recu</th><th>CWND</th><th>Envoyé</th></tr>
+					<tr><th>RTT</th><th>ACK</th><th>CWND (MSS)</th><th>Envoyé (MSS)</th></tr>
 				</thead>
 				<tbody>
 					<tr><td>0</td><td>0</td><td>1</td><td>1</td></tr>
@@ -1533,7 +1533,39 @@ Une fois le <b>3-way handshake</b> effectué, le client et le serveur ont reçu 
 	Deux entités A et B ont établi une connexion <b>TCP</b> passant par deux routeurs $R$ et $S$. Les liaisons $A \leftrightarrow R$, $R \leftrightarrow S$ et $S \leftrightarrow B$ ont un débit de respectivement 10 Mbps, 1 Mbps, et 1 Mbps. Chacune de ces liaisons a un temps de propagation de 10 ms. $A$ souhaite envoyer des données à $B$ le plus rapidement possible. La fenêtre de réception de $B$ est de 18 MSS, le MSS ayant été négocié à 10 Kb, en-tête compris. Le seuil de l'algorithme de <i>slow-start</i> est initialement fixé à 12 MSS. A chaque réception d'un segment, $B$ répond par un acquit de 24 octets, en-tête compis. Un timer de retransmission de 1 s est enclenché à chaque début d'envoi d'une rafale. Combien de temps faut-il à $A$ pour arrive à un fenetre de congestion de taille maximale, sachant que la troisième rafale sera entièrement perdue et qu'il n'y aura pas d'autres pertes ?
 </h4>
 <div class="answer">
-	?
+$T_{MSS|10Mbps} = \dfrac{10000}{10.10^7} = 0.001$ s<br>
+$T_{MSS|1Mbps} = \dfrac{10000}{10.10^6} = 0.01$ s<br>
+$T_{porpagation} = 10$ ms$ = 0.01$ s<br>
+$T_{ACK|10Mbps} = \dfrac{24.8}{10.10^7} = 0.0000192$ s<br>
+$T_{ACK|1Mbps} = \dfrac{24.8}{10.10^6} = 0.000192$ s<br>
+$\begin{array}{lll}
+RTT &=& T_{MSS|10Mbps} + 2 T_{MSS|1MBps} + 2 T_{propagation} + T_{ACK} + 2T_{ACK|1Mbps}\\
+&=& 0.001 + 2*0.01 + 3*0.01 + 0.000192 + 2. 0.00192\\
+&=& 0.0514032 s
+\end{array}$
+$\dfrac{rwnd(10000)}{RTT}=\dfrac{12(10000)}{0.0514032} = 233448571$ Mbps<br>
+$cwnd = \dfrac{1000000*0.0514032}{10000} = 5$
+<table>
+	<thead>
+		<tr><th>RTT</th><th>ACK</th><th>CWND (MSS)</th><th>Envoyé (MSS)</th></tr>
+	</thead>
+	<tbody>
+		<tr><td>0</td><td>-</td><td>12</td><td>12</td></tr>
+		<tr><td>1</td><td>12</td><td>13</td><td>13</td></tr>
+		<tr><td>2</td><td>13</td><td>14</td><td>14</td></tr>
+		<tr><td>3</td><td>14</td><td>15</td><td>15</td></tr>
+		<tr><td>4</td><td>-</td><td>1</td><td>1</td></tr>
+		<tr><td>5</td><td>1</td><td>2</td><td>2</td></tr>
+		<tr><td>6</td><td>2</td><td>4</td><td>4</td></tr>
+		<tr><td>7</td><td>4</td><td>8</td><td>8</td></tr>
+		<tr><td>8</td><td>8</td><td>9</td><td>9</td></tr>
+		<tr><td>9</td><td>9</td><td>10</td><td>10</td></tr>
+		<tr><td>...</td><td>...</td><td>...</td><td>...</td></tr>
+		<tr><td>16</td><td>17</td><td>18</td><td>18</td></tr>
+	</thead>
+</table>
+Il faut donc Timeout + 16 RTT
+$$1 + 16*0.0514032 = 1.8124512 s$$
 </div>
 
 
