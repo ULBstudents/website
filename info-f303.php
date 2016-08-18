@@ -1616,7 +1616,7 @@ Il faut donc Timeout + 18 RTT : $1 + 18*0.02214032 = 1.39852576 s$
 </div>
 
 <h4 class="question">
-	Trois stations $S_1$, $S_2$ et $S_3$ se partagent un segment de réseau de type 802.3 (CSMA/CD, 10Mbps). La première station désire émettre une trame de 1000 bits alors que les deux autres stations souhaitent émettre chacune deux trames de 1250 bits alors que les deux autres stations souhaitent émettre chacune deux trames de 1000 bits. La station S3 doit attendre l’envoi de la première trame de $S_2$ avant de commencer à émettre sur le réseau. La durée d’un slot de contention a été fixée à $2\tau = 4.10^{-6}$ s. Considérez les temps de réaction des différentes stations comme nul. Lorsque plusieurs stations veulent accéder au réseau, on supposera que la probabilité de retransmission dans un slot est constante et égale à $p = \dfrac{1}{4}$. Calculez la durée moyenne d’envoi des 2 premières trames. Sachant que les stations commencent à émettre leur première trame en même temps, sous les contraintes déjà évoquées précédemment.
+	Trois stations $S_1$, $S_2$ et $S_3$ se partagent un segment de réseau de type 802.3 (CSMA/CD, 10Mbps). La première station désire émettre une trame de 1000 bits alors que les deux autres stations souhaitent émettre chacune deux trames de 1250 bits alors que les deux autres stations souhaitent émettre chacune deux trames de 1000 bits. La station $S_3$ doit attendre l’envoi de la première trame de $S_2$ avant de commencer à émettre sur le réseau. La durée d’un slot de contention a été fixée à $2\tau = 4.10^{-6}$ s. Considérez les temps de réaction des différentes stations comme nul. Lorsque plusieurs stations veulent accéder au réseau, on supposera que la probabilité de retransmission dans un slot est constante et égale à $p = \dfrac{1}{4}$. Calculez la durée moyenne d’envoi des 2 premières trames. Sachant que les stations commencent à émettre leur première trame en même temps, sous les contraintes déjà évoquées précédemment.
 </h4>
 <div class="answer">
 	La probabilité qu’une des 2 stations acquiert le canal dans un slot(libre) est :
@@ -1648,7 +1648,7 @@ Il faut donc Timeout + 18 RTT : $1 + 18*0.02214032 = 1.39852576 s$
 	La probabilité qu’une des 3 stations acquiert le canal dans un slot(libre) est : 
 	$A_3 = kp(1-p)^{k-1} = \dfrac{3}{3}\left(1-\dfrac{2}{3}\right)^{3-1} = 0.444$<br>
 
-	La probabilité qu’une des 3 stations acquiert le canal dans un slot(libre) est : 
+	La probabilité qu’une des 4 stations acquiert le canal dans un slot(libre) est : 
 	$A_4 = kp(1-p)^{k-1} = \dfrac{4}{3}\left(1-\dfrac{4}{3}\right)^{4-1} = 0.395$<br>
 
 
