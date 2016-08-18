@@ -112,32 +112,31 @@ Les réponses proviennent (ou par l'intermédiaire de résumé) de Denis Steckel
 
 
 
-<h4 class="question"><ol class="alphabet"><li>Citez et expliquez sommairement les 4 mécanismes de base permettant d'assurer la fiabilité d'un transfert d'information au travers d'un réseau non fiable. Justifiez leur nécessité.</li><li>Décrivez dans les grandes lignes un protocole élémentaire qui les met tous en oeuvre</li></h4>
-<div class="answer"><ol class="alphabet">
-<li>
-	<ul>
+<h4 class="question">
+	<ol class="alphabet">
+		<li>Citez et expliquez sommairement les 4 mécanismes de base permettant d'assurer la fiabilité d'un transfert d'information au travers d'un réseau non fiable. Justifiez leur nécessité.</li>
+		<li>Décrivez dans les grandes lignes un protocole élémentaire qui les met tous en oeuvre</li>
+	</ol>
+</h4>
+<div class="answer">
+	<ol class="alphabet">
 		<li>
-			ACK
+			<ul>
+				<li>ACK</li>
+				<li>Checksum (Error detection)</li>
+				<li>Sequence number</li>
+				<li>Timeout</li>
+			</ul>
 		</li>
 		<li>
-			Error detection (checksum)
+			<ul>
+				<li><b>stop & wait</b> : utilise le ACK, le timer</li>
+				<li><b>Go-Back-N</b> : utilise le ACK, le sequence number</li>
+				<li><b>Selective Repeat</b> : utilise le ACK, le sequence number</li>
+			</ul>
 		</li>
-		<li>
-			Sequence number
-		</li>
-		<li>
-			Countdown timer
-		</li>
-	</ul>
-</li>
-<li>
-	<ul>
-		<li><b>stop & wait</b> : utilise le ACK, le timer</li>
-		<li><b>Go-Back-N</b> : utilise le ACK, le sequence number</li>
-		<li><b>Selective Repeat</b> : utilise le ACK, le sequence number</li>
-	</ul>
-</li>
-</ol></div>
+	</ol>
+</div>
 
 <h4 class="question"><ol class="alphabet"><li>Expliquez le principe du protocole <b>stop & wait</b>.</li><li>Est-il toujours performant ?</li></h4>
 <div class="answer"><ol class="alphabet">
@@ -871,6 +870,21 @@ Les réponses proviennent (ou par l'intermédiaire de résumé) de Denis Steckel
 
 
 
+<h4 class="question">
+	<ol class="alphabet">
+		<li>Décrivez la règle de routage « Hot potato » et sa raison d’être</li>
+		<li>Par quel protocole de routage est-elle utilisée ? Le décrire en quelques mots.</li>
+		<li>Quelles autres règles de routage ce protocole utilise-t-il ?</li>
+	</ol>
+</h4>
+<div class="answer">
+	<ol class="alphabet">
+		<li>Les grands opérateurs suivent souvent la politique dite de la patate chaude (hot potato) qui consiste à router un paquet le plus rapidement possible sans la garder (d'où le terme). Le but étant de transmettre l'information le plus rapidement possible sans forcément chercher le chemin le plus court ou le plus optimisé. La raison d'être est d'éviter le congestion entre deux AS ; les packets n'empreintent pas tous le même chemin.</li>
+		<li>Elle est utilisée par le protocole de routage BGP.</li>
+		<li>Heu.. Mettez tous se que vous savez sur BGP..</li>
+	</ol>
+</div>
+
 
 
 
@@ -1099,18 +1113,48 @@ Les réponses proviennent (ou par l'intermédiaire de résumé) de Denis Steckel
 
 
 
+<h4 class="question">
+	<ol class="alphabet">
+		<li>Expliquez la technique de fragmentation de paquets IP en justifiant le rôle des différents champs pertinents de l’en-tête des paquets.</li>
+		<li>Quelle méthode est utilisée pour éviter la fragmentation des paquets IP ?</li>
+	</ol>
+</h4>
+<div class="answer">
+	<ol class="alphabet">
+		<li></li>
+		<li></li>
+	</ol>
+</div>
+
+
+
+
+
+
+
+
+
 
 
 <h4 class="question">Expliquez comment un routeur construit les entrées de sa table d’acheminement pour les préfixes <b>IP</b> extérieurs à son domaine.</h4>
-<div class="answer">Il utilise des masques, Interface et passerelle afin de diriger correctement les paquets. Les tables contiennent les adresses de destination, le manque, les adresses des passerelles (routeurs intermédiaires) permettant d'atteindre la destination, l'adresse de la carte réseau (interface) par laquelle le paquet doit sortir du routeur.</div>
+<div class="answer">
+	Il utilise des masques, Interface et passerelle afin de diriger correctement les paquets. Les tables contiennent les adresses de destination, le manque, les adresses des passerelles (routeurs intermédiaires) permettant d'atteindre la destination, l'adresse de la carte réseau (interface) par laquelle le paquet doit sortir du routeur.
+</div>
 
 
 
-<h4 class="question">Considérez 3 réseaux <b>Ethernet</b> ($N_1$, $N_2$ et $N_3$), un commutateur <b>Ethernet</b> ($C$) et un routeur ($R$) interconnectés selon une topologie en ligne $N_1$-$C$-$N_2$-$R$-$N_3$. Une station $H_A$ (d’adresse $IP_A$) est attachée au réseau $N_1$ (par l’adresse $MAC_A$) et une station $H_B$ (d’adresse $IP_B$) est attachée au réseau $N_3$ (par l’adresse $MAC_B$). $C$ a deux adresses $MAC$ : $MAC_{11}$ sur $N_1$ et $MAC_{12}$ sur $N_2$. $R$ a deux adresses $MAC$ et deux adresses $IP$ : $MAC_{22}$ et $IP_2$ sur $N_2$ et $MAC_{23}$ et $IP_3$ sur $N_3$.
-<ol class="alphabet"><li>Dessinez la configuration. $H_A$ envoie un paquet $IP$ à $H_B$. Si l’on suppose que les correspondances entre adresses $IP$ et $MAC$ sont connues de tous, décrivez les trois trames qui circulent respectivement sur les réseaux $N_1$, $N_2$ et $N_3$ en vous limitant aux champs d’adresses des trames et aux champs d’adresses et de $TTL$ ($T$ime $T$o $L$ive) du paquet $IP$ contenu dans la trame. Justifiez.</li><li>Par quel protocole les correspondances entre adresses $IP$ et $MAC$ ont-elles été découvertes ? Décrivez les échanges de ce protocole qui réalisent les mises en correspondance nécessaires lorsque $H_A$ envoie son paquet $IP$ à $H_B$. Mentionnez toutes les adresses présentes dans les messages échangés.</li></ol></h4>
-<div class="answer"><ol class="alphabet">
-<li>?</li>
-<li>?</li>
+<h4 class="question">
+	Considérez 3 réseaux <b>Ethernet</b> ($N_1$, $N_2$ et $N_3$), un commutateur <b>Ethernet</b> ($C$) et un routeur ($R$) interconnectés selon une topologie en ligne $N_1$-$C$-$N_2$-$R$-$N_3$. Une station $H_A$ (d’adresse $IP_A$) est attachée au réseau $N_1$ (par l’adresse $MAC_A$) et une station $H_B$ (d’adresse $IP_B$) est attachée au réseau $N_3$ (par l’adresse $MAC_B$). $C$ a deux adresses $MAC$ : $MAC_{11}$ sur $N_1$ et $MAC_{12}$ sur $N_2$. $R$ a deux adresses $MAC$ et deux adresses $IP$ : $MAC_{22}$ et $IP_2$ sur $N_2$ et $MAC_{23}$ et $IP_3$ sur $N_3$.
+	<ol class="alphabet">
+		<li>Dessinez la configuration. $H_A$ envoie un paquet $IP$ à $H_B$. Si l’on suppose que les correspondances entre adresses $IP$ et $MAC$ sont connues de tous, décrivez les trois trames qui circulent respectivement sur les réseaux $N_1$, $N_2$ et $N_3$ en vous limitant aux champs d’adresses des trames et aux champs d’adresses et de $TTL$ ($T$ime $T$o $L$ive) du paquet $IP$ contenu dans la trame. Justifiez.</li>
+		<li>Par quel protocole les correspondances entre adresses $IP$ et $MAC$ ont-elles été découvertes ? Décrivez les échanges de ce protocole qui réalisent les mises en correspondance nécessaires lorsque $H_A$ envoie son paquet $IP$ à $H_B$. Mentionnez toutes les adresses présentes dans les messages échangés.</li>
+	</ol>
+</h4>
+<div class="answer">
+	<ol class="alphabet">
+		<li>?</li>
+		<li>?</li>
+	</ol>
 </div>
 
 
