@@ -1552,21 +1552,20 @@ $\dfrac{rwnd(10000)}{RTT}=\dfrac{12(10000)}{0.02214032} = 5419975.863 = 5419975$
 $cwnd = \dfrac{1000000*0.02214032}{10000} = 2.214032 = 2$
 <table>
 	<thead>
-		<tr><th>RTT</th><th>ACK</th><th>CWND (MSS)</th><th>Envoyé (MSS)</th></tr>
+		<tr><th>RTT</th><th>ACK</th><th>CWND (MSS)</th><th>Envoyé (MSS)</th><th>Seuil (MSS)</th></tr>
 	</thead>
 	<tbody>
-		<tr><td>0</td><td>-</td><td>12</td><td>12</td></tr>
-		<tr><td>1</td><td>12</td><td>13</td><td>13</td></tr>
-		<tr><td>2</td><td>13</td><td>14</td><td>14</td></tr>
-		<tr><td>3</td><td>14</td><td>15</td><td>15</td></tr>
-		<tr><td>4</td><td>-</td><td>1</td><td>1</td></tr>
-		<tr><td>5</td><td>1</td><td>2</td><td>2</td></tr>
-		<tr><td>6</td><td>2</td><td>4</td><td>4</td></tr>
-		<tr><td>7</td><td>4</td><td>8</td><td>8</td></tr>
-		<tr><td>8</td><td>8</td><td>9</td><td>9</td></tr>
-		<tr><td>9</td><td>9</td><td>10</td><td>10</td></tr>
-		<tr><td>...</td><td>...</td><td>...</td><td>...</td></tr>
-		<tr><td>16</td><td>17</td><td>18</td><td>18</td></tr>
+		<tr><td>0</td><td>-</td><td>1</td><td>1</td><td>12</td></tr>
+		<tr><td>1</td><td>1</td><td>2</td><td>2</td><td>12</td></tr>
+		<tr><td>2</td><td>2</td><td>4</td><td>4</td><td>12</td></tr>
+		<tr><td>3</td><td>-</td><td>1</td><td>1</td><td>6</td></tr>
+		<tr><td>4</td><td>1</td><td>2</td><td>2</td><td>6</td></tr>
+		<tr><td>5</td><td>2</td><td>4</td><td>4</td><td>6</td></tr>
+		<tr><td>6</td><td>4</td><td>6</td><td>6</td><td>6</td></tr>
+		<tr><td>7</td><td>6</td><td>7</td><td>7</td><td>6</td></tr>
+		<tr><td>8</td><td>7</td><td>8</td><td>8</td><td>6</td></tr>
+		<tr><td>...</td><td>...</td><td>...</td><td>...</td><td>6</td></tr>
+		<tr><td>18</td><td>17</td><td>18</td><td>18</td><td>6</td></tr>
 	</thead>
 </table>
 Il faut donc Timeout + 16 RTT
