@@ -1213,6 +1213,7 @@ Les réponses proviennent (ou par l'intermédiaire de résumé) de Denis Steckel
 		<tr><th>Transport</th><td>le transfert des données entre processus</td><td>Processus Socket</td><td>TCP, UDP</td></tr>
 		<tr><th>Réseau</th><td>routage des données d'une source à une destination</td><td>Hôtes</td><td>IP, protocoles de routages</td></tr>
 		<tr><th>Lien</th><td>transfert des données entre 2 noeuds voisins du réseau</td><td>Noeuds</td><td>Ethernet, WiFi</td></tr>
+		<tr><th>Physique</th><td>transfert des données via un cable</td><td>?</td><td>?</td></tr>
 	</tbody>
 	<tfoot>
 	</tfoot>
