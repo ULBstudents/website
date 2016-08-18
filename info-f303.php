@@ -162,7 +162,7 @@ Les réponses proviennent (ou par l'intermédiaire de résumé) de Denis Steckel
 	<ol class="alphabet">
 		<li>
 			<ul>
-				<li>ACK</li>
+				<li>ACK / NACK</li>
 				<li>Checksum (Error detection)</li>
 				<li>Sequence number</li>
 				<li>Timeout</li>
@@ -170,9 +170,9 @@ Les réponses proviennent (ou par l'intermédiaire de résumé) de Denis Steckel
 		</li>
 		<li>
 			<ul>
-				<li><b>stop & wait</b> : utilise le ACK, le timer</li>
+				<li><b>stop & wait</b> : utilise le ACK/NACK, le timer</li>
 				<li><b>Go-Back-N</b> : utilise le timer, le ACK, le sequence number</li>
-				<li><b>Selective Repeat</b> : utilise le timer, le ACK, le sequence number</li>
+				<li><b>Selective Repeat</b> : utilise le timer, le ACK/NACK, le sequence number</li>
 			</ul>
 		</li>
 	</ol>
