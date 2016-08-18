@@ -1436,10 +1436,10 @@ Une fois le <b>3-way handshake</b> effectué, le client et le serveur ont reçu 
 
 
 
-	$C_3 = \dfrac{2\tau}{A_3} = \dfrac{4*10^{-6}}{0.421875} = 0.000 009 48$<br>
 	$C_2 = \dfrac{2\tau}{A_2} = \dfrac{4*10^{-6}}{0.5} = 0.000 010 67$<br>
+	$C_3 = \dfrac{2\tau}{A_3} = \dfrac{4*10^{-6}}{0.421875} = 0.000 009 48$<br>
 	$T_1 = \dfrac{1250}{10*10^6} = 0.000125s$<br>
-	$T_1 = \dfrac{1000}{10*10^6} = 0.0001s$
+	$T_{2,3} = \dfrac{1000}{10*10^6} = 0.0001s$
 	<figure>
 		<img src="images/info-f303/csma_2" alt="CSMA" />
 		<figcaption>CSMA</figcaption>
@@ -1710,7 +1710,7 @@ Une fois le <b>3-way handshake</b> effectué, le client et le serveur ont reçu 
 				<tr><td>124.128.240.0</td><td>*</td><td>255.255.255.0</td><td>U</td><td>eth1</td></tr>
 				<tr><td>124.178.64.0</td><td>*</td><td>255.255.224.0</td><td>U</td><td>eth2</td></tr>
 				<tr><td>124.178.96.0</td><td>124.178.64.3</td><td>255.255.224.0</td><td>UG</td><td>eth2</td></tr>
-				<tr><td>default</td><td>124.178.64.3</td><td>0.0.0.0</td><td>UG</td><td>eth2</td></tr>
+				<tr><td>default</td><td>124.178.64.3</td><td>0.0.0.0</td><td>UG</td><td>eth1</td></tr>
 			</tbody>
 			<tfoot>
 			</tfoot>
