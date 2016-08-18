@@ -1548,8 +1548,8 @@ RTT &=& T_{MSS|10Mbps} + 2 T_{MSS|1MBps} + 2 T_{propagation} + T_{ACK} + 2T_{ACK
 &=& 0.0001 + 2*0.001 + 2*0.01 + 0.00000192 + 2*0.0000192\\
 &=& 0.02214032 s
 \end{array}$<br>
-$\dfrac{rwnd(10000)}{RTT}=\dfrac{12(10000)}{0.02214032} = 5419975.863$ bps<br>
-$cwnd = \dfrac{1000000*0.02214032}{10000} = 2.214032$
+$\dfrac{rwnd(10000)}{RTT}=\dfrac{12(10000)}{0.02214032} = 5419975.863 = 5419975$ bps<br>
+$cwnd = \dfrac{1000000*0.02214032}{10000} = 2.214032 = 2$
 <table>
 	<thead>
 		<tr><th>RTT</th><th>ACK</th><th>CWND (MSS)</th><th>Envoyé (MSS)</th></tr>
