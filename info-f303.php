@@ -882,10 +882,14 @@ Les réponses proviennent (ou par l'intermédiaire de résumé) de Denis Steckel
 <div class="answer">
 	<ol class="alphabet">
 		<li>
-			Quand on cherche à envoyer une table d'entrée pour une adresse de destination donnéee, on utilise le préfixe de la plus longue adresse qui correspond à l'adresse de destination.
+			Dans une table d'acheminement d'un routeur, lorsqu'il y a plusieurs matchs, le routeur utilise la règle du Longest Prefix Match, il trouve le longest matching entry dans la table et envoie le paquet à l'interface lien associé.<br>
+			Exemple d'IPv4 firwadubg tabke :<br>
+			192.168.20.16/28<br>
+			192.168.0.0/16<br>
+			L'adresse 192.168.20.19 est donné, seulement ces 2 entrées sont matchés. Le routeur prendra le Longest Prefix Match, c-a-d 192.168.20.16/28 car le masque 28 (255.255.255.240) est plus grand que le masque 16 (255.255.0.0)
 		</li>
 		<li>
-			Ca sert à détecter le cas où une table donne un sous-réseau.
+			Cela rends la route du packet beaucoup plus spécifique. Ca sert aussi détecter le cas où une table donne un sous-réseau. Car par exemple, la majorité des routeur ont souvent une entrée default, celui-ci est le seul avec un masque 32 (0.0.0.0) donc la dernière possibilité.
 		</li>
 	</ol>
 </div>
