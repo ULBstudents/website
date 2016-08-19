@@ -219,14 +219,14 @@ Les réponses proviennent (ou par l'intermédiaire de résumé) de Denis Steckel
 		<img src="images/info-f303/size-window-gbn" alt="Taille maximale de la fenêtre glissante <b>GBN</b> (<b>Go-Back N</b>)" />
 		<figcaption>Taille maximale de la fenêtre glissante <b>GBN</b> (<b>Go-Back N</b>)</figcaption>
 	</figure>
-	La taille maximale de la fenêtre est donc le nombre de numéro de $séquence-1$. (C'est pas $k/2$ plutôt la taille maximale ?)
+	La taille maximale de la fenêtre est donc le nombre de numéro de $séquence-1$.
 </div>
 
 
 
 <h4 class="question">Expliquez le principe d'un protocole à fenêtre glissante <b>SR</b> (<b>Selective Repeat</b>).</h4>
 <div class="answer">
-	<b>GBN</b> (<b>Go-Back N</b>) souffre malgré ses améliorations encore quelques problèmes de performances. En effet, la moindre erreur dans un paquet peut entraîner la retransmission superflue d'une grande quantité de paquets pourtant déjà arrivés intègres. Le protocole à fenêtre glissante <b>SR</b> (<b>Selective Repeat</b>) évite les retransmissions inutiles et demandent à l'expéditeur de ne retransmettre que les paquets susceptibles d'avoir été perdus ou corrompus lors de la transmission. Cela implique que le destinataire envoie un <b>ACK</b> pour chaque paquet correctement reçu. Comme dans <b>GBN</b> (<b>Go-Back N</b>), une fenêtre permet de limiter le nombre de paquets en attente de confirmation. En revanche certains paquets de cette fenêtre auront déjà fait l'objet d'un accusé de réception. Le destinataire renvoie un accusé pour chaque paquet valide qu'il reçoit, qu'il soit dans l'ordre ou non, et stocke dans un tampon ceux qui sont encore temporairement hors séquence (notons que ce tampon ne dépassera jamais la taille de la fenêtre d'envoi de l'expéditeur). Afin d'éviter les problèmes de confusions avec les numéros de séquence, la quantité de numéros disponible doit être au moins deux fois plus grande que la taille de la fenêtre.
+	<b>GBN</b> (<b>Go-Back N</b>) souffre malgré ses améliorations encore quelques problèmes de performances. En effet, la moindre erreur dans un paquet peut entraîner la retransmission superflue d'une grande quantité de paquets pourtant déjà arrivés intègres. Le protocole à fenêtre glissante <b>SR</b> (<b>Selective Repeat</b>) évite les retransmissions inutiles et demandent à l'expéditeur de ne retransmettre que les paquets susceptibles d'avoir été perdus ou corrompus lors de la transmission. Cela implique que le destinataire envoie un <b>ACK</b> pour chaque paquet correctement reçu. Comme dans <b>GBN</b> (<b>Go-Back N</b>), une fenêtre permet de limiter le nombre de paquets en attente de confirmation. En revanche certains paquets de cette fenêtre auront déjà fait l'objet d'un accusé de réception. Le destinataire renvoie un accusé pour chaque paquet valide qu'il reçoit, qu'il soit dans l'ordre ou non, et stocke dans un tampon ceux qui sont encore temporairement hors séquence (notons que ce tampon ne dépassera jamais la taille de la fenêtre d'envoi de l'expéditeur). Afin d'éviter les problèmes de confusions avec les numéros de séquence, la quantité de numéros disponible doit être au moins deux fois plus grande que la taille de la fenêtre ( $k/2$ taille maximale ).
 </div>
 
 
