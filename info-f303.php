@@ -226,7 +226,7 @@ Les réponses proviennent (ou par l'intermédiaire de résumé) de Denis Steckel
 
 <h4 class="question">Expliquez le principe d'un protocole à fenêtre glissante <b>SR</b> (<b>Selective Repeat</b>).</h4>
 <div class="answer">
-	<b>GBN</b> (<b>Go-Back N</b>) souffre malgré ses améliorations encore quelques problèmes de performances. En effet, la moindre erreur dans un paquet peut entraîner la retransmission superflue d'une grande quantité de paquets pourtant déjà arrivés intègres. Le protocole à fenêtre glissante <b>SR</b> (<b>Selective Repeat</b>) évite les retransmissions inutiles et demandent à l'expéditeur de ne retransmettre que les paquets susceptibles d'avoir été perdus ou corrompus lors de la transmission. Cela implique que le destinataire envoie un <b>ACK</b> pour chaque paquet correctement reçu. Comme dans <b>GBN</b> (<b>Go-Back N</b>), une fenêtre permet de limiter le nombre de paquets en attente de confirmation. En revanche certains paquets de cette fenêtre auront déjà fait l'objet d'un accusé de réception. Le destinataire renvoie un accusé pour chaque paquet valide qu'il reçoit, qu'il soit dans l'ordre ou non, et stocke dans un tampon ceux qui sont encore temporairement hors séquence (notons que ce tampon ne dépassera jamais la taille de la fenêtre d'envoi de l'expéditeur). Afin d'éviter les problèmes de confusions avec les numéros de séquence, la quantité de numéros disponible doit être au moins deux fois plus grande que la taille de la fenêtre ( $k/2$ taille maximale ).
+	<b>GBN</b> (<b>Go-Back N</b>) souffre malgré ses améliorations encore quelques problèmes de performances. En effet, la moindre erreur dans un paquet peut entraîner la retransmission superflue d'une grande quantité de paquets pourtant déjà arrivés intègres. Le protocole à fenêtre glissante <b>SR</b> (<b>Selective Repeat</b>) évite les retransmissions inutiles et demandent à l'expéditeur de ne retransmettre que les paquets susceptibles d'avoir été perdus ou corrompus lors de la transmission. Cela implique que le destinataire envoie un <b>ACK</b> pour chaque paquet correctement reçu. Comme dans <b>GBN</b> (<b>Go-Back N</b>), une fenêtre permet de limiter le nombre de paquets en attente de confirmation. En revanche certains paquets de cette fenêtre auront déjà fait l'objet d'un accusé de réception. Le destinataire renvoie un accusé pour chaque paquet valide qu'il reçoit, qu'il soit dans l'ordre ou non, et stocke dans un tampon ceux qui sont encore temporairement hors séquence (notons que ce tampon ne dépassera jamais la taille de la fenêtre d'envoi de l'expéditeur). Afin d'éviter les problèmes de confusions avec les numéros de séquence, la quantité de numéros disponible doit être au moins deux fois plus grande que la taille de la fenêtre ( $\dfrac{k}{2}$ = taille maximale ).
 </div>
 
 
@@ -234,7 +234,7 @@ Les réponses proviennent (ou par l'intermédiaire de résumé) de Denis Steckel
 <h4 class="question">Quelle est la taille maximale de la fenêtre glissante <b>SR</b> (<b>Selective Repeat</b>), si les trames sont numérotées modulo k ? Pourquoi ?</h4>
 <div class="answer">
 	On ne peut pas utiliser une fenêtre aussi grande que pour le <b>GBN</b> (<b>Go-Back N</b>). 
-	<p>$\text{taille}_{\text{max}} = \dfrac{\text{nombre de numéro de paquets}}{2}$</p>
+	<p>$\text{taille}_{\text{max}} = \dfrac{\text{nombre de numéro de paquets}}{2} = \dfrac{k}{2}$</p>
 	Car il ne faut pas qu'un nombre de la fenêtre de l'émetteur corresponde à un nombre de la fenêtre du récepteur, mais d'un autre rang. Exemple:
 	<p>émetteur |0 1 2| 3 0 1 2 &rarr; récepteur 0 1 2 |3 0 1| 2</p>
 	Le récepteur a reçu les paquets (0 1 2) et attend donc les paquets (3 0 1), mais l'émetteur n'a pas reçu les <b>ACK</b>, il considère donc que les paquets (0 1 2) n'ont pas été reçu, et lors du time-out, il les renverra. Mais le récepteur prendra le paquet 0 qu'il va recevoir pour celui qu'il attend, et non pour celui qu'il a déjà reçu.
@@ -297,13 +297,14 @@ Les réponses proviennent (ou par l'intermédiaire de résumé) de Denis Steckel
 	</table>
 </li>
 <li>
-	La technique de fiabilité de <b>TCP</b> est un mixte entre la technique <b>GBN</b> (<b>Go-Back N</b>)  et la technique <b>SR</b> (<b>Selective Repeat</b>). Dans la première technique, on reprends la méthode d'un seul timer (associé au dernier paquet) ainsi que les <b>ACK</b> cumulatif (<b>ACK</b>(6) signifie qu'on aussi <b>ACK</b>(5) et les autres précédents). Cependant dans le <b>GBN</b> (<b>Go-Back N</b>) on renvoyait toute la fenêtre après le <b>ACK</b> de retour, mais ici on reprend, dans la deuximème technique, le revoie seulement du dernier segment manquant et on verra avec les <b>ACK</b> futurs si il en manquait d'autres. Ainsi l'optimisation " Fast retransmit " peut être mis en place, elle permet à <b>TCP</b> de détecter avant le timer qu'un segment est perdu. En effet, si on envoie les paquets par rafale, et qu'on recoit en retour plusieurs fois un même <b>ACK</b>, cela veut dire que plusieurs segments postérieurs sont arrivé avant le segment lié à cet <b>ACK</b>. Ce segment est donc soit perdu, corrompu ou en retard.
-	Par conventation, on considère que le segment est perdu après qu'on ai reçu trois <b>ACK</b> identiques.
+	La technique de fiabilité de <b>TCP</b> est un mixte entre la technique <b>GBN</b> (<b>Go-Back N</b>)  et la technique <b>SR</b> (<b>Selective Repeat</b>). Dans la première technique, on reprends la méthode d'un seul timer (associé au dernier paquet) ainsi que les <b>ACK</b> cumulatif (<b>ACK</b>(6) signifie qu'on aussi <b>ACK</b>(5) et les autres précédents). Cependant dans le <b>GBN</b> (<b>Go-Back N</b>) on renvoyait toute la fenêtre après le <b>ACK</b> de retour, mais ici on reprend, dans la deuximème technique, le revoie seulement du dernier segment manquant et on verra avec les <b>ACK</b> futurs si il en manquait d'autres. 
 </li>
 <li>
-	Voir (b)
+	L'optimisation " Fast retransmit " peut être mis en place, elle permet à <b>TCP</b> de détecter avant le timer qu'un segment est perdu. En effet, si on envoie les paquets par rafale, et qu'on recoit en retour plusieurs fois un même <b>ACK</b>, cela veut dire que plusieurs segments postérieurs sont arrivé avant le segment lié à cet <b>ACK</b>. Ce segment est donc soit perdu, corrompu ou en retard.
+	Par conventation, on considère que le segment est perdu après qu'on ai reçu trois <b>ACK</b> identiques.
 </li>
-</ol></div>
+</ol>
+</div>
 
 
 
