@@ -285,7 +285,7 @@ cas de connexion en série ($S_1 \rightarrow S_2$ ou $S_2 \rightarrow S_1$) auss
 
 
 
-<h4 class="question">Considérons le système linéaire d’ordre 2 $$\dot{x} = \left[ \begin{array}{rr}0&1\\-4&-5\end{array}\right]x$$ Calculer les valeurs de $x$ pour $t = 1$ et $t \rightarrow \infty$ pour les deux conditions
+<h4 class="question">Considérons le système linéaire d'ordre 2 $$\dot{x} = \left[ \begin{array}{rr}0&1\\-4&-5\end{array}\right]x$$ Calculer les valeurs de $x$ pour $t = 1$ et $t \rightarrow \infty$ pour les deux conditions
 initiales.
 </h4>
 <div class="answer">
@@ -294,7 +294,7 @@ initiales.
 
 
 
-<h4 class="question">Considérons le système non linéaire à temps discret décrit par l’itération $$x(k+1)=f(x(k))$$ où $x(k)\in[0,100]$ et la fonction $f$ est $$f(x)=\dfrac{1}{25}x(100-x)$$ L'étudiant devra<ol><li>calculer analytiquement $f^2(x)$ et tracer les graphiques respectifs de $f(x)$ et de $f^2(x)$ ;</li><li>trouver les points d’équilibre ;</li><li>étudier la stabilité des points d’équilibre ;</li><li>pour chaque point d’équilibre, simuler graphiquement et numériquement une trajectoire qui soit compatible avec l’analyse de stabilité ;</li><li>sur la base du graphique de $f^2(x)$ estimer les points du cycle d’ordre 2.</li></ol>
+<h4 class="question">Considérons le système non linéaire à temps discret décrit par l'itération $$x(k+1)=f(x(k))$$ où $x(k)\in[0,100]$ et la fonction $f$ est $$f(x)=\dfrac{1}{25}x(100-x)$$ L'étudiant devra<ol><li>calculer analytiquement $f^2(x)$ et tracer les graphiques respectifs de $f(x)$ et de $f^2(x)$ ;</li><li>trouver les points d'équilibre ;</li><li>étudier la stabilité des points d'équilibre ;</li><li>pour chaque point d'équilibre, simuler graphiquement et numériquement une trajectoire qui soit compatible avec l'analyse de stabilité ;</li><li>sur la base du graphique de $f^2(x)$ estimer les points du cycle d'ordre 2.</li></ol>
 </h4>
 <div class="answer">
 	<ol>
@@ -305,13 +305,13 @@ initiales.
 			<figure><img src="images/info-f305/answerf2x.svg" alt="f^2(x)" /></figure>
 		</li>
 		<li>
-			Les points d’équilibre du système sont $\bar{x}^{(1)} = 0$ et $\bar{x}^{(2)} = 75$.
+			Les points d'équilibre du système sont $\bar{x}^{(1)} = 0$ et $\bar{x}^{(2)} = 75$.
 		</li>
 		<li>
 			Puisque $f'(x)=\dfrac{1}{25}(100-2x)$ avec $f'(x_1)=4$ et $f'(x_2)=-2$ les deux points sont instables.
 		</li>
 		<li>
-			Il existe un cycle d’ordre 2 qui passe par les points d’équilibre de $f^2$ qui ne sont pas points d'équilibre de $f$, c.-à-d. les valeurs $\bar{x}^{(3)} \approx 35$ et $\bar{x}^{(4)} \approx 91$.
+			Il existe un cycle d'ordre 2 qui passe par les points d'équilibre de $f^2$ qui ne sont pas points d'équilibre de $f$, c.-à-d. les valeurs $\bar{x}^{(3)} \approx 35$ et $\bar{x}^{(4)} \approx 91$.
 		</li>
 	</ol>
 </div>
@@ -319,7 +319,7 @@ initiales.
 
 
 
-<h4 class="question">Considérons le système non linéaire continu d'ordre 2 $$\left \{\begin{array}{r c l}\dot{x}_1  & = & x^2_1+x^2_2-4\\\dot{x}_2  & = & x^2_1-x_2-2\end{array}\right.$$ L'étudiant devra <ol><li>trouver analytiquement le(s) point(s) d’équilibre ;</li><li>étudier la stabilité du(des) point(s) d’équilibre (du système non linéaire) par linéarisation ;</li><li>tracer sur du papier millimétré<ol class="alphabet"><li>les iscoclines du système ;</li><li> le comportement qualitatif des trois trajectoires dont les points initiaux sont: $(1.5, 1.5)$,$(−1, −2)$ et $(0, −2)$.</li></ol></li><li>déterminer lesquelles parmi les quatre évolutions temporelles suivantes
+<h4 class="question">Considérons le système non linéaire continu d'ordre 2 $$\left \{\begin{array}{r c l}\dot{x}_1  & = & x^2_1+x^2_2-4\\\dot{x}_2  & = & x^2_1-x_2-2\end{array}\right.$$ L'étudiant devra <ol><li>trouver analytiquement le(s) point(s) d'équilibre ;</li><li>étudier la stabilité du(des) point(s) d'équilibre (du système non linéaire) par linéarisation ;</li><li>tracer sur du papier millimétré<ol class="alphabet"><li>les iscoclines du système ;</li><li> le comportement qualitatif des trois trajectoires dont les points initiaux sont: $(1.5, 1.5)$,$(−1, −2)$ et $(0, −2)$.</li></ol></li><li>déterminer lesquelles parmi les quatre évolutions temporelles suivantes
 sont compatibles avec le système et motiver la réponse.<figure><img src="images/info-f305/4evolutionstemporelles.svg" alt="4 évolutions temporelles" /></figure></li></ol></h4>
 <div class="answer">
 	<ol>
@@ -332,7 +332,7 @@ sont compatibles avec le système et motiver la réponse.<figure><img src="image
 			$$\left\{\begin{array}{rcl}x_2& = & -2\\x_1 & = & 0\end{array}\right.$$
 			$$\left\{\begin{array}{rcl}x_2& = & 1\\x_1 & = &\pm\sqrt{3}\end{array}\right.$$
 			
-			Le système a donc trois points d’équilibre: $\bar{x}^{(1)} = ( \sqrt{3},1)$, $\bar{x}^{(2)} = (-\sqrt{3},1)$ et $\bar{x}^{(3)} = (0,-2)$
+			Le système a donc trois points d'équilibre: $\bar{x}^{(1)} = ( \sqrt{3},1)$, $\bar{x}^{(2)} = (-\sqrt{3},1)$ et $\bar{x}^{(3)} = (0,-2)$
 		</li>
 		<li>On utilise la jacobienne :
 			$$J=\left(\begin{array}{cc}\dfrac{\partial f_1}{\delta x_1}&\dfrac{\delta f_1}{\delta x_2}\\\dfrac{\partial f_2}{\delta x_1}&\dfrac{\delta f_2}{\delta x_2}\end{array}\right)=
@@ -411,7 +411,7 @@ sont compatibles avec le système et motiver la réponse.<figure><img src="image
 
 
 
-<h4 class="question">Considerons le système à temps discret décrit par l’équation $$x(k+2)-5x(k+1)+6x(k)=3(4^k)$$ L'étudiant devra <ol><li>Determiner la solution pour $x(0) = 0$, $x(1) = 0$.</li><li>Vérifier de manière numérique pour $k = 0, . . . , 7$ que la solution est correcte.</li><li>Determiner pour le système homogène, s’il existe, le point d’équilibre et, en cas d’existence, analyser sa stabilité.</li></ol></h4>
+<h4 class="question">Considerons le système à temps discret décrit par l'équation $$x(k+2)-5x(k+1)+6x(k)=3(4^k)$$ L'étudiant devra <ol><li>Determiner la solution pour $x(0) = 0$, $x(1) = 0$.</li><li>Vérifier de manière numérique pour $k = 0, . . . , 7$ que la solution est correcte.</li><li>Determiner pour le système homogène, s'il existe, le point d'équilibre et, en cas d'existence, analyser sa stabilité.</li></ol></h4>
 <div class="answer">
 	<ol>
 		<li>
@@ -442,7 +442,7 @@ sont compatibles avec le système et motiver la réponse.<figure><img src="image
 
 
 
-<h4 class="question">Considerons le système à temps discret décrit par l’équation $$x(k+4)+8x(k+2)=8(2^k)$$
+<h4 class="question">Considerons le système à temps discret décrit par l'équation $$x(k+4)+8x(k+2)=8(2^k)$$
 <ol>
 	<li>Determiner la solution générale de l'équation homogène</li>
 	<li>Donnez une solution particulière de l'équation de départ</li>
@@ -507,11 +507,17 @@ sont compatibles avec le système et motiver la réponse.<figure><img src="image
 
 
 
-<h4 class="question">Soit l’équation différentielle suivante $$\dot{x}=rx-x^3,\ x\in\mathbb{R},\ r\in\mathbb{R}$$<ol><li>Trouver les points d’équilibre du système et étudier leur stabilité en fonction de $r$ ;</li><li>Tracer le diagramme de bifurcation associé. Notez les points d’équilibres instables en pointillé ;</li><li>Etudier la nature des points d’équilibres de manière graphique pour $r = 1$ et $r = 36$ ;</li><li>Vérifier par linéarisation les résultats du point précédent ;</li><li>Tracer qualitativement l’évolution temporelle ($t \in [0, 10]$) de $x$ pour<ol class="alphabet"><li>$r = 1$, $x(0) = 8$</li><li>$r = 1/4$, $x(0) = 8$</li><li>$r = −1$, $x(0) = 8$
+<h4 class="question">Soit l'équation différentielle suivante $$\dot{x}=rx-x^3,\ x\in\mathbb{R},\ r\in\mathbb{R}$$<ol><li>Trouver les points d'équilibre du système et étudier leur stabilité en fonction de $r$ ;</li><li>Tracer le diagramme de bifurcation associé. Notez les points d'équilibres instables en pointillé ;</li><li>Etudier la nature des points d'équilibres de manière graphique pour $r = 1$ et $r = 36$ ;</li><li>Vérifier par linéarisation les résultats du point précédent ;</li><li>Tracer qualitativement l'évolution temporelle ($t \in [0, 10]$) de $x$ pour<ol class="alphabet"><li>$r = 1$, $x(0) = 8$</li><li>$r = 1/4$, $x(0) = 8$</li><li>$r = −1$, $x(0) = 8$
 </li></ol>en tenant en considération la constante de temps.</li><li>Comparer les vitesses de convergence des trajectoires a), b) et c) et expliquer leur différence.</li></ol></h4>
 <div class="answer">
 	<ol>
 		<li>
+			\begin{array}{ccc}
+			rx - x^3 &=& 0 \\
+			x^3 &=& rx\\
+			x^2 &=& r\\
+			x   &=& \pm \sqrt{r}
+			\end{array}$$
 			$\bar{x}=0$,$\bar{x}=\sqrt{r}$ et $\bar{x}=-\sqrt{r}$
 			<ul>
 				<li>Si $r \leq 0$, il y a un équilibre stable $\bar{x}=0$</li>
@@ -532,8 +538,22 @@ sont compatibles avec le système et motiver la réponse.<figure><img src="image
 			</ul>
 		</li>
 		<li>
-			Le système linéalisé autour de $\bar{x}^{(1)}$ et $\bar{x}^{(2)}$ est $\dot{x} = -2rx$. Ceci confirme la stabilité pour $r$ positif.
-			Le système linéalisé autour de $\bar{x}^{(3)} = 0$ est $\dot{x} = rx$. Ceci confirme la stabilité pour $r$ positif.
+			On utilise la jacobienne
+
+			$$\left \{\begin{array}{r c l}
+			\dot{x}_1  & = & ?\\
+			\dot{x}_2  & = & ?
+			\end{array}\right.$$
+			$$J=\left(\begin{array}{cc}
+			\dfrac{\partial f_1}{\delta x_1}&\dfrac{\delta f_1}{\delta x_2}\\
+			\dfrac{\partial f_2}{\delta x_1}&\dfrac{\delta f_2}{\delta x_2}
+			\end{array}\right)=\left(\begin{array}{cc}
+			?&?\\?&?
+			\end{array}\right)$$
+			<ul>
+				<li>Le système linéalisé autour de $\bar{x}^{(1)}$ et $\bar{x}^{(2)}$ est $\dot{x} = -2rx$. Ceci confirme la stabilité pour $r$ positif.</li>
+				<li>Le système linéalisé autour de $\bar{x}^{(3)} = 0$ est $\dot{x} = rx$. Ceci confirme la stabilité pour $r$ positif.</li>
+			</ul>
 		</li>
 		<li>
 			Les trajectoires sont 
@@ -554,10 +574,10 @@ sont compatibles avec le système et motiver la réponse.<figure><img src="image
 <ol>
 	<li>tracer le graphique de $f(x)$</li>
 	<li>trouver la forme analytique et tracer le graphique de $f^2(x)$</li>
-	<li>trouver les points d’équilibre</li>
-	<li>étudier la stabilité des points d’équilibre</li>
-	<li>pour chaque point d’équilibre, simuler graphiquement et numériquement une trajectoire de 5 étapes qui soit compatible avec l’analyse de stabilité</li>
-	<li> trouver, s’il existe, un cycle d’ordre 2, donner les valeurs de ses composantes et montrer numériquement qu’il s’agit d’un cycle</li>
+	<li>trouver les points d'équilibre</li>
+	<li>étudier la stabilité des points d'équilibre</li>
+	<li>pour chaque point d'équilibre, simuler graphiquement et numériquement une trajectoire de 5 étapes qui soit compatible avec l'analyse de stabilité</li>
+	<li> trouver, s'il existe, un cycle d'ordre 2, donner les valeurs de ses composantes et montrer numériquement qu'il s'agit d'un cycle</li>
 </ol>
 </h4>
 <div class="answer">
@@ -591,7 +611,7 @@ sont compatibles avec le système et motiver la réponse.<figure><img src="image
 <div class="answer">
 	La <fonction de transition> permet de passer d'un état au suivant. C'est généralement un calcul sur un intervalle de temps. Une fois qu'on a calculé l'état dont on a besoin, on s'en sert pour trouver la solution y du problème. La fonction de transition possède quelques propriétés :
 	<ol>
-		<li><b>Consistance</b> : Une même série d’entrées doit toujours donner la même solution (pas d'aléatoire) ;</li>
+		<li><b>Consistance</b> : Une même série d'entrées doit toujours donner la même solution (pas d'aléatoire) ;</li>
 		<li><b>Causalité</b> : Si on applique deux entrées $u_1$ et $u_2$ ( avec $u_1 = u_2$ ), la sortie doit être la même.</li>
 	</ol>
 </div>
