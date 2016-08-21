@@ -632,7 +632,7 @@ sont compatibles avec le système et motiver la réponse.<figure><img src="image
 	\end{array}$$
 	$\Rightarrow x(0) = [\ 1.2\ ;\ 2.7\ ;\ ...\ ]$<br><br>
 	
-	$\begin{array}{ccc}
+	$\begin{array}{lll}
 	x(1) &=& x(0)\ .\ e^{-A}\\
 	     &=& x(0)\ .\ e^{1}\\
 	     &=& ...
