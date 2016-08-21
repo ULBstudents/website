@@ -625,18 +625,21 @@ sont compatibles avec le système et motiver la réponse.<figure><img src="image
 <div class="answer">
 	On cherche les $x(0)$ pour
 	$$\begin{array}{cccc}
-	U =  & 0.15   &\rightarrow&   1.2\\
-	     & 0.6    &\rightarrow&   2.7
+	U = & 0.15 &\rightarrow& 1.2\\
+	    & 0.6  &\rightarrow& 2.7\\
+	    & ...  &\rightarrow& ...
 	\end{array}$$
 	$\Rightarrow x(0) = [\ 1.2\ ;\ 2.7\ ;\ ...\ ]$<br><br>
 	
 	$\begin{array}{ll}
-	x(1) &=   x(0)\ .\ e^{-A}\\
-	     &=   x(0)\ .\ e^{1}
+	x(1) &= x(0)\ .\ e^{-A}\\
+	     &= x(0)\ .\ e^{1}\\
+	     &= ...
 	\end{array}$ $A$ est le coefficient angulaire ; ici $A=1$. On aura 
 	$$\begin{array}{ll}
-	x(1) &=   1.2 e^{-1}\\
-	     &=   2.7 e^{-1}
+	x(1) &= 1.2 e^{-1}\\
+	     &= 2.7 e^{-1}\\
+	     &= ...
 	\end{array}$$
 	<ul>
 		<li>On aura 10 nombres pour $x(1) \leftarrow $ on fait la moyenne</li>
