@@ -618,12 +618,30 @@ sont compatibles avec le système et motiver la réponse.<figure><img src="image
 	
 	Soit $U = [ 0.51 ; 0.46 ; 0.35 ; 0.1 ; 0.43 ; 0.71 ; 0.12 ; 0.08 ; 0.37 ; 0.03 ]$ une séquence de 10 nombres aleatoires tirées à partir d'une distribution uniforme entre 0 et 1. L'étudiant devra estimer en utilisant la séquence $U$ par Monte Carlo.
 	<ul>
-		<li>La moyenne de la solution x(1)</li>
-		<li>La probabilité que x(1) > 0.3</li>
+		<li>La moyenne de la solution $x(1)$</li>
+		<li>La probabilité que $x(1) > 0.3$</li>
 	</ul>
 </h4>
 <div class="answer">
-	?
+	On cherche les $x(0)$ pour
+	$$\begin{array}{cccc}
+	U =  & 0.15   &\rightarrow&   1.2\\
+	     & 0.6    &\rightarrow&   2.7
+	\end{array}$$
+	$\Rightarrow x(0) = [\ 1.2\ ;\ 2.7\ ;\ ...\ ]$<br><br>
+	
+	$\begin{array}{ll}
+	x(1) &=   x(0)\ .\ e^{-A}\\
+	     &=   x(0)\ .\ e^{1}
+	\end{array}$ $A$ est le coefficient angulaire ; ici $A=1$. On aura 
+	$$\begin{array}{ll}
+	x(1) &=   1.2 e^{-1}\\
+	     &=   2.7 e^{-1}
+	\end{array}$$
+	<ul>
+		<li>On aura 10 nombres pour $x(1) \leftarrow $ on fait la moyenne</li>
+		<li>On regarde la probabilité combien de nombre $ > 0.3$</li>
+	</ul>
 </div>
 
 
