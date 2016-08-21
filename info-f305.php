@@ -636,10 +636,10 @@ sont compatibles avec le système et motiver la réponse.<figure><img src="image
 	     &=& x(0)\ .\ e^{1}\\
 	     &=& ...
 	\end{array}$ $A$ est le coefficient angulaire ; ici $A=1$. On aura 
-	$$\begin{array}{ll}
-	x(1) &= 1.2 e^{-1}\\
-	     &= 2.7 e^{-1}\\
-	     &= ...
+	$$\begin{array}{ccc}
+	x(1) &=& 1.2 e^{-1}\\
+	     &=& 2.7 e^{-1}\\
+	     &=& ...
 	\end{array}$$
 	<ul>
 		<li>On aura 10 nombres pour $x(1) \leftarrow $ on fait la moyenne</li>
