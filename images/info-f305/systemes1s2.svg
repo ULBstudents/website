@@ -9,9 +9,9 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="108.3625mm"
-   height="43.354374mm"
-   viewBox="0 0 383.96162 153.61786"
+   width="47.133358mm"
+   height="19.548119mm"
+   viewBox="0 0 167.00796 69.264987"
    id="svg2"
    version="1.1"
    inkscape:version="0.91 r13725"
@@ -168,8 +168,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.4"
-     inkscape:cx="161.35853"
-     inkscape:cy="-23.20606"
+     inkscape:cx="163.85853"
+     inkscape:cy="-107.55895"
      inkscape:document-units="px"
      inkscape:current-layer="g3344"
      showgrid="false"
@@ -179,7 +179,7 @@
      fit-margin-bottom="1"
      inkscape:window-width="1920"
      inkscape:window-height="1017"
-     inkscape:window-x="1912"
+     inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1" />
   <metadata
@@ -198,14 +198,14 @@
      inkscape:label="Calque 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(-225.80522,-352.17497)">
+     transform="translate(-225.80522,-352.17496)">
     <g
        transform="matrix(1.25,0,0,-1.25,74.616025,1121.7064)"
        inkscape:label="prems2012"
        id="g3344">
       <g
          id="g3390"
-         transform="matrix(0.5,0,0,0.5,123.436,495.328)">
+         transform="matrix(0.21216762,0,0,0.21216762,123.63747,562.94703)">
         <g
            id="g3392">
           <g

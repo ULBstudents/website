@@ -9,9 +9,9 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="147.89435mm"
-   height="110.94794mm"
-   viewBox="0 0 524.0351 393.12262"
+   width="74.146164mm"
+   height="55.623253mm"
+   viewBox="0 0 262.72263 197.09027"
    id="svg2"
    version="1.1"
    inkscape:version="0.91 r13725"
@@ -43,8 +43,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1"
-     inkscape:cx="94.818164"
-     inkscape:cy="91.964413"
+     inkscape:cx="244.72664"
+     inkscape:cy="-104.06793"
      inkscape:document-units="px"
      inkscape:current-layer="g4146"
      showgrid="false"
@@ -54,7 +54,7 @@
      fit-margin-bottom="0"
      inkscape:window-width="1920"
      inkscape:window-height="1017"
-     inkscape:window-x="1912"
+     inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1" />
   <metadata
@@ -73,7 +73,7 @@
      inkscape:label="Calque 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(-512.02959,-402.57021)">
+     transform="translate(-512.02959,-402.57022)">
     <g
        transform="matrix(1.25,0,0,-1.25,343.02405,1298.9477)"
        inkscape:label="Janvier 2011 (Corrige)"
@@ -83,7 +83,7 @@
          id="g4146">
         <g
            id="g4148"
-           transform="matrix(2.1400105,0,0,2.1400105,-3093.1855,-8175.0382)">
+           transform="matrix(1.0728847,0,0,1.0728847,-876.55176,-522.65779)">
           <g
              clip-path="url(#clipPath4152)"
              id="g4150">
@@ -674,7 +674,7 @@
         </g>
         <g
            id="g4402"
-           transform="matrix(2.1400105,0,0,2.1400105,-3093.1855,-8175.0382)">
+           transform="matrix(1.0728847,0,0,1.0728847,-876.55176,-522.65779)">
           <g
              clip-path="url(#clipPath4406)"
              id="g4404">

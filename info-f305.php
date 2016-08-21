@@ -216,7 +216,18 @@ div.recap img {
 
 
 
-<h4 class="question">Considérons le système non linéaire continu suivant $$\left \{\begin{array}{r c l}\dot{x}_1  & = & x_2^2+x_1\\\dot{x}_2  & = & x_2^3+1\end{array}\right.$$ où $x_1\in[-6,6]$ et $x_2\in[-6,6]$. L'étudiant devra <ol><li>calculer analytiquement le(s) point(s) d'équilibre</li><li>étudier la stabilité du(des) point(s) d'équilibre (du système non linéaire) par linéarisation</li><li>tracer sur du papier millimétré<ol class="alphabet"><li>le portrait de phase avec les iscoclines du système</li><li>le comportement qualitatif des trois trajectoires dont les points initiaux sont: $(0,0)$, $(3,5)$, $(-3,-2)$ et $(-3,1)$.</li></ol></li></ol></h4>
+<h4 class="question">
+	Considérons le système non linéaire continu suivant $$\left \{\begin{array}{r c l}\dot{x}_1  & = & x_2^2+x_1\\\dot{x}_2  & = & x_2^3+1\end{array}\right.$$ où $x_1\in[-6,6]$ et $x_2\in[-6,6]$. L'étudiant devra
+	<ol>
+		<li>calculer analytiquement le(s) point(s) d'équilibre</li>
+		<li>étudier la stabilité du(des) point(s) d'équilibre (du système non linéaire) par linéarisation</li><li>tracer sur du papier millimétré
+			<ol class="alphabet">
+				<li>le portrait de phase avec les iscoclines du système</li>
+				<li>le comportement qualitatif des trois trajectoires dont les points initiaux sont: $(0,0)$, $(3,5)$, $(-3,-2)$ et $(-3,1)$.</li>
+			</ol>
+		</li>
+	</ol>
+</h4>
 <div class="answer">
 	<ol>
 		<li>On part des équations de l'énoncé :
@@ -247,10 +258,10 @@ div.recap img {
 			 &rarr; Les valeurs propres $ > 0$ &rarr; noeud instable!
 		</li>
 		<li>
-			$$\left\{\begin{array}{rcl}\dot{x}_1& = & 0\\\dot{x}_2 & = & 0\end{array}\right.\Leftrightarrow\left\{\begin{array}{rcl}x_2^2+x_1& = & 0\\x_2^3+1 & = & 0\end{array}\right.\Leftrightarrow\left\{\begin{array}{rcl}x_1& = & -x_2^2\\x_2^3 & = & -1\end{array}\right.\Leftrightarrow\left\{\begin{array}{rcl}x_1& = & -1\\x_2 & = & -1\end{array}\right.$$
+			
 			<ol class="alphabet">
-				<li></li>
-				<li></li>
+				<li>$$\left\{\begin{array}{rcl}\dot{x}_1& = & 0\\\dot{x}_2 & = & 0\end{array}\right.\Leftrightarrow\left\{\begin{array}{rcl}x_2^2+x_1& = & 0\\x_2^3+1 & = & 0\end{array}\right.\Leftrightarrow\left\{\begin{array}{rcl}x_1& = & -x_2^2\\x_2^3 & = & -1\end{array}\right.\Leftrightarrow\left\{\begin{array}{rcl}x_1& = & -1\\x_2 & = & -1\end{array}\right.$$</li>
+				<li>?</li>
 			</ol>
 		</li>
 	</ol>
@@ -526,7 +537,7 @@ sont compatibles avec le système et motiver la réponse.<figure><img src="image
 
 
 
-<h4 class="question">Considérons le système non linéaire à temps discret décrit par l'itération $$x(k+1)=min\left(5,\dfrac{2^{x(k)}{x(k)}\right) où $x(k)\in[1,5]. L'étudiant devra
+<h4 class="question">Considérons le système non linéaire à temps discret décrit par l'itération $$x(k+1)=min\left(5,\dfrac{2^{x(k)}{x(k)}\right) où $x(k)\in[1,5]$$. L'étudiant devra
 <ol>
 	<li>tracer le graphique de $f(x)$</li>
 	<li>trouver la forme analytique et tracer le graphique de $f^2(x)$</li>
