@@ -616,7 +616,7 @@ sont compatibles avec le système et motiver la réponse.<figure><img src="image
 	dont la condition x(0) à l'instant $t = 0$ est distrbuée selon la densité de probabilité sur la figure :
 	<figure><img src="images/info-f305/traj5etapes.svg" alt="answer" /></figure>
 	
-	Soit $U = [ 0.51 ; 0.46 ; 0.35 ; 0.1 ; 0.43 ; 0.71 ; 0.12 ; 0.08 ; 0.37 ; 0.03 ]$ une séquence de 10 nombres aleatoires tirées à partir d'une distribution uniforme entre 0 et 1. L'étudiant devra estimer en utilisant la séquence $U$ par Monte Carlo.
+	Soit $U = [\ 0.51\ ;\ 0.46\ ;\ 0.35\ ;\ 0.1\ ;\ 0.43\ ;\ 0.71\ ;\ 0.12\ ;\ 0.08\ ;\ 0.37\ ;\ 0.03\ ]$ une séquence de 10 nombres aleatoires tirées à partir d'une distribution uniforme entre 0 et 1. L'étudiant devra estimer en utilisant la séquence $U$ par Monte Carlo.
 	<ul>
 		<li>La moyenne de la solution $x(1)$</li>
 		<li>La probabilité que $x(1) > 0.3$</li>
