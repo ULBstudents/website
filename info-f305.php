@@ -546,8 +546,8 @@ sont compatibles avec le système et motiver la réponse.<figure><img src="image
 			\dfrac{ (rx-x^3)' }{\delta x}
 			\right)=r-3x^2$$
 			<ul>
-				<li>$\bar{x}^{(1)}$ et $\bar{x}^{(2)}$ ( $ = \pm \sqrt{r} \Rightarrow J = r-3r = -2r$ ) : Le système linéalisé autour de $\bar{x}^{(1)}$ et $\bar{x}^{(2)}$ est $\dot{x} = -2rx$. Négatif donc stable si r est positif. Ceci confirme la stabilité pour $r$ positif.</li>
-				<li>$\bar{x}^{(3)}$ ( $ = 0 \Rightarrow J = r-3.0 = r$ ) : Le système linéalisé autour de $\bar{x}^{(3)}$ est $\dot{x} = rx$. Positif donc instable si r est positif. Ceci confirme la stabilité pour $r$ positif.</li>
+				<li>$\bar{x}^{(1)}$ et $\bar{x}^{(2)}$ ( $ = \pm \sqrt{r} \Rightarrow J = r-3r = -2r$ ) : Le système linéalisé autour de $\bar{x}^{(1)}$ et $\bar{x}^{(2)}$ est $\dot{x} = -2rx$. Négatif donc stable si $r$ est positif. Ceci confirme la stabilité pour $r$ positif.</li>
+				<li>$\bar{x}^{(3)}$ ( $ = 0 \Rightarrow J = r-3.0 = r$ ) : Le système linéalisé autour de $\bar{x}^{(3)}$ est $\dot{x} = rx$. Positif donc instable si $r$ est positif. Ceci confirme la stabilité pour $r$ positif.</li>
 			</ul>
 		</li>
 		<li>
@@ -565,15 +565,19 @@ sont compatibles avec le système et motiver la réponse.<figure><img src="image
 
 
 
-<h4 class="question">Considérons le système non linéaire à temps discret décrit par l'itération $$x(k+1)=min\left(5,\dfrac{2^{x(k)}}{x(k)}\right)$$ où $x(k)\in[1,5]$. L'étudiant devra
-<ol>
-	<li>tracer le graphique de $f(x)$</li>
-	<li>trouver la forme analytique et tracer le graphique de $f^2(x)$</li>
-	<li>trouver les points d'équilibre</li>
-	<li>étudier la stabilité des points d'équilibre</li>
-	<li>pour chaque point d'équilibre, simuler graphiquement et numériquement une trajectoire de 5 étapes qui soit compatible avec l'analyse de stabilité</li>
-	<li> trouver, s'il existe, un cycle d'ordre 2, donner les valeurs de ses composantes et montrer numériquement qu'il s'agit d'un cycle</li>
-</ol>
+
+
+
+<h4 class="question">
+	Considérons le système non linéaire à temps discret décrit par l'itération $$x(k+1)=min\left(5,\dfrac{2^{x(k)}}{x(k)}\right)$$ où $x(k)\in[1,5]$. L'étudiant devra
+	<ol>
+		<li>tracer le graphique de $f(x)$</li>
+		<li>trouver la forme analytique et tracer le graphique de $f^2(x)$</li>
+		<li>trouver les points d'équilibre</li>
+		<li>étudier la stabilité des points d'équilibre</li>
+		<li>pour chaque point d'équilibre, simuler graphiquement et numériquement une trajectoire de 5 étapes qui soit compatible avec l'analyse de stabilité</li>
+		<li> trouver, s'il existe, un cycle d'ordre 2, donner les valeurs de ses composantes et montrer numériquement qu'il s'agit d'un cycle</li>
+	</ol>
 </h4>
 <div class="answer">
 <ol>
@@ -593,11 +597,58 @@ sont compatibles avec le système et motiver la réponse.<figure><img src="image
 
 
 
+
+
+<h4 class="question">
+	Considérons le système dynamique $x(k+1) = f(x(k))$ où
+	$$f(x) = 4x(1-x)$$
+	L'étudiant devra établir si le syst§me est chaotique dans le voisinage des points d'équilibre en utilisant les exposants de Lyapunov.
+</h4>
+<div class="answer">
+	Syllabus 7.6.2 Exposant de Liapounov (p. 158)
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <h3>Orale</h3>
 
 
 
+
+
+
+
+
+
+
 <h4>Définition de système dynamique</h4>
+
 
 
 
