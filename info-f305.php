@@ -512,6 +512,7 @@ sont compatibles avec le système et motiver la réponse.<figure><img src="image
 <div class="answer">
 	<ol>
 		<li>
+			On cherche les points d'équilibre :
 			$$\begin{array}{ccc}
 			rx - x^3 &=& 0 \\
 			x^3 &=& rx\\
