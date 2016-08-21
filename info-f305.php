@@ -540,20 +540,14 @@ sont compatibles avec le système et motiver la réponse.<figure><img src="image
 		</li>
 		<li>
 			On utilise la jacobienne
-
-			$$\left \{\begin{array}{r c l}
-			\dot{x}_1  & = & ?\\
-			\dot{x}_2  & = & ?
-			\end{array}\right.$$
-			$$J=\left(\begin{array}{cc}
-			\dfrac{\partial f_1}{\delta x_1}&\dfrac{\delta f_1}{\delta x_2}\\
-			\dfrac{\partial f_2}{\delta x_1}&\dfrac{\delta f_2}{\delta x_2}
-			\end{array}\right)=\left(\begin{array}{cc}
-			?&?\\?&?
-			\end{array}\right)$$
+			$$J=\left(
+			\dfrac{\partial f}{\delta x}
+			\right)=\left(
+			\dfrac{ (rx-x^3)' }{\delta x}
+			\right)=r-3x^2$$
 			<ul>
-				<li>Le système linéalisé autour de $\bar{x}^{(1)}$ et $\bar{x}^{(2)}$ est $\dot{x} = -2rx$. Ceci confirme la stabilité pour $r$ positif.</li>
-				<li>Le système linéalisé autour de $\bar{x}^{(3)} = 0$ est $\dot{x} = rx$. Ceci confirme la stabilité pour $r$ positif.</li>
+				<li>$\bar{x}^{(1)}$ et $\bar{x}^{(2)}$ ( $ = \pm \sqrt{r} \Rightarrow J = r-3r = -2r$ ) : Le système linéalisé autour de $\bar{x}^{(1)}$ et $\bar{x}^{(2)}$ est $\dot{x} = -2rx$. Négatif donc stable si r est positif. Ceci confirme la stabilité pour $r$ positif.</li>
+				<li>$\bar{x}^{(3)}$ ( $ = 0 \Rightarrow J = r-3.0 = r$ ) : Le système linéalisé autour de $\bar{x}^{(3)}$ est $\dot{x} = rx$. Positif donc instable si r est positif. Ceci confirme la stabilité pour $r$ positif.</li>
 			</ul>
 		</li>
 		<li>
