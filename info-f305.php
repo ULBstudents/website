@@ -623,6 +623,7 @@ sont compatibles avec le système et motiver la réponse.<figure><img src="image
 	</ul>
 </h4>
 <div class="answer">
+	<br>!!! A DEVELOPPER !!!<br><br>
 	On cherche les $x(0)$ pour
 	$$\begin{array}{cccc}
 	U = & 0.15 &\rightarrow& 1.2\\
@@ -645,6 +646,7 @@ sont compatibles avec le système et motiver la réponse.<figure><img src="image
 		<li>On aura 10 nombres pour $x(1) \leftarrow $ on fait la moyenne</li>
 		<li>On regarde la probabilité combien de nombre $ > 0.3$</li>
 	</ul>
+	<br>!!! A DEVELOPPER !!!
 </div>
 
 
