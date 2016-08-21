@@ -550,7 +550,7 @@ sont compatibles avec le système et motiver la réponse.<figure><img src="image
 
 
 
-<h4 class="question">Considérons le système non linéaire à temps discret décrit par l'itération $$x(k+1)=min\left(5,\dfrac{2^{x(k)}{x(k)}\right)$$ où $x(k)\in[1,5]$. L'étudiant devra
+<h4 class="question">Considérons le système non linéaire à temps discret décrit par l'itération $$x(k+1)=min\left(5,\dfrac{2^{x(k)}}{x(k)}\right)$$ où $x(k)\in[1,5]$. L'étudiant devra
 <ol>
 	<li>tracer le graphique de $f(x)$</li>
 	<li>trouver la forme analytique et tracer le graphique de $f^2(x)$</li>
