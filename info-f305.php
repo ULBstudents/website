@@ -590,7 +590,7 @@ sont compatibles avec le système et motiver la réponse.<figure><img src="image
 	<li>
 		Nous avons $$f'(x)=-\dfrac{2^x(x\ln(2)-1)}{x^2}$$Le point d'équilibre $\bar{x}_1 = 2$ est localement asymptotiquement stable car $|f'(\bar{x}_2)|= 0.3863 < 1$ et le point $\bar{x}_2=4$ est instable car $|f'(\bar{x}_2)| = 1.7726 > 1$
 	</li>
-	<li><figure><img src="images/info-f305/traj5etapes.svg" alt="answer" /></figure></li>
+	<li>?</li>
 	<li>Il n'y a pas de cycles</li>
 </ol>
 </div>
@@ -611,8 +611,19 @@ sont compatibles avec le système et motiver la réponse.<figure><img src="image
 
 
 
-
-
+<h4 class="question">
+	Considérons les systèmes dynamique à temps continu d'ordre 1 $$\dot{x} = -3x, \ x \in \mathbb{R}$$
+	dont la condition x(0) à l'instant $t = 0$ est distrbuée selon la densité de probabilité sur la figure :
+	<figure><img src="images/info-f305/traj5etapes.svg" alt="answer" /></figure>
+	
+	Soit $U = [ 0.51 ; 0.46 ; 0.35 ; 0.1 ; 0.43 ; 0.71 ; 0.12 ; 0.08 ; 0.37 ; 0.03 ]$ une séquence de 10 nombres aleatoires tirées à partir d'une distribution uniforme entre 0 et 1. L'étudiant devra estimer en utilisant la séquence $U$ par Monte Carlo.
+	<ul>
+		<li>La moyenne de la solution x(1)</li>
+		<li>La probabilité que x(1) > 0.3</li>
+	</ul>
+</h4>
+<div class="answer">
+</div>
 
 
 
