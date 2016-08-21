@@ -9,13 +9,13 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="75.906944mm"
-   height="57.5625mm"
-   viewBox="0 0 268.96161 203.96161"
+   width="49.13052mm"
+   height="36.935833mm"
+   viewBox="0 0 174.08452 130.875"
    id="svg2"
    version="1.1"
    inkscape:version="0.91 r13725"
-   sodipodi:docname="answerf2.svg">
+   sodipodi:docname="answerf2x.svg">
   <defs
      id="defs4">
     <clipPath
@@ -74,19 +74,19 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.4"
-     inkscape:cx="216.20202"
-     inkscape:cy="35.623534"
+     inkscape:zoom="1"
+     inkscape:cx="129.44442"
+     inkscape:cy="-33.919769"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
-     fit-margin-top="1"
-     fit-margin-left="1"
-     fit-margin-bottom="1"
-     fit-margin-right="1"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-bottom="0"
+     fit-margin-right="0"
      inkscape:window-width="1920"
      inkscape:window-height="1017"
-     inkscape:window-x="1912"
+     inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1" />
   <metadata
@@ -105,10 +105,10 @@
      inkscape:label="Calque 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(542.39698,-167.56989)">
+     transform="translate(538.85367,-171.1132)">
     <g
        id="g3346"
-       transform="matrix(0.625,0,0,-0.625,-538.85367,367.9882)">
+       transform="matrix(0.41547619,0,0,-0.41547619,-538.85367,301.9882)">
       <g
          id="g3348">
         <g

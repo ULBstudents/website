@@ -9,13 +9,13 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="75.906944mm"
-   height="57.5625mm"
-   viewBox="0 0 268.96161 203.96161"
+   width="52.884525mm"
+   height="39.758057mm"
+   viewBox="0 0 187.38611 140.875"
    id="svg2"
    version="1.1"
    inkscape:version="0.91 r13725"
-   sodipodi:docname="answerf.svg">
+   sodipodi:docname="answerfx.svg">
   <defs
      id="defs4">
     <clipPath
@@ -122,16 +122,16 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.7"
-     inkscape:cx="-17.701619"
-     inkscape:cy="220.5167"
+     inkscape:zoom="1"
+     inkscape:cx="29.469357"
+     inkscape:cy="160.9734"
      inkscape:document-units="px"
      inkscape:current-layer="g4557"
      showgrid="false"
-     fit-margin-top="1"
-     fit-margin-left="1"
-     fit-margin-bottom="1"
-     fit-margin-right="1"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-bottom="0"
+     fit-margin-right="0"
      inkscape:window-width="1920"
      inkscape:window-height="1017"
      inkscape:window-x="1912"
@@ -153,7 +153,7 @@
      inkscape:label="Calque 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(232.88007,-445.53201)">
+     transform="translate(229.33676,-449.07532)">
     <text
        style="font-variant:normal;font-weight:normal;font-size:12.45324993px;font-family:CMEX10;-inkscape-font-specification:CMEX10;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
        id="text4235"
@@ -162,7 +162,7 @@
       <tspan
          x="-149.59302"
          y="18.745319"
-         id="tspan4237"></tspan>
+         id="tspan4237" />
     </text>
     <text
        style="font-variant:normal;font-weight:normal;font-size:12.45324993px;font-family:CMEX10;-inkscape-font-specification:CMEX10;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
@@ -172,7 +172,7 @@
       <tspan
          x="-136.79427"
          y="18.745319"
-         id="tspan4247"></tspan>
+         id="tspan4247" />
     </text>
     <text
        style="font-variant:normal;font-weight:normal;font-size:12.45324993px;font-family:CMEX10;-inkscape-font-specification:CMEX10;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
@@ -182,7 +182,7 @@
       <tspan
          x="-58.075508"
          y="18.745319"
-         id="tspan4259"></tspan>
+         id="tspan4259" />
     </text>
     <text
        style="font-variant:normal;font-weight:normal;font-size:12.45324993px;font-family:CMEX10;-inkscape-font-specification:CMEX10;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
@@ -192,14 +192,14 @@
       <tspan
          x="-45.27676"
          y="18.745319"
-         id="tspan4269"></tspan>
+         id="tspan4269" />
     </text>
     <g
        id="g4557"
        transform="matrix(1.25,0,0,-1.25,-229.33676,645.95032)">
       <g
          id="g4559"
-         transform="scale(0.5,0.5)">
+         transform="matrix(0.35777778,0,0,0.35777778,0,44.8)">
         <g
            id="g4561">
           <g

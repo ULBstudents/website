@@ -199,9 +199,11 @@ div.recap img {
 	<li>
 		<figure>
 			<img src="images/info-f305/a2b8c6d4.svg" alt="a2b8c6d4" />
+			<figcaption>$a=2$, $b=8$, $c=6$, $d=4$</figcaption>
 		</figure>
 		<figure>
 			<img src="images/info-f305/a9b3c6d2.svg" alt="a9b3c6d2" />
+			<figcaption>$a=9$, $b=3$, $c=6$, $d=2$</figcaption>
 		</figure>
 		
 	</li>
