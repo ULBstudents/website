@@ -512,7 +512,7 @@ sont compatibles avec le système et motiver la réponse.<figure><img src="image
 <div class="answer">
 	<ol>
 		<li>
-			\begin{array}{ccc}
+			$$\begin{array}{ccc}
 			rx - x^3 &=& 0 \\
 			x^3 &=& rx\\
 			x^2 &=& r\\
