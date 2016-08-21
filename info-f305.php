@@ -522,16 +522,27 @@ sont compatibles avec le système et motiver la réponse.<figure><img src="image
 			?
 		</li>
 		<li>
-			...
+			Voici les diagrammes $( x, \dot{x} )$
+			<figure>
+				<img src="images/info-f305/diagrammespointequilibre.svg" alt="diagrammes point equilibre" />
+			</figure>
+			<ul>
+				<li>$r = 1 \Rightarrow \bar{x}^{(1)} = 1$, $\bar{x}^{(2)} = -1$, $\bar{x}^{(3)} = 0$. Les deux points $\bar{x}^{(1)}$ et $ \bar{x}^{(2)}$ sont stable</li>
+				<li>$r = 36 \Rightarrow \bar{x}^{(1)} = 6$, $\bar{x}^{(2)} = -1$, $\bar{x}^{(3)} = 0$. Les deux points $\bar{x}^{(1)}$ et $ \bar{x}^{(2)}$ sont stable</li>
+			</ul>
 		</li>
 		<li>
-			...
+			Le système linéalisé autour de $\bar{x}^{(1)}$ et $\bar{x}^{(2)}$ est $\dot{x} = -2rx$. Ceci confirme la stabilité pour $r$ positif.
+			Le système linéalisé autour de $\bar{x}^{(3)} = 0$ est $\dot{x} = rx$. Ceci confirme la stabilité pour $r$ positif.
 		</li>
 		<li>
-			...
+			Les trajectoires sont 
+			<figure>
+				<img src="images/info-f305/trajectoire0.svg" alt="Trajectoire" />
+			</figure>
 		</li>
 		<li>
-			...
+			La constante de temps est $\dfrac{1}{2r}$ pour $r > 0$ et $\dfrac{-1}{r}$ pour $r < 0$.
 		</li>
 	</ol>
 </div>
