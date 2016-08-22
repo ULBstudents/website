@@ -200,20 +200,45 @@ div.recap img {
 	<li>
 		<ol class="alphabet">
 			<li>
-				( La matrice ne contiendra que des zéros ) &larr; ? &larr; Prof. Alors que &rarr;
+				La matrice ne contiendra que des zéros &rarr;
 			
 				On cherche la jacobienne pour $$\left \{\begin{array}{r c l c l}\dot{x}_1  & = & (2-8x_1)^2 &=& 64x_1^2-32x_1+4\\\dot{x}_2  & = & (6-4x_1)^2&=&16x_1^2-48x_1+36\end{array}\right.$$
-				$$J=\left(\begin{array}{cc}\dfrac{\partial f_1}{\delta x_1}&\dfrac{\delta f_1}{\delta x_2}\\\dfrac{\partial f_2}{\delta x_1}&\dfrac{\delta f_2}{\delta x_2}\end{array}\right)=
-				\left(\begin{array}{cc}\dfrac{(64x_1^2-32x_1+4)'}{\delta x_1}&\dfrac{(64x_1^2-32x_1+4)'}{\delta x_2}\\\dfrac{(16x_1^2-48x_1+36)'}{\delta x_1}&\dfrac{(16x_1^2-48x_1+36)'}{\delta x_2}\end{array}\right)=
-				\left(\begin{array}{cc}96x_1&0\\-16x_1&0\end{array}\right)$$
+				$$\begin{array}{ccccc}
+				J&=&\left(
+				\begin{array}{cc}
+				\dfrac{\partial f_1}{\delta x_1}&\dfrac{\delta f_1}{\delta x_2}\\\dfrac{\partial f_2}{\delta x_1}&\dfrac{\delta f_2}{\delta x_2}
+				\end{array}\right)&=&
+				\left(
+				\begin{array}{cc}
+				\dfrac{(64x_1^2-32x_1+4)'}{\delta x_1}&\dfrac{(64x_1^2-32x_1+4)'}{\delta x_2}\\\dfrac{(16x_1^2-48x_1+36)'}{\delta x_1}&\dfrac{(16x_1^2-48x_1+36)'}{\delta x_2}
+				\end{array}\right)\\\\
+				&&&=&\left(\begin{array}{cc}128x_1-32&0\\32x_1-48&0
+				\end{array}\right)\\\\
+				&&&=&\left(\begin{array}{cc}128\dfrac{2}{8}-32&0\\32\dfrac{6}{4}-48&0
+				\end{array}\right)\\\\
+				&&&=&\left(\begin{array}{cc}0&0\\0&0
+				\end{array}\right)
+				\end{array}
+				$$
 			</li>
 			<li>
-				( La matrice ne contiendra que des zéros ) &larr; ? &larr; Prof. Alors que &rarr;
+				La matrice ne contiendra que des zéros &rarr;
 				
-				On cherche la jacobienne pour $$\left \{\begin{array}{r c l c l}\dot{x}_1  & = & (9-3x_1)^2 &=& 9x_1^2-54x_1+81\\\dot{x}_2  & = & (6-2x_1)^2&=&4x_1^2-24x_1+36\end{array}\right.$$
-				$$J=\left(\begin{array}{cc}\dfrac{\partial f_1}{\delta x_1}&\dfrac{\delta f_1}{\delta x_2}\\\dfrac{\partial f_2}{\delta x_1}&\dfrac{\delta f_2}{\delta x_2}\end{array}\right)=
-				\left(\begin{array}{cc}\dfrac{(9x_1^2-54x_1+81)'}{\delta x_1}&\dfrac{(9x_1^2-54x_1+81)'}{\delta x_2}\\\dfrac{(4x_1^2-24x_1+36)'}{\delta x_1}&\dfrac{(4x_1^2-24x_1+36)'}{\delta x_2}\end{array}\right)=
-				\left(\begin{array}{cc}-36x_1&0\\-16x_1&0\end{array}\right)$$
+				On cherche la jacobienne pour 
+				$$\begin{array}{ccccc}
+				J&=&\left(
+				\begin{array}{cc}
+				\dfrac{\partial f_1}{\delta x_1}&\dfrac{\delta f_1}{\delta x_2}\\\dfrac{\partial f_2}{\delta x_1}&\dfrac{\delta f_2}{\delta x_2}
+				\end{array}\right)&=&
+				\left(\begin{array}{cc}\dfrac{(9x_1^2-54x_1+81)'}{\delta x_1}&\dfrac{(9x_1^2-54x_1+81)'}{\delta x_2}\\\dfrac{(4x_1^2-24x_1+36)'}{\delta x_1}&\dfrac{(4x_1^2-24x_1+36)'}{\delta x_2}\end{array}\right)\\\\
+				&&&=&\left(\begin{array}{cc}18x_1-54&0\\8x_1-24&0
+				\end{array}\right)\\\\
+				&&&=&\left(\begin{array}{cc}18\frac{9}{3}-54&0\\8\frac{6}{2}-24&0
+				\end{array}\right)\\\\
+				&&&=&\left(\begin{array}{cc}0&0\\0&0
+				\end{array}\right)
+				\end{array}
+				$$
 			</li>
 		</ol>
 	</li>
