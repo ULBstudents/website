@@ -670,10 +670,7 @@ sont compatibles avec le système et motiver la réponse.<figure><img src="image
 </h4>
 <div class="answer">
 
-	<figure><img src="images/info-f305/
-	
-	
-	.svg" alt="Distribution uniforme" /></figure>
+	<figure><img src="images/info-f305/distributionuniforme.svg" alt="Distribution uniforme" /></figure>
 	On cherche les $x(0)$ en fonction du graphique ( $e = 2.71$ )
 	$$\begin{array}{llllllll}
 	U = & 0.51 &\rightarrow& x(0) &= 5.05 &\rightarrow& x(1) = x(0).e^{-3} & = 0.253\\
