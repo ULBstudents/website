@@ -675,9 +675,57 @@ sont compatibles avec le système et motiver la réponse.<figure><img src="image
 
 
 
+<h4 class="question">
+	Considérons l'équation aux différences non homogène suivante
+	$$x(k+2) + ax(k+1) + 2x(k) = 1$$
+	Déterminez et vérifiez numériquement (en effectuant trois étapes) la solution pour
+	<ul>
+		<li>$a=3,\ x(0) = 1/6,\ x(1) = 7/6$</li>
+		<li>$a=2,\ x(0) = 1/5,\ x(1) = 6/5$</li>
+		<li>$a=-3,\ x(0) = 0,\ x(1) = 0$</li>
+	</ul>
+</h4>
+<div class="answer">
+	<ul>
+		<li>
+			$a = 3$ : $\lambda_1 = -2$, $\lambda_2 = -1$. Puisque $x = 1/6$ est une solution particulière, la solution générale de l'équation est
+			$$x(k) = A(-1)^k + B(-2)^k + 1/6$$
+			En posant les conditions initiales nous trouvons $A=1$ et $B=-1$
+		</li>
+		<li>
+			$a=2$ : $\lambda_1 = -1+i$, $\lambda_2 = -1 -i$. Puisque $p=\sqrt{2}$ et $\delta = \dfrac{3\pi}{4}$ et $x=1/5$ est une solution particulière, la solution générale de l'équation est
+			$$x(k) = \sqrt{2^k}\left(A\cos\dfrac{3\pi k}{4} + B\sin\dfrac{3\pi k}{4}\right)+1/5$$
+			En posant les conditions initiales nous trouvons $A=1$ et $B=-1$
+		</li>
+		<li>
+			$a=-3$ : $\lambda_1 = 2$, $\lambda_2 = 1$. Puisque $x=-k$ est une solution particulière, la solution générale de l'équation est 
+			$$x(k) = A2^k + B-k$$
+			En posant les conditions initiales nous trouvons $A=0$ et $B=1$.
+		</li>
+	</ul>
+</div>
 
 
 
+
+<h4 class="question">
+	Considérons les systèmes $$\dot{x} = -x^3$,\ \ \dot{x} = x^3$$
+	Pour chacun des deux systèmes, l'étudiant devra
+	<ul>
+		<li>Trouver le point d'équilibre et étudier la stabilité</li>
+		<li>Définir une fonction Lyapunov qui confirme le résultat précèdent</li>
+	</ul>
+</h4>
+<div class="answer">
+	Le seul point d'équilibre est l'origine (asymptomatiquement stable pour le premier système et instable pour le deuxième). Si nous considérons la fonction définie positive $V(x) = kx^2, \ \ k > 0 $ il s'ensuit que pour le premier système
+	
+	$$\dot{V}(x) = -2kxx^3 = -2 k x^4$$et pour le deuxième $$\dot{V}(x) = 2kxx^3 = 2kx^4$$
+	
+	<ul>
+		<li>Premier système : puisque la foncion est définie négative pour tout $x$ il s'ensuit que l'origine est asymptotiquement stable.</li>
+		<li>Deuxième système : puisque la fonction est définie positive pour tout $x$ il s'ensuit que l'origine est instable.</li>
+	</ul>
+</div>
 
 
 
