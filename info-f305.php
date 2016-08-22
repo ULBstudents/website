@@ -708,6 +708,34 @@ sont compatibles avec le système et motiver la réponse.<figure><img src="image
 
 
 
+
+
+
+
+<h4 class="question">
+	Tracer le diagramme de bifurcation du système $$\dot{x} = x (4-x) -k$$ en fonction de $k\in\mathbb{R}$
+</h4>
+<div class="answer">
+	Pour $k \leq 4$, le système à comme points d'équilibre
+	
+	$$ x^{(1)} = 2 - \sqrt{4-k}$$
+	et
+	$$ x^{(2)} = 2 + \sqrt{4-k}$$
+	Puisque $f'(x) = -2x +4$ il s'ensuit que pour $k \leq 4$, $x^{(1)}$ est instable alors que $x^{(2)}$ est asymptomatiquement stable. Le diagramme de bifurcation est donc
+	<figure><img src="images/info-f305/diagrammedebifurcation.svg" alt="answer" /></figure>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
 <h4 class="question">
 	Considérons les systèmes $$\dot{x} = -x^3$,\ \ \dot{x} = x^3$$
 	Pour chacun des deux systèmes, l'étudiant devra
