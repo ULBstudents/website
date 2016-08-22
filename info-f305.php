@@ -624,9 +624,7 @@ sont compatibles avec le système et motiver la réponse.<figure><img src="image
 </h4>
 <div class="answer">
 
-	
-	
-	
+	<figure><img src="images/info-f305/distributionuniforme.svg" alt="Distribution uniforme" /></figure>
 	On cherche les $x(0)$ en fonction du graphique ( $e = 2.71$ )
 	$$\begin{array}{llllllll}
 	U = & 0.51 &\rightarrow& x(0) &= 5.05 &\rightarrow& x(1) = x(0).e^{-3} & = 0.253\\
@@ -644,7 +642,6 @@ sont compatibles avec le système et motiver la réponse.<figure><img src="image
 		<li>On fait la moyenne des 10 nombres pour $x(1) = \dfrac{\sum_{i=0}^{10} x_i(1)}{10} = \dfrac{2.293}{10} = 0.2293$</li>
 		<li>On regarde la probabilité combien de nombre $ x(1) > 0.3 \rightarrow 0$</li>
 	</ul>
-	<br>!!! A DEVELOPPER !!!
 </div>
 
 
