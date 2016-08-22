@@ -457,14 +457,21 @@ sont compatibles avec le système et motiver la réponse.<figure><img src="image
 
 
 
-<h4 class="question">Considerons le système à temps discret décrit par l'équation $$x(k+2)-5x(k+1)+6x(k)=3(4^k)$$ L'étudiant devra <ol><li>Determiner la solution pour $x(0) = 0$, $x(1) = 0$.</li><li>Vérifier de manière numérique pour $k = 0, . . . , 7$ que la solution est correcte.</li><li>Determiner pour le système homogène, s'il existe, le point d'équilibre et, en cas d'existence, analyser sa stabilité.</li></ol></h4>
+<h4 class="question">
+	Considerons le système à temps discret décrit par l'équation $$x(k+2)-5x(k+1)+6x(k)=3(4^k)$$ L'étudiant devra
+	<ol>
+		<li>Determiner la solution pour $x(0) = 0$, $x(1) = 0$.</li>
+		<li>Vérifier de manière numérique pour $k = 0, . . . , 7$ que la solution est correcte.</li>
+		<li>Determiner pour le système homogène, s'il existe, le point d'équilibre et, en cas d'existence, analyser sa stabilité.</li>
+	</ol>
+</h4>
 <div class="answer">
 	<ol>
 		<li>
 			Le polynome caractéristique de l'équation homogène est $$\lambda^2-5\lambda+6=0$$ qui a comme racines $\lambda_1=2$,$\lambda_2=3$. L'équation homogène est $$x^h(k)=c_12^k+c_23^k$$ La solution particulière aura une forme $c3(4^k)$, il suffit d'injecter cela dans l'équation de départ et on a
 			$$\begin{array}{crcl}&c3(4^{k+2})-5c3(4^{k+1})+6c3(4^k)&=&3(4^k)\\
-			\Leftrightarrow&3(4^k)(c4^2-5c4+6c)&=&3(4^k)\\
-			\Leftrightarrow&c4^2-5c4+6c&=&1\\
+			\Leftrightarrow&c3(4^k)(4^2-5.4+6)&=&3(4^k)\\
+			\Leftrightarrow&c(16-20+6)&=&1\\
 			\Leftrightarrow&c&=&\dfrac{1}{2}\\
 			\Leftrightarrow&x^p(k)&=&\dfrac{3}{2}4^k
 			\end{array}$$
@@ -483,6 +490,27 @@ sont compatibles avec le système et motiver la réponse.<figure><img src="image
 	</ol>
 </div>
 
+
+
+
+<h4 class="question">
+	Considerons le système à temps discret décrit par l'équation $$x(k+3)-4x(k+2)+8x(k)=\dfrac{3^k}{k+1}$$ L'étudiant devra
+	<ol>
+		<li>Determiner la solution générale de l'équation homogène (en justifiant votre réponse).</li>
+		<li>Donnez une solution particulière de l'équation de départ</li>
+		<li>Trouvez l'ensemble des constantes de la solution générale avec comme condition initiale : $x(0) = 1$, $x(1)=2$, $x(2)=3$</li>
+	</ol>
+</h4>
+<div class="answer">
+	<ol>
+		<li>
+		</li>
+		<li>
+		</li>
+		<li>
+		</li>
+	</ol>
+</div>
 
 
 
