@@ -483,7 +483,7 @@ sont compatibles avec le système et motiver la réponse.<figure><img src="image
 		</li>
 		<li>
 			La solution numérique pour $k = 0, 1, 2, 3, 4, 5, 6, 7$ est $[0,0,3,27,165,855,4053,18207]$
-		</li>
+		</li> 
 		<li>
 			Le système homogène a l'origine comme point d'équilibre unstable.
 		</li>
@@ -504,6 +504,11 @@ sont compatibles avec le système et motiver la réponse.<figure><img src="image
 <div class="answer">
 	<ol>
 		<li>
+			Le polynome caractéristique de l'équation homogène est
+			$$\lambda^3-4\lambda^2+8=0$$
+			qui a comme racines $\lambda_1=2$,$\lambda_2=3$. L'équation homogène est
+			$$x^h(k)=c_12^k+c_23^k$$
+			La solution particulière aura une forme $c3(4^k)$, il suffit d'injecter cela dans l'équation de départ et on a
 		</li>
 		<li>
 		</li>
