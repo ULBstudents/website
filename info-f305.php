@@ -169,6 +169,27 @@ div.recap img {
 <div class="answer">
 <ol>
 	<li>
+		$$
+		\begin{array}{ccc}
+		\dot{x_1} &=& \dot{x_2}\\
+		(a-bx_1)^2 &=& (c-dx_1)^2\\
+		\pm (a-bx_1) &=& \pm(c-dx_1)
+		\end{array}
+		$$
+		$$
+		\begin{array}{c|c}
+		\begin{array}{ccc}
+		a-bx_1&=&c-dx_1\\
+		a-c&=&bx_1-dx_x\\
+		\dfrac{a-c}{b-d}&=&x_1
+		\end{array}&
+		\begin{array}{ccc}
+		a-bx_1&=&dx_1-c\\
+		a+c&=&dx_1+bx_1\\
+		\dfrac{a+c}{b+d}&=&x_1
+		\end{array}
+		\end{array}
+		$$
 		Donc $\left( \frac{a-c}{b-d},k\right)$ ou $\left( \frac{a+c}{b+d},k\right)$ avec $k\in \mathbb{R}$
 	</li>
 	<li>
@@ -624,7 +645,10 @@ sont compatibles avec le système et motiver la réponse.<figure><img src="image
 </h4>
 <div class="answer">
 
-	<figure><img src="images/info-f305/distributionuniforme.svg" alt="Distribution uniforme" /></figure>
+	<figure><img src="images/info-f305/
+	
+	
+	.svg" alt="Distribution uniforme" /></figure>
 	On cherche les $x(0)$ en fonction du graphique ( $e = 2.71$ )
 	$$\begin{array}{llllllll}
 	U = & 0.51 &\rightarrow& x(0) &= 5.05 &\rightarrow& x(1) = x(0).e^{-3} & = 0.253\\
