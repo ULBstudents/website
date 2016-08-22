@@ -623,28 +623,26 @@ sont compatibles avec le système et motiver la réponse.<figure><img src="image
 	</ul>
 </h4>
 <div class="answer">
-	<br>!!! A DEVELOPPER !!!<br><br>
-	On cherche les $x(0)$ pour
-	$$\begin{array}{cccc}
-	U = & 0.15 &\rightarrow& 1.2\\
-	    & 0.6  &\rightarrow& 2.7\\
-	    & ...  &\rightarrow& ...
-	\end{array}$$
-	$\Rightarrow x(0) = [\ 1.2\ ;\ 2.7\ ;\ ...\ ]$<br><br>
+
 	
-	$\begin{array}{lll}
-	x(1) &=& x(0)\ .\ e^{-A}\\
-	     &=& x(0)\ .\ e^{1}\\
-	     &=& ...
-	\end{array}$ $A$ est le coefficient angulaire ; ici $A=1$. On aura 
-	$$\begin{array}{ccc}
-	x(1) &=& 1.2 e^{-1}\\
-	     &=& 2.7 e^{-1}\\
-	     &=& ...
+	
+	
+	On cherche les $x(0)$ en fonction du graphique ( $e = 2.71$ )
+	$$\begin{array}{llllllll}
+	U = & 0.51 &\rightarrow& x(0) &= 5.05 &\rightarrow& x(1) = x(0).e^{-3} & = 0.253\\
+	& 0.46 &\rightarrow&&= 4.95 &\rightarrow&& = 0.248\\
+	& 0.35 &\rightarrow&&= 4.70 &\rightarrow&& = 0.234\\
+	& 0.10 &\rightarrow&&= 4.15 &\rightarrow&& = 0.207\\
+	& 0.43 &\rightarrow&&= 4.85 &\rightarrow&& = 0.241\\
+	& 0.71 &\rightarrow&&= 5.15 &\rightarrow&& = 0.256\\
+	& 0.12 &\rightarrow&&= 4.25 &\rightarrow&& = 0.212\\
+	& 0.08 &\rightarrow&&= 4.10 &\rightarrow&& = 0.204\\
+	& 0.37 &\rightarrow&&= 4.75 &\rightarrow&& = 0.236\\
+	& 0.03 &\rightarrow&&= 4.05 &\rightarrow&& = 0.202\\
 	\end{array}$$
 	<ul>
-		<li>On aura 10 nombres pour $x(1) \leftarrow $ on fait la moyenne</li>
-		<li>On regarde la probabilité combien de nombre $ > 0.3$</li>
+		<li>On fait la moyenne des 10 nombres pour $x(1) = \dfrac{\sum_{i=0}^{10} x_i(1)}{10} = \dfrac{2.293}{10} = 0.2293$</li>
+		<li>On regarde la probabilité combien de nombre $ x(1) > 0.3 \rightarrow 0$</li>
 	</ul>
 	<br>!!! A DEVELOPPER !!!
 </div>
