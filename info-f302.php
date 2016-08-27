@@ -204,13 +204,13 @@ Est-ce que chaque étape de transformation produit nécessairement une formule �
 		<li>$L_1$ est l'ensemble des mots (sur $\sum$), tel 
 		qu'entre toute paire de $a$, il existe au moins un $b$. Exemples: $bababbabb$ et $bab$, mais pas $baaba$.</li>
 		<li>$L_2$ est l'ensemble des mots tel qu'entre toute paire de $a$, il existe un nombre pair de $b$. Exemples: $abbab$, $baabbab$, mais pas $ababba$</li>
-		<li>$L_3=L_1\cap L_2</li>
+		<li>$L_3 = L_1 \cap L_2$</li>
 	</ol>
 </h4>
 <div class="answer">
 	<ol>
-		<li>ca arrive</li>
-		<li></li>
-		<li></li>
+		<li><figure><img src="images/info-f302/L_1.svg" alt="answer" /></figure></li>
+		<li><figure><img src="images/info-f302/L_2.svg" alt="answer" /></figure></li>
+		<li><figure><img src="images/info-f302/L_3.svg" alt="answer" /></figure></li>
 	</ol>
 </div>
