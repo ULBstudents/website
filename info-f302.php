@@ -66,14 +66,17 @@
 <div class="answer">
 	<ol>
 		<li>
-			Faux : La grande <b>conjecture</b> de l'informatique fondamentale est : $$P \neq NP$$
+			Vrai : La grande <b>conjecture</b> de l'informatique fondamentale est : $$P \neq NP$$
 			Autrement dit, le problème $P=NP$ est un problème non résolu, on ne sait pas encore démontrer cette formule. Il est considéré par de nombreux chercheurs comme un des plus importants problèmes du domaine, et même des mathématiques en général.<br>
 			L'Institut de mathématiques Clay a inclus ce problème dans sa liste des sept problèmes du prix du millénaire, et offre à ce titre un million de dollars à quiconque sera en mesure de prouver $P = NP$ ou $P \leq NP$.<br><br>
 			Plus précisément, il s'agit de savoir si la classe de complexité $P$ des problèmes de décision admettant un algorithme de résolution s'exécutant en temps polynomial sur une machine de Turing est équivalente à la classe de complexité $NP$ des problèmes de décision dont la vérification du résultat, une fois celui-ci connu, demande un temps polynomial. Un algorithme qui demande un temps d'exécution polynomial est généralement considéré comme « rapide » (par rapport à un temps d'exécution exponentiel par exemple).<br>
 			Les conséquences de $P = NP$ pourraient être considérables dans de nombreux domaines : cryptologie, informatique, mathématiques, ingénierie, économie. On pourrait même imaginer que celui qui prouverait $P = NP$ ressortirait de l'Institut de mathématiques Clay avec 6 millions de dollars, les implications de la solution pouvant rendre la résolution des autres problèmes du millénaire triviale. S'il était au contraire avéré que $P \neq NP$, cela signifierait qu'une large classe de problèmes seraient presque sûrement définitivement hors d'atteinte du calcul dans un temps raisonnable (ou nécessiteraient le développement d'architectures différentes de celles des machines de Turing).
 		</li>
 		<li>
-			
+			Vrai : le problème du test du vide d’un automate se résout en temps polynomial,
+			donc pour résoudre A, il suffit de le réduire au test du vide, puis d’effecture le test du vide. Les
+			deux étapes se faisant en temps polynomial par hypothèse, A peut donc ˆetre résolu en temps
+			polynomial.
 		</li>
 	</ol>
 </div>
@@ -289,9 +292,9 @@ Est-ce que chaque étape de transformation produit nécessairement une formule �
 			<ol>
 				<li><figure><img src="images/info-f302/ordonnancement_answer_1.svg" alt="answer" /></figure></li>
 				<li><figure><img src="images/info-f302/ordonnancement_answer_2.svg" alt="answer" /></figure></li>
-				<li>Non il n’y a pas de solution, car T5 a une dur´ee 3 et d´epend d’une tˆache qui a une dur´ee 1,
-				il faut donc au moins 4 unit´es de temps quelque soit le nombre de processeurs.
-				<li>Pour la raison pr´ec´edente, il faut M ≥ 4, et il y a une solution avec M = 4 (solution de la question 2), donc M = 4 est minimal.</li>
+				<li>Non il n’y a pas de solution, car T5 a une durée 3 et dépend d’une tˆache qui a une durée 1,
+				il faut donc au moins 4 unités de temps quelque soit le nombre de processeurs.
+				<li>Pour la raison précédente, il faut M ≥ 4, et il y a une solution avec M = 4 (solution de la question 2), donc M = 4 est minimal.</li>
 			</ol>
 		</li>
 		<li>
