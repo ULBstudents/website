@@ -46,11 +46,12 @@
 <h4 class="question">Donner quatre méthodes vues en cours pour tester si une formule de la logique propositionnelle est valide ou non. Pour chaque méthode, expliquer la en une ligne ou deux.</h4>
 <div class="answer">
 	<ol>
-		<li>?</li>
-		<li>?</li>
+		<li>Tableaux sémantiques</li>
+		<li>Déduction Naturelle</li>
 		<li>?</li>
 		<li>?</li>
 	</ol>
+	<div class="TEMP">Pas sûr du tout, incomplet</div>
 </div>
 
 
@@ -292,7 +293,7 @@ Est-ce que chaque étape de transformation produit nécessairement une formule �
 			</ol>
 		</li>
 		<li>
-			?
+			2-Partition est un problème $NP$-complet. Peut-on partitionner un ensemble de $n$ entiers en deux tas égaux ? 
 		</li>
 		<li>
 			?
