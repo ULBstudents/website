@@ -213,3 +213,75 @@ Est-ce que chaque étape de transformation produit nécessairement une formule �
 		<li><figure><img src="images/info-f302/L_3.svg" alt="answer" /></figure></li>
 	</ol>
 </div>
+
+
+
+<h4 class="question">
+	Réduction entre problèmes : Ordonnancement. Dans ce problème, il vous est demandé de justifier soigneusement vos réponses et d'expliquer votre modélisation. Dans cette partie, nous allons nous intéresser à un problème d'ordonnancement de tâches à réaliser en parallèle sur un ensemble de processeurs. Les contraintes sont des contraintes de durée et de dépendances entre tâches. On suppose que l'on dispose de $k$ processeurs pour une durée maximale $M$, sur lequels ont veut exécuter, possiblement en parallèle, un ensemble $T = {1,2,...,n}$ de $n$ tâches ayant chacune une durée $d_i\in \mathbb{N} \\ {0}$, pour $i\in T$. Certaines tâches pouvant avoir besoin du résultat d'autres tâches, on se donne aussi, pour chaque tâche $i\in T$, un ensemble $G_i \subseteq T$ dont elle dépend. On supposera que le temps est discret, et que chaque tâche doit commencer au temps 0,1,etc. jusque $M-1$. La question est de savoir s'il existe une manière d'ordonnancer les tâches sur les $k$ processeurs en resptectant les contraintes de durée $d_i$, la durée maximale $M$, et les dépendances $G_i$. Bien sûr, deux t^^aches ne peuvent s'exécuter au même moment sur le même processeur.<br>
+	Par exemple, considérons les cinqs tâches suivant :
+	<table>
+		<thead>
+			<tr><td>Tâches</td><td>Durée</td><td>Dépendances</td></tr>
+		</thead>
+		<tbody>
+			<tr><td>1</td><td>2</td><td>{2}</td></tr>
+			<tr><td>2</td><td>3</td><td>null</td></tr>
+			<tr><td>3</td><td>5</td><td>{4,5}</td></tr>
+			<tr><td>4</td><td>1</td><td>null</td></tr>
+			<tr><td>5</td><td>1</td><td>null</td></tr>
+		</tbody>
+	</table>
+	Pour $k = 1$ et $M = 12$, on peut ordonnancer les tâches comme suit (les dépendances sont représentées par des flèches) :
+	<figure><img src="images/info-f302/ordonnancement_1.svg" alt="ordonnancement" /></figure>
+	Pour $k = 1$ et $M = 11$, il n’y a pas de solution puisque la durée totale des tâches est $12$. Pour $k = 2$ et $M = 6$, il existe la solution suivante :
+	<figure><img src="images/info-f302/ordonnancement_2.svg" alt="ordonnancement" /></figure>
+	Si on ajoute la dépendance G4 = {5}, alors il n’y a plus de solution avec M = 6 mais une solution avec M = 7 :
+	<figure><img src="images/info-f302/ordonnancement_3.svg" alt="ordonnancement" /></figure>
+	Remarquez que dans cette dernière solution le processeur 1 est inactif pendant deux unités de temps.
+	<ol>
+		<li>
+			Considérons les données suivantes :
+			<table>
+				<thead>
+					<tr><td>Tâches</td><td>Durée</td><td>Dépendances</td></tr>
+				</thead>
+				<tbody>
+					<tr><td>1</td><td>1</td><td>null</td></tr>
+					<tr><td>2</td><td>1</td><td>null</td></tr>
+					<tr><td>3</td><td>1</td><td>null</td></tr>
+					<tr><td>4</td><td>2</td><td>{1,2,3}</td></tr>
+					<tr><td>5</td><td>3</td><td>{1}</td></tr>
+				</tbody>
+			</table>
+			Pour les cas suivants, dire s’il existe ou pas une solution, et la donner le cas échéant :
+			<ol>
+				<li>$k = 1,\ M = 8$</li>
+				<li>$k = 2,\ M = 4$</li>
+				<li>$k = 3,\ M = 3$</li>
+			</ol>
+			Si on prend maintenant la dépendance $G_5 = {1, 2}$ au lieu de $G_5 = {1}$, quelle est la durée minimale M pour laquelle il existe une solution avec deux processeurs ?
+		</li>
+		<li>
+			...
+		</li>
+		<li>
+			...
+		</li>
+	</ol>
+</h4>
+<div class="answer">
+	<ol>
+		<li>
+			<ol>
+				<li><figure><img src="images/info-f302/ordonnancement_answer_1.svg" alt="answer" /></figure></li>
+				<li><figure><img src="images/info-f302/ordonnancement_answer_2.svg" alt="answer" /></figure></li>
+				<li><figure><img src="images/info-f302/ordonnancement_answer_3.svg" alt="answer" /></figure></li>
+		</li>
+		<li>
+			?
+		</li>
+		<li>
+			?
+		</li>
+	</ol>
+</div>
