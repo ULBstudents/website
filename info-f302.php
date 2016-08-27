@@ -289,11 +289,13 @@ Est-ce que chaque étape de transformation produit nécessairement une formule �
 			<ol>
 				<li><figure><img src="images/info-f302/ordonnancement_answer_1.svg" alt="answer" /></figure></li>
 				<li><figure><img src="images/info-f302/ordonnancement_answer_2.svg" alt="answer" /></figure></li>
-				<li>Impossible car $M=3$ et $T_4$ est de longueur $3$ aussi et il possède des dépendances.</li>
+				<li>Non il n’y a pas de solution, car T5 a une dur´ee 3 et d´epend d’une tˆache qui a une dur´ee 1,
+				il faut donc au moins 4 unit´es de temps quelque soit le nombre de processeurs.
+				<li>Pour la raison pr´ec´edente, il faut M ≥ 4, et il y a une solution avec M = 4 (solution de la question 2), donc M = 4 est minimal.</li>
 			</ol>
 		</li>
 		<li>
-			2-Partition est un problème $NP$-complet. Peut-on partitionner un ensemble de $n$ entiers en deux tas égaux ? 
+			A toute instance $I = 
 		</li>
 		<li>
 			?
