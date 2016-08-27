@@ -75,11 +75,10 @@
 </h4>
 <div class="answer">
 	L’<b>indécidabilité</b> est la négation de la décidabilité. Dans les deux cas, il s'agit de formaliser l'idée qu'on ne peut pas toujours conclure lorsque l'on se pose une question, même si celle-ci est sous forme logique. Un problème de décision est dit <b>décidable</b> s'il existe un algorithme, une procédure mécanique qui termine en un nombre fini d'étapes, qui le décide, c'est-à-dire qui réponde par oui ou par non à la question posée par le problème. S'il n'existe pas de tels algorithmes, le problème est dit <b>indécidable</b>. Par exemple, le problème de l'arrêt est <b>indécidable</b>.
-	<div class="citation">
-		<div class="author">Turing</div>
-		<div class="date">1936</div>
+	<fieldset>
+		<legend>Turing, 1936</legend>
 		Le problème de l'arrêt est <b>indécidable</b>
-	</div>
+	</fieldset>
 	Exemple simple d'un programme qui ne s'arrête pas :
 	<div class="code">
 		while(true) print "bonjour" ;
