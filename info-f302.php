@@ -47,15 +47,23 @@
 <h4 class="question">
 	Réductions - Dire des affirmations suivantes si elles sont vraies ou fausses, justifier :
 	<ol>
-		<li>Si le problème SAT se réduit en temps polynomial vers un problème dcidable en temps polynomial, alors $P=NP$</li>
+		<li>Si le problème SAT se réduit en temps polynomial vers un problème décidable en temps polynomial, alors $P=NP$</li>
 		<li>Si un problème $A$ se réduit en temps polynomial vers le problème du test du vide d'automates, alors $A$ peut être résolu en temps polynomial</li>
 	</ol>
 </h4>
 <div class="answer">
-<ol>
-	<li>?</li>
-	<li>?</li>
-</ol>
+	<ol>
+		<li>
+			Faux : La grande <b>conjecture</b> de l'informatique fondamentale est : $$P \neq NP$$
+			Autrement dit, le problème $P=NP$ est un problème non résolu, on ne sait pas encore démontrer cette formule. Il est considéré par de nombreux chercheurs comme un des plus importants problèmes du domaine, et même des mathématiques en général.<br>
+			L'Institut de mathématiques Clay a inclus ce problème dans sa liste des sept problèmes du prix du millénaire, et offre à ce titre un million de dollars à quiconque sera en mesure de prouver $P = NP$ ou $P \leq NP$.<br><br>
+			Plus précisément, il s'agit de savoir si la classe de complexité $P$ des problèmes de décision admettant un algorithme de résolution s'exécutant en temps polynomial sur une machine de Turing est équivalente à la classe de complexité $NP$ des problèmes de décision dont la vérification du résultat, une fois celui-ci connu, demande un temps polynomial. Un algorithme qui demande un temps d'exécution polynomial est généralement considéré comme « rapide » (par rapport à un temps d'exécution exponentiel par exemple).<br>
+			Les conséquences de $P = NP$ pourraient être considérables dans de nombreux domaines : cryptologie, informatique, mathématiques, ingénierie, économie. On pourrait même imaginer que celui qui prouverait $P = NP$ ressortirait de l'Institut de mathématiques Clay avec 6 millions de dollars, les implications de la solution pouvant rendre la résolution des autres problèmes du millénaire triviale. S'il était au contraire avéré que $P \eq NP$, cela signifierait qu'une large classe de problèmes seraient presque sûrement définitivement hors d'atteinte du calcul dans un temps raisonnable (ou nécessiteraient le développement d'architectures différentes de celles des machines de Turing).
+		</li>
+		<li>
+			
+		</li>
+	</ol>
 </div>
 
 
