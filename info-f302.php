@@ -75,22 +75,21 @@
 </h4>
 <div class="answer">
 	L’<b>indécidabilité</b> est la négation de la décidabilité. Dans les deux cas, il s'agit de formaliser l'idée qu'on ne peut pas toujours conclure lorsque l'on se pose une question, même si celle-ci est sous forme logique. Un problème de décision est dit <b>décidable</b> s'il existe un algorithme, une procédure mécanique qui termine en un nombre fini d'étapes, qui le décide, c'est-à-dire qui réponde par oui ou par non à la question posée par le problème. S'il n'existe pas de tels algorithmes, le problème est dit <b>indécidable</b>. Par exemple, le problème de l'arrêt est <b>indécidable</b>.
-	<fieldset>
+	<fieldset class="citation">
 		<legend>Turing, 1936</legend>
 		Le problème de l'arrêt est <b>indécidable</b>
 	</fieldset>
 	Exemple simple d'un programme qui ne s'arrête pas :
-	<div class="code">
-		while(true) print "bonjour" ;
-	</div>
+	<fieldset class="code">while(true)
+		print "bonjour" ;
+	<legend>Exemple simple d'un programme qui ne s'arrête pas</legend></fieldset>
 	Attention : dire qu'un problème est <b>indécidable</b> ne veut pas dire que la question posée n'a pas et n'aura jamais de solution mais seulement qu'il n'existe pas de méthode unique et bien définie, applicable d'une façon mécanique, pour répondre à la question.
 	<br><br><b>Preuve de l'indécidabilité du problème de l'arrêt</b><br>
 	On procède par l'absurde, en supposant qu'il existe un programme $HALT(c_p,x)$ qui décide le problème de l'arrêt, pour tout programme $P$ donné par son code $c_p$, et toute chaîne de caracètre $x$. A partir de $HALT$, on définit le programme $PARADOX$ suivant :
-	<div class="code">
-	$PARADOX(c : string)$
+	<fieldset class="code">$PARADOX(c : string)$
 		$if HALT(c,c) then loop forever$
 		$else stop$
-	</div>
+	<legend>Le programme $PARADOX$</legend></fieldset>
 	On appelle $PARADOX(c_{PARADOX})$, où $c_{PARADOX}$ est le code source du programme $PARADOX$... que se passe-t-il ?<br>
 	Deux cas :
 	<ol>
