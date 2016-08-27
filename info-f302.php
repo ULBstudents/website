@@ -80,16 +80,14 @@
 		Le problème de l'arrêt est <b>indécidable</b>
 	</fieldset>
 	Exemple simple d'un programme qui ne s'arrête pas :
-	<fieldset class="code">while(true)
-		print "bonjour" ;
-	<legend>Exemple simple d'un programme qui ne s'arrête pas</legend></fieldset>
+	<fieldset class="code"><legend>Exemple simple d'un programme qui ne s'arrête pas</legend>while(true)
+		print "bonjour" ;</fieldset>
 	Attention : dire qu'un problème est <b>indécidable</b> ne veut pas dire que la question posée n'a pas et n'aura jamais de solution mais seulement qu'il n'existe pas de méthode unique et bien définie, applicable d'une façon mécanique, pour répondre à la question.
 	<br><br><b>Preuve de l'indécidabilité du problème de l'arrêt</b><br>
 	On procède par l'absurde, en supposant qu'il existe un programme $HALT(c_p,x)$ qui décide le problème de l'arrêt, pour tout programme $P$ donné par son code $c_p$, et toute chaîne de caracètre $x$. A partir de $HALT$, on définit le programme $PARADOX$ suivant :
-	<fieldset class="code">$PARADOX(c : string)$
+	<fieldset class="code"><legend>Le programme $PARADOX$</legend>$PARADOX(c : string)$
 		$if HALT(c,c) then loop forever$
-		$else stop$
-	<legend>Le programme $PARADOX$</legend></fieldset>
+		$else stop$</fieldset>
 	On appelle $PARADOX(c_{PARADOX})$, où $c_{PARADOX}$ est le code source du programme $PARADOX$... que se passe-t-il ?<br>
 	Deux cas :
 	<ol>
@@ -97,6 +95,7 @@
 		<li>Si $PARADOX(c_{PARADOX})$ ne s'arrête pas, alors c'est que $HALT(c_{PARADOX}, (c_{PARADOX}) = 1$, autrement dit $PARADOX(c_{PARADOX})$ s'arrête.</li>
 	</ol>
 	Dans les deux cas on obtient une contradiction, c'est donc que le programme $HALT$ n'existe pas.
+	<div class="TEMP">Deuxième exemple ?</div>
 </div>
 
 
