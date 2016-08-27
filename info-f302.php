@@ -58,7 +58,7 @@
 			Autrement dit, le problème $P=NP$ est un problème non résolu, on ne sait pas encore démontrer cette formule. Il est considéré par de nombreux chercheurs comme un des plus importants problèmes du domaine, et même des mathématiques en général.<br>
 			L'Institut de mathématiques Clay a inclus ce problème dans sa liste des sept problèmes du prix du millénaire, et offre à ce titre un million de dollars à quiconque sera en mesure de prouver $P = NP$ ou $P \leq NP$.<br><br>
 			Plus précisément, il s'agit de savoir si la classe de complexité $P$ des problèmes de décision admettant un algorithme de résolution s'exécutant en temps polynomial sur une machine de Turing est équivalente à la classe de complexité $NP$ des problèmes de décision dont la vérification du résultat, une fois celui-ci connu, demande un temps polynomial. Un algorithme qui demande un temps d'exécution polynomial est généralement considéré comme « rapide » (par rapport à un temps d'exécution exponentiel par exemple).<br>
-			Les conséquences de $P = NP$ pourraient être considérables dans de nombreux domaines : cryptologie, informatique, mathématiques, ingénierie, économie. On pourrait même imaginer que celui qui prouverait $P = NP$ ressortirait de l'Institut de mathématiques Clay avec 6 millions de dollars, les implications de la solution pouvant rendre la résolution des autres problèmes du millénaire triviale. S'il était au contraire avéré que $P \eq NP$, cela signifierait qu'une large classe de problèmes seraient presque sûrement définitivement hors d'atteinte du calcul dans un temps raisonnable (ou nécessiteraient le développement d'architectures différentes de celles des machines de Turing).
+			Les conséquences de $P = NP$ pourraient être considérables dans de nombreux domaines : cryptologie, informatique, mathématiques, ingénierie, économie. On pourrait même imaginer que celui qui prouverait $P = NP$ ressortirait de l'Institut de mathématiques Clay avec 6 millions de dollars, les implications de la solution pouvant rendre la résolution des autres problèmes du millénaire triviale. S'il était au contraire avéré que $P \neq NP$, cela signifierait qu'une large classe de problèmes seraient presque sûrement définitivement hors d'atteinte du calcul dans un temps raisonnable (ou nécessiteraient le développement d'architectures différentes de celles des machines de Turing).
 		</li>
 		<li>
 			
@@ -87,15 +87,15 @@
 	Attention : dire qu'un problème est <b>indécidable</b> ne veut pas dire que la question posée n'a pas et n'aura jamais de solution mais seulement qu'il n'existe pas de méthode unique et bien définie, applicable d'une façon mécanique, pour répondre à la question.
 	<br><br><b>Preuve de l'indécidabilité du problème de l'arrêt</b><br>
 	On procède par l'absurde, en supposant qu'il existe un programme $HALT(c_p,x)$ qui décide le problème de l'arrêt, pour tout programme $P$ donné par son code $c_p$, et toute chaîne de caracètre $x$. A partir de $HALT$, on définit le programme $PARADOX$ suivant :
-$$\begin{lstlisting}
-PARADOX(c : string)
-	if HALT(c,c) then loop forever
-	else stop
-\end{lstlisting}$$
+	<div class="code">
+	$PARADOX(c : string)$
+		$if HALT(c,c) then loop forever$
+		$else stop$
+	</div>
 	On appelle $PARADOX(c_{PARADOX})$, où $c_{PARADOX}$ est le code source du programme $PARADOX$... que se passe-t-il ?<br>
 	Deux cas :
 	<ol>
-		<li>Si $PARADOX(c_{PARADOX})$ s'arrête, alors c'est que $HALT(c_{PARADOX}, (c_{PARADOX}) = 0$, autrement dit $PARADOX(c_{PARADOX})$ ne s'arrête pas.</li>
+		<li>Si $PARADOX(c_{PARADOX})$ s'arrête, alors c'est que $HALT(c_{PARADOX}, (c_{PARADOX})) = 0$, autrement dit $PARADOX(c_{PARADOX})$ ne s'arrête pas.</li>
 		<li>Si $PARADOX(c_{PARADOX})$ ne s'arrête pas, alors c'est que $HALT(c_{PARADOX}, (c_{PARADOX}) = 1$, autrement dit $PARADOX(c_{PARADOX})$ s'arrête.</li>
 	</ol>
 	Dans les deux cas on obtient une contradiction, c'est donc que le programme $HALT$ n'existe pas.
