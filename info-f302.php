@@ -262,10 +262,23 @@ Est-ce que chaque étape de transformation produit nécessairement une formule �
 			Si on prend maintenant la dépendance $G_5 = {1, 2}$ au lieu de $G_5 = {1}$, quelle est la durée minimale M pour laquelle il existe une solution avec deux processeurs ?
 		</li>
 		<li>
-			...
+			Nous vous rappelons le problème 2-Partition. Étant donnés $m$ entiers $a_1, ..., a_m \in \mathbb{N}$ tel que $\sum_{i=1}^m a_i$ est paire, on voudrait savoir s'il existe un ensemble $I \subseteq {1, ...,m}$ tel que : $$\sum_{i\in I} a_i = \sum_{i\notin I} a_i$$
+			Démontrer que le problème 2-Partition se réduit en temps polynomial au problème d’ordonnancement. Que peut-on en déduire sur la complexité du problème d’ordonnancement ?
 		</li>
 		<li>
-			...
+			Etant donnée une instance I du problème d’ordonnancement, expliquer
+			comment construire une formule de la logique propositionnelle φI en forme normale conjonctive
+			telle que I a une solution si et seulement si φI est satisfaisable. Note : les données k et M sont
+			données dans l’instance I.
+		</li>
+		<li>
+			On considère maintenant que M n’est pas donné dans l’instance du problème,
+			et on s’intéresse à trouver le plus petit M pour lequel il existe une solution. Expliquer comment
+			utiliser un solveur SAT, ainsi que la réponse à la question précédente, pour répondre au problème
+			de minimisation.
+		</li>
+		<li>
+			On voudrait maintenant que les processeurs soient libérés le plus tˆot possible, c’est-à-dire qu’ils n’aient p ...
 		</li>
 	</ol>
 </h4>
@@ -275,7 +288,8 @@ Est-ce que chaque étape de transformation produit nécessairement une formule �
 			<ol>
 				<li><figure><img src="images/info-f302/ordonnancement_answer_1.svg" alt="answer" /></figure></li>
 				<li><figure><img src="images/info-f302/ordonnancement_answer_2.svg" alt="answer" /></figure></li>
-				<li><figure><img src="images/info-f302/ordonnancement_answer_3.svg" alt="answer" /></figure></li>
+				<li>Impossible car $M=3$ et $T_4$ est de longueur $3$ aussi et il possède des dépendances.</li>
+			</ol>
 		</li>
 		<li>
 			?
