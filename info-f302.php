@@ -299,12 +299,12 @@ Est-ce que chaque étape de transformation produit nécessairement une formule �
 		</li>
 		<li>
 			A toute instance $I$ de 2-Partition on associe l'instance $I'$ du problème d'ordonnancement
-			$$\begin{array}{l|c|l}
+			$$\begin{array}{lcl}
 			I  &=& {a_1,a_2, \dotsc, a_m}\\
 			I' &=& (k, M, T, (d_i)_{i\in T}, (G_i)_{i\in T})
 			\end{array}$$
 			en prenant
-			$$\begin{array}{l|c|l}
+			$$\begin{array}{lcl}
 			k &=& 2\\
 			M &=& \dfrac{\sum_{i=1}^m a_i}{2}\\
 			T &=& {1, \dotsc, m}\\
