@@ -87,6 +87,7 @@ div.recap img {
 
 
 
+
 <div class="recap">
 	<div>Valeurs propres réelles et non-distinctes avec matrice $A$ diagonalisable</div>
 	<div><b>Système linéarisé</b> : noeud singulier</div>
@@ -380,7 +381,7 @@ $$x(t) = 0 e^{-4t}\ulbvector{1\\-4} + 3 e^{-t} \ulbvector{1\\1}$$
 d'où
 $$ \left\{\begin{array}{lcr}
 x_1(t) &=& 0 e^{-4t} + 3 e^{-t}\\
-x_2(t) &=& -4*0 e^{-4t} + 3 e^{-t}$$
+x_2(t) &=& -4*0 e^{-4t} + 3 e^{-t}
 \end{array}\right.$$
 Donc les valeurs de $x$ pour $t = 1$ et $t \rightarrow \infty$ avec la condition initiale $x(0)=\ulbvector{3\\3}$ sont $$x(1) = \ulbvector{3 e^{-1}\\3 e^{-1}}\ ,\ x(\infty) = \ulbvector{\infty\\\infty}$$
 Et pour $x(0) = \ulbvector{2\\0}$
@@ -396,7 +397,7 @@ $$x(t) = \dfrac{2}{5} e^{-4t}\ulbvector{1\\-4} + \dfrac{8}{5} e^{-t} \ulbvector{
 d'où
 $$ \left\{\begin{array}{lcc}
 x_1(t) &=& \dfrac{2}{5} e^{-4t} + \dfrac{8}{5} e^{-t}\\
-x_2(t) &=& -4*\dfrac{2}{5} e^{-4t} + \dfrac{8}{5} e^{-t}$$
+x_2(t) &=& -4*\dfrac{2}{5} e^{-4t} + \dfrac{8}{5} e^{-t}
 \end{array}\right.$$
 Donc les valeurs de $x$ pour $t = 1$ et $t \rightarrow \infty$ avec la condition initiale $x(0)=\ulbvector{2\\0}$ sont $$x(1) = \ulbvector{0.595933\\0.559302}\ ,\ x(\infty) = \ulbvector{\infty\\\infty}$$
 </div>
