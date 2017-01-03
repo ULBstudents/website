@@ -1,6 +1,8 @@
 <h1>INFO-F305 - Modélisation et simulation</h1>
 
 
+$\newcommand\ulbmatrix[1]{\left(\begin{matrix}#1\end{matrix}\right)}
+\newcommand\ulbvector[1]{\left[\begin{matrix}#1\end{matrix}\right]}$
 
 
 <h2>Résumé</h2>
@@ -331,7 +333,7 @@ cas de connexion en série ($S_1 \rightarrow S_2$ ou $S_2 \rightarrow S_1$) auss
 
 
 
-<h4 class="question">Considérons le système linéaire d'ordre 2 $$\dot{x} = \left[ \begin{array}{rr}0&1\\-4&-5\end{array}\right]x$$ Calculer les valeurs de $x$ pour $t = 1$ et $t \rightarrow \infty$ pour les deux conditions initiales. $$x(0)=\left[\begin{array}{r}3\\3\end{array}\right]\ , \ x(0)=\left[\begin{array}{r}2\\0\end{array}\rigt]$$
+<h4 class="question">Considérons le système linéaire d'ordre 2 $$\dot{x} = \left[ \begin{array}{rr}0&1\\-4&-5\end{array}\right]x$$ Calculer les valeurs de $x$ pour $t = 1$ et $t \rightarrow \infty$ pour les deux conditions initiales. $$x(0)=\left[\begin{array}{r}3\\3\end{array}\right]\ , \ x(0)=\left[\begin{array}{r}2\\0\end{array}\right]$$
 </h4>
 <div class="answer">
 Les $\lambda_i$ sont les solutions de l'équation caractéristique :
