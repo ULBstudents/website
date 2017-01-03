@@ -331,13 +331,119 @@ cas de connexion en série ($S_1 \rightarrow S_2$ ou $S_2 \rightarrow S_1$) auss
 
 
 
-<h4 class="question">Considérons le système linéaire d'ordre 2 $$\dot{x} = \left[ \begin{array}{rr}0&1\\-4&-5\end{array}\right]x$$ Calculer les valeurs de $x$ pour $t = 1$ et $t \rightarrow \infty$ pour les deux conditions
-initiales.
+<h4 class="question">Considérons le système linéaire d'ordre 2 $$\dot{x} = \left[ \begin{array}{rr}0&1\\-4&-5\end{array}\right]x$$ Calculer les valeurs de $x$ pour $t = 1$ et $t \rightarrow \infty$ pour les deux conditions initiales. $$x(0)=\left[\begin{array}{r}3\\3\end{array}\right]\ , \ x(0)=\left[\begin{array}{r}2\\0\end{array}\rigt]$$
 </h4>
 <div class="answer">
-	$$x(0)=\left[\begin{array}{r}3\\3\end{array}\right]$$ $$x(0)=\left[\begin{array}{r}2\\0\end{array}\right]$$
+Les $\lambda_i$ sont les solutions de l'équation caractéristique :
+$$det\left(\left[\begin{array}{rr}
+0&1\\-4&-5
+\end{array}\right]-\lambda I\right) = 0$$
+$$\Leftrightarrow \lambda^2 + 5\lambda + 4 = 0$$
+Valeurs propres :
+$$ (\lambda_1, \lambda_2 )  = ( -4, -1 )$$
+Calcul de $v_1 = -4$ :
+$$\begin{array}{cccc}
+\Leftrightarrow & (A - \lambda_1 I )v_1 &=& 0\\
+\Leftrightarrow & (A + 4I )v_1 &=& 0\\
+\Leftrightarrow & \ulbvector{4&1\\-4&-1}\ulbvector{x\\y} &=& \ulbvector{0\\0}\\
+\Leftrightarrow & \ulbvector{x\\y} &=& k\ulbvector{1\\-4} \forall k\\
+\Leftrightarrow & v_1 &=& \ulbvector{1\\-4}
+\end{array}
+$$
+Calcul de $v_2 = -1$ :
+$$\begin{array}{cccc}
+\Leftrightarrow & (A - \lambda_2 I )v_2 &=& 0\\
+\Leftrightarrow & (A + 1I )v_2 &=& 0\\
+\Leftrightarrow & \ulbvector{-1&1\\-4&-4}\ulbvector{x\\y} &=& \ulbvector{0\\0}\\
+\Leftrightarrow & \ulbvector{x\\y} &=& k\ulbvector{1\\1} \forall k\\
+\Leftrightarrow & v_2 &=& \ulbvector{1\\1}
+\end{array}
+$$
+Valeurs propres :
+$$ (\lambda_1, \lambda_2 )  = \left( \ulbvector{1\\-4},\ulbvector{1\\1} \right)$$
+Solution générale :
+$$x(t) = c_1e^{\lambda_1 t} v_1+ c_2e^{\lambda_2 t} v_2$$
+$$x(t) = c_1e^{-4t}\ulbvector{1\\-4} + c_2e^{-t}\ulbvector{1\\1}= \left\{\begin{array}{lcr}x_1(t) &=& c_1e^{-4t} + c_2e^{-t} \\ x_2(t) &=& -c_1e^{-4t} + c_2e^{-t} \end{array}\right.$$
+Une fois fixée la condition initiale $x(0)$, $c_1$ et $c_2$ doivent satisfaire :
+$$c_1\ulbvector{1\\-4} + c_2 \ulbvector{1\\1} = x(0) = \ulbvector{x_1(0)\\x_2(0)}$$
+Donc pour $x(0) = \ulbvector{3\\3}$
+$$ \left\{\begin{array}{rcr}
+c_1+c_2&=&3\\
+-4c_1+c_2&=&3\end{array}\right.$$
+$$ \left\{\begin{array}{rcr}
+c_1&=&0\\
+c_2&=&3\end{array}\right.$$
+Donc 
+$$x(t) = 0 e^{-4t}\ulbvector{1\\-4} + 3 e^{-t} \ulbvector{1\\1}$$
+d'où
+$$ \left\{\begin{array}{lcr}
+x_1(t) &=& 0 e^{-4t} + 3 e^{-t}\\
+x_2(t) &=& -4*0 e^{-4t} + 3 e^{-t}$$
+\end{array}\right.$$
+Donc les valeurs de $x$ pour $t = 1$ et $t \rightarrow \infty$ avec la condition initiale $x(0)=\ulbvector{3\\3}$ sont $$x(1) = \ulbvector{3 e^{-1}\\3 e^{-1}}\ ,\ x(\infty) = \ulbvector{\infty\\\infty}$$
+Et pour $x(0) = \ulbvector{2\\0}$
+$$ \left\{\begin{array}{rcr}
+c_1+c_2&=&2\\
+-4c_1+c_2&=&0\end{array}\right.$$
+$$ \left\{\begin{array}{rcr}
+c_1&=&\dfrac{2}{5}\\
+c_2&=&\dfrac{8}{5}
+\end{array}\right.$$
+Donc 
+$$x(t) = \dfrac{2}{5} e^{-4t}\ulbvector{1\\-4} + \dfrac{8}{5} e^{-t} \ulbvector{1\\1}$$
+d'où
+$$ \left\{\begin{array}{lcc}
+x_1(t) &=& \dfrac{2}{5} e^{-4t} + \dfrac{8}{5} e^{-t}\\
+x_2(t) &=& -4*\dfrac{2}{5} e^{-4t} + \dfrac{8}{5} e^{-t}$$
+\end{array}\right.$$
+Donc les valeurs de $x$ pour $t = 1$ et $t \rightarrow \infty$ avec la condition initiale $x(0)=\ulbvector{2\\0}$ sont $$x(1) = \ulbvector{0.595933\\0.559302}\ ,\ x(\infty) = \ulbvector{\infty\\\infty}$$
 </div>
 
+
+<h4 class="question">Considérons le système linéaire d'ordre 2 $$\dot{x} = \left[ \begin{array}{rr}1&3\\3&1\end{array}\right]x$$ Calculer les valeurs de $x$ pour $t = 1$ et $t \rightarrow \infty$ pour la condition initiale $$x(0)=\left[\begin{array}{r}0.5\\0\end{array}\right]$$
+</h4>
+<div class="answer">
+Les $\lambda_i$ sont les solutions de l'équation caractéristique :
+$$det\left(\left[\begin{array}{rr}
+1&3\\3&1
+\end{array}\right]-\lambda I\right) = 0$$
+$$\Leftrightarrow \lambda^2 - 2\lambda - 8 = 0$$
+Valeurs propres :
+$$ (\lambda_1, \lambda_2 )  = ( -2, 4 )$$
+Calcul de $v_1 = -2$ :
+$$\begin{array}{cccc}
+\Leftrightarrow & (A - \lambda_1 I )v_1 &=& 0\\
+\Leftrightarrow & (A + 2I )v_1 &=& 0\\
+\Leftrightarrow & \ulbvector{3&3\\3&3}\ulbvector{x\\y} &=& \ulbvector{0\\0}\\
+\Leftrightarrow & \ulbvector{x\\y} &=& k\ulbvector{1\\-1} \forall k\\
+\Leftrightarrow & v_1 &=& \ulbvector{1\\-1}
+\end{array}
+$$
+Calcul de $v_2 = 4$ :
+$$\begin{array}{cccc}
+\Leftrightarrow & (A - \lambda_2 I )v_2 &=& 0\\
+\Leftrightarrow & (A - 4I )v_2 &=& 0\\
+\Leftrightarrow & \ulbvector{-3&3\\3&-3}\ulbvector{x\\y} &=& \ulbvector{0\\0}\\
+\Leftrightarrow & \ulbvector{x\\y} &=& k\ulbvector{1\\1} \forall k\\
+\Leftrightarrow & v_2 &=& \ulbvector{1\\1}
+\end{array}
+$$
+Valeurs propres :
+$$ (\lambda_1, \lambda_2 )  = \left( \ulbvector{1\\-1},\ulbvector{1\\1} \right)$$
+Solution générale :
+$$x(t) = c_1e^{\lambda_1 t} v_1+ c_2e^{\lambda_2 t} v_2$$
+$$x(t) = c_1e^{-2t}\ulbvector{1\\-1} + c_2e^{4t}\ulbvector{1\\1}= \left\{\begin{array}{lcr}x_1(t) &=& c_1e^{-2t} + c_2e^{4t} \\ x_2(t) &=& -c_1e^{-2t} + c_2e^{4t} \end{array}\right.$$
+Une fois fixée la condition initiale $x(0)$, $c_1$ et $c_2$ doivent satisfaire :
+$$c_1\ulbvector{1\\-1} + c_2 \ulbvector{1\\1} = x(0) = \ulbvector{x_1(0)\\x_2(0)}$$
+$$ \left\{\begin{array}{rcr} c_1+c_2&=&0.5\\-c_1+c_2&=&0\end{array}\right.\ \Leftrightarrow c_1=c_2=0.25$$
+Donc 
+$$x(t) = 0.25 e^{-2t}\ulbvector{1\\-1} + 0.25 e^{4t} \ulbvector{1\\1}$$
+d'où
+$$ \left\{\begin{array}{lcr}
+x_1(t) &=& 0.25 e^{-2t} + 0.25 e^{4t}\\
+x_2(t) &=& -0.25 e^{-2t} + 0.25 e^{4t}$$
+\end{array}\right.$$
+</div>
 
 
 <h4 class="question">Considérons le système non linéaire à temps discret décrit par l'itération $$x(k+1)=f(x(k))$$ où $x(k)\in[0,100]$ et la fonction $f$ est $$f(x)=\dfrac{1}{25}x(100-x)$$ L'étudiant devra<ol><li>calculer analytiquement $f^2(x)$ et tracer les graphiques respectifs de $f(x)$ et de $f^2(x)$ ;</li><li>trouver les points d'équilibre ;</li><li>étudier la stabilité des points d'équilibre ;</li><li>pour chaque point d'équilibre, simuler graphiquement et numériquement une trajectoire qui soit compatible avec l'analyse de stabilité ;</li><li>sur la base du graphique de $f^2(x)$ estimer les points du cycle d'ordre 2.</li></ol>
