@@ -403,7 +403,7 @@ Donc les valeurs de $x$ pour $t = 1$ et $t \rightarrow \infty$ avec la condition
 </div>
 
 
-<h4 class="question">Considérons le système linéaire d'ordre 2 $$\dot{x} = \left[ \begin{array}{rr}1&3\\3&1\end{array}\right]x$$ Calculer les valeurs de $x$ pour $t = 1$ et $t \rightarrow \infty$ pour la condition initiale $$x(0)=\left[\begin{array}{r}0.5\\0\end{array}\right]$$
+<h4 class="question">Considérons le système linéaire d'ordre 2 $$\dot{x} = \left[ \begin{array}{rr}1&3\\3&1\end{array}\right]x$$ Calculer les valeurs de $x$ pour la condition initiale $$x(0)=\left[\begin{array}{r}0.5\\0\end{array}\right]$$
 </h4>
 <div class="answer">
 Les $\lambda_i$ sont les solutions de l'équation caractéristique :
