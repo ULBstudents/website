@@ -444,7 +444,7 @@ $$x(t) = 0.25 e^{-2t}\ulbvector{1\\-1} + 0.25 e^{4t} \ulbvector{1\\1}$$
 d'où
 $$ \left\{\begin{array}{lcr}
 x_1(t) &=& 0.25 e^{-2t} + 0.25 e^{4t}\\
-x_2(t) &=& -0.25 e^{-2t} + 0.25 e^{4t}$$
+x_2(t) &=& -0.25 e^{-2t} + 0.25 e^{4t}
 \end{array}\right.$$
 </div>
 
