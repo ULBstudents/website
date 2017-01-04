@@ -6,7 +6,7 @@ Les réponses proviennent (ou par l'intermédiaire de résumé) de Denis Steckel
 
 
 <h4 class="question">Expliquez la différence entre une paire de cuivre torsadée de catégorie 3 et une paire de catégorie 5. Laquelle permet un débit plus élevé et pourquoi ?</h4>
-<div class="answer">On utilise des paires de cuivre torsadées car en effet deux fils de cuivres parallèle crée un champ magnétique proportionnelle à leur distance, ce qui induit un grand courant et donc beaucoup de bruit. Or lorsqu'ils sont torsadés, les torsades créent chacune leur champs magnétique et courant induit et les flux induits s'inversent dans chaque boucle adjacente. Les effets sont donc atténués. Plus les torsades sont petites, plus l'effet est efficace. Les fils de catégorie 5 sont plus torsadé que ceux de catégorie 3 et donc plus efface (100 Mbps contre 10 Mbps)
+<div class="answer">On utilise des paires de cuivre torsadées car deux fils de cuivres parallèles créent chacun un champ magnétique proportionnelle à leur distance, ce qui induit un grand courant et donc beaucoup de bruit. Or lorsqu'ils sont torsadés, les torsades créent chacune leur champs magnétique ainsi qu'un courant induit.  Ces flux induits s'inversent dans chaque boucle adjacente. Les effets sont donc atténués. Plus les torsades sont petites, plus l'effet est efficace. Les fils de catégorie 5 sont plus torsadés que ceux de catégorie 3 et donc plus efface (100 Mbps contre 10 Mbps)
 	<figure>
 		<img src="images/info-f303/cable-torsade" alt="Cable torsadé" />
 		<figcaption>Cable torsadé</figcaption>
