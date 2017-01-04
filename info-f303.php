@@ -19,13 +19,13 @@ Les réponses proviennent (ou par l'intermédiaire de résumé) de Denis Steckel
 <div class="answer">
 	<ol class="alphabet">
 		<li>
-			La fibre optique est une émission d'un nuage de photon dans un câble en verre. Composé d'un câble en fibre optique inclus dans un autre, les deux ayant des indices de réfractions différents. Ceci permettant de piéger les signaux par réfraction. les photons ne peuvent plus quitter le câble et se retrouve bloqué dans le câble du centre. On utilise deux types de fibre : Le monomode et multimode.
+			La fibre optique est une émission d'un nuage de photon dans un câble en verre. Composé d'un câble en fibre optique inclus dans un autre, les deux ayant des indices de réfractions différents. Ceci permettant de piéger les signaux par réfraction. les photons ne peuvent plus quitter le câble et se retrouvent bloqués dans le câble du centre. On utilise deux types de fibre: le monomode et multimode.
 			<figure>
 				<img src="images/info-f303/multimode-monomode" alt="Deux modes de fibres optique" />
 				<figcaption>Deux modes de fibres optique</figcaption>
 			</figure>
 			<ul>
-				<li><b>Multimode</b> : Le problème de la fibre optique est que les photons émis dans un même nuage prennent des trajectoires différentes (en fonctions des angles de réflexions au sein du câble), les photons du signal n'arrivent donc pas en même temps au bout du câble (ni dans la même partie). Or plus la distance est longues plus cet effet grandit et plus l'écart entre les photons de tête et de queue s'agrandit, on a donc un étalement puis un chevauchement des flux. Pour éviter les chevauchement on est donc obligé d'espacer les émissions en fonction des distances et capacités de réceptions.</li>
+				<li><b>Multimode</b> : Le problème de la fibre optique est que les photons émis dans un même nuage prennent des trajectoires différentes (en fonctions des angles de réflexions au sein du câble), les photons du signal n'arrivent donc pas en même temps au bout du câble (ni dans la même partie). Or plus la distance est longue plus cet effet grandit et plus l'écart entre les photons de tête et de queue s'agrandit, on a donc un étalement puis un chevauchement des flux. Pour éviter les chevauchement on est donc obligé d'espacer les émissions en fonction des distances et capacités de réceptions.</li>
 				<li><b>Monomode</b> : Ici on utilise un verre plus étroit ( 2.4 µ ) avec un seul mode de propagation, les photons vont donc en ligne droite, sans étalement. C'est efficace pour les grandes distances, mais plus chère.</li>
 			</ul>
 		</li>
