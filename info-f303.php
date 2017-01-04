@@ -138,6 +138,7 @@ Les réponses proviennent (ou par l'intermédiaire de résumé) de Denis Steckel
 
 <h4 class="question">Pourquoi utilise-t-on un modem pour transmettre de l'information numérique sur une ligne téléphonique ? Comment module-t-on le signal dans les modems « dial-up » les plus courants ?</h4>
 <div class="answer">
+	<em>Voir ci-dessus</em><br />
 	C'est une forme d'accès à internet qui utilise le réseau téléphonique pour établir une connexion à un ISP. La vitesse maximale est de 56 Kbps et on ne peut téléphoner en même temps. Modulateur/DéModulateur. Le But d'un modem est de transformer des informations binaires (numériques) en un signal analogique (et vice-versa). Le plus souvent on modifie à la fois l'amplitude du signal et sa phase. On ne passe donc pas 1 bit à la fois, mais au moins 2 (1 grâce à l'amplitude et 1 à la phase).
 </div>
 
@@ -145,7 +146,7 @@ Les réponses proviennent (ou par l'intermédiaire de résumé) de Denis Steckel
 
 <h4 class="question">Expliquez l'utilité du <b>ACK</b> et <b>NAK</b>.</h4>
 <div class="answer">
-	Le service de transfert fiable des données doit détecter les erreurs via checksum et utiliser des accusés de réceptions : le récepteur doit dire explicitement à l'envoyeur s'il a reçu avec ou sans erreur le paquet. Un accusé de réception peut être un <b>ACK</b> (packet reçu) ou un <b>NAK</b> (packet reçu mais corrompu). Les accusés de réception pouvant aussi être corrompu, on leur ajoute aussi un checksum. On indique dans le <b>ACK</b> ou le <b>NAK</b> de quel paquet il est l'accusé de réception sinon on peut déstabiliser le système.
+	Le service de transfert fiable des données doit détecter les erreurs via un checksum et utiliser des accusés de réceptions : le récepteur doit dire explicitement à l'envoyeur s'il a reçu avec ou sans erreur le paquet. Un accusé de réception peut être un <b>ACK</b> (packet reçu) ou un <b>NAK</b> (packet reçu mais corrompu). Les accusés de réception pouvant aussi être corrompu, on leur ajoute aussi un checksum. On indique dans le <b>ACK</b> ou le <b>NAK</b> de quel paquet il est l'accusé de réception sinon on peut déstabiliser le système.
 	<figure>
 		<img src="images/info-f303/ack-not-nominative" alt="Erreur possible lors d'un <b>ACK</b> non nominatif" />
 		<figcaption>Erreur possible lors d'un <b>ACK</b> non nominatif</figcaption>
@@ -156,7 +157,7 @@ Les réponses proviennent (ou par l'intermédiaire de résumé) de Denis Steckel
 
 <h4 class="question">
 	<ol class="alphabet">
-		<li>Citez et expliquez sommairement les 4 mécanismes de base permettant d'assurer la fiabilité d'un transfert d'information au travers d'un réseau non fiable. Justifiez leur nécessité.</li>
+		<li>Citez et expliquez sommairement les 4 mécanismes de base permettant d'assurer la fiabilité d'un transfert d'information au travers un réseau non fiable. Justifiez leur nécessité.</li>
 		<li>Décrivez dans les grandes lignes un protocole élémentaire qui les met tous en oeuvre</li>
 	</ol>
 </h4>
@@ -186,10 +187,11 @@ Les réponses proviennent (ou par l'intermédiaire de résumé) de Denis Steckel
 	On utilise une boucle simple : send &rarr; wait positive response &rarr; send &rarr; ... . Le <b>NAK</b> n'est pas utilisé car recevoir un packet corrompu est similaire à ne rien recevoir ; on ne renvoie donc rien et on attend le renvoie automatique à la fin du timer. Le problème est de choisir un bon timer car un timer trop petit peut déclencher la retransmission d'un message alors que le <b>ACK</b> est en chemin et peut donc surcharger le système. À l'inverse un timer trop grand et le système réagit trop lentement.
 </li>
 <li>
-	Ce protocole a été mis au point dans les années 70 pour des réseau peu étendu et peu performant, aujourd'hui il n'est plus performant car les <b>RTT</b> (temps de propagation) sont devenus important, et avec ce protocole ils sont du temps mort.
+	Ce protocole a été mis au point dans les années 70 pour des réseaux peu étendu et peu performant, aujourd'hui il n'est plus performant car les <b>RTT</b> (temps de propagation) sont devenus important, et avec ce protocole ils laissent beaucoup de temps mort.
 	<figure>
 		<img src="images/info-f303/stopandwait-too-old" alt="Le protocole <b>stop & wait</b> donne du temps mort" />
 		<figcaption>Le protocole <b>stop & wait</b> donne du temps mort</figcaption>
+		<!-- ça veut rien dire "donne du temps mort" xD -->
 	</figure>
 </li>
 </ol></div>
