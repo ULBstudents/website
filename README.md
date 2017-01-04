@@ -1,5 +1,5 @@
 # website
-All summary online http://ulb.rodriguevb.be
+All summary online https://rodriguevb.be/ulb
 
 
 Edit here to change directly online
