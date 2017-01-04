@@ -6,7 +6,7 @@ Les réponses proviennent (ou par l'intermédiaire de résumé) de Denis Steckel
 
 
 <h4 class="question">Expliquez la différence entre une paire de cuivre torsadée de catégorie 3 et une paire de catégorie 5. Laquelle permet un débit plus élevé et pourquoi ?</h4>
-<div class="answer">On utilise des paires de cuivre torsadées car en effet deux fils de cuivres parallèle crée un champ magnétique proportionnelle à leur distance, ce qui induit un grand courant et donc beaucoup de bruit. Or lorsqu'ils sont torsadés, les torsades créent chacune leur champs magnétique et courant induit et les flux induits s'inversent dans chaque boucle adjacente. Les effets sont donc atténués. Plus les torsades sont petites, plus l'effet est efficace. Les fils de catégorie 5 sont plus torsadé que ceux de catégorie 3 et donc plus efface (100 Mbps contre 10 Mbps)
+<div class="answer">On utilise des paires de cuivre torsadées car deux fils de cuivres parallèles créent chacun un champ magnétique proportionnelle à leur distance, ce qui induit un grand courant et donc beaucoup de bruit. Or lorsqu'ils sont torsadés, les torsades créent chacune leur champs magnétique ainsi qu'un courant induit.  Ces flux induits s'inversent dans chaque boucle adjacente. Les effets sont donc atténués. Plus les torsades sont petites, plus l'effet est efficace. Les fils de catégorie 5 sont plus torsadés que ceux de catégorie 3 et donc plus efface (100 Mbps contre 10 Mbps)
 	<figure>
 		<img src="images/info-f303/cable-torsade" alt="Cable torsadé" />
 		<figcaption>Cable torsadé</figcaption>
@@ -19,13 +19,13 @@ Les réponses proviennent (ou par l'intermédiaire de résumé) de Denis Steckel
 <div class="answer">
 	<ol class="alphabet">
 		<li>
-			La fibre optique est une émission d'un nuage de photon dans un câble en verre. Composé d'un câble en fibre optique inclus dans un autre, les deux ayant des indices de réfractions différents. Ceci permettant de piéger les signaux par réfraction. les photons ne peuvent plus quitter le câble et se retrouve bloqué dans le câble du centre. On utilise deux types de fibre : Le monomode et multimode.
+			La fibre optique est une émission d'un nuage de photon dans un câble en verre. Composé d'un câble en fibre optique inclus dans un autre, les deux ayant des indices de réfractions différents. Ceci permettant de piéger les signaux par réfraction. les photons ne peuvent plus quitter le câble et se retrouvent bloqués dans le câble du centre. On utilise deux types de fibre: le monomode et multimode.
 			<figure>
 				<img src="images/info-f303/multimode-monomode" alt="Deux modes de fibres optique" />
 				<figcaption>Deux modes de fibres optique</figcaption>
 			</figure>
 			<ul>
-				<li><b>Multimode</b> : Le problème de la fibre optique est que les photons émis dans un même nuage prennent des trajectoires différentes (en fonctions des angles de réflexions au sein du câble), les photons du signal n'arrivent donc pas en même temps au bout du câble (ni dans la même partie). Or plus la distance est longues plus cet effet grandit et plus l'écart entre les photons de tête et de queue s'agrandit, on a donc un étalement puis un chevauchement des flux. Pour éviter les chevauchement on est donc obligé d'espacer les émissions en fonction des distances et capacités de réceptions.</li>
+				<li><b>Multimode</b> : Le problème de la fibre optique est que les photons émis dans un même nuage prennent des trajectoires différentes (en fonctions des angles de réflexions au sein du câble), les photons du signal n'arrivent donc pas en même temps au bout du câble (ni dans la même partie). Or plus la distance est longue plus cet effet grandit et plus l'écart entre les photons de tête et de queue s'agrandit, on a donc un étalement puis un chevauchement des flux. Pour éviter les chevauchement on est donc obligé d'espacer les émissions en fonction des distances et capacités de réceptions.</li>
 				<li><b>Monomode</b> : Ici on utilise un verre plus étroit ( 2.4 µ ) avec un seul mode de propagation, les photons vont donc en ligne droite, sans étalement. C'est efficace pour les grandes distances, mais plus chère.</li>
 			</ul>
 		</li>
@@ -118,15 +118,17 @@ Les réponses proviennent (ou par l'intermédiaire de résumé) de Denis Steckel
 		<li>
 			<ul>
 				<li>Un <b>bps</b> : bit per seconde</li>
-				<li>Un <b>Baud</b> : C'est un symbole (n'importe quoi) par seconde, en gros le baud peut s apliquer a autre chose que des bit.</li>
+				<li>Un <b>Baud</b> : C'est un symbole (n'importe quoi) par seconde, en gros le baud peut s'apliquer à autre chose que des bits.</li>
 			</ul>
 		</li>
-			Nyquist impose une borne maximale au débit de symboles. Cette fréquence maximale est de $2H$, avec $H$ la bande de fréquence disponible en Hertz du canal de transmission. Quand on transmet une émission radio, on a un canal, et on doit tenir dedans. H vient du cable et 2 vient du bruit. Sur un réseau de téléphone, la bande passante est d'environ 4000 Hz la fréquence maximale de la voix humaine.
 		<li>
-			Bah le bruit, la loi de <b>Shannon</b>, c'est évident. La loi de shannon dit que le début en bits est égal à $H*log_2(1+S/N)$ avec $S/N$ étant le rapport du signal sur le bruit. S'il n'y avait pas de bruit, on aurait eu un log de l'infini. Ce qui est important est bien le rapport du signal par le bruit : si on a beaucoup de bruit mais qu'on sait augmenter le signal, c'est bon. Généralement le rapport signal/bruit sur un réseau téléphonique est de 1000.
+			Nyquist impose une borne maximale au débit de symboles. Cette fréquence maximale est de $2H$, avec $H$ la bande de fréquence disponible en Hertz du canal de transmission. Quand on transmet une émission radio, on a un canal, et on doit tenir dedans. H vient du cable et 2 vient du bruit. Sur un réseau de téléphone, la bande passante est d'environ 4000 Hz la fréquence maximale de la voix humaine.
 		</li>
 		<li>
-			C'est une forme d'accès à internet qui utilise le réseau téléphonique pour établir une connexion à un ISP. La vitesse maximale est de 56 Kbps et on ne peut téléphoner en même temps. Modulateur/DéModulateur. Le But d'un modem est de transformer des informations binaires (numériques) en un signal analogique (et vice-versa). Le plus souvent on modifie à la fois l'amplitude du signal et sa phase. On ne passe donc pas 1 bit à la fois, mais au moins 2 (1 grâce à l'amplitude et 1 à la phase).
+			Le bruit, selon la loi de <b>Shannon</b> qui dit que le débit en bits est égal à $H*log_2(1+S/N)$ avec $S/N$ étant le rapport du signal sur le bruit. S'il n'y avait pas de bruit, on aurait eu un log de l'infini. L'important est bien le rapport du signal par le bruit: si on a beaucoup de bruit mais qu'on sait augmenter le signal, c'est bon. Généralement le rapport signal/bruit sur un réseau téléphonique est de 1000.
+		</li>
+		<li>
+			C'est une forme d'accès à internet qui utilise le réseau téléphonique pour établir une connexion à un ISP. La vitesse maximale est de 56 Kbps et on ne peut pas téléphoner en même temps. Le modem contient un modulateur/Démodulateur. Le but d'un modem est de transformer des informations binaires (numériques) en un signal analogique (et vice-versa). Le plus souvent on modifie à la fois l'amplitude du signal et sa phase. On ne passe donc pas 1 bit à la fois, mais au moins 2 (1 grâce à l'amplitude et 1 à la phase).
 		</li>
 	</ol>
 </div>
@@ -136,6 +138,7 @@ Les réponses proviennent (ou par l'intermédiaire de résumé) de Denis Steckel
 
 <h4 class="question">Pourquoi utilise-t-on un modem pour transmettre de l'information numérique sur une ligne téléphonique ? Comment module-t-on le signal dans les modems « dial-up » les plus courants ?</h4>
 <div class="answer">
+	<em>Voir ci-dessus</em><br />
 	C'est une forme d'accès à internet qui utilise le réseau téléphonique pour établir une connexion à un ISP. La vitesse maximale est de 56 Kbps et on ne peut téléphoner en même temps. Modulateur/DéModulateur. Le But d'un modem est de transformer des informations binaires (numériques) en un signal analogique (et vice-versa). Le plus souvent on modifie à la fois l'amplitude du signal et sa phase. On ne passe donc pas 1 bit à la fois, mais au moins 2 (1 grâce à l'amplitude et 1 à la phase).
 </div>
 
@@ -143,7 +146,7 @@ Les réponses proviennent (ou par l'intermédiaire de résumé) de Denis Steckel
 
 <h4 class="question">Expliquez l'utilité du <b>ACK</b> et <b>NAK</b>.</h4>
 <div class="answer">
-	Le service de transfert fiable des données doit détecter les erreurs via checksum et utiliser des accusés de réceptions : le récepteur doit dire explicitement à l'envoyeur s'il a reçu avec ou sans erreur le paquet. Un accusé de réception peut être un <b>ACK</b> (packet reçu) ou un <b>NAK</b> (packet reçu mais corrompu). Les accusés de réception pouvant aussi être corrompu, on leur ajoute aussi un checksum. On indique dans le <b>ACK</b> ou le <b>NAK</b> de quel paquet il est l'accusé de réception sinon on peut déstabiliser le système.
+	Le service de transfert fiable des données doit détecter les erreurs via un checksum et utiliser des accusés de réceptions : le récepteur doit dire explicitement à l'envoyeur s'il a reçu avec ou sans erreur le paquet. Un accusé de réception peut être un <b>ACK</b> (packet reçu) ou un <b>NAK</b> (packet reçu mais corrompu). Les accusés de réception pouvant aussi être corrompu, on leur ajoute aussi un checksum. On indique dans le <b>ACK</b> ou le <b>NAK</b> de quel paquet il est l'accusé de réception sinon on peut déstabiliser le système.
 	<figure>
 		<img src="images/info-f303/ack-not-nominative" alt="Erreur possible lors d'un <b>ACK</b> non nominatif" />
 		<figcaption>Erreur possible lors d'un <b>ACK</b> non nominatif</figcaption>
@@ -154,7 +157,7 @@ Les réponses proviennent (ou par l'intermédiaire de résumé) de Denis Steckel
 
 <h4 class="question">
 	<ol class="alphabet">
-		<li>Citez et expliquez sommairement les 4 mécanismes de base permettant d'assurer la fiabilité d'un transfert d'information au travers d'un réseau non fiable. Justifiez leur nécessité.</li>
+		<li>Citez et expliquez sommairement les 4 mécanismes de base permettant d'assurer la fiabilité d'un transfert d'information au travers un réseau non fiable. Justifiez leur nécessité.</li>
 		<li>Décrivez dans les grandes lignes un protocole élémentaire qui les met tous en oeuvre</li>
 	</ol>
 </h4>
@@ -184,10 +187,11 @@ Les réponses proviennent (ou par l'intermédiaire de résumé) de Denis Steckel
 	On utilise une boucle simple : send &rarr; wait positive response &rarr; send &rarr; ... . Le <b>NAK</b> n'est pas utilisé car recevoir un packet corrompu est similaire à ne rien recevoir ; on ne renvoie donc rien et on attend le renvoie automatique à la fin du timer. Le problème est de choisir un bon timer car un timer trop petit peut déclencher la retransmission d'un message alors que le <b>ACK</b> est en chemin et peut donc surcharger le système. À l'inverse un timer trop grand et le système réagit trop lentement.
 </li>
 <li>
-	Ce protocole a été mis au point dans les années 70 pour des réseau peu étendu et peu performant, aujourd'hui il n'est plus performant car les <b>RTT</b> (temps de propagation) sont devenus important, et avec ce protocole ils sont du temps mort.
+	Ce protocole a été mis au point dans les années 70 pour des réseaux peu étendu et peu performant, aujourd'hui il n'est plus performant car les <b>RTT</b> (temps de propagation) sont devenus important, et avec ce protocole ils laissent beaucoup de temps mort.
 	<figure>
 		<img src="images/info-f303/stopandwait-too-old" alt="Le protocole <b>stop & wait</b> donne du temps mort" />
 		<figcaption>Le protocole <b>stop & wait</b> donne du temps mort</figcaption>
+		<!-- ça veut rien dire "donne du temps mort" xD -->
 	</figure>
 </li>
 </ol></div>
