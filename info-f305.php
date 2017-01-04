@@ -362,8 +362,9 @@ $$\begin{array}{cccc}
 \Leftrightarrow & v_2 &=& \ulbvector{1\\1}
 \end{array}
 $$
-Valeurs propres :
-$$ (\lambda_1, \lambda_2 )  = \left( \ulbvector{1\\-4},\ulbvector{1\\1} \right)$$
+Valeurs propres et vecteurs propres :
+$$ (\lambda_1, \lambda_2 )  = ( -4, -1 )$$
+$$ (v_1, v_2 )  = \left( \ulbvector{1\\-4},\ulbvector{1\\1} \right)$$
 Solution générale :
 $$x(t) = c_1e^{\lambda_1 t} v_1+ c_2e^{\lambda_2 t} v_2$$
 $$x(t) = c_1e^{-4t}\ulbvector{1\\-4} + c_2e^{-t}\ulbvector{1\\1}= \left\{\begin{array}{lcr}x_1(t) &=& c_1e^{-4t} + c_2e^{-t} \\ x_2(t) &=& -c_1e^{-4t} + c_2e^{-t} \end{array}\right.$$
@@ -431,8 +432,9 @@ $$\begin{array}{cccc}
 \Leftrightarrow & v_2 &=& \ulbvector{1\\1}
 \end{array}
 $$
-Valeurs propres :
-$$ (\lambda_1, \lambda_2 )  = \left( \ulbvector{1\\-1},\ulbvector{1\\1} \right)$$
+Valeurs propres et vecteurs propres :
+$$ (\lambda_1, \lambda_2 )  = ( -2, 4 )$$
+$$ (v_1, v_2 ) = \left( \ulbvector{1\\-1},\ulbvector{1\\1} \right)$$
 Solution générale :
 $$x(t) = c_1e^{\lambda_1 t} v_1+ c_2e^{\lambda_2 t} v_2$$
 $$x(t) = c_1e^{-2t}\ulbvector{1\\-1} + c_2e^{4t}\ulbvector{1\\1}= \left\{\begin{array}{lcr}x_1(t) &=& c_1e^{-2t} + c_2e^{4t} \\ x_2(t) &=& -c_1e^{-2t} + c_2e^{4t} \end{array}\right.$$
