@@ -20,17 +20,18 @@
 	<li>/etc/crontab : action à lancer tous les x temps</li>
 </ul>
 Ce sont tous de simples fichiers textes. 
-
+<br />
 Les informations liées aux utilisateurs de votre système se trouvent dans le fichier
 /etc/passwd. Ce fichier liste les utilisateurs, ainsi que leurs propriétés. Sur certains systèmes,
 et en particulier sous Linux, les mots de passe ne sont pas (ou plus) contenus dans ce fichier
 mais plutôt dans le fichier /etc/shadow qui n’est accessible que par l’utilisateur root. Les
 utilisateurs sont regroupés dans des groupes, ce qui permet de donner par exemple en une
 seule ligne de commande accès à un répertoire particulier pour un groupe donné. Cela se
-trouve dans le fichier /etc/group.
-
+trouve dans le fichier /etc/group.<br />
+<br />
 Remarque: On a créé shadow car ce fichier, contrairement à passwd, n'est accessible que par root, ainsi les mots de passes sont cryptés et non accessibles aux users lambda,
-créant une double sécurité. Certains programmes ont des comptes utilisateurs pour des raisons d'administration système. Cela permet de restreindre ce que peut faire le programme
+créant une double sécurité. <br />
+Certains programmes ont des comptes utilisateurs pour des raisons d'administration système. Cela permet de restreindre ce que peut faire le programme
 
 
 <div>
@@ -43,9 +44,12 @@ créant une double sécurité. Certains programmes ont des comptes utilisateurs 
 
 <h4 class="question">SLA 99.99%, pourquoi 99.99% et pas 100% ou 95% ?</h4>
 <div class="answer">
-	Service-Level Agreement (SLA) c'est le temps de fonctionnement assuré. Ton systeme doit fonctionné au moins 99.99% du temps.
-	C'est impossible de viser 100% car comme tu dépend d'autres services qui eux proposent 99.99%.
-	Par exemple, on a un hébergeur web comme OVH, tu promet à tes clients que leur site sera en ligne 99.99% du temps (maintenance, mise à jours, etc ...) ou comme proximus qui promet que tu auras la connexion 9999% du temps.
+	Service-Level Agreement (SLA) est le temps de fonctionnement assuré d'un service définit. Le systeme doit fonctionner au moins 99.99% du temps.<br />
+	Il est impossible d'arriver à 100% lorsque l'on dépend d'autres services car ceux-ci proposent en général une disponibilité de 99.99%.<br />
+	Outre la dépendance d'autres services, il faut également que notre service soit mis à jour ou redémarrer de temps en temps.  Il faut donc prendre également cela en compte.<br />
+	Pourquoi dans ce cas la ne pas mettre "95%".  Tout simplement car on veut garantir la plus grand disponibilité possible aux clients.  99.99% est presque devenu une norme pour tous les services, 
+	il est donc logique de voiloir faire de même.<br />
+	(Par exemple, lorsque l'on a un hébergeur web comme OVH, tu promet à tes clients que leur site sera en ligne 99.99% du temps (maintenance, mise à jours, etc ...) ou comme proximus qui promet que tu auras la connexion 99.99% du temps.)
 </div>
 
 
@@ -57,29 +61,43 @@ créant une double sécurité. Certains programmes ont des comptes utilisateurs 
 		<li>langues avec accents ? (français, allemand)</li>
 		<li>alphabets non latins ? (arabe, hébreux, russe)</li>
 		<li>langues sans alphabet ? (chinois, japonais)</li>
-		<li>messages avec autre chose que du texte (images, sons, vidéos, fichiers attachés...)</li>
+		<li>messages avec autre chose que du texte (images, sons, vidéos, fichiers attachés...) ?</li>
 	</ul>
-	Résolu avec MIME (Multipurpose Internet Mail Extensions), un encodage un peu plus récent. Comment ca fonctionne ? L'idée de MIME est de permettre d'encoder du contenu en respectant le standard RGC 822 ; on va toujours envoyer des messages en ASCII 7 bits et sans accents. On va convertir le message de facon à ce que peu importe ce qu'on écrit, ca convertit. L'avantage c'est qu'on a pas du changer tout le modèle SMTP. On a juste du imposer aux utilisateurs des périphériques finaux d'utiliser des MUA compatibles MIME. Ainsi tous les serveurs SMTP qui se trouve sur l'entierté du réseau internet n'ont pas du être changé. MIME utilise toujours un header en ASCII 7bits, mais en définit cinq nouveaux :
+	Résolu avec MIME (Multipurpose Internet Mail Extensions), un encodage un peu plus récent.<br />
+	<b>Comment ca fonctionne ?</b><br/>
+	L'idée de MIME est de permettre d'encoder du contenu en respectant le standard RGC 822; on va donc toujours envoyer des messages en ASCII 7 bits et sans accents. 
+	Cependant, ces messages seront convertir pour permettre d'écrire dans à peu près n'importe quel format.  L'avantage de MINE est de concerver le modèle SMTP. 
+	La seule obligatoin se trouva aux niveaux des utilisateurs périphériques finaux qui doivent utiliser des MUA compatibles MIME. Ainsi tous les serveurs SMTP qui se trouve sur l'entierté du réseau internet n'ont pas du être changé. MIME utilise toujours un header en ASCII 7 bits, mais en définit cinq nouveaux :
 	<ul>
 		<li>Version</li>
-		<li>Description ; Qu'est-ce qui est encrypté</li>
+		<li>Description; qu'est-ce qui est encrypté</li>
 		<li>ID</li>
 		<li>Quel encodage</li>
-		<li>La nature, le type du message ; Est-ce que c'est de l'audio, un pdf, un word, etc</li>
+		<li>La nature, le type du message; est-ce que c'est de l'audio, un pdf, un word, etc</li>
 	</ul>
-	MIME défnit 5 nouveaux schémas d'encodages :
+	MIME défnit églements 5 nouveaux schémas d'encodages :
 	<ul>
 		<li>ASCII (7 bits) de l'époque (max 1000 caractère) - Autorisé
-			<ul><li>Pourquoi 1000 caractères ? Car on avait pas assez de mémoire, on trouvait déjà que 1000 c'était bcp à l'époque et donc ca transmet 1000 par 1000</li></ul></li>
+			<ul><li>Pourquoi 1000 caractères ?<br />
+				Car on avait pas assez de mémoire, on trouvait déjà que 1000 c'était beaucoup à l'époque et donc ca transmet 1000 par 1000</li></ul>
+		</li>
 		<li>ASCII étendu (8 bits) - Interdit
-			<ul><li>Viole le protocole définit dans la RFC 821. malheureusement, il y a une chance qu'un serveur sur le chemin ne comprends pas le 8 bits (encore de nos jours)</li></ul></li>
+			<ul><li>Viole le protocole définit dans la RFC 821. malheureusement, il y a une chance qu'un serveur sur le chemin ne comprends pas le 8 bits (encore de nos jours)</li></ul>
+		</li>
 		<li>Encodage binaire - Interdit
-			<ul><li>Aucune garantie, pareil, des serveurs SMTP qui comprendront pas. A été utilisé par certains MUA : Microsoft exchange</li></ul></li>
+			<ul><li>Aucune garantie, pareil, des serveurs SMTP qui ne comprendront pas. A été utilisé par certains MUA: Microsoft exchange</li></ul>
+		</li>
 		<li>Encodage base64 - Autorisé
-			<ul><li>Le plus utilisé pour faire de l'encodage MIME. Gaspille de la place, contraintes qui augmente 20% en plus qu'un message normal.</li></ul></li>
+			<ul><li>Le plus utilisé pour faire de l'encodage MIME. Gaspille de la place, contraintes qui augmente 20% en plus qu'un message normal.</li></ul>
+		</li>
 		<li>Quoted printable encoding :
-			<ul><li>On conserve le mail, mais on remplace tous les caractères non supportés par une définition texte. A la lecture on fait l'inverse et on remet le caractère d'origine. C'est de moins en moins utilisé.</li></ul></li>
+			<ul><li>On conserve le mail, mais on remplace tous les caractères non supportés par une définition texte. A la lecture on fait l'inverse et on remet le caractère d'origine. C'est de moins en moins utilisé.</li></ul>
+		</li>
 	</ul>
+	<div><!-- Répétition non ? :/ -->
+	Multipurpose Internet Mail Extensions (MIME) ou Extensions multifonctions du courrier Internet est un standard internet qui étend le format de données des courriels pour supporter des textes en différents codage de caractères autres que l'ASCII, des contenus non textuels, des contenus multiples, et des informations d'en-tête en d'autres codages que l'ASCII. Les courriels étant généralement envoyés via le protocole SMTP au format MIME, ces courriels sont souvent appelés courriels SMTP/MIME.
+À l'origine, SMTP avait été prévu pour ne transférer que des fichiers textes (codés en ASCII). Avec l'apparition du multimédia et l'utilisation croissante des applications bureautiques, le besoin s'est fait sentir d'échanger, en plus des fichiers textes, des fichiers binaires (format des applications bureautiques, images, sons, fichiers compressés).
+	</div>
 </div>
 
 
@@ -90,38 +108,33 @@ créant une double sécurité. Certains programmes ont des comptes utilisateurs 
 	C'est une des principales nouveautés de Windows 2000 (NT5).  C'est un grand avantage pour l'administreur système. Ca définit qui a le droit de faire quoi avec son ordinateur dans l'entreprise.
 	Différence entre droits et permissions :
 	<ul>
-		<li>Droit permet d'effectuer une tache (changer le fond d'écran, installer logiciel) (sudo sur unix)</li>
-		<li>Permission: acces ressource : lire repertoire (acces lecture ecrire habituel)</li>
-	</ul>
+		<li>Droit permet d'<b>effectuer une tache</b> (changer le fond d'écran, installer logiciel) (sudo sur unix)</li>
+		<li>Permission: <b>acces ressource</b>: lire repertoire (acces lecture ecrire habituel)</li>
+	</ul><br />
 	Très développé pour les droits et permissions. L'idée est d'assigner des gens à des groupes. On peut avoir des
 	<ul>
-		<li>groupes globales ( utilisable partout mais membre d'un seul domaine),</li>
-		<li>groupe local au domaine (n'importe qui peut participer du moment qu'il est dans le domaine),</li>
-		<li>groupe universel ( mélangé membres de differents domaine)</li>
-	</ul>
-	NT4 groupe globale d'un meme domaine mais jamais de différent domaine (mais pouvait aller sur n'importe quel machien avec trust).</p>
+		<li>Groupes globales (utilisable partout mais membre d'un seul domaine),</li>
+		<li>Groupe local au domaine (n'importe qui peut participer du moment qu'il est dans le domaine),</li>
+		<li>Groupe universel (mélange des membres de differents domaines)</li>
+	</ul><br />
+	NT4 groupe globale d'un même domaine mais jamais de différent domaine (mais pouvait aller sur n'importe quel machien avec trust).
 	<ul>
 		<li>Groupe de sécurité - Permissions sur les fichiers</li>
 		<li>Groupe de ditribution - Echanger des messages, notifications des utilisateurs.</li>
 	</ul>
-	GPO : politique d'application des machines. Ca peut être impliqué à n'importe quel norme de l'arbre (tout le domaine ou OU ou sous OU ou user spécifique). Donc on peut dire : ne peut pas utiliser tel ou tel application sur un noeud, c'est vrai pour tous les noeud en dessous.
-	
-	<p>Attention Profil != GPO</p>
-	Profil : ensemble des réglages et paramètres users. Sur unix, fichiers qui commence par un . et qui se trouve dans home, paramètres des applications. Sur windows, le profil c'est un repertoire à part qui est pas dans home et qui contient tout les réglages paramètres applications. Par exemple quel page de démarrage d'un navigateur etc etc...
-	Par contre GPO est tout les régles, les droits d'user : Si vous pouvez ou pas modifier le fond d'écran. tandis que profil votre choix de fond d'écran (les données en temps que tel).
-	
+	<b>GPO:</b> politique d'application des machines. Cela peut être impliqué à n'importe quel norme de l'arbre (tout le domaine ou OU ou sous OU ou user spécifique). Donc on peut dire: ne peut pas utiliser tel ou tel application sur un noeud et cette restriction est vrai pour tous les noeuds en dessous.
+	<br />
+	<p><b>Attention:</b> Profil != GPO</p>
+	<b>Profil:</b> ensemble des réglages et paramètres utilisateur. Sur unix, il s'agit d'un fichiers qui commence par un . et qui se trouve dans home, il paramètre des applications. Sur windows, le profil est un repertoire à part qui n'est pas dans home et qui contient tous les réglages des paramètres d'applications. Par exemple quelle est la page de démarrage d'un navigateur etc...
+	Par contre GPO définit toutes les régles, les droits des utilisateurs: si vous pouvez ou pas modifier le fond d'écran par exemple. Tandis que profil va sauvegarder votre choix de fond d'écran (les données en temps que tel).
+	<br />
 	Catégoiries GBO flexible et complet
 	<ul>
-		<li>installation logiciel</li>
+		<li>Installation logiciel</li>
 		<li>Sécurité</li>
 		<li>Script de démarrage</li>
 		<li>Template</li>
-	</ul>
-	<div>
-		Multipurpose Internet Mail Extensions (MIME) ou Extensions multifonctions du courrier Internet est un standard internet qui étend le format de données des courriels pour supporter des textes en différents codage de caractères autres que l'ASCII, des contenus non textuels, des contenus multiples, et des informations d'en-tête en d'autres codages que l'ASCII. Les courriels étant généralement envoyés via le protocole SMTP au format MIME, ces courriels sont souvent appelés courriels SMTP/MIME.
-
-À l'origine, SMTP avait été prévu pour ne transférer que des fichiers textes (codés en ASCII). Avec l'apparition du multimédia et l'utilisation croissante des applications bureautiques, le besoin s'est fait sentir d'échanger, en plus des fichiers textes, des fichiers binaires (format des applications bureautiques, images, sons, fichiers compressés).
-	</div>
+	</ul><br />
 </div>
 
 
