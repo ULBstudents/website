@@ -646,12 +646,9 @@ sont compatibles avec le système et motiver la réponse.<figure><img src="image
 		&x(k+4) &+& 8x(k+2) &=& 8(2^k)\\
 		\Leftrightarrow&\lambda^4 &+& 8\lambda^2 &=& 0
 		\end{array}$$
-		est le polynome caractéristique de l'équation homogène est qui a comme racine si on remplace $\lambda^2=z$
-		$$z^2+8z = 0$$
-		$$\Delta = 8^2$$
-		$$\dfrac{-8\pm \sqrt{8^2}}{2} = \{-8 ; 0\}$$
+		est le polynome caractéristique de l'équation homogène est qui a comme unique racine $\lambda=0$
 		L'équation homogène ($x^h(k)$) est alors
-		$$x^h(k)=c_10^k+c_2(-8)^k$$
+		$$x^h(k)=c_10^k$$
 	</li>
 	<li>
 		La solution particulière ($x^p(k)$) aura la forme $c8(2^k)$, il suffit d'injecter cela dans l'équation de départ et on a
@@ -669,24 +666,24 @@ sont compatibles avec le système et motiver la réponse.<figure><img src="image
 		La solution générale ($x(k)$) est
 		$$\begin{array}{rrrrr}
 		x(k) &=& x^h(k) &+& x^p(k)\\
-		&=& c_10^k+c_2(-8)^k&+&\dfrac{1}{16}2^k
+		&=& c_10^k&+&\dfrac{1}{16}2^k
 		\end{array}$$
 		Pour trouver solution particulière pour $x(0)=\sin(a)$ et $x(1)=\sin(b)$, il faut résoudre le système suivant afin de trouver $c_1$ et $c_2$ :
-		$$\left\{\begin{array}{rrrrr}
-		(-8)^0c_2&+&\dfrac{1}{16}2^0 &=& \sin(a)\\
-		(-8)^1c_2&+&\dfrac{1}{16}2^1 &=& \sin(b)
+		$$\left\{\begin{array}{rrrr}
+		\dfrac{1}{16}2^0 &=& \sin(a)\\
+		\dfrac{1}{16}2^1 &=& \sin(b)
 		\end{array}\right.
 		\Leftrightarrow
 		\left\{\begin{array}{rrc}
-		c_2&=&\sin(a)-\dfrac{1}{16}\\
-		c_2&=&\dfrac{1}{-8}\left(\sin(b)-\dfrac{1}{8}\right)
+		0&=&\sin(a)-\dfrac{1}{16}\\
+		0&=&\sin(b)-\dfrac{1}{8}
 		\end{array}\right.
 		$$
 	</li>
 	<li>
-		Et l'on trouve $c_1=\mathbb{R}$ et $c_2=-\dfrac{1}{16}$. La solution particulière est donc
-		$$x(k) = -\dfrac{1}{16}(-8)^k + \dfrac{1}{16}2^k$$
-		La solution numérique pour $k = 0, 1, 2, 3, 4$ est $[ 0 , \dfrac{5}{8} , \dfrac{-15}{4} , \dfrac{65}{2} , -255 ]$
+		Mais donc au final on trouve $c_1=\mathbb{R}$. La solution particulière est donc
+		$$x(k) = \dfrac{1}{16}2^k$$
+		La solution numérique pour $k = 0, 1, 2, 3, 4$ est $[ \dfrac{1}{16} , \dfrac{1}{8} , \dfrac{1}{4} , \dfrac{1}{2} , 1 ]$
 	</li>
 </ol>
 </div>
