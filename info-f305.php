@@ -617,9 +617,8 @@ sont compatibles avec le système et motiver la réponse.<figure><img src="image
 		<li>
 			Le polynome caractéristique de l'équation homogène est
 			$$\lambda^3-4\lambda^2+8=0$$
-			qui a comme racines $\lambda_1=2$,$\lambda_2=3$. L'équation homogène est
-			$$x^h(k)=c_12^k+c_23^k$$
-			La solution particulière aura une forme $c3(4^k)$, il suffit d'injecter cela dans l'équation de départ et on a
+			qui a comme racines $\lambda_1=?$,$\lambda_2=?$. L'équation homogène est
+			$$x^h(k)=?$$
 		</li>
 		<li>
 		</li>
