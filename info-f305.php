@@ -626,14 +626,14 @@ sont compatibles avec le système et motiver la réponse.<figure><img src="image
 			L'équation homogène est donc 
 			$$x^h(k) = c_1 2^k + c_2 (1+\sqrt{5})^k + c_3 (1-\sqrt{5})^k$$
 		</li>
-		La solution particulière aura une forme $\dfrac{c3^k}{k + 1}$, il suffit d'injecter cela dans l'équation de départ et on a
+		<li>
+			La solution particulière aura une forme $\dfrac{c3^k}{k + 1}$, il suffit d'injecter cela dans l'équation de départ et on a
 			$$\begin{array}{crcl}
-            &\dfrac{c3^k+3}{k + 3 + 1}+4\dfrac{c3^k+2}{k + 2+ 1}+8\dfrac{c3^k}{k + 1}&=&\dfrac{3^k}{k + 1}\\
-            \Leftrightarrow&\dfrac{c3^k+3}{k + 4} + 4\dfrac{c3^k+2}{k + 3} + 8\dfrac{c3^k}{k + 1}&=&\dfrac{3^k}{k + 1}\\
-            \Leftrightarrow& ???&ta&maman\\
+			&\dfrac{c3^k+3}{k + 3 + 1}+4\dfrac{c3^k+2}{k + 2+ 1}+8\dfrac{c3^k}{k + 1}&=&\dfrac{3^k}{k + 1}\\
+			\Leftrightarrow&\dfrac{c3^k+3}{k + 4} + 4\dfrac{c3^k+2}{k + 3} + 8\dfrac{c3^k}{k + 1}&=&\dfrac{3^k}{k + 1}\\
+			\Leftrightarrow& ???&ta&maman\\
 			\end{array}$$
 			La solution générale est $$\begin{array}{crcl}&x(k)&=&x^h(k)+x^p(k)\\\Leftrightarrow&x(k)&=& ? + ?\end{array}$$
-		<li>
 		</li>
 		<li>
 		</li>
