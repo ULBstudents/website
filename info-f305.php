@@ -668,10 +668,10 @@ sont compatibles avec le système et motiver la réponse.<figure><img src="image
 		x(k) &=& x^h(k) &+& x^p(k)\\
 		&=& c_10^k&+&\dfrac{1}{16}2^k
 		\end{array}$$
-		Pour trouver solution particulière pour $x(0)=\sin(a)$ et $x(1)=\sin(b)$, il faut résoudre le système suivant afin de trouver $c_1$ et $c_2$ :
-		$$\left\{\begin{array}{rrrr}
-		\dfrac{1}{16}2^0 &=& \sin(a)\\
-		\dfrac{1}{16}2^1 &=& \sin(b)
+		Pour trouver solution particulière pour $x(0)=\sin(a)$ et $x(1)=\sin(b)$, il faut résoudre le système suivant afin de trouver $c_1$ :
+		$$\left\{\begin{array}{rrr}
+		c_10^k + \dfrac{1}{16}2^0 &=& \sin(a)\\
+		c_10^k + \dfrac{1}{16}2^1 &=& \sin(b)
 		\end{array}\right.
 		\Leftrightarrow
 		\left\{\begin{array}{rrc}
