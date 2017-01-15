@@ -15,7 +15,8 @@ code {
     color: #c7254e;
     background-color: #f9f2f4;
     border-radius: 3px;
-    font-family: "Menlo", "Liberation Mono", "Consolas", "DejaVu Sans Mono", "Ubuntu Mono", "Courier New", "andale mono", "lucida console", monospace;
+    font-family: "Menlo", "Liberation Mono", "Consolas", "DejaVu Sans Mono", "Ubuntu Mono", 
+        "Courier New", "andale mono", "lucida console", monospace;
     word-wrap: normal;
 }
 
@@ -115,7 +116,7 @@ pre code {
             Français, allemand
         </li>
         <li><b>Alphabets non latins ?</b><br />
-            Arabe, hébreux, russe)
+            Arabe, hébreux, russe
         </li>
         <li><b>Langues sans alphabet ?</b><br />
             Chinois, japonais
