@@ -15,7 +15,8 @@ code {
     color: #c7254e;
     background-color: #f9f2f4;
     border-radius: 3px;
-    font-family: "Menlo", "Liberation Mono", "Consolas", "DejaVu Sans Mono", "Ubuntu Mono", "Courier New", "andale mono", "lucida console", monospace;
+    font-family: "Menlo", "Liberation Mono", "Consolas", "DejaVu Sans Mono", "Ubuntu Mono", 
+        "Courier New", "andale mono", "lucida console", monospace;
     word-wrap: normal;
 }
 
@@ -72,16 +73,16 @@ pre code {
     Les informations liées aux utilisateurs de votre système se trouvent dans le fichier 
     <code>/etc/passwd</code>. Ce fichier liste les utilisateurs, ainsi que leurs propriétés. Sur 
     certains systèmes, et en particulier sous Linux, les mots de passe ne sont pas (ou plus) contenus 
-    dans ce fichier mais plutôt dans le fichier /etc/shadow qui n’est accessible que par l’utilisateur 
-    root. Les utilisateurs sont regroupés dans des groupes, ce qui permet de donner par exemple en une
-    seule ligne de commande accès à un répertoire particulier pour un groupe donné. Cela se
-    trouve dans le fichier /etc/group.<br />
+    dans ce fichier mais plutôt dans le fichier <code>/etc/shadow</code> qui n’est accessible que par 
+    l’utilisateur root. Les utilisateurs sont regroupés dans des groupes, ce qui permet de donner par 
+    exemple en une seule ligne de commande accès à un répertoire particulier pour un groupe donné. 
+    Cela se trouve dans le fichier <code>/etc/group</code>.<br />
     <br />
     <b>Remarque:</b> On a créé shadow car ce fichier, contrairement à passwd, n'est accessible que par 
-    root, ainsi les mots de passes sont cryptés et non accessibles aux users lambda, créant une double 
+    root, ainsi les mots de passe sont cryptés et non accessibles aux users lambda, créant une double 
     sécurité. <br />
     Certains programmes ont des comptes utilisateurs pour des raisons d'administration système. Cela 
-    permet de restreindre ce que peut faire le programme
+    permet de restreindre ce que peut faire le programme.
 </div>
 
 
@@ -115,7 +116,7 @@ pre code {
             Français, allemand
         </li>
         <li><b>Alphabets non latins ?</b><br />
-            Arabe, hébreux, russe)
+            Arabe, hébreux, russe
         </li>
         <li><b>Langues sans alphabet ?</b><br />
             Chinois, japonais
@@ -133,7 +134,7 @@ pre code {
     Cependant, ces messages seront convertir pour permettre d'écrire dans à peu près n'importe quel 
     format.  L'avantage de MINE est de concerver le modèle SMTP. <br />
     La seule obligation se trouva aux niveaux des utilisateurs périphériques finaux qui doivent 
-    utiliser des MUA compatibles MIME. Ainsi tous les serveurs SMTP qui se trouve sur l'entierté 
+    utiliser des MUA compatibles MIME. Ainsi tous les serveurs SMTP qui se trouvent sur l'entierté 
     du réseau internet n'ont pas du être changé. MIME utilise toujours un header en ASCII 7 bits, 
     mais en définit <b>cinq nouveaux</b>:
     <ul>
@@ -231,8 +232,8 @@ pre code {
     contient tous les réglages des paramètres d'applications. Par exemple quelle est la page de 
     démarrage d'un navigateur etc...<br />
     Par contre GPO définit toutes les régles, les droits des utilisateurs: si vous pouvez ou pas 
-    modifier le fond d'écran par exemple. Tandis que profil va sauvegarder votre choix de fond d
-    'écran (les données en temps que tel).<br />
+    modifier le fond d'écran par exemple. Tandis que profil va sauvegarder votre choix de fond 
+    d'écran (les données en temps que tel).<br />
     <br />
     Catégoiries GBO flexible et complet
     <ul>
@@ -487,7 +488,8 @@ pre code {
                 <li>Quoted printable encoding</li>
             </ul></li>
         <li>POP3</li>
-        <li>IMAP4 plus complet et plus complexe, peut recupérer les info MIME, gere acces simultané et pluseirus boites mails</li>
+        <li>IMAP4 plus complet et plus complexe, peut recupérer les info MIME, gere acces 
+            simultané et pluseirus boites mails</li>
     </ul></li>
 <li>Windows
     <ul>
