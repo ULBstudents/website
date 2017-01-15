@@ -232,8 +232,8 @@ pre code {
     contient tous les réglages des paramètres d'applications. Par exemple quelle est la page de 
     démarrage d'un navigateur etc...<br />
     Par contre GPO définit toutes les régles, les droits des utilisateurs: si vous pouvez ou pas 
-    modifier le fond d'écran par exemple. Tandis que profil va sauvegarder votre choix de fond d
-    'écran (les données en temps que tel).<br />
+    modifier le fond d'écran par exemple. Tandis que profil va sauvegarder votre choix de fond 
+    d'écran (les données en temps que tel).<br />
     <br />
     Catégoiries GBO flexible et complet
     <ul>
