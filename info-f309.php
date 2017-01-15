@@ -133,7 +133,7 @@ pre code {
     Cependant, ces messages seront convertir pour permettre d'écrire dans à peu près n'importe quel 
     format.  L'avantage de MINE est de concerver le modèle SMTP. <br />
     La seule obligation se trouva aux niveaux des utilisateurs périphériques finaux qui doivent 
-    utiliser des MUA compatibles MIME. Ainsi tous les serveurs SMTP qui se trouve sur l'entierté 
+    utiliser des MUA compatibles MIME. Ainsi tous les serveurs SMTP qui se trouvent sur l'entierté 
     du réseau internet n'ont pas du être changé. MIME utilise toujours un header en ASCII 7 bits, 
     mais en définit <b>cinq nouveaux</b>:
     <ul>
