@@ -72,16 +72,16 @@ pre code {
     Les informations liées aux utilisateurs de votre système se trouvent dans le fichier 
     <code>/etc/passwd</code>. Ce fichier liste les utilisateurs, ainsi que leurs propriétés. Sur 
     certains systèmes, et en particulier sous Linux, les mots de passe ne sont pas (ou plus) contenus 
-    dans ce fichier mais plutôt dans le fichier /etc/shadow qui n’est accessible que par l’utilisateur 
-    root. Les utilisateurs sont regroupés dans des groupes, ce qui permet de donner par exemple en une
-    seule ligne de commande accès à un répertoire particulier pour un groupe donné. Cela se
-    trouve dans le fichier /etc/group.<br />
+    dans ce fichier mais plutôt dans le fichier <code>/etc/shadow</code> qui n’est accessible que par 
+    l’utilisateur root. Les utilisateurs sont regroupés dans des groupes, ce qui permet de donner par 
+    exemple en une seule ligne de commande accès à un répertoire particulier pour un groupe donné. 
+    Cela se trouve dans le fichier <code>/etc/group</code>.<br />
     <br />
     <b>Remarque:</b> On a créé shadow car ce fichier, contrairement à passwd, n'est accessible que par 
-    root, ainsi les mots de passes sont cryptés et non accessibles aux users lambda, créant une double 
+    root, ainsi les mots de passe sont cryptés et non accessibles aux users lambda, créant une double 
     sécurité. <br />
     Certains programmes ont des comptes utilisateurs pour des raisons d'administration système. Cela 
-    permet de restreindre ce que peut faire le programme
+    permet de restreindre ce que peut faire le programme.
 </div>
 
 
