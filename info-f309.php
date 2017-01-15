@@ -488,7 +488,8 @@ pre code {
                 <li>Quoted printable encoding</li>
             </ul></li>
         <li>POP3</li>
-        <li>IMAP4 plus complet et plus complexe, peut recupérer les info MIME, gere acces simultané et pluseirus boites mails</li>
+        <li>IMAP4 plus complet et plus complexe, peut recupérer les info MIME, gere acces 
+            simultané et pluseirus boites mails</li>
     </ul></li>
 <li>Windows
     <ul>
