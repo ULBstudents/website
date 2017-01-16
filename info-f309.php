@@ -67,6 +67,13 @@ pre code {
         <li><b>/etc/crontab</b><br />
             Action à lancer tous les x temps
         </li>
+        <li><b>/etc/resolv.conf</b><br />
+            Nom du domaine local et adresse des serveurs DNS
+            <pre><code>search ulb.ac.be
+            nameservers 156.0.12.1
+            nameservers 124.9.13.92
+            </code></pre><br />
+        </li>
     </ul><br />
     Ce sont tous de simples fichiers textes. 
     <br />
