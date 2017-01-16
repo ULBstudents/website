@@ -1908,25 +1908,10 @@ Il faut donc Timeout + 18 RTT : $1 + 18*0.02214032 = 1.39852576 s$
 			<tbody>
 				<tr><td>localhost</td><td>*</td><td>255.255.255.255</td><td>UH</td><td>lo0</td></tr>
 				<tr><td>165.128.48.0</td><td>*</td><td>255.255.240.0</td><td>U</td><td>eth0</td></tr>
-				<tr><td>124.128.240.0</td><td>*</td><td>255.255.255.0</td><td>U</td><td>eth1</td></tr>
-				<tr><td>124.178.64.0</td><td>*</td><td>255.255.224.0</td><td>U</td><td>eth2</td></tr>
-				<tr><td>124.178.96.0</td><td>124.178.64.3</td><td>255.255.224.0</td><td>UG</td><td>eth2</td></tr>
-				<tr><td>default</td><td>124.178.64.3</td><td>0.0.0.0</td><td>UG</td><td>eth1</td></tr>
-			</tbody>
-			<tfoot>
-			</tfoot>
-		</table>
-		Fusion
-		<table>
-			<thead>
-				<tr><th>Destination</th><th>Gateway</th><th>Masque</th><th>Flags</th><th>Iface</th></tr>
-			</thead>
-			<tbody>
-				<tr><td>localhost</td><td>*</td><td>255.255.255.255</td><td>UH</td><td>lo0</td></tr>
-				<tr><td>165.128.48.0</td><td>*</td><td>255.255.240.0</td><td>U</td><td>eth0</td></tr>
-				<tr><td>124.128.240.0</td><td>*</td><td>255.255.255.0</td><td>U</td><td>eth1</td></tr>
-				<tr><td>124.178.64.0</td><td>*</td><td>255.255.224.0</td><td>U</td><td>eth2</td></tr>
-				<tr><td>default</td><td>124.178.64.3</td><td>0.0.0.0</td><td>UG</td><td>eth2</td></tr>
+				<tr><td>165.128.240.0</td><td>*</td><td>255.255.255.0</td><td>U</td><td>eth1</td></tr>
+				<tr><td>165.128.64.0</td><td>*</td><td>255.255.224.0</td><td>U</td><td>eth2</td></tr>
+				<tr><td>165.128.96.0</td><td>165.128.64.2</td><td>255.255.224.0</td><td>UG</td><td>eth2</td></tr>
+				<tr><td>default</td><td>165.128.240.2</td><td>0.0.0.0</td><td>UG</td><td>eth1</td></tr>
 			</tbody>
 			<tfoot>
 			</tfoot>
@@ -1935,10 +1920,10 @@ Il faut donc Timeout + 18 RTT : $1 + 18*0.02214032 = 1.39852576 s$
 	<li>
 		<table>
 			<tbody>
-				<tr><th>76.193</th><td>0100 1100.1100 0001</td></tr>
-				<tr><th>240.0</th><td>1111 0000.0000 0000</td></tr>
-				<tr><th>255.0</th><td>1111 1111.0000 0000</td></tr>
-				<tr><th>224.0</th><td>1110 0000.0000 0000</td></tr>
+				<tr><th>x.x.76.193</th><td>x.x.0100 1100.1100 0001</td></tr>
+				<tr><th>x.x.240.0</th><td>x.x.1111 0000.0000 0000</td></tr>
+				<tr><th>x.x.255.0</th><td>x.x.1111 1111.0000 0000</td></tr>
+				<tr><th>x.x.224.0</th><td>x.x.1110 0000.0000 0000</td></tr>
 			</tbody>
 		</table>
 		Seul possible 255.0 pour le 1100 du 76. Le masque 255.0 est celui du 124.128.240.0 et son host ID sera simplement 193.
