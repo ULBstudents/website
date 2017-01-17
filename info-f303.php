@@ -1484,7 +1484,7 @@ Une fois le <b>3-way handshake</b> effectué, le client et le serveur ont reçu 
 				<li>Temps de traitement de A : $0.1 $ s</li>
 				<li>Temps de B vers A : $\dfrac{(40)8}{10^6} = 0.00032 $ s</li>
 			</ol>
-			Donc $0.00416 + 0.1 + 0.00032 = 0.10448$ s
+			Donc $1$ RTT $ = 0.00416 + 0.1 + 0.00032 = 0.10448$ s
 		</li>
 		<li>
 			<table>
@@ -1502,6 +1502,7 @@ Une fois le <b>3-way handshake</b> effectué, le client et le serveur ont reçu 
 					<tr><td>24</td><td>35</td><td>36</td><td>36</td></tr>
 				</thead>
 			</table>
+			Donc $24$ RTT $ = 24 * 0.10448 = 2,50752$ s
 		</li>
 	</ol>
 </div>
@@ -1524,10 +1525,30 @@ Une fois le <b>3-way handshake</b> effectué, le client et le serveur ont reçu 
 <div class="answer">
 	<ol class="alphabet">
 		<li>
-			?
+			Étape par étape :
+			<ol>
+				<li>Temps de A vers B : $\dfrac{(256+40)8}{10^6} = 0.002368 $ s</li>
+				<li>Temps de traitement de A : $0.02 $ s</li>
+				<li>Temps de B vers A : $\dfrac{(40)8}{10^6} = 0.00032 $ s</li>
+			</ol>
+			Donc $1$ RTT $ = 0.002368 + 0.1 + 0.00032 = 0.102688$ s
 		</li>
 		<li>
-			?
+			<table>
+				<thead>
+					<tr><th>RTT</th><th>ACK</th><th>CWND (MSS)</th><th>Envoyé (MSS)</th></tr>
+				</thead>
+				<tbody>
+					<tr><td>0</td><td>0</td><td>1</td><td>1</td></tr>
+					<tr><td>1</td><td>1</td><td>2</td><td>2</td></tr>
+					<tr><td>2</td><td>2</td><td>4</td><td>4</td></tr>
+					<tr><td>3</td><td>4</td><td>8</td><td>8</td></tr>
+					<tr><td>4</td><td>16</td><td>9</td><td>9</td></tr>
+					<tr><td>...</td><td>...</td><td>...</td><td>...</td></tr>
+					<tr><td>7</td><td>11</td><td>12</td><td>12</td></tr>
+				</thead>
+			</table>
+			Donc $7$ RTT $ = 7 * 0.102688 = 0.718816$ s
 		</li>
 	</ol>
 </div>
