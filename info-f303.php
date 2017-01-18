@@ -1065,7 +1065,7 @@ Les réponses proviennent (ou par l'intermédiaire de résumé) de Denis Steckel
 		<li>Le serveur local, n'ayant pas l'adresse requise en cache, contacte un des root servers (défini dans sa configuration), avec la même requête.</li>
 		<li>Le serveur root contacté lui renvoie alors le nom et l'adresse authoritaire (champs <b>NS</b> et <b>A</b> du serveur principal pour le <b>TLD</b> <b>.com</b>)</li>
 		<li>Le serveur local réémet à nouveau la même requête vers le serveur du <b>TLD</b> <b>.com</b>. Ce serveur <b>TLD</b> renvoie lui aussi les champs <b>NS</b> et <b>A</b> pour le serveur faisant authorité sur le domaine <b>www.company.com</b> (par exemple <i>ns110.ovh.net</i>).</li>
-		<li>Le serveur local contacte alors le serveur authoritaire, qui lui renvoie la zone pour le domaine <b>company.com</b>, qui contient un champ <b>CNAME</b> pour <b>www.company.com</b>. Si cet champ pointe vers le domaine contenu dans l'enregistrement <b>A</b> de la zone, la recherche s'arrête, le client a obtenu l'ip désirée.</li>
+		<li>Le serveur local contacte alors le serveur authoritaire, qui lui renvoie la zone pour le domaine <b>company.com</b>, qui contient un champ <b>CNAME</b> pour <b>www.company.com</b>. Si ce champ pointe vers le domaine contenu dans l'enregistrement <b>A</b> de la zone, la recherche s'arrête, le client a obtenu l'ip désirée.</li>
 		<li>Sinon, tant qu'un enregistrement <b>A</b> n'a pas été trouvé, le serveur recommence les mêmes étapes à partir du domaine obtenu dans le champ <b>CNAME</b>.</li>
 	</ul>
 	<figure>
