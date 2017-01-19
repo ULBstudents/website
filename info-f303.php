@@ -33,6 +33,11 @@ pre code {
     background-color: transparent;
     border-radius: 0;
 }
+
+sub, sup {
+    font-size: smaller;
+}
+
 </style>
 
 
@@ -243,8 +248,8 @@ Merci à eux.
             binaires</b>, c'est-à-dire des polynômes dont les coefficients correspondent à la 
             séquence binaire. Ainsi la séquence binaire <code>0110101001</code> peut être 
             représentée sous la forme polynomiale suivante: 
-            <pre><code>0*X^9 + 1*X^8 + 1*X^7 + 0*X^6 + 1*X^5 + 0*X^4 + 1*X^3 + 0*X^2 + 0*X^1 + 1*X^0
-            </code></pre>
+            $$0*X^9 + 1*X^8 + 1*X^7 + 0*X^6 + 1*X^5 + 0*X^4 + 1*X^3 + 0*X^2 + 0*X^1 + 1*X^0
+            $$
             De cette façon, le bit de poids faible de la séquence (le bit le plus à droite) 
             représente le degré 0 du polynôme (<code>X^0 = 1</code>), le 4ème bit en partant de 
             la droite représente le degré 3 du polynôme (<code>X^3</code>)... Une séquence de n bits 
@@ -525,7 +530,7 @@ Merci à eux.
 </h4>
 <div class="answer">
     On ne peut pas utiliser une fenêtre aussi grande que pour le <b>GBN</b> (<b>Go-Back N</b>). 
-    <pre><code>Taille<sub>max</sub> = Nbr de numéro de packets / 2 = K/2</code></pre>
+    $$Taille_{max} = \frac{\text{Nbr de numéro de packets}}{2} = \frac{K}{2}$$
     Car il ne faut pas qu'un nombre de la fenêtre de l'émetteur corresponde à un nombre de la 
     fenêtre du récepteur, mais d'un autre rang.<br />
     Exemple (fenêtre de taille 3 avec une numérotation de 4 chiffres):<br />
@@ -573,220 +578,503 @@ Merci à eux.
 <h4 class="question">
     <ol class="alphabet">
         <li>
-            Donnez 4 éléments majeurs des protocoles "Go-Back-N" et "<b>Selective Repeat</b>" qui 
-            permettent de les différencier.
+            Donnez 4 éléments majeurs des protocoles "<b>Go-Back-N</b>" et "<b>Selective Repeat</b>" 
+            qui permettent de les différencier.
         </li>
         <li>
             Pour chacun de ces éléments pris indépendamment, indiquez si <b>TCP</b> s'apparente 
-            davantage à l'un d'eux. Expliquez.</li><li>Quelle optimisation supplémentaire, liée 
+            d'avantage à l'un d'eux. Expliquez.
+        </li>
+        <li>Quelle optimisation supplémentaire, liée 
             au contrôle d'erreur, <b>TCP</b> y apporte-t-il ?
         </li>
     </ol>
 </h4>
 <div class="answer">
     <ol class="alphabet">
-<li>
-    <table>
-        <thead>
-            <tr>
-                <th>
-                    <b>GBN</b> (<b>Go-Back N</b>) 
-                </th>
-                <th>
-                    <b>SR</b> (<b>Selective Repeat</b>) 
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>
-                    Un seul <b>ACK</b>
-                </td>
-                <td>
-                    <b>ACK</b> individuels pour chaque packet
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Détruit les packet "en avance" et demande une reception "dans l'ordre"
-                </td>
-                <td>
-                    Il existe un buffer du côté récepteur, on ne détruit donc pas les paquets arrivés "en avance"
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Un seul timer correspondant au dernier packet
-                </td>
-                <td>
-                    Timer individuels pour chaque packet
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    On renvoie tout les paquets à partir de celui sans <b>ACK</b>
-                </td>
-                <td>
-                    On renvoie que les packets sans <b>ACK</b>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</li>
-<li>
-    La technique de fiabilité de <b>TCP</b> est un mixte entre la technique <b>GBN</b> (<b>Go-Back N</b>)  et la technique <b>SR</b> (<b>Selective Repeat</b>). Dans la première technique, on reprends la méthode d'un seul timer (associé au dernier paquet) ainsi que les <b>ACK</b> cumulatif (<b>ACK</b>(6) signifie qu'on aussi <b>ACK</b>(5) et les autres précédents). Cependant dans le <b>GBN</b> (<b>Go-Back N</b>) on renvoyait toute la fenêtre après le <b>ACK</b> de retour, mais ici on reprend, dans la deuximème technique, le revoie seulement du dernier segment manquant et on verra avec les <b>ACK</b> futurs si il en manquait d'autres. 
-</li>
-<li>
-    L'optimisation " Fast retransmit " peut être mis en place, elle permet à <b>TCP</b> de détecter avant le timer qu'un segment est perdu. En effet, si on envoie les paquets par rafale, et qu'on recoit en retour plusieurs fois un même <b>ACK</b>, cela veut dire que plusieurs segments postérieurs sont arrivé avant le segment lié à cet <b>ACK</b>. Ce segment est donc soit perdu, corrompu ou en retard.
-    Par conventation, on considère que le segment est perdu après qu'on ai reçu trois <b>ACK</b> identiques.
-</li>
-</ol>
-</div>
-
-
-
-<h4 class="question"><ol class="alphabet"><li>En première approximation, quels sont les 3 paramètres qui influencent le débit d'une connexion <b>TCP</b> ? Expliquez.</li><li><b>TCP</b> garantit-il un partage équitable des ressources du réseau par les différentes connexions ? Pourquoi ?</li></ol></h4>
-<div class="answer"><ol class="alphabet">
-<li>
-    Il y a 3 paramètres qui peuvent entraîner des pertes et ainsi une baisse momentané du débit :
-    <ul>
-        <li><b>p</b> ( <b>Taux d'erreur</b> ) ;</li>
-        <li><b>W</b> ( <b>Fenêtre de congestion</b> ) mesuré en <b>MSS</b> ( <b>Max Segment Size</b> ) ;</li>
-        <li><b>RTT</b> ( <b>Round-Trip Time</b> ).</li>
-    </ul>
-    Car la formule de l'efficacité est $\sqrt{\frac{3}{2}}\frac{MSS}{RTT}$ et donc est meilleure avec des MSS plus gros et des petits RTT. Des packets plus gros dont "l'aller-retour" est rapide.
-</li>
-<li>
-    Quand <b>TCP</b> est en concurrence avec <b>UDP</b>, <b>TCP</b> va ralentir mais <b>UDP</b> ne va pas réduire son trafic. <b>TCP</b> va donc être désavantagé par rapport à <b>UDP</b>. On remarque également avec <b>TCP</b> que aux goulets d'étranglement, si on a 2 connections <b>TCP</b> concurrentes avec les même <b>RTT</b> et qu'une a commencé avant l'autre, elles vont se partager la bande passante de manière de plus en plus équitable au fur et à mesure que le temps avance. Si par contre elles n'ont pas le même <b>RTT</b>, celle qui aura le plus petit <b>RTT</b> sera avantagée. C'est à la fois une bonne chose et une mauvaise chose. En effet, si on regarde au niveau locale, les ressources ne sont pas réparties équitablement (mauvaise chose) mais au niveau globale, la connexion avec un <b>RTT</b> plus grand sera passée par plus de noeuds puisqu'elle vient de plus loin et donc aura consommé plus de ressources sur d'autres noeuds que la connexion avec un petit <b>RTT</b>.
-</li>
-</ol></div>
-
-
-
-<h4 class="question">10 processus clients communiquent simultanément avec un processus serveur attaché au <b>port</b> 8000.<ol class="alphabet"><li>Combien de sockets vont être ouverts par le serveur si les processus communiquent par <b>UDP</b> ? Pourquoi ?</li><li>Même question s'ils communiquent par <b>TCP</b>.</li></ol></h4>
-<div class="answer"><ol class="alphabet">
-<li>
-    <b>UDP</b> ne crée pas de connexion persistante. L'emetteur ne fait que créer un packet en y attachant l'<b>IP</b> ciblé, le <b>port</b> ciblé ainsi que ses propres coordonnées puis l'envoie. Il ne se soucie pas si il atteint le recepteur ou non. Ainsi le processus serveur attaché au <b>port</b> 8000 recevra (si il n'y a aucune perte) les 10 messages envoyé par les processus clients. Du coup 1 seul socket sera ouvert.
-</li>
-<li>
-    <b>TCP</b> crée une connexion persistante, du coup il faut ouvrir et réserver un socket pour chaque processus client. Du coup 10 sockets seront ouverts. Mais il ne faut pas oublier le socket qui sert à écouter et à accepter les nouvelles connexions. Donc c'est un total de 11 sockets qui seront ouverts.
-</li>
-</ol></div>
-
-<h4 class="question"><ol class="alphabet"><li>Comment l'émetteur <b>TCP</b> détecte-t-il une congestion ?</li><li>Décrivez le mécanisme de contrôle de congestion de <b>TCP</b>.</li><li>Quelle distinction <b>TCP</b> fait-il entre congestion légère et congestion sévère ? Comment réagit-il dans chaque cas ?</li><li>Si on néglige les effets du contrôle de flux, ce contrôle de congestion détermine largement le débit moyen d'une connexion <b>TCP</b>. Quand plusieurs connexions <b>TCP</b> sont en compétition, se partagent-elles la bande passante disponible de façon équitable ? Expliquez.</li></ol></h4>
-<div class="answer"><ol class="alphabet">
-    <li><b>TCP</b> peut distinguer 2 types de <b>congestions</b>: soit il reçoit 3 <b>ACK</b>s consécutifs pour le même numéro de séquence (donc un des paquets intermédiaire a été perdus, mais les suivants sont passés: <b>faible congestion</b>), soit un <b>ACK</b> n'arrive pas dans le temps imparti (timeout, beaucoup de paquets perdus: <b>congestion sévère</b>).</li>
-    <li>Au démarage de la transmission, <b>TCP</b> envoie les données avec une fenêtre de taille 1 <b>MSS</b> (<b>Maximum Segment Size</b>), correspondant au nombre de paquets qui peuvent être en parcourt simultanément. La taille de la fenêtre est doublée à chaque itération (en incrémentant la taille à chaque <b>ACK</b> reçu), de sorte qu'elle a une <b>croissance exponentielle</b>. S'il détecte une <b>faible congestion</b>, il divise la taille de la fenêtre par deux et change de mode pour incrémenter la taille de la fenêtre à chaque itération (+1 pour chaque fenêtre totalement envoyée) pour adopter une <b>croissance linéaire</b>. Il approche ainsi <b>dichotomiquement</b> la taille moyenne de fenêtre optimale (càd le nombre de paquets en parcourt, et donc la vitesse d'envoi). S'il détecte une <b>congestion sévère</b>, il réduit la taille de fenêtre à 1 et recommence en mode de <b>croissance exponentiel</b>. Il peut éventuellement repasser en mode de <b>croissance linéaire</b> lorsqu'il a atteint la moitié de la taille de fenêtre qui a provoqué un timeout (puisque doubler sa taille provoquera probablement de nouveau un timeout).</li>
-    <li>Voir (a) et (b).</li>
-    <li>Sachant que le timeout est calculé à partir du <b>RTT</b>, deux sessions <b>TCP</b> en compétition pour la même connexion approcheront toujours la vitesse optimale pour leurs <b>RTT</b>. <b>TCP</b> répartira la connexion de façon équitable en ce sens que chaque session utilisera une bande passante inversément proportionelle à son <b>RTT</b>, évitant la retransmission en bloc de paquets inutiles sur des connexions trop lentes.</li>
-</ol></div>
-
-
-
-
-<h4 class="question">
-<ol class="alphabet">
-    <li>Expliquez la différence entre un simple ordinateur et un routeur</li>
-    <li>Expliquez le principe d'une table de routage</li>
-</ol>
-</h4>
-<div class="answer">
-<ol class="alphabet">
-    <li>Un routeur est un matériel de la chouche 3 qui relie plusieurs réseaux. Sachant qu'une carte réseau ne peut être relié qu'à un seul réseau ; il doit donc avoir une interface dans chacun des réseaux auquel il est connecté. C'est donc simplement une machine avec plusieurs interfaces (plusieurs cartes réseau), chacune reliée à un réseau. Son rôle va être d'aiguiller les paquets reçus entre les diférents réseaux. Il y a enfaite peu de chose qui différencie un simple ordinateur d'un routeur. La principale différence est qu'un routeur accepte de relayer des paquets qui ne lui sont pas destiné alors qu'une simple machine les jettera à la poubelle.
-    <li>Imaginons que nous sommes un routeur ayant comme adresse MAC l'adresse 00:11:22:33:44:55 et comme adresse IP 192.168.0.1/24. Nous recevons la trame suivante (dans laquelle nous indiquons aussi l'en-tête de couche 3) sur une de nos interfaces :
-    
-    <table>
-        <thead>
-            <tr>
-                <th>$MAC_Next$</th>
-                <th>$MAC_Prev$</th>
-                <th></th>
-                <th></th>
-                <th>$IP_SRC$</th>
-                <th>$IP_DST$</th>
-                <th></th>
-                <th></th>
-            </tr>
-        <tbody>
-            <tr>
-                <td>00:11:22:33:44:55</td>
-                <td>01:2B:45:56:78:ED</td>
-                <td>IP</td>
-                <td>???</td>
-                <td>10.0.0.1</td>
-                <td>136.42.0.28</td>
-                <td>Données à envoyer</td>
-                <td>CRC</td>
-            </tr>
-        </tbody>
-        </thead>
-        <tfoot>
-        </tfoot>
-    </table>
-        
-    Une adresse MAC est propre à un réseau local (règle couche 2), on ne connait donc pas l'adresse mac source ( $MAC_SRC$ ) ni l'adresse mac de destination ( $MAC_DEST$ ). Ici, la trame arrive sur l'interface de notre machine ayant pour adresse IP 192.168.0.1/24. Son réseau ne contient pas d'adresse UP 10.0.0.1 = la machine 10.0.0.1 ne fait pas partie du réseau. L'adresse $MAC_SRC$ que nous voyons ici est celle du dernier routeur qui nous a envoyé la trame.<br>
-    
-    Que se passe-t-il quand notre machine reçoit cette trame ?<br>
-    La carte réseau recoit la trame et lit l'adresse MAC 00:11:22:33:44:55. C'est la sienne. Il lui la suite pour voir qui l'envoie et à quel protocole de couche 3 que la couche 2 doit l'envoyer. Il est inscrit IP, donc  il  envoie la trame en enlevant l'en-tête Ethernet, ce qui donne le datagramme IP, à la couche 3 et plus précisément au protocole IP. La couche 3, donc le protocole IP, lit l'ensemble des informations de l'en-tête IP, puisqu'il sait maintenant que ce datagramme lui est destiné. Et là, l'adresse IP de destination n'est pas la sienne. Ce qui est souvent normal pour un routeur de recevoir un message qui ne lui est pas destiné ; son role va maintenant être d'aiguiller le datagramme vers sa destination. Il possède un table de routage dans laquelle est indiqué le prochain routeur auquel il doit envoyer le datagramme pour que celui-ci arrive à sa destination. La table de routage va donc lister les routeurs auxquels il peut envoyer son datagramme pour joindre une destination donnée. La destination donnée ne va pas être une machine, mais un réseau. Le principe est d'avoir d'un côté la liste des réseaux que l'on veut joindre, et de l'autre la liste des routeurs à qui nous devons envoyer le datagramme pour joindre les réseaux. On appelle aussi ce routeur une passerelle.
-    <table>
-        <thead>
-            <tr><th>Destination</th><th>Gateway</th><th>Masque</th><th>Flags</th><th>Iface</th></tr>
-        </thead>
-        <tbody>
-            <tr><td>localhost</td><td>*</td><td>255.255.255.255</td><td>UH</td><td>lo0</td></tr>
-            <tr><td>124.178.240.0</td><td>*</td><td>255.255.255.0</td><td>U</td><td>eth1</td></tr>
-            <tr><td>124.178.48.0</td><td>*</td><td>255.255.240.0</td><td>U</td><td>eth0</td></tr>
-            <tr><td>124.178.64.0</td><td>*</td><td>255.255.224.0</td><td>U</td><td>eth2</td></tr>
-            <tr><td>124.178.96.0</td><td>124.178.64.2</td><td>255.255.224.0</td><td>UG</td><td>eth2</td></tr>
-            <tr><td>default</td><td>124.178.240.3</td><td>0.0.0.0</td><td>UG</td><td>eth1</td></tr>
-        </tbody>
-        <tfoot>
-        </tfoot>
-    </table>
-    Il est important de bien comprendre et retenir ce qui précède, car le routage est la base du fonctionnement d'Internet. Attention, toute machine connectée à un réseau possède une table de routage, même une imprimante, un téléphone, ou un PC,...
+    <li>
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        <b>GBN</b> (<b>Go-Back N</b>) 
+                    </th>
+                    <th>
+                        <b>SR</b> (<b>Selective Repeat</b>) 
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        Un seul <b>ACK</b>
+                    </td>
+                    <td>
+                        <b>ACK</b> individuels pour chaque packet
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Détruit les packet "en avance" et demande une reception "dans l'ordre"
+                    </td>
+                    <td>
+                        Il existe un buffer du côté récepteur, on ne détruit donc pas les paquets 
+                        arrivés "en avance"
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Un seul timer correspondant au dernier packet
+                    </td>
+                    <td>
+                        Timer individuels pour chaque packet
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        On renvoie tout les paquets à partir de celui sans <b>ACK</b>
+                    </td>
+                    <td>
+                        On renvoie que les packets sans <b>ACK</b>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <br />
+    </li>
+    <li>
+        La technique de fiabilité de <b>TCP</b> est un mixte entre la technique <b>GBN</b> 
+        (<b>Go-Back N</b>) et la technique <b>SR</b> (<b>Selective Repeat</b>).<br />
+        Dans la première technique, on reprends la méthode d'un seul timer (associé au dernier 
+        paquet) ainsi que les <b>ACK</b> cumulatif (ACK(6) signifie qu'on ACK aussi 5 et les autres 
+        précédents).<br />
+        Cependant dans le <b>GBN</b> (<b>Go-Back N</b>) on renvoyait toute la fenêtre après le 
+        <b>ACK</b> de retour, ici on reprend, dans la deuximème technique, le revoie seulement du 
+        dernier segment manquant et on verra avec les <b>ACK</b> futurs si il en manquait d'autres.<br />
+        <br />
+    </li>
+    <li>
+        L'optimisation "Fast retransmit" peut être mis en place, elle permet à <b>TCP</b> de 
+        détecter avant le timer qu'un segment est perdu. En effet, si on envoie les paquets par 
+        rafale, et qu'on recoit en retour plusieurs fois un même <b>ACK</b>, cela veut dire que 
+        plusieurs segments postérieurs sont arrivé avant le segment lié à cet <b>ACK</b>. Ce 
+        segment est donc soit perdu, corrompu ou en retard.<br />
+        Par conventation, on considère que le segment est perdu après qu'on ai reçu trois 
+        <b>ACK</b> identiques.
     </li>
 </ol>
 </div>
 
 
 
-<h4 class="question"><ol class="alphabet"><li>Expliquez l'établissement de connexion « 3-way handshake » utilisé dans le protocole de transport <b>TCP</b>, en indiquant les paramètres importants présents dans les échanges et leurs rôles.</li><li>Expliquez avec l'aide d'un exemple pourquoi un « 2-way handshake » ne serait pas suffisant.</li></ol></h4>
-<div class="answer"><ol class="alphabet">
-<li>
-    Comme son nom l'indique, le <b>3-way handshake</b> se déroule en trois étapes:
-    <ul>
-        <li><b>SYN</b> (<b>synchronized</b>) : Le client qui désire établir une connexion avec un serveur va envoyer un premier paquet <b>SYN</b> au serveur. Le numéro de séquence de ce paquet est un nombre aléatoire A.</li>
-        <li><b>SYN-ACK</b> (<b>synchronize-acknowledge</b>) : Le serveur va répondre au client à l'aide d'un paquet <b>SYN-ACK</b>. Le numéro du <b>ACK</b> est égal au numéro de séquence du paquet précédent (<b>SYN</b>) incrémenté de un (A + 1) tandis que le numéro de séquence du paquet <b>SYN-ACK</b> est un nombre aléatoire B.</li>
-        <li><b>ACK</b> (<b>acknowledge</b>): Pour terminer, le client va envoyer un paquet <b>ACK</b> au serveur qui va servir d'accusé de réception. Le numéro de séquence de ce paquet est défini selon la valeur de l'acquittement reçu précédemment p.e. A + 1 et le numéro du <b>ACK</b> est égal au numéro de séquence du paquet précédent (<b>SYN-ACK</b>) incrémenté de un (B + 1).</li>
-    </ul>
-    Une fois le <b>3-way handshake</b> effectué, le client et le serveur ont reçu un acquittement de la connexion. Les étapes 1 et 2 définissent le numéro de séquence pour la communication du client au serveur et les étapes 2 et 3 définissent le numéro de séquence pour la communication dans l'autre sens. Une communication full-duplex est maintenant établie entre le client et le serveur.
-</li>
-<li>
-    Le <b>2-way handshake</b> n'est pas suffisant car on saute l'etape 2 du <b>3-way handshake</b>. Si par exemple, un Client A veut parler avec un serveur B, il faut que B sache que A peut entendre ce qu'il dit. Car dans le <b>2-way handshake</b>, A envoi à B et B répond à A. Mais B ne sait pas si son message est reçu par A.
-</li>
-</ol></div>
+<h4 class="question">
+    <ol class="alphabet">
+        <li>
+            En première approximation, quels sont les 3 paramètres qui influencent le débit d'une 
+            connexion <b>TCP</b> ? Expliquez.
+        </li>
+        <li>
+            <b>TCP</b> garantit-il un partage équitable des ressources du réseau par les différentes
+             connexions ? Pourquoi ?
+         </li>
+     </ol>
+ </h4>
+<div class="answer">
+    <ol class="alphabet">
+        <li>
+            Il y a 3 paramètres qui peuvent entraîner des pertes et ainsi une baisse momentané du débit :
+            <ul>
+                <li>
+                    <b>p</b>: <em>Taux d'erreur</em>;
+                </li>
+                <li>
+                    <b>W</b>: <em>Fenêtre de congestion</em> (mesuré en <b>MSS</b> 
+                    (<em>Max Segment Size</em>));
+                </li>
+                <li>
+                    <b>RTT</b>: <em>Round-Trip Time</em>.
+                </li>
+            </ul><br />
+            La formule de l'efficacité est $\sqrt{\frac{3}{2}}\frac{MSS}{RTT}$ et donc est meilleure 
+            avec des MSS plus gros et des petits RTT. Des packets plus gros dont "l'aller-retour" 
+            est rapide.<br />
+            <br />
+        </li>
+        <li>
+            Quand <b>TCP</b> est en concurrence avec <b>UDP</b>, <b>TCP</b> va ralentir mais 
+            <b>UDP</b> ne va pas réduire son trafic. <b>TCP</b> va donc être désavantagé par rapport 
+            à <b>UDP</b>.<br />
+            On remarque également avec <b>TCP</b> qu'aux goulets d'étranglement, si on a 2 
+            connections <b>TCP</b> concurrentes avec les même <b>RTT</b> et qu'une a commencée avant 
+            l'autre, elles vont se partager la bande passante de manière de plus en plus équitable 
+            au fur et à mesure que le temps avance. Si par contre elles n'ont pas le même <b>RTT</b>, 
+            celle qui aura le plus petit <b>RTT</b> sera avantagée. C'est à la fois une bonne chose 
+            et une mauvaise chose. En effet, si on regarde au niveau locale, les ressources ne sont 
+            pas réparties équitablement (mauvaise chose) mais au niveau globale, la connexion avec 
+            un <b>RTT</b> plus grand sera passée par plus de noeuds puisqu'elle vient de plus loin 
+            et donc aura consommé plus de ressources sur d'autres noeuds que la connexion avec 
+            un petit <b>RTT</b>.
+        </li>
+    </ol>
+</div>
 
 
-<h4 class="question"><ol class="alphabet"><li>Décrivez l'architecture générique d'un routeur et le rôle de chaque composant.</li><li>Comment peut-on perdre des paquets dans les <b>ports</b> d'entrée ?</li><li>Comment peut-on perdre des paquets dans les <b>ports</b> de sortie ?</li><li>Qu'est-ce que le blocage HOL ?</li></ol></h4>
-<div class="answer"><ol class="alphabet">
-<li>Quatre éléments principaux peuvent être identifiés dans l'architecture d'un routeur :
-<ul>
-    <li><b>Buffer d'entrée</b> : Prend en charge les fonctionnalités de la couche physique et de la couche liaison. Il assure une fonction de consultation et d'acheminement des paquets entrant dans la matrice de commutation vers le <b>port</b> de sortie approprié.</li>
-    <li><b>Buffer de sortie</b> : Emmagasine les paquets qu'il reçoit de la part de la matrice de commutation. Assure les fonctionnalités inverses de la couche liaison et de la couche physique.</li>
-    <li><b>Matrice de commutation</b> : Relie les <b>ports</b> d'entrée et les <b>ports</b> de sortie.</li>
-    <li><b>Processeur de routage</b> : Chargé de l'exécution des protocoles de routage, de la mise à jour des informations et des tables.</li>
-</ul>
-</li>
-<li>
-    Le point le plus problématique est le fait que les routeurs doivent opérer à des vitesses élevées, impliquant des millions de consultations par seconde ; on souhaite en effet que l'opération de consultation soit plus rapide que le temps qu'il faut au routeur pour recevoir un nouveau paquet. Dès que le <b>port</b> de sortie a été identifié, le paquet peut entrer dans la matrice de commutation. Cependant un paquet peut se voir refuser temporairement l'accès si elle est occupée à traiter des paquets qui ont été reçus sur d'autres liaisons d'entrée. Il est alors placé en file d'attente sur son <b>port</b>. Si la matrice de commutation n'est pas assez rapide, et du coup à mesure de l'augmentation de ces files, le risque de perte de paquets augmente.
-</li>
-<li>
-    Si aucun ou peu de phénomène de mise en attente ne se produit à l'entrée, mais que tous les paquets venaient à être dirigés vers le même <b>port</b> de sortie, il serait très rapidement saturé. Un gestionnaire de paquets doit déterminer quel paquet de la file doit être transmis. Cette règle est généralement la règle <b>FIFO</b> (<b>First In First Out</b>).
-</li>
-<li>
-    <b>HOL</b> (<b>Head Of the Line blocking</b>) : Le routeur n'a pas de vue globale des buffer input, il ne prend donc en compte que le premier paquet du buffer. Si deux paquets doivent doivent aller au même <b>port</b> de sortie, un des paquets se retrouve en attente avec tous ceux qui le suivent, même si ceux ci doivent aller à un <b>port</b> actuellement libre.
-</li>
-</ol></div>
+
+<h4 class="question">
+    10 processus clients communiquent simultanément avec un processus serveur attaché au 
+    <b>port</b> 8000.
+    <ol class="alphabet">
+        <li>
+            Combien de sockets vont être ouverts par le serveur si les processus communiquent par 
+            <b>UDP</b> ?  Pourquoi ?
+        </li>
+        <li>
+            Même question s'ils communiquent par <b>TCP</b>.
+        </li>
+    </ol>
+</h4>
+<div class="answer">
+    <ol class="alphabet">
+        <li>
+            <b>UDP</b> ne crée pas de connexion persistante. L'emetteur ne fait que créer un packet 
+            en y attachant l'<b>IP</b> ciblé, le <b>port</b> ciblé ainsi que ses propres coordonnées 
+            puis l'envoie. Il ne se soucie pas si il atteint le recepteur ou non.<br />
+            Ainsi le processus serveur attaché au <b>port</b> 8000 recevra (si il n'y a aucune perte) 
+            les 10 messages envoyés par les processus clients. Du coup 1 seul socket sera ouvert.<br />
+            <br />
+        </li>
+        <li>
+            <b>TCP</b> crée une connexion persistante, du coup il faut ouvrir et réserver un socket 
+            pour chaque processus client.<br />
+            Du coup <b>10 sockets</b> seront ouverts. Mais il ne faut pas oublier le socket qui sert 
+            à écouter et à accepter les nouvelles connexions. Donc c'est un total de <b>11 sockets</b> 
+            qui seront ouverts.
+        </li>
+    </ol>
+</div>
+
+<h4 class="question">
+    <ol class="alphabet">
+        <li>
+            Comment l'émetteur <b>TCP</b> détecte-t-il une congestion ?
+        </li>
+        <li>
+            Décrivez le mécanisme de contrôle de congestion de <b>TCP</b>.
+        </li>
+        <li>
+            Quelle distinction <b>TCP</b> fait-il entre congestion légère et congestion sévère ?  
+            Comment réagit-il dans chaque cas ?
+        </li>
+        <li>
+            Si on néglige les effets du contrôle de flux, ce contrôle de congestion détermine 
+            largement le débit moyen d'une connexion <b>TCP</b>. Quand plusieurs connexions 
+            <b>TCP</b> sont en compétition, se partagent-elles la bande passante disponible de 
+            façon équitable ? Expliquez.
+        </li>
+    </ol>
+</h4>
+<div class="answer">
+    <ol class="alphabet">
+        <li>
+            <b>TCP</b> peut distinguer 2 types de <b>congestions</b>:
+            <ul>
+                <li>
+                    Soit il reçoit 3 <b>ACK</b>s consécutifs pour le même numéro de séquence (donc 
+                    un des paquets intermédiaire a été perdus, mais les suivants sont passés: 
+                    <b>faible congestion</b>)
+                </li>
+                <li>
+                    Soit un <b>ACK</b> n'arrive pas dans le temps imparti (timeout, beaucoup de 
+                    paquets perdus: <b>congestion sévère</b>).
+                </li>
+            </ul>
+            <br />
+        </li>
+        <li>
+            Au démarage de la transmission, <b>TCP</b> envoie les données avec une fenêtre de 
+            taille 1 <b>MSS</b> (<b>Maximum Segment Size</b>), correspondant au nombre de paquets 
+            qui peuvent être en parcourt simultanément. La taille de la fenêtre est doublée à chaque 
+            itération (en incrémentant la taille à chaque <b>ACK</b> reçu), de sorte qu'elle a une 
+            <b>croissance exponentielle</b>.<br />
+            <ul>
+                <li>
+                    S'il détecte une <b>faible congestion</b>, il divise la taille de la fenêtre par 
+                    deux et change de mode pour incrémenter la taille de la fenêtre à chaque 
+                    itération (+1 pour chaque fenêtre totalement envoyée) pour adopter une 
+                    <b>croissance linéaire</b>. Il approche ainsi <b>dichotomiquement</b> la taille 
+                    moyenne de fenêtre optimale (c'est à dire le nombre de paquets en parcourt, et 
+                    donc la vitesse d'envoi).<br />
+                </li>
+                <li>
+                    S'il détecte une <b>congestion sévère</b>, il réduit la taille de fenêtre à 1 et 
+                    recommence en mode de <b>croissance exponentiel</b>. Il peut éventuellement 
+                    repasser en mode de <b>croissance linéaire</b> lorsqu'il a atteint la moitié de 
+                    la taille de fenêtre qui a provoqué un timeout (puisque doubler sa taille 
+                    provoquera probablement de nouveau un timeout).
+                </li>
+            </ul>
+            <br />
+        </li>
+        <li>
+            Voir (a) et (b).<br /><br />
+        </li>
+        <li>
+            Sachant que le timeout est calculé à partir du <b>RTT</b>, deux sessions <b>TCP</b> en 
+            compétition pour la même connexion approcheront toujours la vitesse optimale pour leurs 
+            <b>RTT</b>.<br />
+            <b>TCP</b> répartira la connexion de façon équitable en ce sens que chaque session 
+            utilisera une bande passante inversément proportionelle à son <b>RTT</b>, évitant la 
+            retransmission en bloc de paquets inutiles sur des connexions trop lentes.
+        </li>
+    </ol>
+</div>
+
+
+
+
+<h4 class="question">
+    <ol class="alphabet">
+        <li>Expliquez la différence entre un simple ordinateur et un routeur</li>
+        <li>Expliquez le principe d'une table de routage</li>
+    </ol>
+</h4>
+<div class="answer">
+    <ol class="alphabet">
+        <li>
+            Un <b>routeur</b> est un matériel de la <b>couche 3</b> qui relie plusieurs réseaux. 
+            Sachant qu'une carte réseau ne peut être relié qu'à un seul réseau; il doit donc avoir 
+            une interface dans chacun des réseaux auquel il est connecté. C'est donc simplement une 
+            machine avec plusieurs interfaces (plusieurs cartes réseau), chacune reliée à un réseau. 
+            Son rôle va être d'<b>aiguiller les paquets reçus</b> entre les diférents réseaux.<br />
+            Il y a enfaite peu de chose qui différencie un simple ordinateur d'un routeur. La 
+            principale différence est qu'un routeur <b>accepte de relayer</b> des paquets qui ne lui 
+            sont <b>pas destiné</b> alors qu'une simple machine les jettera à la poubelle.<br />
+            <br />
+        <li>
+            Imaginons que nous sommes un routeur ayant comme adresse MAC l'adresse 
+            <code>00:11:22:33:44:55</code> et comme adresse IP <code>192.168.0.1/24</code>. Nous 
+            recevons la trame suivante (dans laquelle nous indiquons aussi l'en-tête de couche 3) 
+            sur une de nos interfaces:
+            <table>
+                <thead>
+                    <tr>
+                        <th>MAC <sub>Next</sub></th>
+                        <th>MAC <sub>Prev</sub></th>
+                        <th></th>
+                        <th></th>
+                        <th>IP <sub>SRC</sub></th>
+                        <th>IP <sub>DST</sub></th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>00:11:22:33:44:55</td>
+                        <td>01:2B:45:56:78:ED</td>
+                        <td>IP</td>
+                        <td>???</td>
+                        <td>10.0.0.1</td>
+                        <td>136.42.0.28</td>
+                        <td>Données à envoyer</td>
+                        <td>CRC</td>
+                    </tr>
+                </tbody>
+            </table>
+                
+            Une adresse MAC est propre à un réseau local (règle couche 2), on ne connait donc pas 
+            l'adresse mac source (<code>MAC<sub>SRC</sub></code>) ni l'adresse mac de destination 
+            (<code>MAC<sub>DEST</sub></code>). Ici, la trame arrive sur l'interface de notre 
+            machine ayant pour adresse IP <code>192.168.0.1/24</code>. Son réseau ne contient pas 
+            d'adresse UP <code>10.0.0.1</code> = la machine <code>10.0.0.1</code> ne fait pas partie 
+            du réseau. L'adresse <code>MAC<sub>SRC</sub></code> que nous voyons ici est celle du 
+            dernier routeur qui nous a envoyé la trame.<br />
+            <br />
+            <u>Que se passe-t-il quand notre machine reçoit cette trame ?</u><br />
+            La carte réseau recoit la trame et lit l'adresse MAC <code>00:11:22:33:44:55</code>. 
+            C'est la sienne. Il lit la suite pour voir qui l'envoie et à quel protocole de couche 3 
+            que la couche 2 doit l'envoyer. Il est inscrit IP, donc il envoie la trame en enlevant 
+            l'en-tête Ethernet, ce qui donne le datagramme IP, à la couche 3 et plus précisément au 
+            protocole IP.<br />
+            La couche 3, donc le protocole IP, lit l'ensemble des informations de l'en-tête IP, 
+            puisqu'il sait maintenant que ce datagramme lui est destiné. Et là, l'adresse IP de 
+            destination n'est pas la sienne. Ce qui est souvent normal pour un routeur de recevoir 
+            un message qui ne lui est pas destiné.<br />
+            Son role va maintenant être d'aiguiller le datagramme vers sa destination. Il possède 
+            une table de routage dans laquelle est indiqué le prochain routeur auquel il doit 
+            envoyer le datagramme pour que celui-ci arrive à sa destination. La table de routage va 
+            donc lister les routeurs auxquels il peut envoyer son datagramme pour joindre une 
+            destination donnée. La destination donnée ne va pas être une machine, mais un réseau.<br />
+            <br />
+            Le principe est d'avoir d'un côté la liste des réseaux que l'on veut joindre, et de 
+            l'autre la liste des routeurs à qui nous devons envoyer le datagramme pour joindre les 
+            réseaux. On appelle aussi ce routeur une passerelle.<br />
+            <table>
+                <thead>
+                    <tr>
+                        <th>Destination</th><th>Gateway</th><th>Masque</th><th>Flags</th><th>Iface</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>localhost</td><td>*</td><td>255.255.255.255</td><td>UH</td><td>lo0</td>
+                    </tr>
+                    <tr>
+                        <td>124.178.240.0</td><td>*</td><td>255.255.255.0</td><td>U</td><td>eth1</td>
+                    </tr>
+                    <tr>
+                        <td>124.178.48.0</td><td>*</td><td>255.255.240.0</td><td>U</td><td>eth0</td>
+                    </tr>
+                    <tr>
+                        <td>124.178.64.0</td><td>*</td><td>255.255.224.0</td><td>U</td><td>eth2</td>
+                    </tr>
+                    <tr>
+                        <td>124.178.96.0</td><td>124.178.64.2</td><td>255.255.224.0</td><td>UG</td><td>eth2</td>
+                    </tr>
+                    <tr>
+                        <td>default</td><td>124.178.240.3</td><td>0.0.0.0</td><td>UG</td><td>eth1</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                </tfoot>
+            </table>
+            Il est important de bien comprendre et retenir ce qui précède, car le routage est la 
+            base du fonctionnement d'Internet. Attention, toute machine connectée à un réseau possède 
+            une table de routage, même une imprimante, un téléphone, ou un PC,...
+        </li>
+    </ol>
+</div>
+
+
+
+<h4 class="question">
+    <ol class="alphabet">
+        <li>
+            Expliquez l'établissement de connexion « 3-way handshake » utilisé dans le protocole de 
+            transport <b>TCP</b>, en indiquant les paramètres importants présents dans les échanges 
+            et leurs rôles.
+        </li>
+        <li>
+            Expliquez avec l'aide d'un exemple pourquoi un « 2-way handshake » ne serait pas suffisant.
+        </li>
+    </ol>
+</h4>
+<div class="answer">
+    <ol class="alphabet">
+        <li>
+            Comme son nom l'indique, le <b>3-way handshake</b> se déroule en trois étapes:
+            <ol>
+                <li>
+                    <b>SYN</b> (<em>synchronized</em>):<br />
+                    Le client qui désire établir une connexion avec un serveur va envoyer un premier 
+                    paquet <b>SYN</b> au serveur. Le numéro de séquence de ce paquet est un nombre 
+                    aléatoire A.<br />
+                    <br />
+                </li>
+                <li>
+                    <b>SYN-ACK</b> (<em>synchronize-acknowledge</em>):<br />
+                    Le serveur va répondre au client à l'aide d'un paquet <b>SYN-ACK</b>. Le numéro 
+                    du <b>ACK</b> est égal au numéro de séquence du paquet précédent (<b>SYN</b>) 
+                    incrémenté de un (A + 1) tandis que le numéro de séquence du paquet 
+                    <b>SYN-ACK</b> est un nombre aléatoire B.<br />
+                    <br />
+                </li>
+                <li>
+                    <b>ACK</b> (<em>acknowledge</em>):<br />
+                    Pour terminer, le client va envoyer un paquet <b>ACK</b> au serveur qui va 
+                    servir d'accusé de réception. Le numéro de séquence de ce paquet est défini 
+                    selon la valeur de l'acquittement reçu précédemment par exemple A + 1 et le 
+                    numéro du <b>ACK</b> est égal au numéro de séquence du paquet précédent 
+                    (<b>SYN-ACK</b>) incrémenté de un (B + 1).
+                </li>
+            </ol>
+            <br />
+            Une fois le <b>3-way handshake</b> effectué, le client et le serveur ont reçu un 
+            acquittement de la connexion.  Les étapes 1 et 2 définissent le numéro de séquence pour 
+            la communication du client au serveur et les étapes 2 et 3 définissent le numéro de 
+            séquence pour la communication dans l'autre sens.<br />
+            Une communication full-duplex est maintenant établie entre le client et le serveur.<br />
+            <br />
+        </li>
+        <li>
+            Le <b>2-way handshake</b> n'est pas suffisant car on saute l'etape 2 du 
+            <b>3-way handshake</b>. Si par exemple, un Client A veut parler avec un serveur B, il 
+            faut que B sache que A peut entendre ce qu'il dit. Car dans le <b>2-way handshake</b>, 
+            A envoi à B et B répond à A. Mais B ne sait pas si son message est reçu par A.<br />
+            Il n'y a donc également aucune confirmation que le client A ai bien pris le bon numéro
+            de packet pour le serveur B.
+        </li>
+    </ol>
+</div>
+
+
+<h4 class="question">
+    <ol class="alphabet">
+        <li>Décrivez l'architecture générique d'un routeur et le rôle de chaque composant.</li>
+        <li>Comment peut-on perdre des paquets dans les <b>ports</b> d'entrée ?</li>
+        <li>Comment peut-on perdre des paquets dans les <b>ports</b> de sortie ?</li>
+        <li>Qu'est-ce que le blocage HOL ?</li>
+    </ol>
+</h4>
+<div class="answer">
+    <ol class="alphabet">
+        <li>Quatre éléments principaux peuvent être identifiés dans l'architecture d'un routeur :
+            <ul>
+                <li>
+                    <b>Buffer d'entrée</b>:<br />
+                    Prend en charge les fonctionnalités de la couche physique et de la couche 
+                    liaison. Il assure une fonction de consultation et d'acheminement des paquets 
+                    entrant dans la matrice de commutation vers le <b>port</b> de sortie approprié.<br />
+                    <br />
+                </li>
+                <li>
+                    <b>Buffer de sortie</b>:<br />
+                    Emmagasine les paquets qu'il reçoit de la part de la matrice de commutation. 
+                    Assure les fonctionnalités inverses de la couche liaison et de la couche physique.<br />
+                    <br />
+                </li>
+                <li>
+                    <b>Matrice de commutation</b>:<br />
+                    Relie les <b>ports</b> d'entrée et les <b>ports</b> de sortie.<br />
+                    <br />
+                </li>
+                <li>
+                    <b>Processeur de routage</b>:<br />
+                    Chargé de l'exécution des protocoles de routage, de la mise à jour des 
+                    informations et des tables.
+                </li>
+            </ul>
+            <br />
+        </li>
+        <li>
+            Le point le plus problématique est le fait que les routeurs doivent opérer à des 
+            vitesses élevées, impliquant des millions de consultations par seconde; on souhaite en 
+            effet que l'opération de consultation soit plus rapide que le temps qu'il faut au 
+            routeur pour recevoir un nouveau paquet. Dès que le <b>port</b> de sortie a été 
+            identifié, le paquet peut entrer dans la matrice de commutation. Cependant un paquet 
+            peut se voir refuser temporairement l'accès si elle est occupée à traiter des paquets 
+            qui ont été reçus sur d'autres liaisons d'entrée. Il est alors placé en file d'attente 
+            sur son <b>port</b>. Si la matrice de commutation n'est pas assez rapide, et du coup à 
+            mesure de l'augmentation de ces files, le risque de perte de paquets augmente.<br />
+            <br />
+        </li>
+        <li>
+            Si aucun ou peu de phénomène de mise en attente ne se produit à l'entrée, mais que tous 
+            les paquets venaient à être dirigés vers le même <b>port</b> de sortie, il serait très 
+            rapidement saturé. Un gestionnaire de paquets doit déterminer quel paquet de la file 
+            doit être transmis. Cette règle est généralement la règle <b>FIFO</b> 
+            (<b>First In First Out</b>).<br />
+            <br />
+        </li>
+        <li>
+            <b>HOL</b> (<b>Head Of the Line blocking</b>) signifie que le routeur n'a pas de vue 
+            globale des buffer input, il ne prend donc en compte que le premier paquet du buffer. 
+            Si deux paquets doivent aller au même <b>port</b> de sortie, un des paquets se retrouve 
+            en attente avec tous ceux qui le suivent, même si ceux-ci doivent aller à un <b>port</b> 
+            actuellement libre.
+        </li>
+    </ol>
+</div>
 
 
 
@@ -799,39 +1087,82 @@ Merci à eux.
             Pourquoi et comment a-t-il été amélioré ?
         </li>
         <li>
-            Citez les paramètres qui caractérisent un réseau <b>CSMA</b>. Quelle relation entre ces paramètres faut-il viser pour que le réseau <b>CSMA</b> ait des performances acceptables ? Expliquez.
+            Citez les paramètres qui caractérisent un réseau <b>CSMA</b>. Quelle relation entre ces 
+            paramètres faut-il viser pour que le réseau <b>CSMA</b> ait des performances 
+            acceptables ? Expliquez.
         </li>
     </ol>
 </h4>
 <div class="answer">
     <ol class="alphabet">
-    <li>
-        La technologie <b>CSMA</b> (<b>Carrier Sense Multiple Access</b>) est un ensemble de protocoles qui permet à plusieurs machines d'utiliser un même média de communication. Celle-ci vérifie que le support est disponible avant de commencer l'envoi d'une trame. Dans la version simple de <b>CSMA</b>, une machine ne peut pas transmettre si elle détecte de l'activité sur le média, elle attend la fin de la transmission. Cependant, en raison du temps de propagation, surtout sur des longues distances, deux machines pourraient considérer le bus comme libre et commencer à écrire en même temps, pour se retrouver en collision quelques instants après. Il est à noter qu'il est pas possible d'éliminer les collisions sur un bus mais il est possible de développper une méthode pour les limiter et réussir à partager le bus entre plusieurs machines.
-        <figure>
-            <img src="images/info-f303/collision" alt="Illustation d'une collision" />
-            <figcaption>Illustation d'une collision</figcaption>
-        </figure>
-    </li>
-    <li>
-        La technologie <b>CSMA</b> a été amélioré par différents modes d'accès: 
-        <ul>
-            <li><b>CSMA</b> <b>persistant</b>: consiste à toujours écouter le canal, et on émet dedans dès qu'il est libre.</li>
-            <li><b>CSMA</b> <b>non-persistant</b>: dans ce mode chaque station vérifie régulièrement que le média soit disponible. Si ce n'est pas le cas, elle attend un temps aléatoire pour revérifier si le média est enfin libre. Enfin, lorsque le média n'est pas occupé, la station transmet ses informations immédiatement. Cette approche réduit les collisions mais le temps d'attente initial peut être très long.</li>
-            <li><b>CSMA</b> <b>p-persistant</b>: si une station souhaite émettre et que le canal est libre, elle émet avec une probabilité p. Sinon, elle attend un intervalle de temps avant de retenter avec la même probabilité p. En cas de collision, la station attend un temps aléatoire avant de recommencer la procédure. Cela permet d'éviter que deux stations se jettent sur le canal en même temps. La difficulté est d'avoir un bon p : trop bas et le délai augmente, trop haut et on a plein de collisions.</li>
-        </ul>
-    </li>
-    <li>
-        Pour que <b>CSMA</b> ait des performances acceptables, il faut prendre en compte:
-        <ul>
-            <li>$B$ (la capacité en bits/s du canal)</li>
-            <li>$F$ (la taille des trames)</li>
-            <li>$L$ (la taille du canal)</li>
-            <li>$c$ (la vitesse de propagation)</li>
-            <li>$tau = L/c$ (délai de propagation)</li>
-            <li>$T = F/B$ (délai de transmission)</li>
-        </ul>
-        $tau$ est équivalent à la durée pendant laquelle une collision peut survenir. Après un temps $tau$, le canal est réservé implicitement pendant $T-tau$ secondes, car s'il n'y a pas eu de collision après un temps $tau$, tout le monde est au courant que le canal est pris et il n'y a plus de collision possible. Les performances du réseau sont donc meilleures quand $$a = tau/T = BL/cF$$ est très petit, donc quand la période dangereuse pendant lesquelles des collisions peuvent survenir est très petite par rapport au temps total d'une trame. Il faut donc travailler avec de grandes trames, réduire la taille du réseau ou réduire le débit.
-    </li>
+        <li>
+            La technologie <b>CSMA</b> (<b>Carrier Sense Multiple Access</b>) est un ensemble de 
+            protocoles qui permet à plusieurs machines d'utiliser un même média de communication. 
+            Celle-ci vérifie que le support est disponible avant de commencer l'envoi d'une trame.<br />
+            Dans la version simple de <b>CSMA</b>, une machine ne peut pas transmettre si elle 
+            détecte de l'activité sur le média, elle attend la fin de la transmission. Cependant, 
+            en raison du temps de propagation, surtout sur des longues distances, deux machines 
+            pourraient considérer le bus comme libre et commencer à écrire en même temps, pour se 
+            retrouver en collision quelques instants après. Il est à noter qu'il est pas possible 
+            d'éliminer les collisions sur un bus mais il est possible de développper une méthode 
+            pour les limiter et réussir à partager le bus entre plusieurs machines.
+            <figure>
+                <img src="images/info-f303/collision" alt="Illustation d'une collision" />
+                <figcaption>Illustation d'une collision</figcaption>
+            </figure>
+            <br />
+        </li>
+        <li>
+            La technologie <b>CSMA</b> a été amélioré par différents modes d'accès: 
+            <ul>
+                <li>
+                    <b>CSMA persistant</b>:<br />
+                    Consiste à toujours écouter le canal, et on émet dedans dès qu'il est libre.<br />
+                    <br />
+                </li>
+                <li>
+                    <b>CSMA non-persistant</b>:<br />
+                    Dans ce mode chaque station vérifie régulièrement que le média soit disponible. 
+                    Si ce n'est pas le cas, elle attend un temps <b>aléatoire</b> pour revérifier si 
+                    le média est enfin libre. Enfin, lorsque le média n'est pas occupé, la station 
+                    transmet ses informations immédiatement. Cette approche réduit les collisions 
+                    mais le temps d'attente initial peut être très long.<br />
+                    <br />
+                </li>
+                <li>
+                    <b>CSMA p-persistant</b>:<br />
+                    Si une station souhaite émettre et que le canal est libre, elle émet avec une 
+                    probabilité <code>p</code>. Sinon, elle attend un intervalle de temps avant de 
+                    retenter avec la même probabilité <code>p</code>.<br />
+                    En cas de collision, la station attend un temps aléatoire avant de recommencer 
+                    la procédure.  Cela permet d'éviter que deux stations se jettent sur le canal 
+                    en même temps.<br />
+                    La difficulté est d'avoir un bon <code>p</code>: trop bas et le délai augmente, 
+                    trop haut et on a plein de collisions.
+                </li>
+            </ul>
+            <br />
+        </li>
+        <li>
+            Pour que <b>CSMA</b> ait des performances acceptables, il faut prendre en compte:
+            <ul>
+                <li>$B$ (la capacité en bits/s du canal)</li>
+                <li>$F$ (la taille des trames)</li>
+                <li>$L$ (la taille du canal)</li>
+                <li>$c$ (la vitesse de propagation)</li>
+                <li>$tau = \frac{L}{c}$ (délai de propagation)</li>
+                <li>$T = \frac{F}{B}$ (délai de transmission)</li>
+            </ul>
+            <code>tau</code> est équivalent à la durée pendant laquelle une collision peut survenir. 
+            Après un temps <code>tau</code>, le canal est réservé implicitement pendant 
+            <code>T-tau</code> secondes, car s'il n'y a pas eu de collision après un temps 
+            <code>tau</code>, tout le monde est au courant que le canal est pris et il n'y a plus de 
+            collision possible. Les performances du réseau sont donc meilleures quand 
+            $$a = \frac{tau}{T} = \frac{BL}{cF}$$
+            est très petit, donc quand la période dangereuse pendant lesquelles des collisions 
+            peuvent survenir est très petite par rapport au temps total d'une trame. Il faut donc 
+            travailler avec de grandes trames, réduire la taille du réseau ou réduire le débit.
+        </li>
     </ol>
 </div>
 
@@ -840,133 +1171,329 @@ Merci à eux.
 <h4 class="question">
     <ol class="alphabet">
         <li>
-            Qu'est-ce que le <b>CSMA/CD</b> ? En quoi améliore-t-il le <b>CSMA</b> ?
+            Qu'est-ce que le <b>CSMA/CD</b> ?  En quoi améliore-t-il le <b>CSMA</b> ?
         </li>
         <li>
             Quelle contrainte le <b>CSMA/CD</b> introduit-il par rapport au <b>CSMA</b> ? Pourquoi ?
         </li>
         <li>
-            IEEE 802.3 (plus communément appelé <b>Ethernet</b>) est un protocole de type <b>CSMA/CD</b> dont la méthode d'accès a été améliorée. Quelle est cette amélioration ?
+            IEEE 802.3 (plus communément appelé <b>Ethernet</b>) est un protocole de type 
+            <b>CSMA/CD</b> dont la méthode d'accès a été améliorée. Quelle est cette amélioration ?
         </li>
         <li>
-            Expliquez pourquoi, si l'on veut garder le même format de trame, la méthode <b>CSMA/CD</b> exige de raccourcir le réseau pour atteindre des débits plus élevés. Il est toutefois possible de ne pas respecter cette longueur maximale du réseau, qui devient très contraignante à haut débit. Dans quelles conditions ?
+            Expliquez pourquoi, si l'on veut garder le même format de trame, la méthode 
+            <b>CSMA/CD</b> exige de raccourcir le réseau pour atteindre des débits plus élevés. 
+            Il est toutefois possible de ne pas respecter cette longueur maximale du réseau, qui 
+            devient très contraignante à haut débit. Dans quelles conditions ?
         </li>
     </ol>
 </h4>
 <div class="answer">
     <ol class="alphabet">
-    <li>
-        La technologie <b>CSMA</b> (<b>Carrier Sense Multiple Access</b>) est un ensemble de protocoles d'accès à un média. Elle permet à plusieurs machines d'utiliser un même média de communication. Celle-ci vérifie que le support est disponible avant de commencer l'envoi d'une trame. Dans la version simple de <b>CSMA</b>, une machine ne peut pas transmettre si elle détecte de l'activité sur le média, elle attend la fin de la transmission. Cependant, en raison du temps de propagation, surtout sur des longues distances, deux machines pourraient considérer le bus comme libre et commencer à écrire en même temps, pour se retrouver en collision quelques instants après. Il est à noter qu'il est pas possible d'éliminer les collisions sur un bus mais il est possible de développper une méthode pour les limiter et réussir à partager le bus entre plusieurs machines.
-        <figure>
-            <img src="images/info-f303/collision" alt="Illustation d'une collision" />
-            <figcaption>Illustation d'une collision</figcaption>
-        </figure>
-        Le <b>CSMA/CD</b> rajoute la contrainte <b>Collision Detection</b>: si lorsqu'un bit a été écrit, l'état mesuré est différent, la machine considère qu'il y a collision et arrête immédiatement d'écrire sur le bus. Elle attend ensuite pour un temps déterminé aléatoirement afin que deux machines en collision ne recommencent pas à émettre en même temps. Son objectif est de limiter le nombre de collisions en organisant le droit à la parole. L'idée est de mettre en place une règle qui permettrait de n'avoir presque plus de collisions.
-    </li>
-    <li>
-        Le <b>CSMA/CD</b> rajoute la contrainte <b>Collision Detection</b> car il est possible qu'en raison du temps de propagation, surtout sur des longues distances, deux machines pourraient considérer le bus comme libre et commencer à écrire en même temps.
-    </li>
-    <li>
-        <b>Ethernet</b> repose sur un algorithme d'accès multiple <b>CSMA/CD</b> dont la méthode d'accès a été améliorée. Pour que l'émetteur détecte une collision, il doit être en train d'émettre. Il faut donc que la trame soit suffisament longue pour que le délai soit suffisament long et que l'emetteur entend la collision. Sinon l'émetteur transmet tout puis n'entend pas qu'il a eu de collision. Sur un réseau de 10 Mbps et 2.5 km, il faut qu'une trame fasse au moins 250 bits. Ethernet a choisi 512 bits minimum. Pour encore améliorer les choses, l'émetteur attend de manière exponentielle (entre $0$ et $2^{collisions-1}$ temps de transmission de 512 bits) quand il détecte une collision. Ainsi, si les collisions sont rares, on n'attend pas trop. S'il y en a plein, on attend plus longtemps pour augmenter l'efficacité. Quand une collision survient, l'émeteur envoie un <b>jam</b> : un signal fort histoire que tout le monde sur la ligne soit au courant de la collision.
-    </li>
-    <li>
-        $F$ : Frame Size<br>
-        $B$ : Bandwidth<br>
-        $L$ : lngueur du canal<br>
-        $F_{min} : \dfrac{2BL}{C} = \pm BL * 10^{-8}$ bits<br>
-        Si $F$ est plus petit, le délai de transmission est plus court et donc on peut envoyer plus de trames et éviter des collisions. Pour éviter cela, efficacité du réseau = $\dfrac{1}{1+2BL+\dfrac{e}{CF}}$<br>
-
-        On doit donc augmenter la bande passante ou la distance.
-    </li>
+        <li>
+            La technologie <b>CSMA</b> (<b>Carrier Sense Multiple Access</b>) est un ensemble de 
+            protocoles qui permet à plusieurs machines d'utiliser un même média de communication. 
+            Celle-ci vérifie que le support est disponible avant de commencer l'envoi d'une trame.<br />
+            Dans la version simple de <b>CSMA</b>, une machine ne peut pas transmettre si elle 
+            détecte de l'activité sur le média, elle attend la fin de la transmission. Cependant, 
+            en raison du temps de propagation, surtout sur des longues distances, deux machines 
+            pourraient considérer le bus comme libre et commencer à écrire en même temps, pour se 
+            retrouver en collision quelques instants après. Il est à noter qu'il est pas possible 
+            d'éliminer les collisions sur un bus mais il est possible de développper une méthode 
+            pour les limiter et réussir à partager le bus entre plusieurs machines.
+            <figure>
+                <img src="images/info-f303/collision" alt="Illustation d'une collision" />
+                <figcaption>Illustation d'une collision</figcaption>
+            </figure>
+            Le <b>CSMA/CD</b> rajoute la contrainte <b>Collision Detection</b>: si, lorsqu'un bit a 
+            été écrit, l'état mesuré est différent, la machine considère qu'il y a collision et 
+            arrête immédiatement d'écrire sur le bus.  Elle attend ensuite pour un temps déterminé 
+            aléatoirement afin que deux machines en collision ne recommencent pas à émettre en même 
+            temps.<br />
+            Son objectif est de limiter le nombre de collisions en organisant le droit à la parole. 
+            L'idée est de mettre en place une règle qui permettrait de n'avoir presque plus de 
+            collisions.<br />
+            <br />
+        </li>
+        <li>
+            Le <b>CSMA/CD</b> rajoute la contrainte <b>Collision Detection</b> car il est possible 
+            qu'en raison du temps de propagation, surtout sur des longues distances, deux machines 
+            pourraient considérer le bus comme libre et commencer à écrire en même temps.<br />
+            <br />
+        </li>
+        <li>
+            <b>Ethernet</b> repose sur un algorithme d'accès multiple <b>CSMA/CD</b> dont la méthode 
+            d'accès a été améliorée. Pour que l'émetteur détecte une collision, il doit être en train 
+            d'émettre. Il faut donc que la trame soit suffisament longue pour que le délai soit 
+            suffisament long et que l'emetteur entend la collision. Sinon l'émetteur transmet tout 
+            puis n'entend pas qu'il a eu de collision. Sur un réseau de 10 Mbps et 2.5 km, il faut 
+            qu'une trame fasse au moins 250 bits. Ethernet a choisi 512 bits minimum. Pour encore 
+            améliorer les choses, l'émetteur attend de manière exponentielle (entre <code>0</code> 
+            et <code>2<sup>collisions-1</sup></code> temps de transmission de 512 bits) quand il détecte 
+            une collision. Ainsi, si les collisions sont rares, on n'attend pas trop. S'il y en a 
+            plein, on attend plus longtemps pour augmenter l'efficacité. Quand une collision survient, 
+            l'émeteur envoie un <b>jam</b>: un signal fort histoire que tout le monde sur la ligne 
+            soit au courant de la collision.<br />
+            <br />
+        </li>
+        <li>
+            $F$ : Frame Size<br />
+            $B$ : Bandwidth<br />
+            $L$ : lngueur du canal<br />
+            $F_{min} : \dfrac{2BL}{C} = \pm BL * 10^{-8}$ bits<br />
+            <br />
+            Si <code>F</code> est plus petit, le délai de transmission est plus court et donc on 
+            peut envoyer plus de trames et éviter des collisions. <br />
+            Pour éviter cela, efficacité du réseau = $\dfrac{1}{1+2BL+\dfrac{e}{CF}}$<br />
+            <br />
+            On doit donc augmenter la bande passante ou la distance.
+        </li>
     </ol>
 </div>
 
 
 
-<h4 class="question">On ne peut pas dire que les commutateurs <b>Ethernet</b> exécutent un protocole de routage (au sens de la couche 3), mais ils construisent toutefois des tables d'acheminement comme si un protocole de routage était à l'oeuvre. Expliquez comment ces tables sont construites, y compris quand plusieurs commutateurs sont inter-connectés.</h4>
+<h4 class="question">
+    On ne peut pas dire que les commutateurs <b>Ethernet</b> exécutent un protocole de routage (au 
+    sens de la couche 3), mais ils construisent toutefois des tables d'acheminement comme si un 
+    protocole de routage était à l'oeuvre. Expliquez comment ces tables sont construites, y compris 
+    quand plusieurs commutateurs sont inter-connectés.
+</h4>
 <div class="answer">
-    Le commutateur construit donc dynamiquement une table qui associe des adresses <b>MAC</b> avec les ports correspondant. Lorsqu'il reçoit une trame destinée à une adresse dans cette table, le commutateur renvoie la trame sur le port correspondant. Si port destination = port émetteur, la trame n'est pas transmise. Si l'adresse du destination est inconnue dans la table, alors la trame est traitée comme un broadcast, c'est-à-dire qu'elle est transmise à tous les ports du commutateur sauf celui de réception.
+    Le commutateur <b>construit donc dynamiquement</b> une table qui associe des adresses <b>MAC</b> 
+    avec les ports correspondant. Lorsqu'il reçoit une trame destinée à une adresse dans cette 
+    table, le commutateur renvoie la trame sur le port correspondant. Si port destination = port 
+    émetteur, la trame n'est pas transmise. Si l'<b>adresse du destination est inconnue</b> dans la 
+    table, alors la trame est traitée comme un <b>broadcast</b>, c'est-à-dire qu'elle est transmise 
+    à tous les ports du commutateur sauf celui de réception.
+</div>
+
+
+<h4 class="question">
+    <ol class="alphabet">
+        <li>Décrivez le protocole ARP.</li>
+        <li>Expliquez pourquoi la table ARP est necessaire.</li>
+        <li>Décrivez le déroulement de A à Z d'une requête ARP.</li>
+        <li>A quel couche appartient ce protocole ?</li>
+    </ol>
+</h4>
+<div class="answer">
+    <ol class="alphabet">
+        <li>
+            La machine A veut communiquer avec la machine B. S'il regarde sa table de routage, il 
+            sait qu'il doit passer son message par la passerelle par défault pour joindre B. Donc 
+            pour lui envoyer la trame, il doit connaître son adresse MAC. Or, il ne la connait pas.<br />
+            Il faudrait pouvoir lui demander son adresse MAC mais pour lui demander il faudrait 
+            connaître son adresse MAC. C'est pour cela que le protocole ARP a été mis en place. Il 
+            peut envoyer un message à l'adresse de broadcast en demandant "est-ce que <code>IP</code> 
+            peut m'envoyer son adresse MAC ?"  Grâce à l'adresse de broadcast ce message sera envoyé 
+            à tout le monde, et donc la cible le recevra et pourra lui renvoyer son adresse MAC.<br />
+            ARP est donc un protocole qui permet d'associer une adresse MAC de couche 2 à une 
+            adresse IP de couche 3.<br />
+            <br />
+        </li>
+        <li>
+            Les broadcasts risquent de saturer le réseau à chaque fois que l'on veut envoyer une 
+            information. C'est pour cela qu'on a mis aussi en place la table ARP. Pour éviter 
+            d'avoir à renvoyer en permanence des broadcasts ARP à chaque fois que l'on veut 
+            envoyer une information à une machine, nous allons utiliser une table qui va garder les 
+            associations adresses IP <-> Adresses MAC pendant un court moment.<br />
+            Ainsi, si j'envoie un paquet à ma passerelle, je noterai son adresse MAC dans ma table 
+            ARP et la prochaine fois que je voudrai lui parler, je n'aurai plus à envoyer de 
+            broadcast sur le réseau.<br />
+            <br />
+            La table ARP va donc associer adresse <b>IP et adresse MAC</b> correspondante. Les 
+            informations contenues dans la table ARP ont une durée de vie limitée. En gros, une 
+            valeur va rester environ deux minutes dans la table avant d'être effacée s'il n'y a pas 
+            eu de dialogue avec cette adresse entre-temps. C'est pour cela que l'on dit que la table 
+            ARP est <b>dynamique</b>. Elle évolue au cours du temps en fonction des machines avec 
+            lesquelles il dialogue.<br />
+            <br />
+        </li>
+        <li>
+            Exemple: nous sommes la machine <code>192.168.0.1</code> et voulons envoyer un message 
+            à la machine <code>192.168.1.2</code>.<br />
+            Nous savons que nous voulons joindre d'abord le routeur <code>192.168.0.254</code>, mais 
+            ne connaissons pas son adresse MAC.<br />
+            <br />
+            C'est là que le protocole ARP entre en jeu:
+            <ul>
+                <li>
+                    On regarde d'abord dans la table ARP locale si on possède l'association entre 
+                    l'adresse IP <code>192.168.0.254</code> et son adresse MAC;
+                </li>
+                <li>
+                    Si on la possède, on envoie l'information et c'est terminé;
+                </li>
+                <li>
+                    Sinon, on envoie un broadcast ARP sur le réseau;
+                </li>
+                <li>
+                    La machine <code>192.168.0.254</code> va nous répondre avec son adresse MAC;
+                </li>
+                <li>
+                    Nous allons noter cette adresse MAC dans notre table ARP;
+                </li>
+                <li>
+                    Nous allons enfin pouvoir envoyer notre information.
+                </li>
+            </ul>
+            Voilà comment font les machines pour passer d'une adresse IP à joindre à l'adresse MAC 
+            correspondante: grâce au protocole ARP !<br />
+            <br />
+        </li>
+        <li>
+            Le protocole ARP est un protocole de couche 2 <b>et</b> 3 !  Il manipule des 
+            informations de couche 2: les adresses MAC, et des informations de couche 3: les 
+            adresses IP.<br />
+            Ainsi, on dit que ce protocole est "à cheval" entre ces deux couches.
+        </li>
+    </ol>
 </div>
 
 
 
 
 <h4 class="question">
-<ol class="alphabet">
-    <li>Décrivez le protocole ARP.</li>
-    <li>Expliquez pourquoi la table ARP est necessaire.</li>
-    <li>Décrivez le Déroulement de A à Z d'une requête ARP.</li>
-    <li>A quel couche appartient ce protocole ?</li>
-</ol>
+    Un chercheur connecte son ordinateur portable à un commutateur <b>Ethernet</b> de son 
+    département. Il démarre son browser pour afficher la page web de <code>www.google.com</code>.
+    <ol class="alphabet">
+        <li>
+            Identifiez les protocoles mis en oeuvre, et dans l'ordre chronologique, entre le 
+            moment où l'ordinateur se connecte et le moment où la page d'accueil de Google s'affiche.
+        </li>
+        <li>
+            Précisez au passage le rôle de chaque protocole et décrivez-les succinctement.
+        </li>
+    </ol>
 </h4>
 <div class="answer">
-<ol class="alphabet">
-    <li>La machine A veut communiquer avec la machine B. Si il regarde sa table de routage, il sait qu'il doit passer son message par la passerelle par défault pour joindre B. Donc pour lui envoyer la trame, il doit connaître son adresse MAC. Or, il ne la connait pas. Il faudrait pouvoir lui demander son adresse MAC mais pour lui demander il faudrait connaître son adresse MAC. C'est pour cela que le protocole ARP a été mis en place. Il peut envoyer un message à l'adresse de broadcast en demandant "est-ce que $IP$ peut m'envoyer son adresse MAC ? Grâce à l'adresse de broadcast ce message sera envoyé à tout le monde, et donc la cible le recevra et pourra lui renvoyer son adresse MAC. ARP est donc un protocole qui permet d'associer une adresse MAC de couche 2 à une adresse IP de couche 3.</li>
-    <li>Les broadcasts risquent de saturer le réseau à chaque fois que l'on veut envoyer une information. C'est pour cela qu'on a mis aussi en place la table ARP. Pour éviter d'avoir à renvoyer en permanence des broadcasts ARP à chaque fois que l'on veut envoyer une information à une machine, nous allons utiliser une table qui va garder les associations adresses IP <-> Adresses MAC pendant un court moment. Ainsi, si j'envoie un paquet à ma passerelle, je noterai son adresse MAC dans ma table ARP et la prochaine fois que je voudrai lui parler, je n'aurai plus à envoyer de broadcast sur le réseau. 
-    <br>La table ARP va donc associer adresse IP et adresse MAC correspondante. les informations contenues dans la table ARP ont une durée de vie limitée. En gros, une valeur va rester environ deux minutes dans la table avant d'être effacée s'il n'y a pas eu de dialogue avec cette adresse entre-temps. C'est pour cela que l'on dit que la table ARP est dynamique. Elle évolue au cours du temps en fonction des machines avec lesquelles il dialogue.</li>
-    <li>
-        Exemple : nous sommes la machine 192.168.0.1 et voulons envoyer un message à la machine 192.168.1.2.
-        Nous savons que nous voulons joindre d'abord le routeur 192.168.0.254, mais ne connaissons pas son adresse MAC.
-        C'est là que le protocole ARP entre en jeu :
-        <ul>
-            <li>On regarde d'abord dans la table ARP locale si on possède l'association entre l'adresse IP 192.168.0.254 et son adresse MAC ;</li>
-            <li>Si on la possède, on envoie l'information et c'est terminé ;</li>
-            <li>Sinon, on envoie un broadcast ARP sur le réseau ;</li>
-            <li>La machine 192.168.0.254 va nous répondre avec son adresse MAC ;</li>
-            <li>Nous allons noter cette adresse MAC dans notre table ARP ;</li>
-            <li>Nous allons enfin pouvoir envoyer notre information.</li>
-        </ul>
-        Voilà comment font les machines pour passer d'une adresse IP à joindre à l'adresse MAC correspondante : grâce au protocole ARP !
-    </li>
-    <li>
-        Le protocole ARP est un protocole de couche 2 ET 3 ! Il manipule des informations de couche 2, les adresses MAC, et des informations de couche 3, les adresses IP. Ainsi, on dit que ce protocole est "à cheval" entre ces deux couches.
-    </li>
-</ol>
-</div>
-
-
-
-
-<h4 class="question">Un chercheur connecte son ordinateur portable à un commutateur <b>Ethernet</b> de son département. Il démarre son browser pour afficher la page web de www.google.com.<ol class="alphabet"><li>Identifiez les protocoles mis en oeuvre, et dans l'ordre chronologique, entre le moment où l'ordinateur se connecte et le moment où la page d'accueil de Google s'affiche.</li><li>Précisez au passage le rôle de chaque protocole et décrivez-les succinctement.</li></ol></h4>
-<div class="answer"><ol class="alphabet">
-<li>
-    Une topologie d'exemple compreant des switches et des routeurs est utilisée. On suppose que le routeur dispose d'un serveur <b>DHCP</b>
-    <ol>
-        <li>On connecte le laptop, avec un navigateur web ouvert ;</li>
-        <li>Le laptop cherche un serveur <b>DHCP</b> sur le réseau et envoie une trame DHCPDISCOVER comme un broadcast à l'adresse MAC ff:ff:ff:ff:ff:ff ;</li>
-        <li>Le switch recoit la trame et la relaye en la broadcast partout ;</li>
-        <li>La trame arrive au routeur, qui reconnait la demande <b>DHCPDISCOVER</b> et répond avec un <b>DHCPOFFER</b>. Il va alors proposer une adresse <b>IP</b>, un masque,une passerelle par défaut ainsi qu'un serveur <b>DNS</b> ;</li>
-        <li>Le laptop apprend son adresse <b>IP</b>, l'<b>IP</b> du routeur, son serveur <b>DNS</b>, etc ;</li>
-        <li>Le laptop répond par un <b>DHCPREQUEST</b>. Celui-ci est aussi envoyé en broadcast et sert à prévenir quelle offre est acceptée.</li>
-        <li>Le serveur DHCP dont l'offre a été acceptée valide la demande et envoie un DHCPACK qui valide l'allocation du bail ( On parle en effet de "bail", car cette attribution d'adresse IP a une durée limitée. Une fois expiré, il faut redemander une adresse IP. ) ;</li>
-        <li>Le laptop forge une requête <b>DNS</b> ;</li>
-        <li>Le laptop envoie un <b>WHO IS</b> <b>ARP</b> pour trouver l'adresse <b>MAC</b> du routeur ;</li>
-        <li>Le laptop recoit cette adresse <b>MAC</b> et le switch retient quelle est l'adresse <b>MAC</b> du laptop ;</li>
-        <li>La requête <b>DNS</b> est envoyée sur le réseau et arrive au routeur ;</li>
-        <li>Le routeur décapsule la trame, reconnait le paquet <b>IP</b> qu'elle contient, et voit que l'<b>IP</b> de destination est hors du subnet. Il envoie donc ce paquet sur Internet ;</li>
-        <li>Le serveur <b>DNS</b> de Google finit par recevoir le paquet, et répond ;</li>
-        <li>Le laptop obtient l'<b>IP</b> du serveur de Google ;</li>
-        <li>Un message <b>TCP</b> SYN est envoyé à cette <b>IP</b> ;</li>
-        <li>Le serveur ouvre un socket et renvoie un ACK ;</li>
-        <li>Le laptop envoie alors sa requête HTTP ;</li>
-        <li>Le serveur renvoie les réponses ;</li>
-        <li>La page web apparait dans le navigateur web.</li>
+    <ol class="alphabet">
+        <li>
+            Une topologie d'exemple compreant des switches et des routeurs est utilisée. On suppose 
+            que le routeur dispose d'un serveur <b>DHCP</b>
+            <ol>
+                <li>
+                    On connecte le laptop, avec un navigateur web ouvert;
+                </li>
+                <li>
+                    Le laptop cherche un serveur <b>DHCP</b> sur le réseau et envoie une trame 
+                    <code>DHCPDISCOVER</code> comme un broadcast à l'adresse MAC 
+                    <code>ff:ff:ff:ff:ff:ff</code>;
+                </li>
+                <li>
+                    Le switch recoit la trame et la relaye en la broadcast partout;
+                </li>
+                <li>
+                    La trame arrive au routeur, qui reconnait la demande <b>DHCPDISCOVER</b> et 
+                    répond avec un <b>DHCPOFFER</b>. Il va alors proposer une adresse <b>IP</b>, 
+                    un masque, une passerelle par défaut ainsi qu'un serveur <b>DNS</b>;
+                </li>
+                <li>
+                    Le laptop apprend son adresse <b>IP</b>, l'<b>IP</b> du routeur, son serveur 
+                    <b>DNS</b>, etc;
+                </li>
+                <li>
+                    Le laptop répond par un <b>DHCPREQUEST</b>. Celui-ci est aussi envoyé en 
+                    broadcast et sert à prévenir quelle offre est accepté.
+                </li>
+                <li>
+                    Le serveur DHCP dont l'offre a été acceptée valide la demande et envoie un 
+                    <code>DHCPACK</code> qui valide l'allocation du bail (on parle en effet de 
+                    "bail", car cette attribution d'adresse IP a une durée limitée. Une fois expiré, 
+                    il faut redemander une adresse IP);
+                </li>
+                <li>
+                    Le laptop forge une requête <b>DNS</b>;
+                </li>
+                <li>
+                    Le laptop envoie un <b>WHO IS</b> <b>ARP</b> pour trouver l'adresse <b>MAC</b> 
+                    du routeur;
+                </li>
+                <li>
+                    Le laptop recoit cette adresse <b>MAC</b> et le switch retient quelle est 
+                    l'adresse <b>MAC</b> du laptop;
+                </li>
+                <li>
+                    La requête <b>DNS</b> est envoyée sur le réseau et arrive au routeur;
+                </li>
+                <li>
+                    Le routeur décapsule la trame, reconnait le paquet <b>IP</b> qu'elle contient, 
+                    et voit que l'<b>IP</b> de destination est hors du subnet. Il envoie donc ce 
+                    paquet sur Internet;
+                </li>
+                <li>
+                    Le serveur <b>DNS</b> de Google finit par recevoir le paquet, et répond;
+                </li>
+                <li>
+                    Le laptop obtient l'<b>IP</b> du serveur de Google;
+                </li>
+                <li>
+                    Un message <b>TCP</b> SYN est envoyé à cette <b>IP</b>;
+                </li>
+                <li>
+                    Le serveur ouvre un socket et renvoie un ACK;
+                </li>
+                <li>
+                    Le laptop envoie alors sa requête HTTP;
+                </li>
+                <li>
+                    Le serveur renvoie les réponses;
+                </li>
+                <li>
+                    La page web apparait dans le navigateur web.
+                </li>
+            </ol>
+            <br />
+            <b>DHCP</b> (aves tous les protocoles des couches inférieurs) pour récupérer une 
+            adresse <b>IP</b> pour se connecter. Ensuite une requète <b>DNS</b> pour savoir 
+            quelle est l'adresse <b>IP</b> de Google. Mais on a besoins d'une requète <b>ARP</b> 
+            pour connaitre la bonne adresse <b>MAC</b> du serveur <b>DNS</b>. Des protocoles de 
+            routages (<b>RIP</b>,<b>OSPF</b>,..). On établi une connexion <b>TCP</b> avec le serveur 
+            de Google. On peut finalement faire notre requête <b>HTTP</b>. On se rend compte qu'au 
+            démarrage, tout un tas de protocoles sont utilisés. Les paquets sont emboités les uns 
+            dans les autres, il y a plein de couches et plein d'acteurs qui intéragissent. On a 
+            également vu qu'un lien est compliqué et qu'il cache plein de choses. Un lien est en 
+            fait un assemblage d'élément qui se présente à <b>IP</b> comme si c'était un lien 
+            physique, ne touchant pas à la couche 3 du réseau.<br />
+            <br />
+        </li>
+        <li>
+            <ul>
+                <li>
+                    <b>DHCP</b> (<em>Dynamic Host Configuration Protocol</em>):<br />
+                    Utilisé pour l'attribution dynamique d'adresse <b>IP</b>.<br />
+                    <br />
+                </li>
+                <li>
+                    <b>DNS</b> (<em>Domain Name System</em>):<br />
+                    Faire la correspondance entre les noms de domaines et les adresses <b>IP</b>.<br />
+                    <br />
+                </li>
+                <li>
+                    <b>ARP</b> (<em>Adress Resolution Protocol</em>):<br />
+                    Pour connaitre l'adresse <b>MAC</b>.<br />
+                    <br />
+                </li>
+                <li>
+                    <b>Routage</b><br />
+                    Permet de trouver le chemin adéquat à partir de notre machine vers celle 
+                    avec laquelle on veut communiquer.<br />
+                    <br />
+                </li>
+                <li>
+                    <b>TCP</b> (<em>Transmission Control Protocol</em>):<br />
+                    Protocole de transfert des données fiables orienté connexion.<br />
+                    <br />
+                </li>
+                <li>
+                    <b>HTTP</b> (<em>Hypertext Transfer Protocol</em>):<br />
+                    Pour récupérer des pages web, protocole de la couche d'application.
+                </li>
+            </ul>
+        </li>
     </ol>
-    <b>DHCP</b> (aves tous les protocoles des couches inférieurs) pour récupérer une adresse <b>IP</b> pour se connecter. Ensuite une requète <b>DNS</b> pour savoir quelle est l'adresse <b>IP</b> de Google. Mais on a besoins d'une requète <b>ARP</b> pour connaitre la bonne adresse <b>MAC</b> du serveur <b>DNS</b>. Des protocoles de routages (<b>RIP</b>,<b>OSPF</b>,..). On établi une connexion <b>TCP</b> avec le serveur de Google. On peut finalement faire notre requête <b>HTTP</b>. On se rend compte qu'au démarrage, tout un tas de protocoles sont utilisés. Les paquets sont emboités les uns dans les autres, il y a plein de couches et plein d'acteurs qui intéragissent. On a également vu qu'un lien est compliqué et qu'il cache plein de choses. Un lien est en fait un assemblage d'élément qui se présente à <b>IP</b> comme si c'était un lien physique, ne touchant pas à la couche 3 du réseau.
-</li>
-<li>
-    <ul>
-        <li><b>DHCP</b> (<b>Dynamic Host Configuration Protocol</b>) : utilisé pour l'attribution dynamique d'adresse <b>IP</b>.</li>
-        <li><b>DNS</b> (<b>Domain Name System</b>) : faire la correspondance entre les noms de domaines et les adresses <b>IP</b>.</li>
-        <li><b>ARP</b> (<b>Adress Resolution Protocol</b>) : pour connaitre l'adresse <b>MAC</b></li>
-        <li><b>Routage</b> permet de trouver le chemin adéquat à partir de notre machine vers celle avec laquelle on veut communiquer.</li>
-        <li><b>TCP</b> (<b>Transmission Control Protocol</b>) : Protocole de transfert des données fiables orienté connexion</li>
-        <li><b>HTTP</b> (<b>Hypertext Transfer Protocol</b>) : pour récupérer des pages web, protocole de la couche d'application.</li>
-    </ul>
-</li>
-</ol></div>
-
-
+</div>
 
 
 
@@ -986,27 +1513,63 @@ Merci à eux.
         <li>
             Le protocole de ce type ont un fonctionnement assez simple :
             <ul>
-                <li>Tous les routeurs du réseau transmettent à interval régulier des mises à jours sur tous leurs ports. Ces updates sont des paquets IP mit en broadcast (ff:ff:ff:ff:ff:ff) et contenant la quasi totalité de leur table de routage.</li>
-                <li>Tous les routeurs recoivent ces updates en comparant le contenu avec les entrées de leur table de routage.</li>
-                <li>Chaque routeur a donc l'impression d'être le centre du réseau, il ne voit qu'un chemin à empreinter vers un routeur pour atteindre un autre routeur.</li>
-            </ul>
-            Les vecteurs de distance présentent au moins deux inconveinients majeurs :
+                <li>
+                    Tous les routeurs du réseau transmettent à interval régulier des mises à jours 
+                    sur tous leurs ports. Ces updates sont des paquets IP mit en broadcast 
+                    (<code>ff:ff:ff:ff:ff:ff</code>) et contenant la quasi totalité de leur table 
+                    de routage.
+                </li>
+                <li>
+                    Tous les routeurs recoivent ces updates en comparant le contenu avec les entrées 
+                    de leur table de routage.
+                </li>
+                <li>
+                    Chaque routeur a donc l'impression d'être le centre du réseau, il ne voit qu'un 
+                    chemin à empreinter vers un routeur pour atteindre un autre routeur.
+                </li>
+            </ul><br />
+            Les vecteurs de distance présentent au moins deux inconveinients majeurs:
             <ul>
-                <li>La charge réseau induite par les updates est conséquent, chaque routeur met régulièrement sur le réseau l'ensemble de sa table de routage. Ce trafic est non négligeable surtout dans le cas de grands réseaux.</li>
-                <li>Le protocole n'est aussi pas très réactif avec le cas de <b>RIP</b>.</li>
-            </ul>
-            Les protocoles à vecteur de distances s'appuient sur l'algorithme de Ford-Bellman.
+                <li>
+                    La charge réseau induite par les updates est conséquent, chaque routeur met 
+                    régulièrement sur le réseau l'ensemble de sa table de routage. Ce trafic est 
+                    non négligeable surtout dans le cas de grands réseaux.
+                </li>
+                <li>
+                    Le protocole n'est aussi pas très réactif avec le cas de <b>RIP</b>.
+                </li>
+            </ul><br />
+            Les protocoles à vecteur de distances s'appuient sur l'algorithme de Ford-Bellman.<br />
+            <br />
         </li>
         <li>
-            Suite aux inconvéinients produits par le protocole de vecteur de distance (DV), le protocole d'état de lien (LS) a été inventé. À l'inverse de ces protocoles de vecteurs, les protocoles dits à états de lien comme <b>OSPF</b> s'appuient sur l'algorithme de Dijkstra et chaque routeur connait l'entièreté de la topologie du réseau :
+            Suite aux inconvéinients produits par le protocole de vecteur de distance (DV), le 
+            protocole d'<b>état de lien</b> (LS) a été inventé. À l'inverse de ces protocoles de 
+            vecteurs, les protocoles dits à états de lien comme <b>OSPF</b> s'appuient sur 
+            l'algorithme de Dijkstra et chaque routeur connait l'<b>entièreté de la topologie du 
+            réseau</b>:
             <ul>
-                <li>Chaque routeur transmet, comme précédemment, des updates à ses voisins mais uniquement lors d'un changemant d'état (coûts, indisponibilité, etc, ...)</li>
-                <li>Avec un algorithme implémenté, le routeur construit le réseau et le maintient à jour à chaque update.</li>
-            </ul>
-            Malheureusement, il y a au moins quelques inconvénients :
+                <li>
+                    Chaque routeur transmet, comme précédemment, des updates à ses voisins mais 
+                    uniquement lors d'un changemant d'état (coûts, indisponibilité, etc, ...)
+                </li>
+                <li>
+                    Avec un algorithme implémenté, le routeur construit le réseau et le maintient 
+                    à jour à chaque update.
+                </li>
+            </ul><br />
+            Malheureusement, il y a au moins quelques inconvénients:
             <ul>
-                <li>Les routeurs nécéssitent des performances CPU et des capacités mémoires supérieures que pour les vecteurs de distance (plus cher!)</li>
-                <li>Ce type de protocole très réactif nécessite des réglages précis des timers de transmission car sa réactivité peut justement nuire à la stabilité du routage (Dans le cas de micro-coupure de liens, on risque de changer toutes les tables et ca peut nuire au réseau)</li>
+                <li>
+                    Les routeurs nécéssitent des performances CPU et des capacités mémoires 
+                    supérieures que pour les vecteurs de distance (plus cher!)
+                </li>
+                <li>
+                    Ce type de protocole très réactif nécessite des réglages précis des timers de 
+                    transmission car sa réactivité peut justement nuire à la stabilité du routage 
+                    (dans le cas de micro-coupure de liens, on risque de changer toutes les tables 
+                    et ca peut nuire au réseau).
+                </li>
             </ul>
         </li>
         <li>
@@ -1019,16 +1582,34 @@ Merci à eux.
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Tous les routeurs du réseau transmettent à interval régulier des updates sur tous leurs ports. </td>
-                        <td>Les routeurs n'émettent des updates que lorsque des liens changent d'état (coûts, indisponibilité, etc, ...)</td>
+                        <td>
+                            Tous les routeurs du réseau transmettent à interval régulier des updates 
+                            sur tous leurs ports.
+                        </td>
+                        <td>
+                            Les routeurs n'émettent des updates que lorsque des liens changent 
+                            d'état (coûts, indisponibilité, etc, ...)
+                        </td>
                     </tr>
                     <tr>
-                        <td>les updates émis contiennent la quasi totalité de leur table de routage</td>
-                        <td>Les updates émis ne contiennent que des descriptions de liens ayant changé d'état, ils sont donc moins volumineux.</td>
+                        <td>
+                            les updates émis contiennent la quasi totalité de leur table de routage
+                        </td>
+                        <td>
+                            Les updates émis ne contiennent que des descriptions de liens ayant 
+                            changé d'état, ils sont donc moins volumineux.
+                        </td>
                     </tr>
                     <tr>
-                        <td>Les routeurs doivent attendre l'interval d'update pour recevoir l'information.</td>
-                        <td>Les routeurs retransmettent immédiatement les mises à jour à leurs voisins, ils compilent leur table de routage après, le protocole est donc beaucoup plus réactif !</td>
+                        <td>
+                            Les routeurs doivent attendre l'interval d'update pour recevoir 
+                            l'information.
+                        </td>
+                        <td>
+                            Les routeurs retransmettent immédiatement les mises à jour à leurs 
+                            voisins, ils compilent leur table de routage après, le protocole est 
+                            donc beaucoup plus réactif !
+                        </td>
                     </tr>
                 </tbody>
             </table>
@@ -1040,15 +1621,28 @@ Merci à eux.
     Décrivez le protocole RIP.
 </h4>
 <div class="answer">
-    Routing Information Protocol (RIP, protocole d'information de routage) est un protocole de routage IP de type Vector Distance (à vecteur de distances) s'appuyant sur l'algorithme de détermination des routes décentralisé Bellman-Ford. Il permet à chaque routeur de communiquer aux routeurs voisins la métrique, c'est-à-dire la distance qui les sépare d'un réseau IP déterminé quant au nombre de sauts ou « hops » en anglais.
-    Pour chaque réseau IP connu, chaque routeur conserve l'adresse du routeur voisin dont la métrique est la plus petite. Ces meilleures routes sont diffusées toutes les 30 secondes.
-    <br>
-    Les limitation de RIP :
+    Routing Information Protocol (RIP, protocole d'information de routage) est un protocole de 
+    <b>routage IP</b> de type Vector Distance (à vecteur de distances) s'appuyant sur l'algorithme 
+    de détermination des routes décentralisé Bellman-Ford. Il permet à chaque routeur de communiquer 
+    aux routeurs voisins la métrique, c'est-à-dire la distance qui les sépare d'un réseau IP 
+    déterminé quant au nombre de sauts ou « hops » en anglais.<br />
+    Pour chaque réseau IP connu, chaque routeur conserve l'adresse du routeur voisin dont la 
+    métrique est la plus petite. Ces meilleures routes sont diffusées toutes les 30 secondes.<br />
+    <br />
+    <u>Les limitation de RIP:</u>
     <ul>
-        <li>Pour éviter les boucles de routage, le nombre de sauts est limité à 15. Au-delà, les paquets sont supprimés.</li>
-        <li>RIP ne prend en compte que la distance entre deux machines en ce qui concerne le saut, mais il ne considère pas l'état de la liaison afin de choisir la meilleure bande passante possible. Si l'on considère un réseau composé de trois routeurs A, B et C, reliés en triangle, RIP préférera passer par la liaison directe A-B même si la bande passante n'est que de 56 kbit/s alors qu'elle est de 20 Mbit/s entre A et C et C et B.</li>
-
-    </ul>
+        <li>
+            Pour éviter les boucles de routage, le nombre de sauts est limité à 15. Au-delà, 
+            les paquets sont supprimés.
+        </li>
+        <li>
+            RIP ne prend en compte que la distance entre deux machines en ce qui concerne le saut, 
+            mais il ne considère pas l'état de la liaison afin de choisir la meilleure bande 
+            passante possible. Si l'on considère un réseau composé de trois routeurs A, B et C, 
+            reliés en triangle, RIP préférera passer par la liaison directe A-B même si la bande 
+            passante n'est que de 56 kbit/s alors qu'elle est de 20 Mbit/s entre A et C et C et B.
+        </li>
+    </ul><br />
     Ces limitations sont corrigées dans le protocole OSPF.
 </div>
 
@@ -1056,10 +1650,19 @@ Merci à eux.
 
 <h4 class="question">
     <ol class="alphabet">
-        <li>Dans quelle(s) situation(s) le protocole de routage à vecteur de distances (DV) risque-t-il de ne pas converger ?</li>
-        <li>Décrivez un comportement pathologique possible à l'aide d'un exemple simple.</li>
-        <li>Comment peut-on atténuer ce phénomène ? Expliquez.</li>
-        <li>Dé</li>
+        <li>
+            Dans quelle(s) situation(s) le protocole de routage à vecteur de distances (DV) 
+            risque-t-il de ne pas converger ?</li>
+        <li>
+            Décrivez un comportement pathologique possible à l'aide d'un exemple simple.
+        </li>
+        <li>
+            Comment peut-on atténuer ce phénomène ? Expliquez.
+        </li>
+        <!-- Il manque une partie de la consigne ? :/
+        <li>
+            Dé
+        </li>-->
     </ol>
 </h4>
 <div class="answer">
@@ -1072,16 +1675,28 @@ Merci à eux.
             </ul>
         </li>
         <li>
-            Pour constater la rapidité avec laquelle les bonnes nouvelles se propagent, considérez le sous-réseau illustré à la figure et sur lequel la métrique utilisée est le nombre de sauts. Supposons que A soit inactif au départ et que tous les autres routeurs le sachent. En d'autres termes, ils ont tous enregistré un délai infini vers A.<figure>
-            <img src="images/info-f303/comportement-pathologique" alt="Comportement pathologique" />
+            Pour constater la rapidité avec laquelle les bonnes nouvelles se propagent, considérez 
+            le sous-réseau illustré à la figure et sur lequel la métrique utilisée est le nombre de 
+            sauts. Supposons que A soit inactif au départ et que tous les autres routeurs le sachent.<br />
+            En d'autres termes, ils ont tous enregistré un délai infini vers A.
+            <figure>
+                <img src="images/info-f303/comportement-pathologique" alt="Comportement pathologique" />
                 <figcaption>Comportement pathologique</figcaption>
             </figure>
         </li>
         <li>
-            Solution: définir un nombre maximum de sauts, comme via le <b>Route poisoning</b> : lorsqu'une route vers un réseau tombe, le réseau est immédiatement averti d'une métrique de distance infinie (le maximum de sauts +1), plus aucune incrémentation n'est possible.
-            <br>
-            Si $Z$ passe par $Y$ pour aller à $X$, $Z$ peut faire croire à $Y$ qu'il se trouve à une distance infinie de $X$. Y étant persuadé que Z ne peut atteindre X, il opte pour une autre route. Cette méthode n'est bonne qu'avec des triplets, elle ne marche pas lorsqu'il y a des boucles de plus de trois noeuds.<br><br>
-            Le poison reverse (Route poisoning) est une méthode pour prévenir qu'une route
+            <u>Solution:</u> définir un nombre maximum de sauts, comme via le <b>Route poisoning</b>: 
+            lorsqu'une route vers un réseau tombe, le réseau est immédiatement averti d'une métrique 
+            de distance infinie (le maximum de sauts +1), plus aucune incrémentation n'est possible.<br />
+            <br />
+            Si <code>Z</code> passe par <code>Y</code> pour aller à <code>X</code>, <code>Z</code> 
+            peut faire croire à <code>Y</code> qu'il se trouve à une distance infinie de 
+            <code>X</code>. Y étant persuadé que Z ne peut atteindre X, il opte pour une autre route.<br />
+            Cette méthode n'est bonne qu'avec des triplets, elle ne marche pas lorsqu'il y a des 
+            boucles de plus de trois noeuds.<br />
+            <br />
+            Le poison reverse (Route poisoning) est une méthode pour prévenir qu'une route... 
+            <!-- manque la suite non ? -->
         </li>
     </ol>
 </div>
@@ -1090,23 +1705,56 @@ Merci à eux.
 
 <h4 class="question">
     <ol class="alphabet">
-        <li>Considérez un protocole de routage à états de liens (link state). Décrivez le contenu des paquets de routage, expliquez le rôle de chaque champ, et décrivez la méthode de diffusion des paquets.</li><li>En quelques mots, en quoi est-ce fondamentalement différent des protocoles à vecteur de distances ?</li>
+        <li>
+            Considérez un protocole de routage à états de liens (link state). Décrivez le 
+            contenu des paquets de routage, expliquez le rôle de chaque champ, et décrivez la 
+            méthode de diffusion des paquets.
+        </li>
+        <li>
+            En quelques mots, en quoi est-ce fondamentalement différent des protocoles à vecteur 
+            de distances ?
+        </li>
     </ol>
 </h4>
 <div class="answer">
     <ol class="alphabet">
         <li>
             <ol>
-                <li>Le nom de la source.</li>
-                <li>Un numéro de séquence : Il permet de savoir à quel paquet le routeur en est (pour ne pas mettre à jour avec un vieux paquet).</li>
-                <li>Un âge</li>
-                <li>Le nom de ses voisins et les coûts associés (qui ne sont pas obligatoirement identiques pour les 2 sens d'une arête.</li>
-                <li>Des <b>ACK</b> flags et des Send flags pour savoir. Le send flag permet de savoir qui a déjà reçu le paquet et à qui le paquet n'a pas encore été envoyé, tandis que l'<b>ACK</b> flag sert juste à savoir si on a renvoyé l'<b>ACK</b> de ce paquet à un certain nœud</li>
+                <li>
+                    Le nom de la source.
+                </li>
+                <li>
+                    Un numéro de séquence: il permet de savoir à quel paquet le routeur en est 
+                    (pour ne pas mettre à jour avec un vieux paquet).
+                </li>
+                <li>
+                    Un âge
+                </li>
+                <li>
+                    Le nom de ses voisins et les coûts associés (qui ne sont pas obligatoirement 
+                    identiques pour les 2 sens d'une arête.
+                </li>
+                <li>
+                    Des <b>ACK</b> flags et des Send flags pour savoir. Le send flag permet de 
+                    savoir qui a déjà reçu le paquet et à qui le paquet n'a pas encore été envoyé, 
+                    tandis que l'<b>ACK</b> flag sert juste à savoir si on a renvoyé l'<b>ACK</b> 
+                    de ce paquet à un certain nœud.
+                </li>
             </ol>
-            Chaque noeud reçoit les mêmes infos. Tous les noeuds envoient toutes les infos à tous ses voisins qui n'ont pas encore reçu l'info. Ensuite ils doivent chacun effectuer un Dijkstra pour chaque destination. Pour les protocoles à vecteur de distances, on utilise la programmation dynamique. Chaque noeud envoi périodiquement son vecteur de distance à ses voisins de manière asynchrone. Quand un noeud reçoit un vecteur de distance, il met à jour le sien et si un chemin change il avertit ses autres voisins. Les algorithmes à vecteur de distance sont moins robustes mais beaucoup plus rapides.
+            Chaque noeud reçoit les mêmes infos. Tous les noeuds envoient toutes les infos à tous 
+            ses voisins qui n'ont pas encore reçu l'info. Ensuite ils doivent chacun effectuer un 
+            Dijkstra pour chaque destination. Pour les protocoles à vecteur de distances, on utilise 
+            la programmation dynamique. Chaque noeud envoi périodiquement son vecteur de distance à 
+            ses voisins de manière asynchrone. Quand un noeud reçoit un vecteur de distance, il met 
+            à jour le sien et si un chemin change il avertit ses autres voisins. Les algorithmes à 
+            vecteur de distance sont moins robustes mais beaucoup plus rapides.<br />
+            <br />
         </li>
         <li>
-            Contrairement au DV, la distance vers une destination n'est pas calculée au fur et à mesure en sommant le prochain coût estimé par le prochain saut et le coût pour atteindre ce prochain routeur. On calcule la distance directement via un arbre (spanning tree).
+            Contrairement au DV, la distance vers une destination n'est pas calculée au fur et à 
+            mesure en sommant le prochain coût estimé par le prochain saut et le coût pour 
+            atteindre ce prochain routeur. On calcule la distance directement via un arbre 
+            (spanning tree).
         </li>
     </ol>
 </div>
@@ -1123,13 +1771,26 @@ Merci à eux.
         <img src="images/info-f303/as" alt="Autonomous System" />
         <figcaption><b>Autonomous System</b> (<b>AS</b>)</figcaption>
     </figure>
-    Un <b>AS</b> est un ensemble de réseaux informatiques IP intégrés à Internet et dont la politique de routage interne est cohérente. Un AS est généralement sous le contrôle d'une entité ou organisation unique, typiquement un fournisseur d'accès à Internet. Au sein d'un AS, le protocole de routage est qualifié d'« interne » (par exemple, <b>Open shortest path first</b>, abrégé en <b>OSPF</b>). Entre deux systèmes autonomes, le routage est « externe » (par exemple Border Gateway Protocol, abrégé en <b>BGP</b>).
+    Un <b>AS</b> est un ensemble de réseaux informatiques IP intégrés à Internet et dont la politique 
+    de routage interne est cohérente. Un AS est généralement sous le contrôle d'une entité ou 
+    organisation unique, typiquement un fournisseur d'accès à Internet. Au sein d'un AS, le protocole 
+    de routage est qualifié d'« interne » (par exemple, <b>Open shortest path first</b>, 
+    abrégé en <b>OSPF</b>). Entre deux systèmes autonomes, le routage est «externe» (par exemple 
+    Border Gateway Protocol, abrégé en <b>BGP</b>).<br />
+    <br />
     <ul>
         <li>
-            Au sein de chaque AS on implémente des protocoles de routage qui permettent aux routeurs internes à l'AS et aux routeurs de bordure de l'AS de construire leurs tables de routage. Ces tables, bien sûr, ne connaissent que les réseaux IP internes à l'AS. Ces protocoles sont appelés des IGP : Interior Gateway Protocol.
+            Au sein de chaque AS on implémente des protocoles de routage qui permettent aux routeurs 
+            internes à l'AS et aux routeurs de bordure de l'AS de construire leurs tables de routage. 
+            Ces tables, bien sûr, ne connaissent que les réseaux IP internes à l'AS. Ces protocoles 
+            sont appelés des IGP: Interior Gateway Protocol.
         </li>
         <li>
-            les routeurs de bordures des différentes AS sont interconnectés entre eux et échangent des informations sur le contenu des AS grâce à un protocole de routage. Ce protocole permet de contrôler parfaitement les informations transmises. Un AS n'aura donc pas forcément connaissance de tous les réseaux existants dans un AS voisin. Ces protocoles de routage sont appelés des EGP : Exterior Gateway Protocol.
+            les routeurs de bordures des différentes AS sont interconnectés entre eux et échangent 
+            des informations sur le contenu des AS grâce à un protocole de routage. Ce protocole 
+            permet de contrôler parfaitement les informations transmises. Un AS n'aura donc pas 
+            forcément connaissance de tous les réseaux existants dans un AS voisin. Ces protocoles 
+            de routage sont appelés des EGP: Exterior Gateway Protocol.
         </li>
     </ul>
     
@@ -1138,10 +1799,17 @@ Merci à eux.
 
 
 <h4 class="question">
-    Le protocole de routage inter-domaine <b>BGP</b> est plus apparenté à la famille des protocoles de routage intra-domaine à vecteur de distances (DV) qu'à celle des protocoles à état de lien (LS).
+    Le protocole de routage inter-domaine <b>BGP</b> est plus apparenté à la famille des 
+    protocoles de routage intra-domaine à vecteur de distances (DV) qu'à celle des protocoles à 
+    état de lien (LS).
     <ol class="alphabet">
-        <li>Expliquez deux ressemblances importantes entre <b>BGP</b> et un protocole DV.</li>
-        <li>Expliquez deux différences importantes entre <b>BGP</b> et un protocole DV, et leur raison d'être.</li>
+        <li>
+            Expliquez deux ressemblances importantes entre <b>BGP</b> et un protocole DV.
+        </li>
+        <li>
+            Expliquez deux différences importantes entre <b>BGP</b> et un protocole DV, et leur 
+            raison d'être.
+        </li>
     </ol>
 </h4>
 <div class="answer">
@@ -1154,15 +1822,18 @@ Merci à eux.
                 <li>
                     Propage les informations dans tout le réseau.
                 </li>
-            </ol>
+            </ol><br />
         </li>
         <li>
             <ol>
                 <li>
-                    <b>BGP</b> mémorise toutes les routes vers toutes les destination : récupération rapide lorsqu'une destination devient inaccessible via la route initialement choisie.
+                    <b>BGP</b> mémorise toutes les routes vers toutes les destination: récupération 
+                    rapide lorsqu'une destination devient inaccessible via la route initialement 
+                    choisie.
                 </li>
                 <li>
-                    <b>BGP</b> construit des routes sans boucles : - Le chemin suivi est décrit explicitement à l'aide des <b>Autonomous System</b> (<b>AS</b>) traversés.
+                    <b>BGP</b> construit des routes sans boucles: le chemin suivi est décrit 
+                    explicitement à l'aide des <b>Autonomous System</b> (<b>AS</b>) traversés.
                 </li>
                 <li>
                     Détection facile des boucles
@@ -1272,7 +1943,9 @@ Merci à eux.
 
 <h4 class="question"><ol class="alphabet"><li>Déterminez analytiquement l'expression de l'efficacité du protocole ALOHA discrétisé (slotted ALOHA) en fonction de la charge du réseau pour un grand nombre de stations actives. On supposera que chaque station émet dans un slot avec une probabilité p.</li><li>Représentez l'efficacité graphiquement (avec définition des axes), et expliquez la forme de la courbe.</li><li>La suppression des slots (Cf. ALOHA pur) améliore-t-elle les performances ? Pourquoi ?</li></ol></h4>
 <div class="answer"><ol class="alphabet">
-<li>Si on suppose qu'on a N nœuds qui ont beaucoup de trames à envoyer. Chacun transmet sur un slot avec une certaine probabilité p. Un nœud à $p(1-p)^{N-1}$ chances d'envoyer un paquet parce qu'il faut qu'il envoie un paquet ($p$) <i>et</i> qu'aucun des $N-1$ autres nœuds n'envoient un paquet ($1-p$) en même temps. La probabilité que n'importe quel nœud envoient un paquet avec succès est de $$Np(1-p)^{N-1}$$ Pour une efficacité maximale, il faut donc trouver un p tel que $Np(1-p)^{N-1}$ soit maximale. On trouve (en dérivant) que L'efficacité est maximale quand $p=\dfrac{1}{N}$. Si on imagine que N tend vers l'infini, on sait que $$\lim\limits_{n-\infty}\left(1+\left(\dfrac{G}{n}\right)\right)^{n} = e^{-G}$$ Et donc pour $G=1$ $$e^{-1} = \dfrac{1}{e} = 0.37 = 37\% \text{ d'efficacité}$$</li>
+<li>Si on suppose qu'on a N nœuds qui ont beaucoup de trames à envoyer. Chacun transmet sur un slot avec une certaine probabilité p. Un nœud à $p(1-p)^{N-1}$ chances d'envoyer un paquet parce qu'il faut qu'il envoie un paquet (<code>p</code>) <i>et</i> qu'aucun des $N-1$ autres nœuds n'envoient un paquet ($1-p$) en même temps. La probabilité que n'importe quel nœud envoient un paquet avec succès est de 
+$$Np(1-p)^{N-1}$$
+ Pour une efficacité maximale, il faut donc trouver un p tel que $Np(1-p)^{N-1}$ soit maximale. On trouve (en dérivant) que L'efficacité est maximale quand $p=\dfrac{1}{N}$. Si on imagine que N tend vers l'infini, on sait que <code></code>\lim\limits_{n-\infty}\left(1+\left(\dfrac{G}{n}\right)\right)^{n} = e^{-G}<code></code> Et donc pour $G=1$ <code></code>e^{-1} = \dfrac{1}{e} = 0.37 = 37\% \text{ d'efficacité}<code></code></li>
 <li>(Slide 5-28) ?</li>
 <li>Non, la probabilité de collision augmente. On obtient une efficacité de 18%.</li>
 </ol></div>
@@ -1292,7 +1965,7 @@ Merci à eux.
             <li><b>Commutation par bus</b> : Le <b>port</b> d'entrée transfert les paquets directement sur le <b>port</b> de sortie via un bus partagé sans l'intervention d'un processus de routage. Comme le bus est partagé, seul un paquet est transféré à la fois via le bus. Si le bus est occupé, le paquet arrivant doit attendre dans une file. La bande passante du routeur est limitée par le bus comme chaque paquet doit traverser le bus seul. Exemple :  Bus switching CISCO-1900, 3-COM's care builder5.<br>
             <b>Avantages</b> : C'est le délit du bus qui détermine la vitesse de commutation du routeur.<br>
             <b>Inconvénients</b> : C'est qu'un seul paquet est transféré à la fois, du coup il y a un risque d'attente.</li>
-            <li><b>Commutation par réseau d'interconnexions</b> : Pour surmonter le problème de la bande passante d'un bus partagé, les commutateurs réseaux en croix sont utilisés. Les <b>port</b> entrées et sorties sont connectés par des bus horizontaux et verticaux. Si nous avons $N$ <b>ports</b> d'entrés et $N$ <b>ports</b> de sorties, on a besoin de $2N$ bus pour les connecter. Pour transférer un paquet du <b>port</b> d'entrée au <b>port</b> de sortie correspondant, le paquet traverse le bus horizontal jusqu'à une intersection avec un bus vertical qui le conduit à son <b>port</b> de destination. Si le vertical est libre, le paquet est transféré. Mais si le bus vertical est occupé à cause d'une autre entrée, la ligne doit transférer des paquets au même <b>port</b> de destination. Les paquets sont bloqués et font la file sur le même <b>port</b> d'entrée.<br>
+            <li><b>Commutation par réseau d'interconnexions</b> : Pour surmonter le problème de la bande passante d'un bus partagé, les commutateurs réseaux en croix sont utilisés. Les <b>port</b> entrées et sorties sont connectés par des bus horizontaux et verticaux. Si nous avons <code>N</code> <b>ports</b> d'entrés et <code>N</code> <b>ports</b> de sorties, on a besoin de <code>2N</code> bus pour les connecter. Pour transférer un paquet du <b>port</b> d'entrée au <b>port</b> de sortie correspondant, le paquet traverse le bus horizontal jusqu'à une intersection avec un bus vertical qui le conduit à son <b>port</b> de destination. Si le vertical est libre, le paquet est transféré. Mais si le bus vertical est occupé à cause d'une autre entrée, la ligne doit transférer des paquets au même <b>port</b> de destination. Les paquets sont bloqués et font la file sur le même <b>port</b> d'entrée.<br>
             <b>Avantages</b> : Ce système peut s'implémenter en hardware, et c'est super rapide (60 Gbps). Améliore la limite de débit associé à un bus commun. <br>
             <b>Inconvénients</b> : Le seul problème est que les paquets ont des tailles différentes. Si les paquets avaient tous la même durée, tout aurait été synchrone, on change la matrice de routage à chaque paquet, toutes les connexions en même temps. Quand les paquets ont des tailles variables, le chef d'orchestre doit être plus compliqué. On peut également découper les paquets en petits blocs de taille fixe (complétés par des zéros par exemple). Comme ça, on retrouve le comportement synchrone. Vu de l'extérieur, cette fragmentation est invisible.</li>
         </ul>
@@ -1467,7 +2140,7 @@ Merci à eux.
     <br><br>
     Vu que certains réseaux étaient privés et que les machines sur ces réseaux n'avaient pas besoin d'être jointes depuis Internet (elles étaient de simples clients, mais pas des serveurs), il n'était pas nécessaire de leur fournir une adresse IP publique à chacune d'entre elles. Ainsi, on s'est dit qu'on pourrait donner des adresses IP privées à ces machines. Cette plage d'adresses privée n'est donc pas utilisée sur Internet, elle est réservée pour tous les réseaux du monde entier qui n'ont pas besoin d'être joints depuis Internet ( par exemple 192.168.x.x ou 10.x.x.x ou 172.16.x.x ).
     <br><br>
-    Donc, la NAT associe $n$ adresses privées à une seule adresse publique. Ainsi, on peut connecter $n$ machines en n'utilisant qu'une seule adresse publique. On économise donc des adresses. Lorsqu'un paquet est envoyé vers l'extérieur, il passe par le dispositif <b>NAT</b> qui converti l'adresse <b>IP</b> interne en adresse <b>IP</b> officielle du routeur. Le dispositif <b>NAT</b> et un pare-feu sont souvent combinés dans le même équipement, offrant ainsi une certaine sécurité en contrôlant précisément ce qui entre sur le réseau et en sort.
+    Donc, la NAT associe <code>n</code> adresses privées à une seule adresse publique. Ainsi, on peut connecter <code>n</code> machines en n'utilisant qu'une seule adresse publique. On économise donc des adresses. Lorsqu'un paquet est envoyé vers l'extérieur, il passe par le dispositif <b>NAT</b> qui converti l'adresse <b>IP</b> interne en adresse <b>IP</b> officielle du routeur. Le dispositif <b>NAT</b> et un pare-feu sont souvent combinés dans le même équipement, offrant ainsi une certaine sécurité en contrôlant précisément ce qui entre sur le réseau et en sort.
     <table>
         <thead>
             <tr><th colspan="8">Structure d'une table <b>NAT</b></th></tr>
@@ -1486,10 +2159,42 @@ Merci à eux.
 
 <h4 class="question">Quand des flux <b>TCP</b> et <b>UDP</b> partagent un même lien congestionné, comment réagissent ces deux types de flux et quelles en sont les conséquences ?</h4>
 <div class="answer">
-<ul>
-    <li><b>TCP</b> peut distinguer 2 types de congestions: soit il reçoit 3 <b>ACK</b>s consécutifs pour le même numéro de séquence (donc un des paquets intermédiaire a été perdus, mais les suivants sont passés: <b>faible congestion</b>), soit un <b>ACK</b> n'arrive pas dans le temps imparti (timeout, beaucoup de paquets perdus: <b>congestion sévère</b>). Au démarage de la transmission, <b>TCP</b> envoie les données avec une fenêtre de taille 1 <b>MSS</b> (<b>Maximum Segment Size</b>), correspondant au nombre de paquets qui peuvent être en parcourt simultanément. La taille de la fenêtre est doublée à chaque itération (en incrémentant la taille à chaque <b>ACK</b> reçu), de sorte qu'elle a une <b>croissance exponentielle</b>. S'il détecte une <b>faible congestion</b>, il divise la taille de la fenêtre par deux et change de mode pour incrémenter la taille de la fenêtre à chaque itération (+1 pour chaque fenêtre totalement envoyée) pour adopter une <b>croissance linéaire</b>. Il approche ainsi <b>dichotomiquement</b> la taille moyenne de fenêtre optimale (càd le nombre de paquets en parcourt, et donc la vitesse d'envoi). S'il détecte une <b>congestion sévère</b>, il réduit la taille de fenêtre à 1 et recommence en mode de <b>croissance exponentiel</b>. Il peut éventuellement repasser en mode de <b>croissance linéaire</b> lorsqu'il a atteint la moitié de la taille de fenêtre qui a provoqué un timeout (puisque doubler sa taille provoquera probablement de nouveau un timeout).</li>
-    <li><b>UDP</b> quant à lui est un processus de transport extrêmement simple et léger, doté d'un modèle de service minimum. Il ne nécessite aucun échange préalable entre deux processus, de plus les échanges de données sont non-fiables, ce qui signifie que lorsqu'un processus expédie un message, il ne se soucie pas de son arrivée.</li>
-</ul>
+    <ul>
+        <li>
+            <b>TCP</b> peut distinguer 2 types de congestions:
+            <ul>
+                <li>
+                    soit il reçoit 3 <b>ACK</b>s consécutifs pour le même numéro de séquence (donc 
+                    un des paquets intermédiaire a été perdus, mais les suivants sont passés: 
+                    <b>faible congestion</b>)
+                </li>
+                <li>
+                    soit un <b>ACK</b> n'arrive pas dans le temps imparti (timeout, beaucoup de 
+                    paquets perdus: <b>congestion sévère</b>).
+                </li>
+            </ul>
+            Au démarage de la transmission, <b>TCP</b> envoie les données avec une fenêtre de taille 
+            1 <b>MSS</b> (<b>Maximum Segment Size</b>), correspondant au nombre de paquets qui 
+            peuvent être en parcourt simultanément. La taille de la fenêtre est doublée à chaque 
+            itération (en incrémentant la taille à chaque <b>ACK</b> reçu), de sorte qu'elle a 
+            une <b>croissance exponentielle</b>. S'il détecte une <b>faible congestion</b>, il 
+            divise la taille de la fenêtre par deux et change de mode pour incrémenter la taille de 
+            la fenêtre à chaque itération (+1 pour chaque fenêtre totalement envoyée) pour adopter 
+            une <b>croissance linéaire</b>. Il approche ainsi <b>dichotomiquement</b> la taille 
+            moyenne de fenêtre optimale (càd le nombre de paquets en parcourt, et donc la vitesse 
+            d'envoi). S'il détecte une <b>congestion sévère</b>, il réduit la taille de fenêtre à 1 
+            et recommence en mode de <b>croissance exponentiel</b>. Il peut éventuellement repasser 
+            en mode de <b>croissance linéaire</b> lorsqu'il a atteint la moitié de la taille de 
+            fenêtre qui a provoqué un timeout (puisque doubler sa taille provoquera probablement 
+            de nouveau un timeout).
+        </li>
+        <li>
+            <b>UDP</b> quant à lui est un processus de transport extrêmement simple et léger, doté 
+            d'un modèle de service minimum. Il ne nécessite aucun échange préalable entre deux 
+            processus, de plus les échanges de données sont non-fiables, ce qui signifie que 
+            lorsqu'un processus expédie un message, il ne se soucie pas de son arrivée.
+        </li>
+    </ul>
 </div>
 
 
@@ -1526,10 +2231,10 @@ Merci à eux.
 
 
 <h4 class="question">
-    Considérez 3 réseaux <b>Ethernet</b> ($N_1$, $N_2$ et $N_3$), un commutateur <b>Ethernet</b> ($C$) et un routeur ($R$) interconnectés selon une topologie en ligne $N_1$-$C$-$N_2$-$R$-$N_3$. Une station $H_A$ (d'adresse $IP_A$) est attachée au réseau $N_1$ (par l'adresse $MAC_A$) et une station $H_B$ (d'adresse $IP_B$) est attachée au réseau $N_3$ (par l'adresse $MAC_B$). $C$ a deux adresses $MAC$ : $MAC_{11}$ sur $N_1$ et $MAC_{12}$ sur $N_2$. $R$ a deux adresses $MAC$ et deux adresses $IP$ : $MAC_{22}$ et $IP_2$ sur $N_2$ et $MAC_{23}$ et $IP_3$ sur $N_3$.
+    Considérez 3 réseaux <b>Ethernet</b> (<code>N_1</code>, <code>N_2</code> et <code>N_3</code>), un commutateur <b>Ethernet</b> (<code>C</code>) et un routeur (<code>R</code>) interconnectés selon une topologie en ligne <code>N_1</code>-<code>C</code>-<code>N_2</code>-<code>R</code>-<code>N_3</code>. Une station <code>H_A</code> (d'adresse <code>IP_A</code>) est attachée au réseau <code>N_1</code> (par l'adresse <code>MAC_A</code>) et une station <code>H_B</code> (d'adresse <code>IP_B</code>) est attachée au réseau <code>N_3</code> (par l'adresse <code>MAC_B</code>). <code>C</code> a deux adresses <code>MAC</code> : $MAC_{11}$ sur <code>N_1</code> et $MAC_{12}$ sur <code>N_2</code>. <code>R</code> a deux adresses <code>MAC</code> et deux adresses <code>IP</code> : $MAC_{22}$ et <code>IP_2</code> sur <code>N_2</code> et $MAC_{23}$ et <code>IP_3</code> sur <code>N_3</code>.
     <ol class="alphabet">
-        <li>Dessinez la configuration. $H_A$ envoie un paquet $IP$ à $H_B$. Si l'on suppose que les correspondances entre adresses $IP$ et $MAC$ sont connues de tous, décrivez les trois trames qui circulent respectivement sur les réseaux $N_1$, $N_2$ et $N_3$ en vous limitant aux champs d'adresses des trames et aux champs d'adresses et de $TTL$ ($T$ime $T$o $L$ive) du paquet $IP$ contenu dans la trame. Justifiez.</li>
-        <li>Par quel protocole les correspondances entre adresses $IP$ et $MAC$ ont-elles été découvertes ? Décrivez les échanges de ce protocole qui réalisent les mises en correspondance nécessaires lorsque $H_A$ envoie son paquet $IP$ à $H_B$. Mentionnez toutes les adresses présentes dans les messages échangés.</li>
+        <li>Dessinez la configuration. <code>H_A</code> envoie un paquet <code>IP</code> à <code>H_B</code>. Si l'on suppose que les correspondances entre adresses <code>IP</code> et <code>MAC</code> sont connues de tous, décrivez les trois trames qui circulent respectivement sur les réseaux <code>N_1</code>, <code>N_2</code> et <code>N_3</code> en vous limitant aux champs d'adresses des trames et aux champs d'adresses et de <code>TTL</code> (<code>T</code>ime <code>T</code>o <code>L</code>ive) du paquet <code>IP</code> contenu dans la trame. Justifiez.</li>
+        <li>Par quel protocole les correspondances entre adresses <code>IP</code> et <code>MAC</code> ont-elles été découvertes ? Décrivez les échanges de ce protocole qui réalisent les mises en correspondance nécessaires lorsque <code>H_A</code> envoie son paquet <code>IP</code> à <code>H_B</code>. Mentionnez toutes les adresses présentes dans les messages échangés.</li>
     </ol>
 </h4>
 <div class="answer">
@@ -1566,12 +2271,18 @@ Merci à eux.
 <li><b>TCP</b> n'utilise qu'un seul timer, comme le Go-Back-N. Le problème est que <b>TCP</b> doit à la fois s'adapter aux réseaux locaux (ou les timeouts peuvent être très cours) qu'à l'internet (ou le chemin utilisé par un paquet et peut-être très long et donc les délais aussi).</li>
 <li>Pour estimer le <b>RTT</b>, on va avoir un échantillon <b>RTT</b> qui va stocker le temps entre le moment ou le byte est transmis et le moment où on reçoit l'<b>ACK</b>. Comme on va avoir une grosse fluctuation des valeurs avec cette technique, il faut essayer de « lisser » ces valeurs. On va donc avoir besoin de la moyenne et la variance.
 
+
 $$estimation = (1-a)*estimationPrécédente + a*nouvelEchantillon$$
+
 avec $a = 0.125$
+
 $$marge \text{ (de sureté)} = (1-b)*margePrécédente + b*|echantillon-estimation|$$
+
 avec $b = 0.25$
+
 $$Timeout = estimation + 4 marge$$
-<i>'$4$'</i> parce qu'avec cette valeur, seulement $1\%$ des paquets étaient renvoyés trop tôt.</li>
+
+<i>'<code>4</code>'</i> parce qu'avec cette valeur, seulement $1\%$ des paquets étaient renvoyés trop tôt.</li>
 </ol></div>
 
 
@@ -1592,24 +2303,85 @@ $$Timeout = estimation + 4 marge$$
 
 <h4 class="question">Citez et définissez les différentes sources de délai que subit un paquet dans un réseau datagramme.</h4>
 <div class="answer">
-    $$d(noeud) = d(processing) + d(queueing) + d(transmission) + d(propagation)$$
+    
+$$d(noeud) = d(processing) + d(queueing) + d(transmission) + d(propagation)$$
+
 </div>
 
 
 
-<h4 class="question"><ol class="alphabet"><li>Décrivez sommairement le fonctionnement du système <b>DNS</b>.</li><li>Comparez les deux modes de fonctionnement du protocole (avantages et inconvénients).</li></ol></h4>
-<div class="answer"><ol class="alphabet"><li>Le système <b>DNS</b> (<b>Domain Name System</b>) est le service d'annuaire d'Internet. Lorsqu'on recherche une adresse <b>URL</b> tel que http://google.com ou http://facebook.com, le système d'<b>DNS</b> traduit l'adresse <b>URL</b> en une adresse <b>IP</b> ( entre $0.0.0.0$ et $255.255.255.255$ pour <b>IPv4</b> ). Ce système est fréquemment utilisé par d'autres protocoles tels que <b>HTTP</b>, <b>SMTP</b> et <b>FTP</b> pour délivrer les adresses <b>IP</b> correspondant aux noms de serveurs demandés. Par exemple pour http://ulb.be, le système <b>DNS</b> formule une requête auprès d'un serveur de nom, à laquelle il reçoit une réponse concernant l'adresse <b>IP</b> correspondante et ensuite le navigateur établit une connexion <b>TCP</b> avec le processus serveur répondant à cette adresse.</li>
-<li><ol>
-<li>Une version simplifiée du <b>DNS</b> consisterait en un serveur de noms unique contenant toutes les correspondances existantes. Ce système a l'air simple, mais impossible à mettre en oeuvre, pour causes : fragilité d'un site central unique, volume de trafic trop important, base de données centralisée trop éloignée de certains utilisateurs, problèmes de maintenance dus au volume énorme des données à stocker. <b>DNS</b> se doit donc d'être un système distribué.</li>
-<li><b>DNS</b> utilise un grand nombre de serveurs de noms, organisé de manière hiérarchique et distribué dans le monde entier. Il existe trois types de serveurs de noms : les <b>serveurs de noms locaux</b>, les <b>serveurs de nom racine</b> et les <b>serveurs de nom de source autorisée</b>. Chaque fournisseur d'accès possède un <b>serveur de noms local</b>, vers lequel vont toutes les recherches <b>DNS</b> formulées au sein de ce réseau local. Un <b>serveur de noms local</b> est forcément proche du client. Lorsqu'un serveur local de noms n'est pas en mesure de répondre à une demande il se transforme en client <b>DNS</b> et interroge un <b>serveur de nom racine</b>, si celui-ci a une réponse il l'envoie au serveur de noms <b>DNS</b>, qui la transmet alors à l'auteur de la demande ; si le <b>serveur de nom racine</b> ne peut lui non plus satisfaire la demande directement, il répond en donnant l'adresse <b>IP</b> d'un <b>serveur de nom de source autorisée</b> qui connaîtra certainement la correspondance recherchée. Tout serveur est enregistré auprès d'au moins deux <b>serveurs de noms de source autorisée</b>, en général il s'agit tout simplement du fournisseur d'accès. Un <b>serveur de nom est qualifié</b> de source autorisée pour un serveur donné, s'il dispose en permanence d'archives <b>DNS</b> permettant d'établir la conversion pour ce serveur. 
-<figure>
-    <img src="images/info-f303/dns-name-resolution" alt="DNS name resolution ( recursive and iterated method )" />
-    <figcaption>DNS name resolution ( recursive and iterated method )</figcaption>
-</figure>
-Toutes ces recherches que nous venons de voir étaient du type récursives, mais <b>DNS</b> autorise également des recherches itératives à n'importe quel moment du processus de recherche : si un serveur n'est pas en mesure de répondre favorablement à la demande, il renvoie directement l'adresse <b>IP</b> du prochain serveur de nom de la chaîne. En général, toutes les demandes d'une même recherche <b>DNS</b> sont récursives, mis à part celle émanant du serveur local de nom adressée au serveur racine qui est de nature itérative. Cette démarche est préférable, les serveurs racines traitant généralement de grands volumes de
-demandes.</li>
-</ol>
-</li></ol></div>
+<h4 class="question">
+    <ol class="alphabet">
+        <li>
+            Décrivez sommairement le fonctionnement du système <b>DNS</b>.
+        </li>
+        <li>
+            Comparez les deux modes de fonctionnement du protocole (avantages et inconvénients).
+        </li>
+    </ol>
+</h4>
+<div class="answer">
+    <ol class="alphabet">
+        <li>
+            Le système <b>DNS</b> (<b>Domain Name System</b>) est le service d'annuaire d'Internet. 
+            Lorsqu'on recherche une adresse <b>URL</b> tel que <code>http://google.com</code> ou 
+            <code>http://facebook.com</code>, le système d'<b>DNS</b> traduit l'adresse <b>URL</b> 
+            en une adresse <b>IP</b> (entre <code>0.0.0.0</code> et <code>255.255.255.255</code> 
+            pour <b>IPv4</b>). Ce système est fréquemment utilisé par d'autres protocoles tels que 
+            <b>HTTP</b>, <b>SMTP</b> et <b>FTP</b> pour délivrer les adresses <b>IP</b> 
+            correspondant aux noms de serveurs demandés. Par exemple pour <code>http://ulb.be</code>, 
+            le système <b>DNS</b> formule une requête auprès d'un serveur de nom, à laquelle il 
+            reçoit une réponse concernant l'adresse <b>IP</b> correspondante et ensuite le navigateur 
+            établit une connexion <b>TCP</b> avec le processus serveur répondant à cette adresse.
+        </li>
+        <li>
+            <ol>
+                <li>
+                    Une version simplifiée du <b>DNS</b> consisterait en un serveur de noms unique 
+                    contenant toutes les correspondances existantes. Ce système a l'air simple, 
+                    mais impossible à mettre en oeuvre, pour causes : fragilité d'un site central 
+                    unique, volume de trafic trop important, base de données centralisée trop 
+                    éloignée de certains utilisateurs, problèmes de maintenance dus au volume énorme 
+                    des données à stocker. <b>DNS</b> se doit donc d'être un système distribué.
+                </li>
+                <li><b>DNS</b> utilise un grand nombre de serveurs de noms, organisé de manière 
+                    hiérarchique et distribué dans le monde entier. Il existe trois types de 
+                    serveurs de noms: les <b>serveurs de noms locaux</b>, les <b>serveurs de nom 
+                    racine</b> et les <b>serveurs de nom de source autorisée</b>.<br />
+                    Chaque fournisseur d'accès possède un <b>serveur de noms local</b>, vers lequel 
+                    vont toutes les recherches <b>DNS</b> formulées au sein de ce réseau local. Un 
+                    <b>serveur de noms local</b> est forcément proche du client. Lorsqu'un serveur 
+                    local de noms n'est pas en mesure de répondre à une demande il se transforme en 
+                    client <b>DNS</b> et interroge un <b>serveur de nom racine</b>, si celui-ci a 
+                    une réponse il l'envoie au serveur de noms <b>DNS</b>, qui la transmet alors à 
+                    l'auteur de la demande; si le <b>serveur de nom racine</b> ne peut lui non plus 
+                    satisfaire la demande directement, il répond en donnant l'adresse <b>IP</b> 
+                    d'un <b>serveur de nom de source autorisée</b> qui connaîtra certainement la 
+                    correspondance recherchée. Tout serveur est enregistré auprès d'au moins deux 
+                    <b>serveurs de noms de source autorisée</b>, en général il s'agit tout 
+                    simplement du fournisseur d'accès.<br />
+                    Un <b>serveur de nom est qualifié</b> de source autorisée pour un serveur donné, 
+                    s'il dispose en permanence d'archives <b>DNS</b> permettant d'établir la 
+                    conversion pour ce serveur. 
+                    <figure>
+                        <img src="images/info-f303/dns-name-resolution" alt="DNS name resolution 
+                            (recursive and iterated method)" />
+                        <figcaption>DNS name resolution ( recursive and iterated method )</figcaption>
+                    </figure>
+                    Toutes ces recherches que nous venons de voir étaient du type récursives, 
+                    mais <b>DNS</b> autorise également des recherches itératives à n'importe quel 
+                    moment du processus de recherche : si un serveur n'est pas en mesure de répondre 
+                    favorablement à la demande, il renvoie directement l'adresse <b>IP</b> du 
+                    prochain serveur de nom de la chaîne. En général, toutes les demandes d'une même 
+                    recherche <b>DNS</b> sont récursives, mis à part celle émanant du serveur local 
+                    de nom adressée au serveur racine qui est de nature itérative. Cette démarche 
+                    est préférable, les serveurs racines traitant généralement de grands volumes de
+                    demandes.
+                </li>
+            </ol>
+        </li>
+    </ol>
+</div>
 
 
 
@@ -1634,7 +2406,9 @@ demandes.</li>
 <div class="answer"><ol class="alphabet">
 <li>Cela permet de réguler la vitesse sur le réseau afin d'éviter de surcharger le receveur. Pour se faire, l'expéditeur a une variable "receive window" pour qu'il sache combien de place disponible se trouve dans le buffer du receveur. Comme <b>TCP</b> ne peut pas surcharger les buffer : $LastByteRcvd - LastByteRead <= RcvBuffer$.
 Le receiver window (rwnd) se définit comme suit : 
-$$rwnd = RcvBuffer - (LastByteRcvd - LastByteRead)$$</li>
+
+$$rwnd = RcvBuffer - (LastByteRcvd - LastByteRead)$$
+</li>
 <li>Nagle Algorithm : Quand les données viennent du socket un byte à la fois, on envoie le premier byte et on buffer le reste jusqu'à ce que le premier byte soit reçu. On envoie alors le reste par RTT en 1 fois. Silly Window Problem - Clark' solution : Le receveur envoi une mise à jour de la fenêtre si et seulement si le buffer est à moitié vide ou si un segment entier peut être reçu.</li></ol>
 </div>
 
@@ -1750,14 +2524,14 @@ Une fois le <b>3-way handshake</b> effectué, le client et le serveur ont reçu 
         \end{array}$
     </fieldset>
     <fieldset class="formula">
-        <legend>Temps de transmission $T_t$</legend>
+        <legend>Temps de transmission <code>T_t</code></legend>
         $\begin{array}{rcl}
-            T_t & = & \dfrac{\text{Nbre $N$ de bits transmis}}{\text{débit de la source (en bps)}}\\
-                & = & \text{ Temps entre l'envoi des bits 1 et $N$}
+            T_t & = & \dfrac{\text{Nbre <code>N</code> de bits transmis}}{\text{débit de la source (en bps)}}\\
+                & = & \text{ Temps entre l'envoi des bits 1 et <code>N</code>}
         \end{array}$
     </fieldset>
     <fieldset class="formula">
-        <legend>Temps de transmission $T_p$</legend>
+        <legend>Temps de transmission <code>T_p</code></legend>
         $T_p = \dfrac{\text{Distance (en m)}}{\text{Vitesse de propagation (en m/s)}}$
     </fieldset>
     <fieldset class="formula">
@@ -1817,7 +2591,7 @@ Une fois le <b>3-way handshake</b> effectué, le client et le serveur ont reçu 
                 <li>Temps de traitement de A : $0.1 $ s</li>
                 <li>Temps de B vers A : $\dfrac{(40)8}{10^6} = 0.00032 $ s</li>
             </ol>
-            Donc $1$ RTT $ = 0.00416 + 0.1 + 0.00032 = 0.10448$ s
+            Donc <code>1</code> RTT $ = 0.00416 + 0.1 + 0.00032 = 0.10448$ s
         </li>
         <li>
             <table>
@@ -1835,7 +2609,7 @@ Une fois le <b>3-way handshake</b> effectué, le client et le serveur ont reçu 
                     <tr><td>24</td><td>35</td><td>36</td><td>36</td></tr>
                 </thead>
             </table>
-            Donc $24$ RTT $ = 24 * 0.10448 = 2,50752$ s
+            Donc <code>24</code> RTT $ = 24 * 0.10448 = 2,50752$ s
         </li>
     </ol>
 </div>
@@ -1864,7 +2638,7 @@ Une fois le <b>3-way handshake</b> effectué, le client et le serveur ont reçu 
                 <li>Temps de traitement de A : $0.02 $ s</li>
                 <li>Temps de B vers A : $\dfrac{(40)8}{10^6} = 0.00032 $ s</li>
             </ol>
-            Donc $1$ RTT $ = 0.002368 + 0.1 + 0.00032 = 0.102688$ s
+            Donc <code>1</code> RTT $ = 0.002368 + 0.1 + 0.00032 = 0.102688$ s
         </li>
         <li>
             <table>
@@ -1881,7 +2655,7 @@ Une fois le <b>3-way handshake</b> effectué, le client et le serveur ont reçu 
                     <tr><td>7</td><td>11</td><td>12</td><td>12</td></tr>
                 </thead>
             </table>
-            Donc $7$ RTT $ = 7 * 0.102688 = 0.718816$ s
+            Donc <code>7</code> RTT $ = 7 * 0.102688 = 0.718816$ s
         </li>
     </ol>
 </div>
@@ -1899,7 +2673,7 @@ Timer?
 </div>
 
 <h4 class="question">
-    Deux entités A et B ont établi une connexion <b>TCP</b> passant par deux routeurs $R$ et $S$. Les liaisons $A \leftrightarrow R$, $R \leftrightarrow S$ et $S \leftrightarrow B$ ont un débit de respectivement 10 Mbps, 1 Mbps, et 1 Mbps. Chacune de ces liaisons a un temps de propagation de 10 ms. $A$ souhaite envoyer des données à $B$ le plus rapidement possible. La fenêtre de réception de $B$ est de 18 MSS, le MSS ayant été négocié à 10 Kb, en-tête compris. Le seuil de l'algorithme de <i>slow-start</i> est initialement fixé à 12 MSS. A chaque réception d'un segment, $B$ répond par un acquit de 24 octets, en-tête compis. Un timer de retransmission de 1 s est enclenché à chaque début d'envoi d'une rafale. Combien de temps faut-il à $A$ pour arrive à un fenetre de congestion de taille maximale, sachant que la troisième rafale sera entièrement perdue et qu'il n'y aura pas d'autres pertes ?
+    Deux entités A et B ont établi une connexion <b>TCP</b> passant par deux routeurs <code>R</code> et <code>S</code>. Les liaisons $A \leftrightarrow R$, $R \leftrightarrow S$ et $S \leftrightarrow B$ ont un débit de respectivement 10 Mbps, 1 Mbps, et 1 Mbps. Chacune de ces liaisons a un temps de propagation de 10 ms. <code>A</code> souhaite envoyer des données à <code>B</code> le plus rapidement possible. La fenêtre de réception de <code>B</code> est de 18 MSS, le MSS ayant été négocié à 10 Kb, en-tête compris. Le seuil de l'algorithme de <i>slow-start</i> est initialement fixé à 12 MSS. A chaque réception d'un segment, <code>B</code> répond par un acquit de 24 octets, en-tête compis. Un timer de retransmission de 1 s est enclenché à chaque début d'envoi d'une rafale. Combien de temps faut-il à <code>A</code> pour arrive à un fenetre de congestion de taille maximale, sachant que la troisième rafale sera entièrement perdue et qu'il n'y aura pas d'autres pertes ?
 </h4>
 <div class="answer">
 $T_{MSS|10Mbps} = \dfrac{10000}{10.10^7} = 0.0001$ s<br>
@@ -1946,7 +2720,7 @@ Il faut donc Timeout + 18 RTT : $1 + 18*0.02214032 = 1.39852576 s$
 
 
 <h4 class="question">
-    Trois stations $S_1$, $S_2$ et $S_3$ se partagent un segment de réseau de type 802.3 (CSMA/CD, 10Mbps). La première station désire émettre une trame de 1000 bits alors que les deux autres stations souhaitent émettre chacune deux trames de 1000 bits. La durée d'un slot de contention a été fixée à $2\tau = 2.10^{-6}$ s. Lorsque plusieurs stations veulent accéder au réseau, on supposera que la probabilité de retransmission dans un slot est constante et égale à $p = \dfrac{1}{2}$. Calculez :
+    Trois stations <code>S_1</code>, <code>S_2</code> et <code>S_3</code> se partagent un segment de réseau de type 802.3 (CSMA/CD, 10Mbps). La première station désire émettre une trame de 1000 bits alors que les deux autres stations souhaitent émettre chacune deux trames de 1000 bits. La durée d'un slot de contention a été fixée à $2\tau = 2.10^{-6}$ s. Lorsque plusieurs stations veulent accéder au réseau, on supposera que la probabilité de retransmission dans un slot est constante et égale à $p = \dfrac{1}{2}$. Calculez :
     <ol class="alphabet">
         <li>la durée moyenne d'envoi des 2 premières trames,</li>
         <li>la durée moyenne d'envoi des 5 trames.</li>
@@ -1980,7 +2754,7 @@ Il faut donc Timeout + 18 RTT : $1 + 18*0.02214032 = 1.39852576 s$
 </div>
 
 <h4 class="question">
-    Trois stations $S_1$, $S_2$ et $S_3$ se partagent un segment de réseau de type 802.3 (CSMA/CD, 10Mbps). La première station désire émettre une trame de 1000 bits alors que les deux autres stations souhaitent émettre chacune deux trames de 1250 bits alors que les deux autres stations souhaitent émettre chacune deux trames de 1000 bits. La station $S_3$ doit attendre l'envoi de la première trame de $S_2$ avant de commencer à émettre sur le réseau. La durée d'un slot de contention a été fixée à $2\tau = 4.10^{-6}$ s. Considérez les temps de réaction des différentes stations comme nul. Lorsque plusieurs stations veulent accéder au réseau, on supposera que la probabilité de retransmission dans un slot est constante et égale à $p = \dfrac{1}{4}$. Calculez la durée moyenne d'envoi des 2 premières trames. Sachant que les stations commencent à émettre leur première trame en même temps, sous les contraintes déjà évoquées précédemment.
+    Trois stations <code>S_1</code>, <code>S_2</code> et <code>S_3</code> se partagent un segment de réseau de type 802.3 (CSMA/CD, 10Mbps). La première station désire émettre une trame de 1000 bits alors que les deux autres stations souhaitent émettre chacune deux trames de 1250 bits alors que les deux autres stations souhaitent émettre chacune deux trames de 1000 bits. La station <code>S_3</code> doit attendre l'envoi de la première trame de <code>S_2</code> avant de commencer à émettre sur le réseau. La durée d'un slot de contention a été fixée à $2\tau = 4.10^{-6}$ s. Considérez les temps de réaction des différentes stations comme nul. Lorsque plusieurs stations veulent accéder au réseau, on supposera que la probabilité de retransmission dans un slot est constante et égale à $p = \dfrac{1}{4}$. Calculez la durée moyenne d'envoi des 2 premières trames. Sachant que les stations commencent à émettre leur première trame en même temps, sous les contraintes déjà évoquées précédemment.
 </h4>
 <div class="answer">
     La probabilité qu'une des 2 stations acquiert le canal dans un slot(libre) est :
@@ -2003,7 +2777,7 @@ Il faut donc Timeout + 18 RTT : $1 + 18*0.02214032 = 1.39852576 s$
 </div>
 
 <h4 class="question">
-    Quatre stations $S_1$, $S_2$ et $S_3$ et $S_4$ se partagent un segment de réseau de type 802.3 (CSMA/CD, 10Mbps). La première station désire émettre une trame de 1000 bits, la deuxième une trame de 1250 bits et les deux autres stations souhaitent émettre chacune deux trames de 1500 bits. La durée d'un slot de contention a été fixée à $2\tau = 2.10^{-6}$ s. Lorsque plusieurs stations veulent accéder au réseau, on supposera que la probabilité de retransmission dans un slot est constante et égale à $p = \dfrac{1}{3}$. Calculez la durée moyenne d'envoi des 3 premières trames. Sachant que les stations commencent à émettre leur première trame en même temps.
+    Quatre stations <code>S_1</code>, <code>S_2</code> et <code>S_3</code> et <code>S_4</code> se partagent un segment de réseau de type 802.3 (CSMA/CD, 10Mbps). La première station désire émettre une trame de 1000 bits, la deuxième une trame de 1250 bits et les deux autres stations souhaitent émettre chacune deux trames de 1500 bits. La durée d'un slot de contention a été fixée à $2\tau = 2.10^{-6}$ s. Lorsque plusieurs stations veulent accéder au réseau, on supposera que la probabilité de retransmission dans un slot est constante et égale à $p = \dfrac{1}{3}$. Calculez la durée moyenne d'envoi des 3 premières trames. Sachant que les stations commencent à émettre leur première trame en même temps.
 </h4>
 <div class="answer">
     La probabilité qu'une des 2 stations acquiert le canal dans un slot(libre) est :
@@ -2574,21 +3348,23 @@ Il faut donc Timeout + 18 RTT : $1 + 18*0.02214032 = 1.39852576 s$
 <ol class="alphabet">
 <li>
     Pour déterminer l'adresse IP de D, il nous manque son netmask et son network ID. Ces valeurs sont identiques pour toutes les adresses IP se trouvant sur le même sous-réseau que D. Nous pourrions donc utiliser
-    $IP_{R_{eth0}}$ , $IP_{T_{eth0}}$ ou $IP_A$. Nous avons :
-    $$\begin{array}{rcl}
+    $IP_{R_{eth0}}$ , $IP_{T_{eth0}}$ ou <code>IP_A</code>. Nous avons :
+    <code></code>\begin{array}{rcl}
     IP_A &=& 10001100.10001100.10001100.00000001\\
     Netmask &=& 11111111.11111111.00000000.00000000\\
     IP_A\ AND\ Netmask &=& 10001100.10001100.00000000.00000000\\
-    \end{array}$$
+    \end{array}<code></code>
     Car $IP_A = 140.140.140.1$ L'adresse IP de D est de la forme :
-    $$10001100.10001100.xxxxxxxx.xxxxxxxx$$
+    
+$$10001100.10001100.xxxxxxxx.xxxxxxxx$$
+
     où la partie non définie est complétée avec le hostID. Le hostID de D est
     513. L'encodage de $513 = 512 + 1 = 2^9 + 2^0$ sur 16 bits est
     00000010.00000001. L'adresse du terminal D est donc :
-    $$\begin{array}{rcl}
+    <code></code>\begin{array}{rcl}
     IP_{D} &=& 10001100.10001100.00000010.00000001\\
     &=& 140.140.2.1
-    \end{array}$$
+    \end{array}<code></code>
 </li>
 <li>
     La table d'acheminement la plus probable pour R est :
@@ -2694,7 +3470,7 @@ Il faut donc Timeout + 18 RTT : $1 + 18*0.02214032 = 1.39852576 s$
 </li>
 <li>
     Le paquet doit transiter par R. Les adresses IP source et destination du paquet sont respectivement 140.140.140.1 et 150.150.150.1.
-    <br><b>Important</b> : Lors de l'envoi d'un paquet IP de A vers B l'adresse source du paquet sera $IP_A$ et l'adresse de destination du paquet sera IPB depuis l'émission du paquet par A jusqu'à la réception de celui-ci par B : <b>on ne modifie pas les adresses source et destination d'un paquet IP en cours de route</b>.
+    <br><b>Important</b> : Lors de l'envoi d'un paquet IP de A vers B l'adresse source du paquet sera <code>IP_A</code> et l'adresse de destination du paquet sera IPB depuis l'émission du paquet par A jusqu'à la réception de celui-ci par B : <b>on ne modifie pas les adresses source et destination d'un paquet IP en cours de route</b>.
 </li>
 </ol></div>
 
@@ -2752,10 +3528,10 @@ Il faut donc Timeout + 18 RTT : $1 + 18*0.02214032 = 1.39852576 s$
             </tbody>
         </table>
         <ol>
-            <li>A envoie une trame $MAC_{source}=MAC_A$ et $MAC_{dest}=MAC_B$ sur $LAN3$ et le pont 2 port 2 recoit la trame. Il associe aussi $MAC_A$ à son port 2.</li>
-            <li>Le pont 2 renvoie sur le $LAN2$ via le port 1. Le pont 1 recoit la trame sur le port 2, il associe $MAC_A$ sur son port 2 et renvoie la trame sur le $LAN1$ via son port 1.</li>
-            <li>Le pont 4 et le port 3 recoivent la trame, ils associent $MAC_A$ sur leur port 1. B reçoit la trame.</li>
-            <li>B envoie une trame $MAC_{source}=MAC_B$ et $MAC_{dest}=MAC_A$ sur $LAN1$ et le pont 1,3,4 recoivent la trame sur leur port 1. Ils associe aussi $MAC_B$ à leur port 1.</li>
+            <li>A envoie une trame $MAC_{source}=MAC_A$ et $MAC_{dest}=MAC_B$ sur <code>LAN3</code> et le pont 2 port 2 recoit la trame. Il associe aussi <code>MAC_A</code> à son port 2.</li>
+            <li>Le pont 2 renvoie sur le <code>LAN2</code> via le port 1. Le pont 1 recoit la trame sur le port 2, il associe <code>MAC_A</code> sur son port 2 et renvoie la trame sur le <code>LAN1</code> via son port 1.</li>
+            <li>Le pont 4 et le port 3 recoivent la trame, ils associent <code>MAC_A</code> sur leur port 1. B reçoit la trame.</li>
+            <li>B envoie une trame $MAC_{source}=MAC_B$ et $MAC_{dest}=MAC_A$ sur <code>LAN1</code> et le pont 1,3,4 recoivent la trame sur leur port 1. Ils associe aussi <code>MAC_B</code> à leur port 1.</li>
             <li>Le pont 1 renvoie sur son port 2 sachant sa table et le pont 2 recoit sur son port 1.</li>
             <li>Le pont 2 renvoie sur son port 2 sachant sa table et A recoit.</li>
         </ol>
@@ -2787,4 +3563,5 @@ Il faut donc Timeout + 18 RTT : $1 + 18*0.02214032 = 1.39852576 s$
     </li>
 </ol>
 </div>
+
 
