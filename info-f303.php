@@ -248,8 +248,8 @@ Merci à eux.
             binaires</b>, c'est-à-dire des polynômes dont les coefficients correspondent à la 
             séquence binaire. Ainsi la séquence binaire <code>0110101001</code> peut être 
             représentée sous la forme polynomiale suivante: 
-            <pre><code>0*X^9 + 1*X^8 + 1*X^7 + 0*X^6 + 1*X^5 + 0*X^4 + 1*X^3 + 0*X^2 + 0*X^1 + 1*X^0
-            </code></pre>
+            $$0*X^9 + 1*X^8 + 1*X^7 + 0*X^6 + 1*X^5 + 0*X^4 + 1*X^3 + 0*X^2 + 0*X^1 + 1*X^0
+            $$
             De cette façon, le bit de poids faible de la séquence (le bit le plus à droite) 
             représente le degré 0 du polynôme (<code>X^0 = 1</code>), le 4ème bit en partant de 
             la droite représente le degré 3 du polynôme (<code>X^3</code>)... Une séquence de n bits 
@@ -530,7 +530,7 @@ Merci à eux.
 </h4>
 <div class="answer">
     On ne peut pas utiliser une fenêtre aussi grande que pour le <b>GBN</b> (<b>Go-Back N</b>). 
-    <pre><code>Taille<sub>max</sub> = Nbr de numéro de packets / 2 = K/2</code></pre>
+    $$Taille_{max} = \frac{\text{Nbr de numéro de packets}}{2} = \frac{K}{2}$$
     Car il ne faut pas qu'un nombre de la fenêtre de l'émetteur corresponde à un nombre de la 
     fenêtre du récepteur, mais d'un autre rang.<br />
     Exemple (fenêtre de taille 3 avec une numérotation de 4 chiffres):<br />
@@ -695,7 +695,7 @@ Merci à eux.
                     <b>RTT</b>: <em>Round-Trip Time</em>.
                 </li>
             </ul><br />
-            La formule de l'efficacité est <code>&radic;(3/2) MSS/RTT</code> et donc est meilleure 
+            La formule de l'efficacité est $\sqrt{\frac{3}{2}}\frac{MSS}{RTT}$ et donc est meilleure 
             avec des MSS plus gros et des petits RTT. Des packets plus gros dont "l'aller-retour" 
             est rapide.<br />
             <br />
@@ -883,11 +883,11 @@ Merci à eux.
             </table>
                 
             Une adresse MAC est propre à un réseau local (règle couche 2), on ne connait donc pas 
-            l'adresse mac source (<code>MAC <sub>SRC</sub></code>) ni l'adresse mac de destination 
-            (<code>MAC <sub>DEST</sub></code>). Ici, la trame arrive sur l'interface de notre 
+            l'adresse mac source (<code>MAC<sub>SRC</sub></code>) ni l'adresse mac de destination 
+            (<code>MAC<sub>DEST</sub></code>). Ici, la trame arrive sur l'interface de notre 
             machine ayant pour adresse IP <code>192.168.0.1/24</code>. Son réseau ne contient pas 
             d'adresse UP <code>10.0.0.1</code> = la machine <code>10.0.0.1</code> ne fait pas partie 
-            du réseau. L'adresse <code>MAC <sub>SRC</sub></code> que nous voyons ici est celle du 
+            du réseau. L'adresse <code>MAC<sub>SRC</sub></code> que nous voyons ici est celle du 
             dernier routeur qui nous a envoyé la trame.<br />
             <br />
             <u>Que se passe-t-il quand notre machine reçoit cette trame ?</u><br />
@@ -1146,19 +1146,19 @@ Merci à eux.
         <li>
             Pour que <b>CSMA</b> ait des performances acceptables, il faut prendre en compte:
             <ul>
-                <li><code>B</code> la capacité en bits/s du canal</li>
-                <li><code>F</code> la taille des trames</li>
-                <li><code>L</code> la taille du canal</li>
-                <li><code>c</code> la vitesse de propagation</li>
-                <li><code>tau = L/c</code> délai de propagation</li>
-                <li><code>T = F/B</code> délai de transmission</li>
+                <li>$B$ (la capacité en bits/s du canal)</li>
+                <li>$F$ (la taille des trames)</li>
+                <li>$L$ (la taille du canal)</li>
+                <li>$c$ (la vitesse de propagation)</li>
+                <li>$tau = \frac{L}{c}$ (délai de propagation)</li>
+                <li>$T = \frac{F}{B}$ (délai de transmission)</li>
             </ul>
             <code>tau</code> est équivalent à la durée pendant laquelle une collision peut survenir. 
             Après un temps <code>tau</code>, le canal est réservé implicitement pendant 
             <code>T-tau</code> secondes, car s'il n'y a pas eu de collision après un temps 
             <code>tau</code>, tout le monde est au courant que le canal est pris et il n'y a plus de 
             collision possible. Les performances du réseau sont donc meilleures quand 
-            <pre><code>a = tau/T = BL/cF</code></pre>
+            $$a = \frac{tau}{T} = \frac{BL}{cF}$$
             est très petit, donc quand la période dangereuse pendant lesquelles des collisions 
             peuvent survenir est très petite par rapport au temps total d'une trame. Il faut donc 
             travailler avec de grandes trames, réduire la taille du réseau ou réduire le débit.
@@ -1237,14 +1237,14 @@ Merci à eux.
             <br />
         </li>
         <li>
-            <code>F</code>: Frame Size<br />
-            <code>B</code>: Bandwidth<br />
-            <code>L</code>: lngueur du canal<br />
-            <code>F<sub>min</sub></code>: <code>2BL/C = ± BL * 10<sup>-8</sup></code> bits<br />
+            $F$ : Frame Size<br />
+            $B$ : Bandwidth<br />
+            $L$ : lngueur du canal<br />
+            $F_{min} : \dfrac{2BL}{C} = \pm BL * 10^{-8}$ bits<br />
             <br />
             Si <code>F</code> est plus petit, le délai de transmission est plus court et donc on 
             peut envoyer plus de trames et éviter des collisions. <br />
-            Pour éviter cela, efficacité du réseau = <code>1 / (1+2BL+ (e/CF))</code><br />
+            Pour éviter cela, efficacité du réseau = $\dfrac{1}{1+2BL+\dfrac{e}{CF}}$<br />
             <br />
             On doit donc augmenter la bande passante ou la distance.
         </li>
@@ -1944,7 +1944,7 @@ Merci à eux.
 <h4 class="question"><ol class="alphabet"><li>Déterminez analytiquement l'expression de l'efficacité du protocole ALOHA discrétisé (slotted ALOHA) en fonction de la charge du réseau pour un grand nombre de stations actives. On supposera que chaque station émet dans un slot avec une probabilité p.</li><li>Représentez l'efficacité graphiquement (avec définition des axes), et expliquez la forme de la courbe.</li><li>La suppression des slots (Cf. ALOHA pur) améliore-t-elle les performances ? Pourquoi ?</li></ol></h4>
 <div class="answer"><ol class="alphabet">
 <li>Si on suppose qu'on a N nœuds qui ont beaucoup de trames à envoyer. Chacun transmet sur un slot avec une certaine probabilité p. Un nœud à $p(1-p)^{N-1}$ chances d'envoyer un paquet parce qu'il faut qu'il envoie un paquet (<code>p</code>) <i>et</i> qu'aucun des $N-1$ autres nœuds n'envoient un paquet ($1-p$) en même temps. La probabilité que n'importe quel nœud envoient un paquet avec succès est de 
-<pre><code>Np(1-p)^{N-1}</code></pre>
+$$Np(1-p)^{N-1}$$
  Pour une efficacité maximale, il faut donc trouver un p tel que $Np(1-p)^{N-1}$ soit maximale. On trouve (en dérivant) que L'efficacité est maximale quand $p=\dfrac{1}{N}$. Si on imagine que N tend vers l'infini, on sait que <code></code>\lim\limits_{n-\infty}\left(1+\left(\dfrac{G}{n}\right)\right)^{n} = e^{-G}<code></code> Et donc pour $G=1$ <code></code>e^{-1} = \dfrac{1}{e} = 0.37 = 37\% \text{ d'efficacité}<code></code></li>
 <li>(Slide 5-28) ?</li>
 <li>Non, la probabilité de collision augmente. On obtient une efficacité de 18%.</li>
@@ -2272,15 +2272,15 @@ Merci à eux.
 <li>Pour estimer le <b>RTT</b>, on va avoir un échantillon <b>RTT</b> qui va stocker le temps entre le moment ou le byte est transmis et le moment où on reçoit l'<b>ACK</b>. Comme on va avoir une grosse fluctuation des valeurs avec cette technique, il faut essayer de « lisser » ces valeurs. On va donc avoir besoin de la moyenne et la variance.
 
 
-<pre><code>estimation = (1-a)*estimationPrécédente + a*nouvelEchantillon</code></pre>
+$$estimation = (1-a)*estimationPrécédente + a*nouvelEchantillon$$
 
 avec $a = 0.125$
 
-<pre><code>marge \text{ (de sureté)} = (1-b)*margePrécédente + b*|echantillon-estimation|</code></pre>
+$$marge \text{ (de sureté)} = (1-b)*margePrécédente + b*|echantillon-estimation|$$
 
 avec $b = 0.25$
 
-<pre><code>Timeout = estimation + 4 marge</code></pre>
+$$Timeout = estimation + 4 marge$$
 
 <i>'<code>4</code>'</i> parce qu'avec cette valeur, seulement $1\%$ des paquets étaient renvoyés trop tôt.</li>
 </ol></div>
@@ -2304,7 +2304,7 @@ avec $b = 0.25$
 <h4 class="question">Citez et définissez les différentes sources de délai que subit un paquet dans un réseau datagramme.</h4>
 <div class="answer">
     
-<pre><code>d(noeud) = d(processing) + d(queueing) + d(transmission) + d(propagation)</code></pre>
+$$d(noeud) = d(processing) + d(queueing) + d(transmission) + d(propagation)$$
 
 </div>
 
@@ -2407,7 +2407,7 @@ avec $b = 0.25$
 <li>Cela permet de réguler la vitesse sur le réseau afin d'éviter de surcharger le receveur. Pour se faire, l'expéditeur a une variable "receive window" pour qu'il sache combien de place disponible se trouve dans le buffer du receveur. Comme <b>TCP</b> ne peut pas surcharger les buffer : $LastByteRcvd - LastByteRead <= RcvBuffer$.
 Le receiver window (rwnd) se définit comme suit : 
 
-<pre><code>rwnd = RcvBuffer - (LastByteRcvd - LastByteRead)</code></pre>
+$$rwnd = RcvBuffer - (LastByteRcvd - LastByteRead)$$
 </li>
 <li>Nagle Algorithm : Quand les données viennent du socket un byte à la fois, on envoie le premier byte et on buffer le reste jusqu'à ce que le premier byte soit reçu. On envoie alors le reste par RTT en 1 fois. Silly Window Problem - Clark' solution : Le receveur envoi une mise à jour de la fenêtre si et seulement si le buffer est à moitié vide ou si un segment entier peut être reçu.</li></ol>
 </div>
@@ -3356,7 +3356,7 @@ Il faut donc Timeout + 18 RTT : $1 + 18*0.02214032 = 1.39852576 s$
     \end{array}<code></code>
     Car $IP_A = 140.140.140.1$ L'adresse IP de D est de la forme :
     
-<pre><code>10001100.10001100.xxxxxxxx.xxxxxxxx</code></pre>
+$$10001100.10001100.xxxxxxxx.xxxxxxxx$$
 
     où la partie non définie est complétée avec le hostID. Le hostID de D est
     513. L'encodage de $513 = 512 + 1 = 2^9 + 2^0$ sur 16 bits est
@@ -3563,4 +3563,5 @@ Il faut donc Timeout + 18 RTT : $1 + 18*0.02214032 = 1.39852576 s$
     </li>
 </ol>
 </div>
+
 
