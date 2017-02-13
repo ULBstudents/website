@@ -1,0 +1,148 @@
+section h2, section h3, section h4, section h5, section h6, section p, section dl {
+    margin: 1em 0em 0em 0em;
+}
+
+section p, section dl {
+	margin: 0em;
+}
+
+section dt {
+    font-weight: bold;
+}
+
+.TEMP {
+    color: red;
+    font-size: 1.5em;
+    margin: 0.3em;
+    font-weight: bold;
+}
+
+section .question {
+	background-color: rgb(211, 244, 245);
+	padding: 0.4em;
+	margin-top: 2em;
+	font-size: 1em;
+	font-weight: normal;
+}
+
+section fieldset.citation {
+	margin: 1em;
+	padding: 0.5em;
+}
+
+section fieldset.code {
+	text-align: left;
+	white-space: pre;
+	margin: 1em;
+	padding: 0.5em 1em;
+}
+
+section figure img {
+	vertical-align: middle;
+	display: block;
+	margin: auto;
+	border: 0.0625em solid rgba(0,0,0,0.1);
+	max-width: 90%;
+}
+
+section figure {
+	text-align: center;
+	margin: 0.5em;
+}
+
+section th {
+	background-color: rgba(80, 80, 80, 0.5);
+}
+
+section th, section td {
+	padding: 0.2em;
+}
+
+section span.example {
+	font-style: italic;
+	color: rgb(170, 170, 170);
+}
+
+section ol.alphabet {
+	counter-reset: list;
+}
+section ol.alphabet > li {
+	list-style: none;
+	position: relative;
+}
+
+section ol.alphabet > li:before {
+	counter-increment: list;
+	content: "(" counter(list, lower-alpha) ") ";
+	position: absolute;
+	left: -1.8em;
+}
+
+section .question ol {
+	margin: 0.3em auto;
+}
+
+
+section fieldset {
+	text-align: center;
+	border: solid 0.0625em rgba(60,60,60,0.3);
+	padding: 0.2em;
+}
+
+section legend {
+	padding: 0em 1em;
+	margin: 0em;
+}
+
+section div.multi-formula {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: space-around;
+	align-content: space-around;
+}
+
+section div.multi-formula fieldset.formula {
+	margin: 0.1em;
+	flex-grow: 2;
+	flex-shrink: 2;
+}
+
+section li {
+	text-align: left;
+}
+
+section hr {
+	border: none;
+	border-top: solid 0.0625em rgba(60,60,60,0.3);
+}
+
+section fieldset hr {
+	margin: 0em -0.2em;
+}
+
+section img {
+	vertical-align: top;
+}
+
+/* Numbers */
+section { counter-reset: h2 figures; }
+
+/* Numbers before title */
+section h2 {counter-reset: h3}
+section h3 {counter-reset: h4}
+section h4 {counter-reset: h5}
+section h5 {counter-reset: h6}
+section h2:before {counter-increment: h2; content: counter(h2) ". "}
+section h3:before {counter-increment: h3; content: counter(h2) "." counter(h3) ". "}
+section h4:before {counter-increment: h4; content: counter(h2) "." counter(h3) "." counter(h4) ". "}
+section h5:before {counter-increment: h5; content: counter(h2) "." counter(h3) "." counter(h4) "." counter(h5) ". "}
+section h6:before {counter-increment: h6; content: counter(h2) "." counter(h3) "." counter(h4) "." counter(h5) "." counter(h6) ". "}
+section h2.nocount:before,
+section h3.nocount:before,
+section h4.nocount:before,
+section h5.nocount:before,
+section h6.nocount:before { content: ""; counter-increment: none }
+
+/* Numbers before figures */
+section figure figcaption:before { counter-increment: figures; content: 'Fig. ' counter(figures) ' - '; }

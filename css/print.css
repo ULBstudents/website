@@ -1,0 +1,14 @@
+html, body, section, header, footer {
+	margin: 0em;
+	width: initial;
+	height: initial;
+	display: initial;
+}
+
+header, footer {
+	display: none;
+}
+
+section{
+	font-size: 0.65em;
+}
