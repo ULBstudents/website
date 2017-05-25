@@ -780,19 +780,19 @@ Ensuite on procède de la facon habituelle...
 <h3>Le Flot Maximum</h3>
 
 <h4 class="question">
-	<img src="http://ulb.rodriguevb.be/images/info-f310/flotmax.svg" alt="Flot maximum" />
+	<img src="https://raw.githubusercontent.com/ULBstudents/website/master/images/info-f310/flotmax.svg" alt="Flot maximum" />
 </h4>
 <div class="answer">
 Le calcul de flot maximum est très facile. Il suffit de commencer à prendre un chemin au hasard et prendre le nombre le plus petit. Ici Entre 4,7 et 3 ; le 3 est plus petit. Cela veut dire qu'il n'y peut y avoir qu'un flot maximum de 3 qui passe par ce chemin.
 <figure>
-	<img src="http://ulb.rodriguevb.be/images/info-f310/flotmax_sol1.svg" alt="Flot maximum" />
+	<img src="https://raw.githubusercontent.com/ULBstudents/website/master/images/info-f310/flotmax_sol1.svg" alt="Flot maximum" />
 </figure>
 On procède de manière récursive pour trouver toutes les solutions.
-<figure><img src="http://ulb.rodriguevb.be/images/info-f310/flotmax_sol2.svg" alt="Flot maximum" /></figure>
-<figure><img src="http://ulb.rodriguevb.be/images/info-f310/flotmax_sol3.svg" alt="Flot maximum" /></figure>
-<figure><img src="http://ulb.rodriguevb.be/images/info-f310/flotmax_sol4.svg" alt="Flot maximum" /></figure>
+<figure><img src="https://raw.githubusercontent.com/ULBstudents/website/master/images/info-f310/flotmax_sol2.svg" alt="Flot maximum" /></figure>
+<figure><img src="https://raw.githubusercontent.com/ULBstudents/website/master/images/info-f310/flotmax_sol3.svg" alt="Flot maximum" /></figure>
+<figure><img src="https://raw.githubusercontent.com/ULBstudents/website/master/images/info-f310/flotmax_sol4.svg" alt="Flot maximum" /></figure>
 Pour vérifier si vous avez obtenu un bon résultat, il suffit de faire la comparaison entre le flux sortant de la source et le flux entrant dans la terminaison. Ici 4+3 = 3+4. Du coup si vous savez faire une addition comme un gosse de 8 ans, vous avez le bon résultat.
-<figure><img src="http://ulb.rodriguevb.be/images/info-f310/flotmax_sol5.svg" alt="Flot maximum" /></figure>
+<figure><img src="https://raw.githubusercontent.com/ULBstudents/website/master/images/info-f310/flotmax_sol5.svg" alt="Flot maximum" /></figure>
 </div>
 
 
@@ -979,19 +979,19 @@ Pour répondre à ses besoins, le gérant achète $x$ lots A et $y$ lots B.
 		<li>Calculer le nombre maximal d'armes qu'on peut transporter vers la ligne de front (sur le continent) en exécutant l'algorithme de recherche de flot max.</li>
 		<li> Tous les ponts doivent être bien protégés, quels sont les ponts qui doivent être surveillés avec le plus d'attention ? Autrement dit : supposons que vous êtes du côté de l'adversaire et vous devez détruire un ou plusieurs ponts. Quel(s) pont(s) allez-vous détruire ? Justifiez vos choix</li>
 	</ol>
-	<figure><img src="http://ulb.rodriguevb.be/images/info-f310/lacarte.svg" alt="La carte" /></figure>
+	<figure><img src="https://raw.githubusercontent.com/ULBstudents/website/master/images/info-f310/lacarte.svg" alt="La carte" /></figure>
 </h4>
 <div class="answer">
 <ol>
 	<li>
 		Le nombre maximal d'armes qu'on peut transporter vers la ligne de front (sur le continent) est de $15$.
-		<figure><img src="http://ulb.rodriguevb.be/images/info-f310/lacarte_1.svg" alt="La carte" /></figure>
+		<figure><img src="https://raw.githubusercontent.com/ULBstudents/website/master/images/info-f310/lacarte_1.svg" alt="La carte" /></figure>
 	</li>
 	<li>
 		Le pont entre $A$ et $B$ peut sembler important mais comme le montre la figure suivante, elle ne fait que réduire qu'à $9$ le flux maximum.
-		<figure><img src="http://ulb.rodriguevb.be/images/info-f310/lacarte_2.svg" alt="La carte" /></figure>
+		<figure><img src="https://raw.githubusercontent.com/ULBstudents/website/master/images/info-f310/lacarte_2.svg" alt="La carte" /></figure>
 		Tandis qu'un retrait d'au moins un des deux ponts sur la liaison $B$ à $F$ ( $BE$ ou $EF$ ) réduirait le flux maximum à $8$.
-		<figure><img src="http://ulb.rodriguevb.be/images/info-f310/lacarte_3.svg" alt="La carte" /></figure>
+		<figure><img src="https://raw.githubusercontent.com/ULBstudents/website/master/images/info-f310/lacarte_3.svg" alt="La carte" /></figure>
 	</li>
 </ol>
 </div>
@@ -1003,7 +1003,7 @@ Pour répondre à ses besoins, le gérant achète $x$ lots A et $y$ lots B.
 	Le réseau fluvial illustré ci-dessous se compose de canaux à sens unique. Le nombre maximum
 	de bateaux qui peuvent passer à travers chaque canal en une journée est également indiqué sur
 	la figure
-	<figure><img src="http://ulb.rodriguevb.be/images/info-f310/reseaufluvial.svg" alt="Réseau fluvial" /></figure>
+	<figure><img src="https://raw.githubusercontent.com/ULBstudents/website/master/images/info-f310/reseaufluvial.svg" alt="Réseau fluvial" /></figure>
 	<ol>
 		<li>Calculer le nombre maximum de bateaux qui peuvent transiter par les réseaux de $P_1$ à $P_2$</li>
 		<li>Sachant que vous pouvez augmenter la capacité d'un canal unique, lequel choisiriez-vous d'augmenter (et comment) pour augmenter le nombre de bateaux qui peuvent passer dans une journée ? (discuter)</li>
@@ -1013,13 +1013,13 @@ Pour répondre à ses besoins, le gérant achète $x$ lots A et $y$ lots B.
 	<ol>
 		<li>
 			Le nombre maximum de bateau est de 9.
-			<figure><img src="http://ulb.rodriguevb.be/images/info-f310/reseaufluvial_1.svg" alt="Réseau fluvial" /></figure>
+			<figure><img src="https://raw.githubusercontent.com/ULBstudents/website/master/images/info-f310/reseaufluvial_1.svg" alt="Réseau fluvial" /></figure>
 		</li>
 		<li>
 			On a deux choix, soit on augmente le 2 en haut à droite jusqu'à 4. Ce qui fait gagner 2 unités.
-			<figure><img src="http://ulb.rodriguevb.be/images/info-f310/reseaufluvial_2.svg" alt="Réseau fluvial" /></figure>
+			<figure><img src="https://raw.githubusercontent.com/ULBstudents/website/master/images/info-f310/reseaufluvial_2.svg" alt="Réseau fluvial" /></figure>
 			Soit on augmente le 4 en bas à droite jusqu'à 6. Et on gagne aussi 2 unités.
-			<figure><img src="http://ulb.rodriguevb.be/images/info-f310/reseaufluvial_3.svg" alt="Réseau fluvial" /></figure>
+			<figure><img src="https://raw.githubusercontent.com/ULBstudents/website/master/images/info-f310/reseaufluvial_3.svg" alt="Réseau fluvial" /></figure>
 		</li>
 	</ol>
 </div>
